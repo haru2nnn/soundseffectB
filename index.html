@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="robots" content="noindex,nofollow">
+
+		<!-- ビューポートの設定 -->
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<!-- スタイルシートの読み込み -->
+		<link href="Sounds EffecterB.css" rel="stylesheet">
+
+		<link rel="manifest" href="/manifest.json" crossorigin="use-credentials">
+
+		<script>
+			function twoDigit(num) {
+			  let ret;
+			  if( num < 10 ) 
+				ret = "0" + num; 
+			  else 
+				ret = num; 
+			  return ret;
+			}
+			function showClock() {
+			  let nowTime = new Date();
+			  let nowHour = twoDigit( nowTime.getHours() );
+			  let nowMin  = twoDigit( nowTime.getMinutes() );
+			  let nowSec  = twoDigit( nowTime.getSeconds() );
+			  let msg = nowHour + ":" + nowMin + ":" + nowSec;
+			  document.getElementById("realtime").innerHTML = msg;
+			}
+			setInterval('showClock()',1000);
+		  </script>
+	<script>
+
+		var timer1; //タイマーを格納する変数（タイマーID）の宣言
+		
+		
+		//カウントダウン関数を1000ミリ秒毎に呼び出す関数
+		function cntStart()
+		{
+		  document.timer.elements[2].disabled=true;
+		  timer1=setInterval("countDown()",1000);
+		}
+		
+		//タイマー停止関数
+		function cntStop()
+		{
+		  document.timer.elements[2].disabled=false;
+		  clearInterval(timer1);
+		}
+		
+		//カウントダウン関数
+		function countDown()
+		{
+		  var min=document.timer.elements[0].value;
+		  var sec=document.timer.elements[1].value;
+		  
+		  if( (min=="") && (sec=="") )
+		  {
+			alert("時刻を設定してください！");
+			reSet();
+		  }
+		  else
+		  {
+			if (min=="") min=0;
+			min=parseInt(min);
+			
+			if (sec=="") sec=0;
+			sec=parseInt(sec);
+			
+			tmWrite(min*60+sec-1);
+		  }
+		}
+		
+		//残り時間を書き出す関数
+		function tmWrite(int)
+		{
+		  int=parseInt(int);
+		  
+		  if (int<=0)
+		  {
+			reSet();
+			alert("時間です！");
+		  }
+		  else
+		  {
+			//残り分数はintを60で割って切り捨てる
+			document.timer.elements[0].value=Math.floor(int/60);
+			//残り秒数はintを60で割った余り
+			document.timer.elements[1].value=int % 60;
+		  }
+		}
+		
+		//フォームを初期状態に戻す（リセット）関数
+		function reSet()
+		{
+		  document.timer.elements[0].value="0";
+		  document.timer.elements[1].value="0";
+		  document.timer.elements[2].disabled=false;
+		  clearInterval(timer1);
+		}  
+		  
+		</script>
+
+		<title>SE集 β版</title>
+	</head>
+<body>
+
+
+	<div class="SE">
+	<h1 style="text-align:center;color:#218d6c;">SE集</h1><br>
+	
+	<h2><script>//今日の日付データを変数に格納
+		//変数は"today"とする
+		var today=new Date(); 
+		
+		//年・月・日・曜日を取得
+		var year = today.getFullYear();
+		var month = today.getMonth()+1;
+		var week = today.getDay();
+		var day = today.getDate();
+		
+		var week_ja= new Array("日","月","火","水","木","金","土");
+		
+		//年・月・日・曜日を書き出す
+		document.write(year+"年"+month+"月"+day+"日 "+"("+week_ja[week]+")");</script><p id="realtime"></p></h2>
+	※若干ずれている場合は command+shift+Rでキャッシュなしリロードを行ってください
+	<form name="timer">
+		<input type="text" value="">分
+		<input type="text" value="">秒<br>
+		<input type="button" value="スタート" onclick="cntStart()">
+		<input type="button" value="ストップ" onclick="cntStop()">
+		</form>
+	<HR style="margin: 1em 0 ;">
+
+<div class=wrapper>
+	<h2 style="text-align:left;color:#29277c">効果音</h2>
+	※２つ以上は同時には鳴りません。
+	<div class="sebutton">	
+		<p><a href="#" class="sounds" data-file="audio/question">出題</a></p>
+		<p><a href="#" class="sounds" data-file="audio/correct">正解！</a></p>
+		<p><a href="#" class="sounds" data-file="audio/incorrect">不正解</a></p>
+		<p><a href="#" class="sounds" data-file="audio/trumpet1">ファンファーレ１</a></p>
+		<p><a href="#" class="sounds" data-file="audio/trumpet2">ファンファーレ２</a></p>
+		<p><a href="#" class="sounds" data-file="audio/dondonpafupafu">ドンパフ</a></p>
+		<p><a href="#" class="sounds" data-file="audio/drum-japanese1">ドン</a></p>
+		<p><a href="#" class="sounds" data-file="audio/drum-japanese2">ドドン</a></p>
+		<p><a href="#" class="sounds" data-file="audio/drumroll">ドラムロール</a></p>
+		<p><a href="#" class="sounds" data-file="audio/cheerandclap">拍手と歓声</a></p>
+		<p><a href="#" class="sounds" data-file="audio/everyone_laugh3">（笑い）</a></p>
+		<p><a href="#" class="sounds" data-file="audio/timer">カウントダウン<br>（チクタク）</a></p>
+		<p><a href="#" class="sounds" data-file="audio/timer_fast">カウントダウン<br>（残り時間少なめ）</a></p>
+		<p><a href="#" class="sounds" data-file="audio/shock">ガーン<br>（ショック）</a></p>
+		<p><a href="#" class="sounds" data-file="audio/tin">チーン</a></p>
+		<p><a href="#" class="sounds" data-file="audio/chan-chan">チャンチャン</a></p>
+		<p><a href="#" class="sounds" data-file="audio/broadcasting-start">放送チャイム<br>（開始）</a></p>
+		<p><a href="#" class="sounds" data-file="audio/broadcasting-end">放送チャイム<br>（終了）</a></p>
+		<p><a href="#" class="sounds" data-file="audio/anouncement-before">お知らせチャイム<br>（開始）</a></p>
+		<p><a href="#" class="sounds" data-file="audio/anouncement-after">お知らせチャイム<br>（終了）</a></p>
+		<p><a href="#" class="sounds" data-file="audio/police-whistle">ホイッスル<br>（ピーッ）</a></p>
+		<p><a href="#" class="sounds" data-file="audio/運命1">運命１<br>（ベートーベン）</a></p>
+		<p><a href="#" class="sounds" data-file="audio/運命2">運命２<br>（トッカータとフーガニ短調）</a></p>
+	</div>	
+	<h2>SE全停止</h2>
+
+	<p><a href="#" id="stop-button-syncer" class="stop-button">音声を停止する</a></p>
+
+	</div>
+
+	<div class="BGM">
+		<h2 style="text-align:left;color:#217d8d">BGM＆Jingle</h2>
+			BGM・ジングルのプレーヤーの音量はデフォルトで100%になっています。音量にご注意ください。
+		<h3>BGM</h3>
+			<h5>Get Up!</h5>
+			<audio controls preload="metadata">
+				<source src="audio/bgm:jin/Get up!.mp3"type="audio/mp3"/></audio>	
+			<h5>おどれグロッケンシュピール</h5>
+			<audio controls preload="metadata">
+				<source src="audio/bgm:jin/おどれグロッケンシュピール.mp3"type="audio/mp3"/></audio>
+			<h5>newwind</h5>
+			<audio controls preload="metadata">
+				<source src="audio/bgm:jin/newwind.mp3"type="audio/mp3"/></audio>
+
+		<h3>Jingle（自動でループします）</h3>
+		<audio controls loop preload="metadata" >
+			<source src="audio/bgm:jin/jingleセットcycle.mp3"type="audio/mp3"/></audio>
+			<br>
+			<br>
+			
+		<h3>テーマソング</h3>	
+			<div class="youtube">
+				<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/fxUS4z4ftSs"allow="accelerometer" allowfullscreen></iframe>
+			<br>
+			<br>
+			<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/GOTAYry-PGE"frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+			</div>
+		<h3>N・S高校歌</h3>
+			<div class="NandS">
+				<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/xhOsnY-k8JM" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+				<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/Zbtfj1pVamg" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+			
+			</div>
+	</div>
+</div>
+<HR style="margin: 3em 0 ;">
+
+
+<h3>引用</h3>
+<h4>音源</h4>
+<h5>SE</h5>
+効果音ラボ　<a href="https://soundeffect-lab.info/">https://soundeffect-lab.info/</a>
+<h5>BGM</h5>
+DOVA-SYNDROME <a href="https://dova-s.jp/">https://dova-s.jp/</a>
+
+<h4>文献・コード引用：Syncer「クリックすると音が鳴るボタンの作り方」</h4>
+<a href="https://syncer.jp/html5-javascript-hello-button">https://syncer.jp/html5-javascript-hello-button</a>
+<h4>コード引用（タイマー機能）:カウントダウンタイマーJavaScript入門</h4>
+<a href="https://www.pazru.net/js/timer/6.html">https://www.pazru.net/js/timer/6.html</a>
+<h4>コード引用（時刻表示）:JavaScriptで現在の日付、時刻を取得する - JavaScript プログラミング</h4>
+<a href="https://www.ipentec.com/document/javascript-get-current-datetime">https://www.ipentec.com/document/javascript-get-current-datetime</a>
+<h4>コード引用：【JavaScript】現在時刻をリアルタイムで表示し続ける方法</h4>
+<a href="https://qiita.com/mzmz__02/items/1f221a8dd19cdd156eaa">https://qiita.com/mzmz__02/items/1f221a8dd19cdd156eaa</a>
+<!-- JavaScriptの読み込み -->
+<script src="Sounds EffectB.js"></script>
+
+
+
+</script>
+
+</body>
+</html>
