@@ -102,97 +102,6 @@
 		}  
 		  
 		</script>
-		
-		<script>
-
-// グローバル変数
-var syncerSounds = {
-	flag: {} ,
-	currentTime: null ,
-} ;
-
-// 即時関数
-(function()
-{
-	// 設定
-	var setClass = 'sounds' ;							// ボタン要素のクラス名
-	var setDir = './' ;									// 音声ファイルがあるフォルダ(最後は[/])
-	var setStopButtonId = 'stop-button-syncer' ;			// 停止ボタンに付けるID
-
-	// クラス名が付いた要素を取得する
-	var sounds = document.getElementsByClassName( setClass ) ;
-
-	// 全ての要素にクリックイベントを設定する
-	for( var i=0,l=sounds.length ; l>i ; i++ )
-	{
-		// クリックイベントの設定
-		sounds[i].onclick = function()
-		{
-			// ファイル名の取得
-			var file = this.getAttribute( 'data-file' ) ;
-
-			// 一度生成したエレメントは生成しない
-			if( typeof( syncerSounds.flag[ file ] )=="undefined" || syncerSounds.flag[ file ] != 1 )
-			{
-				// 生成するエレメントの調整
-				var audio = document.createElement( 'audio' ) ;
-
-				// エレメントのIDを指定
-				audio.id = file ;
-
-				// ブラウザが[.mp3]に対応している場合は[.mp3]を読み込む
-				if( audio.canPlayType( 'audio/mp3' ) )
-				{
-					audio.src = setDir + file + '.mp3' ;
-				}
-				
-
-				// [audio]を生成する
-				document.body.appendChild( audio ) ;
-			}
-
-			// 初回再生以外だったら音声ファイルを巻き戻す
-			stopCurrentSound() ;
-
-			// 音声ファイルを再生[play()]する
-			document.getElementById( file ).play() ;
-
-			// 最近再生した音声としてセット
-			syncerSounds.currentTime = file ;
-
-			// 初回再生が終わった判定用に[syncerSounds.flag]の値を0から1に変更する
-			// エレメントを何度も生成しないようにするため
-			syncerSounds.flag[ file ] = 1 ;
-
-			// 終了
-			return false ;
-		}
-	}
-
-	// 前回の音声を停止する関数
-	function stopCurrentSound()
-	{
-		var currentSound = document.getElementById( syncerSounds.currentTime ) ;
-
-		if( currentSound != null )
-		{
-			currentSound.pause() ;
-			currentSound.currentTime = 0 ;
-		}
-	}
-
-
-	// 停止ボタンをクリックした時のイベント
-	document.getElementById( setStopButtonId ).onclick = function()
-	{
-		stopCurrentSound() ;
-		return false ;
-	}
-
-	
-
-})() ;
-</script>
 
 		<title>SE集 β版</title>
 	</head>
@@ -229,29 +138,29 @@ var syncerSounds = {
 	<h2 style="text-align:left;color:#29277c">効果音</h2>
 	※２つ以上は同時には鳴りません。
 	<div class="sebutton">	
-		<p><a href="#" class="sounds" data-file="question">出題</a></p>
+		<p><a href="#" class="sounds" data-file="audio/question">出題</a></p>
 		<p><a href="#" class="sounds" data-file="audio/correct">正解！</a></p>
-		<p><a href="#" class="sounds" data-file="audio/incorrect.mp3">不正解</a></p>
-		<p><a href="#" class="sounds" data-file="audio/trumpet1.mp3">ファンファーレ１</a></p>
-		<p><a href="#" class="sounds" data-file="soundseffectB/audio/trumpet2.mp3">ファンファーレ２</a></p>
-		<p><a href="#" class="sounds" data-file="soundseffectB/audio/dondonpafupafu.mp3">ドンパフ</a></p>
-		<p><a href="#" class="sounds" data-file="soundseffectB/audio/drum-japanese1.mp3">ドン</a></p>
-		<p><a href="#" class="sounds" data-file="soundseffectB/audio/drum-japanese2.mp3">ドドン</a></p>
-		<p><a href="#" class="sounds" data-file="soundseffectB/audio/drumroll.mp3">ドラムロール</a></p>
-		<p><a href="#" class="sounds" data-file="soundseffectB/audio/cheerandclap.mp3">拍手と歓声</a></p>
-		<p><a href="#" class="sounds" data-file="soundseffectB/audio/everyone_laugh3.mp3">（笑い）</a></p>
-		<p><a href="#" class="sounds" data-file="soundseffectB/audio/timer.mp3">カウントダウン<br>（チクタク）</a></p>
-		<p><a href="#" class="sounds" data-file="soundseffectB/audio/timer_fast.mp3">カウントダウン<br>（残り時間少なめ）</a></p>
-		<p><a href="#" class="sounds" data-file="soundseffectB/audio/shock.mp3">ガーン<br>（ショック）</a></p>
-		<p><a href="#" class="sounds" data-file="soundseffectB/audio/tin.mp3">チーン</a></p>
-		<p><a href="#" class="sounds" data-file="soundseffectB/audio/chan-chan.mp3">チャンチャン</a></p>
-		<p><a href="#" class="sounds" data-file="soundseffectB/audio/broadcasting-start.mp3">放送チャイム<br>（開始）</a></p>
-		<p><a href="#" class="sounds" data-file="soundseffectB/audio/broadcasting-end.mp3">放送チャイム<br>（終了）</a></p>
-		<p><a href="#" class="sounds" data-file="soundseffectB/audio/anouncement-before.mp3">お知らせチャイム<br>（開始）</a></p>
-		<p><a href="#" class="sounds" data-file="soundseffectB/audio/anouncement-after.mp3">お知らせチャイム<br>（終了）</a></p>
-		<p><a href="#" class="sounds" data-file="soundseffectB/audio/police-whistle.mp3">ホイッスル<br>（ピーッ）</a></p>
-		<p><a href="#" class="sounds" data-file="soundseffectB/audio/運命1.mp3">運命１<br>（ベートーベン）</a></p>
-		<p><a href="#" class="sounds" data-file="soundseffectB/audio/運命2.mp3">運命２<br>（トッカータとフーガニ短調）</a></p>
+		<p><a href="#" class="sounds" data-file="audio/incorrect">不正解</a></p>
+		<p><a href="#" class="sounds" data-file="audio/trumpet1">ファンファーレ１</a></p>
+		<p><a href="#" class="sounds" data-file="audio/trumpet2">ファンファーレ２</a></p>
+		<p><a href="#" class="sounds" data-file="audio/dondonpafupafu">ドンパフ</a></p>
+		<p><a href="#" class="sounds" data-file="audio/drum-japanese1">ドン</a></p>
+		<p><a href="#" class="sounds" data-file="audio/drum-japanese2">ドドン</a></p>
+		<p><a href="#" class="sounds" data-file="audio/drumroll">ドラムロール</a></p>
+		<p><a href="#" class="sounds" data-file="audio/cheerandclap">拍手と歓声</a></p>
+		<p><a href="#" class="sounds" data-file="audio/everyone_laugh3">（笑い）</a></p>
+		<p><a href="#" class="sounds" data-file="audio/timer">カウントダウン<br>（チクタク）</a></p>
+		<p><a href="#" class="sounds" data-file="audio/timer_fast">カウントダウン<br>（残り時間少なめ）</a></p>
+		<p><a href="#" class="sounds" data-file="audio/shock">ガーン<br>（ショック）</a></p>
+		<p><a href="#" class="sounds" data-file="audio/tin">チーン</a></p>
+		<p><a href="#" class="sounds" data-file="audio/chan-chan">チャンチャン</a></p>
+		<p><a href="#" class="sounds" data-file="audio/broadcasting-start">放送チャイム<br>（開始）</a></p>
+		<p><a href="#" class="sounds" data-file="audio/broadcasting-end">放送チャイム<br>（終了）</a></p>
+		<p><a href="#" class="sounds" data-file="audio/anouncement-before">お知らせチャイム<br>（開始）</a></p>
+		<p><a href="#" class="sounds" data-file="audio/anouncement-after">お知らせチャイム<br>（終了）</a></p>
+		<p><a href="#" class="sounds" data-file="audio/police-whistle">ホイッスル<br>（ピーッ）</a></p>
+		<p><a href="#" class="sounds" data-file="audio/運命1">運命１<br>（ベートーベン）</a></p>
+		<p><a href="#" class="sounds" data-file="audio/運命2">運命２<br>（トッカータとフーガニ短調）</a></p>
 	</div>	
 	<h2>SE全停止</h2>
 
@@ -313,7 +222,7 @@ DOVA-SYNDROME <a href="https://dova-s.jp/">https://dova-s.jp/</a>
 <h4>コード引用：【JavaScript】現在時刻をリアルタイムで表示し続ける方法</h4>
 <a href="https://qiita.com/mzmz__02/items/1f221a8dd19cdd156eaa">https://qiita.com/mzmz__02/items/1f221a8dd19cdd156eaa</a>
 <!-- JavaScriptの読み込み -->
-<script>Sounds EffectB.js</script>
+<script src="Sounds EffectB.js"></script>
 
 
 
