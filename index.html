@@ -110,7 +110,8 @@
 	
 	
 
-	<h2><script>//今日の日付データを変数に格納
+	<div style="padding: 10px; margin-bottom: 10px; border: 1px solid #333333;">
+		<h2><script>//今日の日付データを変数に格納
 		//変数は"today"とする
 		var today=new Date(); 
 		
@@ -124,15 +125,18 @@
 		
 		//年・月・日・曜日を書き出す
 		document.write(year+"年"+month+"月"+day+"日 "+"("+week_ja[week]+")");</script><p id="realtime"></p></h2>
+	</div>
 	※若干ずれている場合は command+shift+Rでキャッシュなしリロードを行ってください
 	<h4>音が鳴らないタイマー</h4>
-	<form name="timer">
+	<div style="padding: 30px; margin-bottom: 10px; border: 1px solid #333333;">
+		<form name="timer">
 		<input type="text" value="">分
 		<input type="text" value="">秒<br>
 		<input type="button" value="Start" onclick="cntStart()">
 		<input type="button" value="Pause" onclick="cntStop()">
 		</form>
-	<HR style="margin: 1em 0 ;">
+	</div>	
+	<HR style="margin: 3em 0 ;">
 <div class="SE"></div>
 <div class=wrapper>
 	<h2 style="text-align:left;color:#29277c">効果音</h2>
