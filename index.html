@@ -3,7 +3,6 @@
 	<head>
 		<meta charset="UTF-8">
 		<meta name="robots" content="noindex,nofollow">
-
 		<!-- ビューポートの設定 -->
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -58,7 +57,7 @@
 		  
 		  if( (min=="") && (sec=="") )
 		  {
-			alert("時刻を設定してください！");
+			alert("時間を設定してください！");
 			reSet();
 		  }
 		  else
@@ -106,11 +105,11 @@
 		<title>SE集 β版</title>
 	</head>
 <body>
-
-
-	<div class="SE">
+	
 	<h1 style="text-align:center;color:#218d6c;">SE集</h1><br>
 	
+	
+
 	<h2><script>//今日の日付データを変数に格納
 		//変数は"today"とする
 		var today=new Date(); 
@@ -126,6 +125,7 @@
 		//年・月・日・曜日を書き出す
 		document.write(year+"年"+month+"月"+day+"日 "+"("+week_ja[week]+")");</script><p id="realtime"></p></h2>
 	※若干ずれている場合は command+shift+Rでキャッシュなしリロードを行ってください
+	<h4>音が鳴らないタイマー</h4>
 	<form name="timer">
 		<input type="text" value="">分
 		<input type="text" value="">秒<br>
@@ -133,7 +133,7 @@
 		<input type="button" value="Pause" onclick="cntStop()">
 		</form>
 	<HR style="margin: 1em 0 ;">
-
+<div class="SE"></div>
 <div class=wrapper>
 	<h2 style="text-align:left;color:#29277c">効果音</h2>
 	※２つ以上は同時には鳴りません。
@@ -172,21 +172,26 @@
 		<h2 style="text-align:left;color:#217d8d">BGM＆Jingle</h2>
 			BGM・ジングルのプレーヤーの音量はデフォルトで100%になっています。音量にご注意ください。
 		<h3>BGM</h3>
-			<h5>Get Up!</h5>
+			<h5>Cat life</h5>
 			<audio controls preload="metadata">
-				<source src="audio/bgm:jin/Get up!.mp3"type="audio/mp3"/></audio>	
+				<source src="audio/bgm:jin/Cat life.mp3"type="audio/mp3"/></audio>	
 			<h5>おどれグロッケンシュピール</h5>
 			<audio controls preload="metadata">
 				<source src="audio/bgm:jin/おどれグロッケンシュピール.mp3"type="audio/mp3"/></audio>
 			<h5>newwind</h5>
 			<audio controls preload="metadata">
 				<source src="audio/bgm:jin/newwind.mp3"type="audio/mp3"/></audio>
+			<h5>Good Morning Sky</h5>
+			<audio controls preload="metadata">
+				<source src="audio/bgm:jin/Good Morning Sky.mp3"type="audio/mp3"/></audio>
 
 		<h3>Jingle（自動でループします）</h3>
 		<audio controls loop preload="metadata" >
 			<source src="audio/bgm:jin/jingleセットcycle.mp3"type="audio/mp3"/></audio>
 			<br>
 			<br>
+			
+			
 			
 		<h3>テーマソング</h3>	
 		<details>
@@ -198,7 +203,7 @@
 			5秒送り→左右矢印キー（←・→）<br>
 			10秒送り→Jキー（戻る）Lキー（進む）<br>
 		</details>
-		
+
 			<div class="youtube">
 				<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/fxUS4z4ftSs"allow="accelerometer" allowfullscreen></iframe>
 			<br>
@@ -213,6 +218,7 @@
 			</div>
 	</div>
 </div>
+
 <HR style="margin: 3em 0 ;">
 <p><h3>©️2021 N・S高等学校横浜キャンパスクリエイティブ委員会音楽チーム</h3>
 	BGM・SE等このサイト上全ての音源の著作権は上記の団体に帰属します。<br>
@@ -222,23 +228,23 @@
 	
 <HR style="margin: 3em 0 ;">
 
+<div class="quotation">
+	<h3>引用</h3>
+	<h4>音源</h4>
+	<h5>SE</h5>
+	効果音ラボ　<a href="https://soundeffect-lab.info/">https://soundeffect-lab.info/</a>
+	<h5>BGM</h5>
+	DOVA-SYNDROME <a href="https://dova-s.jp/">https://dova-s.jp/</a>
 
-
-<h3>引用</h3>
-<h4>音源</h4>
-<h5>SE</h5>
-効果音ラボ　<a href="https://soundeffect-lab.info/">https://soundeffect-lab.info/</a>
-<h5>BGM</h5>
-DOVA-SYNDROME <a href="https://dova-s.jp/">https://dova-s.jp/</a>
-
-<h4>文献・コード引用：Syncer「クリックすると音が鳴るボタンの作り方」</h4>
-<a href="https://syncer.jp/html5-javascript-hello-button">https://syncer.jp/html5-javascript-hello-button</a>
-<h4>コード引用（タイマー機能）:カウントダウンタイマーJavaScript入門</h4>
-<a href="https://www.pazru.net/js/timer/6.html">https://www.pazru.net/js/timer/6.html</a>
-<h4>コード引用（時刻表示）:JavaScriptで現在の日付、時刻を取得する - JavaScript プログラミング</h4>
-<a href="https://www.ipentec.com/document/javascript-get-current-datetime">https://www.ipentec.com/document/javascript-get-current-datetime</a>
-<h4>コード引用：【JavaScript】現在時刻をリアルタイムで表示し続ける方法</h4>
-<a href="https://qiita.com/mzmz__02/items/1f221a8dd19cdd156eaa">https://qiita.com/mzmz__02/items/1f221a8dd19cdd156eaa</a>
+	<h4>文献・コード引用：Syncer「クリックすると音が鳴るボタンの作り方」</h4>
+	<a href="https://syncer.jp/html5-javascript-hello-button">https://syncer.jp/html5-javascript-hello-button</a>
+	<h4>コード引用（タイマー機能）:カウントダウンタイマーJavaScript入門</h4>
+	<a href="https://www.pazru.net/js/timer/6.html">https://www.pazru.net/js/timer/6.html</a>
+	<h4>コード引用（時刻表示）:JavaScriptで現在の日付、時刻を取得する - JavaScript プログラミング</h4>
+	<a href="https://www.ipentec.com/document/javascript-get-current-datetime">https://www.ipentec.com/document/javascript-get-current-datetime</a>
+	<h4>コード引用：【JavaScript】現在時刻をリアルタイムで表示し続ける方法</h4>
+	<a href="https://qiita.com/mzmz__02/items/1f221a8dd19cdd156eaa">https://qiita.com/mzmz__02/items/1f221a8dd19cdd156eaa</a>
+</div>
 <!-- JavaScriptの読み込み -->
 <script src="Sounds EffectB.js"></script>
 
