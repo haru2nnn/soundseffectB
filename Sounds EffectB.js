@@ -1,10 +1,12 @@
 
 
 // グローバル変数
-var syncerSounds = {
+var Sounds = {
 	flag: {} ,
 	currentTime: null ,
+
 } ;
+
 
 // 即時関数
 (function()
@@ -12,7 +14,7 @@ var syncerSounds = {
 	// 設定
 	var setClass = 'sounds' ;							// ボタン要素のクラス名
 	var setDir = './' ;									// 音声ファイルがあるフォルダ(最後は[/])
-	var setStopButtonId = 'stop-button-syncer' ;			// 停止ボタンに付けるID
+	var setStopButtonId = 'stop-button' ;			// 停止ボタンに付けるID
 
 	// クラス名が付いた要素を取得する
 	var sounds = document.getElementsByClassName( setClass ) ;
@@ -27,7 +29,7 @@ var syncerSounds = {
 			var file = this.getAttribute( 'data-file' ) ;
 
 			// 一度生成したエレメントは生成しない
-			if( typeof( syncerSounds.flag[ file ] )=="undefined" || syncerSounds.flag[ file ] != 1 )
+			if( typeof( Sounds.flag[ file ] )=="undefined" || Sounds.flag[ file ] != 1 )
 			{
 				// 生成するエレメントの調整
 				var audio = document.createElement( 'audio' ) ;
@@ -53,21 +55,24 @@ var syncerSounds = {
 			document.getElementById( file ).play() ;
 
 			// 最近再生した音声としてセット
-			syncerSounds.currentTime = file ;
+			Sounds.currentTime = file ;
 
-			// 初回再生が終わった判定用に[syncerSounds.flag]の値を0から1に変更する
+			// 初回再生が終わった判定用に[Sounds.flag]の値を0から1に変更する
 			// エレメントを何度も生成しないようにするため
-			syncerSounds.flag[ file ] = 1 ;
+			Sounds.flag[ file ] = 1 ;
 
 			// 終了
 			return false ;
+			
 		}
 	}
+	
+	
 
 	// 前回の音声を停止する関数
 	function stopCurrentSound()
 	{
-		var currentSound = document.getElementById( syncerSounds.currentTime ) ;
+		var currentSound = document.getElementById( Sounds.currentTime ) ;
 
 		if( currentSound != null )
 		{
@@ -86,4 +91,5 @@ var syncerSounds = {
 
 	
 
+	
 })() ;
