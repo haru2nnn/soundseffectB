@@ -101,6 +101,43 @@
 		}  
 		  
 		</script>
+		
+		<!-- 読み上げのスクリプト -->
+<script>
+	function lng(prm) { lang = prm ; }
+	function speech() {
+	var synthes = new SpeechSynthesisUtterance();
+	synthes.volume = form.volume.value / 10 ;
+	synthes.rate = form.rate.value / 10 ;
+	synthes.pitch = form.pitch.value / 10 ;
+	synthes.text = form.text.value ;
+	synthes.lang = lang ;
+	synthes.voiceURI = "native" ;
+	speechSynthesis.speak(synthes);
+	}
+	function pause() { speechSynthesis.pause() ; }
+	function resume() { speechSynthesis.resume() ; }
+	function cancel() { speechSynthesis.cancel() ; }
+	window.onload = function () {
+	ini();
+	}
+	</script>
+	
+	<!--「textarea」にデフォルトで文章をセットしておく場合のサンプル。必要に応じて -->
+	<script>
+	function ini(){
+	lang ="ja-JP" ;
+	form.text.value ="" ;
+	}
+	</script>
+	
+	<!-- 事前に用意した文章をテキストエリアに表示させるスクリプト。必要に応じて -->
+	<script>
+	function set(word) { form.text.value = word ; }
+	</script>
+	<!-- 用意する文章の、body 内での書き方のサンプル
+	<a href="javascript:void(0)" onclick="set('おはよう')">おはよう</a>
+	-->
 
 		<title>SE集 β版</title>
 		<link rel="icon" href="favicon.ico">
@@ -137,6 +174,35 @@
 		<input type="button" value="Pause" onclick="cntStop()">
 		</form>
 	</div>	
+	<details>
+		<summary>Ms. 読み上げ</summary>
+			<form name="form">
+				<!-- 使用する言語。必要な言語をセットしてください -->
+				<label><input type="radio" value="ja-JP" name="r1" onclick="lng('ja-JP')" checked>日本語</label>
+				<label><input type="radio" value="en-US" name="r1" onclick="lng('en-US')">英語：米国</label>
+				<label><input type="radio" value="en-US" name="r1" onclick="lng('en-GB')">英語：英国</label>
+				<label><input type="radio" value="fr-FR" name="r1" onclick="lng('fr-FR')">フランス語</label>
+				<label><input type="radio" value="it-IT" name="r1" onclick="lng('it-IT')">イタリア語</label>
+				<label><input type="radio" value="de-DE" name="r1" onclick="lng('de-DE')">ドイツ語</label>
+				<label><input type="radio" value="es-ES" name="r1" onclick="lng('es-ES')">スペイン語</label>
+				<label><input type="radio" value="zh-CN" name="r1" onclick="lng('zh-CN')">中国語</label>
+
+				<!-- テキストエリア -->
+				<textarea name="text" rows="10" style="font-size:100%; width:100%"></textarea>
+				<!-- 音量などの設定と、各種実行ボタン -->
+				音量：<input type="range" name="volume" max="10" min="0" step="0.1">
+				&nbsp;&nbsp;速度：<input type="range" name="rate" max="20" min="0" step="1">
+				&nbsp;&nbsp;音の高さ：<input type="range" name="pitch" max="20" min="0" step="1">
+				<br>
+				<input type="button" onclick="speech()" value="読み上げ" title="読み上げ" alt="読み上げ">　
+				<input type="button" onclick="pause()" value="一時停止" title="一時停止" alt="一時停止">　
+				<input type="button" onclick="resume()" value="再開" title="再開" alt="再開" >　
+				<input type="button" onclick="cancel()" value="停止" title="停止" alt="停止">　
+				<input type="reset" value="入力リセット">　
+				<input type="button" name="Submit" value="初期設定に戻す" onClick="location.reload(true);" title="初期設定に戻す" alt="初期設定に戻す">
+				</form></script>
+	
+	</details>
 	<HR style="margin: 3em 0 ;">
 <div class="SE"></div>
 <div class=wrapper>
