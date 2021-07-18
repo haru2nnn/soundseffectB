@@ -91,5 +91,44 @@ var Sounds = {
 
 	
 
+
 	
 })() ;
+
+
+	
+var audios = document.querySelectorAll( "audio" );
+for(var i=0;i<audios.length;i++){
+  audios[ i ].addEventListener( "play", function(){
+  for(var j=0;j<audios.length;j++){
+  if( audios[ j ]!=this ){ audios[ j ].pause() }
+  }
+  }, false );
+  }
+
+
+
+
+  
+var audio = document.getElementById('audio');
+
+  // 再生
+  audio.play();
+  
+  // 停止
+  audio.pause();
+  audio.currentTime = 0;
+
+
+
+  /*++++ オーディオ要素のリスト ++++*/
+var audio = document.querySelectorAll('audio');
+
+/*++++ イベント ++++*/
+for(var i=0;i<audios.length;i++){
+audios[ i ].addEventListener( "play", function(){
+for(var j=0;j<audios.length;j++){
+if( audios[ j ]!=this ){ audios[ j ].pause() }
+}
+}, false );
+}
