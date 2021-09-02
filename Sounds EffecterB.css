@@ -1,12 +1,52 @@
 @charset "UTF-8" ;
 
-/**************************************************
 
-	ボタンのデザイン
 
-**************************************************/
+
+header {
+	display: flex;
+	padding: 10px;
+	width: 100%;
+	height: 100px;
+	background-color: rgb(207, 207, 207);
+	background-image: url(image/banner1.jpg);
+	background-blend-mode: soft-light;
+	align-items:center;
+	flex-wrap: nowrap;
+	justify-content: flex-end;
+	grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+	
+  }
+  .nav{
+	  flex-direction: row;
+	  justify-content: flex-end;
+	  flex-wrap: nowrap;
+
+  }
+   
+  .title {
+	margin-right: auto;
+	margin-left: 20px;
+	margin-top: 20px;
+}
+
+   
+  .menu-item {
+	list-style: none;
+	display: inline-block;
+	padding: 8px;
+  }
+
+
+  /***************/
+
 body{
 	font-family: sans-serif;
+	margin: 20px;
+
+	background-color: #ededed;
+	background-image: url(image/backg1.jpg);
+	background-blend-mode: soft-light;
 }
 
 
@@ -21,6 +61,24 @@ body{
 	padding: 0px;
 }
 
+
+
+.container
+{
+	flex-direction: row;
+	display: flex;
+	justify-content: flex-start;
+	flex-wrap: wrap;
+
+
+}
+.item{
+	margin: 10px;
+	padding: 10px;
+	flex-wrap: wrap;
+	align-items: center;
+
+}
 
 
 .sounds
@@ -38,12 +96,13 @@ body{
 	;
 	text-align: center ;
 	text-decoration: none ;
+	
 }
 .stop-button
 {
 	display: block ;
 
-	width: 90% ;
+	width: 95% ;
 	margin: 15px ;
 	padding: 30px 0 ;
 	border-radius: 4px ;
@@ -66,9 +125,7 @@ body{
 display:flex;
 flex-wrap:wrap;
 }
-body{
-	background-color: #ededed;
-}
+
 
 .youtube
 {
@@ -112,6 +169,15 @@ details[open] {
 details[open] summary {
     border-bottom: 1px solid #aaa;
     margin-bottom: .5em;
+}
+
+footer{
+	margin: 0px;
+	padding: 30px;
+	background-color: rgba(255, 255, 255, 0.349);
+	background-image: url(image/backg1.jpg);
+	background-blend-mode: lighten;
+
 }
 
 
