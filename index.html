@@ -227,6 +227,7 @@
 		<h2 style="text-align:left;color:#29277c">効果音</h2>
 		※２つ以上は同時には鳴りません。
 		タイトルに「*」がついているSEは音源を制作できなかったため、「効果音ラボ」様のSEを使用しております。
+		効果音の音量が大きい場合は<a href="https://chrome.google.com/webstore/detail/volume-master/jghecgabfgfdldnmbfkhmffcabddioke" target="_blank" rel="noopener">こちらの拡張機能</a>をご利用ください。
 		<div class="sebutton">	
 			<p><a href="#" class="sounds" data-file="audio/question">出題*</a></p>
 			<p><a href="#" class="sounds" data-file="audio_o/correct">正解！🙆🏻‍♂️</a></p>
@@ -258,8 +259,8 @@
 			<p><a href="#" class="sounds" data-file="audio_o/broadcasting-end">放送チャイム<br>（終了）📢</a></p>
 			<p><a href="#" class="sounds" data-file="audio_o/anouncement-before">お知らせチャイム<br>（開始）🔉</a></p>
 			<p><a href="#" class="sounds" data-file="audio_o/anouncement-after">お知らせチャイム<br>（終了）🔉</a></p>
-			<p><a href="#" class="sounds" data-file="audio/chime1">学校チャイム１<br>(25秒バージョン)🔉</a></p>
-			<p><a href="#" class="sounds" data-file="audio/chime1-1">学校チャイム１<br>(15秒バージョン)🔉</a></p>	
+			<p><a href="#" class="sounds" data-file="audio/chime1">学校チャイム１<br>(ロングバージョン)🔉</a></p>
+			<p><a href="#" class="sounds" data-file="audio/chime1-1">学校チャイム１<br>(ショートバージョン)🔉</a></p>			
 			<p><a href="#" class="sounds" data-file="audio/chime2">学校チャイム２<br>(ロングバージョン)🔉</a></p>
 			<p><a href="#" class="sounds" data-file="audio/chime2-2">学校チャイム２<br>(ショートバージョン)🔉</a></p>
 			<p><a href="#" class="sounds" data-file="audio/police-whistle">ホイッスル<br>（ピーッ）*</a></p>
@@ -274,6 +275,7 @@
 		<p><a href="#" id="stop-button" class="stop-button">SEを停止する</a></p>
 		</div>
 
+
 		<div class="BGM">
 			<h2 style="text-align:left;color:#217d8d">BGM＆Jingle</h2>
 				BGM・ジングルのプレーヤーの音量はデフォルトで100%になっています。音量にご注意ください。
@@ -287,8 +289,8 @@
 			</details>
 			
 			
-			<div class="mp3">
-				<div id="Audio-Control">
+			<div class="audio">
+				
 					<h3>BGM</h3>
 					<!--	
 						<h5>ザ・Youtubeみたいなテーマソング</h5>
@@ -300,34 +302,38 @@
 						-->
 						
 						<h4>スターウォーズのテーマ</h4>
-								<audio controls preload="metadata">
-								<source src="audio/bgm:jin/Star Wars Main Theme.mp3" controlslist="nodownload" type="audio/mp3">"</audio>   
+								<audio controls preload="metadata" controlslist="nodownload" >
+								<source src="audio/bgm:jin/Star Wars Main Theme.mp3" type="audio/mp3">スターウォーズのメインテーマ</audio>   
 
 						<h4>BGM1（ループ）</h4>
-						<audio controls loop preload="metadata" >
-							<source src="audio/bgm:jin/jingleセットcycle.mp3" controlslist="nodownload" type="audio/mp3"/></audio>
+						<audio controls loop preload="metadata" controlslist="nodownload" >
+							<source src="audio/bgm:jin/jingleセットcycle.mp3" type="audio/mp3"/></audio>
 							<br>
-						<h4>BGM1アレンジ＆ロング版
+						<h4>BGM1アレンジ＆ロング版（ループ）
 						</h4>
 						<audio controls loop preload="metadata" >
-							<source src="audio/bgm:jin/jingle1_arrange.mp3" controlslist="nodownload" type="audio/mp3"/></audio>
+							<source src="audio/bgm:jin/jingle1_arrange.mp3" type="audio/mp3"/></audio>
 							<br>
 						<h4>BGM2（ループ）</h4>
-						<audio controls loop preload="metadata" >
-							<source src="audio/bgm:jin/chillout.mp3" controlslist="nodownload" type="audio/mp3"/></audio>
+						<audio controls loop preload="metadata" controlslist="nodownload" >
+							<source src="audio/bgm:jin/chillout.mp3" type="audio/mp3"/></audio>
 							<br>
-						<h4>BGM3（ループ）</h4>
-						<audio controls loop preload="metadata" >
-							<source src="audio/bgm:jin/funkjingle.mp3" controlslist="nodownload" type="audio/mp3"/></audio>
-							<br>
+						<h4>(New!)BGM3（ループ）</h4>
+						<audio controls loop preload="metadata" controlslist="nodownload" >
+							<source src="audio/bgm:jin/goodbgm.mp3" type="audio/mp3"/></audio>
+							<br>	
 						<h4>BGM4（ループ）</h4>
-						<audio controls loop preload="metadata" >
-							<source src="audio/bgm:jin/elegantjin.mp3" controlslist="nodownload" type="audio/mp3"/></audio>
+						<audio controls loop preload="metadata" controlslist="nodownload" >
+							<source src="audio/bgm:jin/funkjingle.mp3" type="audio/mp3"/></audio>
+							<br>
+						<h4>BGM5（ループ）</h4>
+						<audio controls loop preload="metadata" controlslist="nodownload" >
+							<source src="audio/bgm:jin/elegantjin.mp3" type="audio/mp3"/></audio>
 							
 						<br>
 						<br>
 
-				</div>
+			
 			</div>	
 				
 			<h3>テーマソング</h3>	
@@ -369,6 +375,7 @@
 
 <!-- JavaScriptの読み込み -->
 <script src="Sounds EffectB.js"></script>
+
 
 </body>
 		
