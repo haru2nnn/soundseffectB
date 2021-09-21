@@ -1,39 +1,3 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-            <meta name="robots" content="noindex,nofollow">
-            <!-- ビューポートの設定 -->
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-            <!-- スタイルシートの読み込み -->
-            <link href="Sounds EffecterB.css" rel="stylesheet">
-            <title>SE集_マニュアル</title>
-            <link rel="icon" href="favicons/favicon3.ico">
-
-    </head>
-    
-    <body>
-        <header>
-            <div class="title">
-                <h1><a href="index.html"><img class="logo" src="image/header-logo1.png" alt="ホーム"></a></h1>
-                <h1 class="title">
-                    <!--<h1 style="text-align:cent>er;color:#218d6c;">SE集</h1><br>-->
-                </h1>
-                </div>
-            <nav class="nav">
-              <ul class="menu-group">
-                <li class="menu-item"><a href="index.html" target="_blank" rel="noopener">SE集オリジナル版</a></li>
-                <li class="menu-item"><a href="index-origin.html" target="_blank" rel="noopener">SE集従来β版</a></li>
-                <li class="menu-item"><a href="更新履歴.html" target="_blank" rel="noopener">更新履歴</a></li>
-                <li class="menu-item"><a href="readme.html" target="_blank" rel="noopener">マニュアル</a></li>
-                <li class="menu-item"><a href="quote.html" target="_blank" rel="noopener">コード引用サイト</a></li>
-                <li class="menu-item"><a href="contactus.html" target="_blank" rel="noopener">チャットボット・お問い合わせ</a></li>
-              </ul>
-            </nav>
-          </header>
-        <br>
-
         <h1>SE集マニュアル</h1>
         <p>SE集をご利用いただきありがとうございます。</p>
         
@@ -53,17 +17,3 @@
         
         <p>機能の追加・改善のご要望がありましたら、実現できるようにいたしますので、遠慮なくお申し付けください。</p>
         
-
-        <HR style="margin: 0em 0 ;">
-            <footer style="text-align:left;color:#ffffff">
-                <p><h3>©️2021 N・S高等学校横浜キャンパスクリエイティブ委員会音楽チーム</h3>
-                SE・BGM・Jingle項目にある全ての音源の著作権は上記の団体に帰属します。(Youtube動画は除く）<br>
-                また、htmlのコードは多数のウェブサイト（「<a href="quote.html">引用</a>」に記載）よりお借りしていますが、デザイン等は全て改変しています。このサイト及びサイト内のコンテンツ（音声・画像ファイルなど）を一部改変、もしくはそのまま複製・再配布することを固く禁じます。
-            </p>
-            <p>更新履歴は<span style="color:skyblue;"><a href="更新履歴.html">こちら</a></span>からご覧になれます。</p>
-            <p>バグやご意見がございましたら以下のリンクからお願いします。<a href="contactus.html" target="_blank" rel="noopener">こちらから</a></p>
-            </footer>
-
-    </body>
-
-</html>
