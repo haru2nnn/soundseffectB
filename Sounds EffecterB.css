@@ -1,22 +1,36 @@
 @charset "UTF-8" ;
 
+@media (max-width: 700px),(-webkit-min-device-pixel-ratio:0){
+	header{
 
+		align-items:flex-end;
+		align-content: center;
+		padding: 0px;
+	}
+}
+
+
+@media (min-width: 960px){
+	header{
+		background-image: url(image/banner1.jpg);
+		background-blend-mode: soft-light;
+		padding: 10px;
+	}
+}
 
 
 header {
 	display: flex;
-	padding: 10px;
 	width: 100%;
 	height: 100px;
 	background-color: rgb(207, 207, 207);
-	background-image: url(image/banner1.jpg);
-	background-blend-mode: soft-light;
 	align-items:center;
 	flex-wrap: nowrap;
 	justify-content: flex-end;
 	grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
 	
   }
+  
   .nav{
 	  flex-direction: row;
 	  justify-content: flex-end;
@@ -38,15 +52,20 @@ header {
   }
 
 
-  /***************/
+  /*******
+@media (min-width: 960px),(-webkit-min-device-pixel-ratio:1){
+	.sound{
+	background-image: url(image/backg1.jpg);
+	background-blend-mode: soft-light;
+	margin: 20px;	
+	}
+}********/
 
 body{
 	font-family: sans-serif;
-	margin: 20px;
+	margin: 10px;
 
-	background-color: #ededed;
-	background-image: url(image/backg1.jpg);
-	background-blend-mode: soft-light;
+	background-color: #edededea;
 }
 
 
@@ -127,6 +146,13 @@ flex-wrap:wrap;
 }
 
 
+.pop_new{
+	float: left;
+	max-width: 30px;
+	height: auto;
+}
+
+
 .youtube
 {
 display:inline-flex;
@@ -139,6 +165,11 @@ padding: 40px 0 ;
 
 }
 
+@media (max-width: 600px){
+.NandS{margin: 2px;}}
+@media (min-width:960px){
+	.NandS{margin:15px}
+}
 .NandS
 {
 display: inline-flex;
@@ -146,7 +177,6 @@ flex-wrap: wrap;
 width: 95% ;
 height: auto;
 padding-top: 56.25%;
-margin: 30px;
 padding: 40px 0 ;
 }
 
@@ -171,12 +201,26 @@ details[open] summary {
     margin-bottom: .5em;
 }
 
+@media (min-width:960px){
+	footer{
+		background-image: url(image/backg1.jpg);
+		background-blend-mode: lighten;
+		background-color: rgba(255, 255, 255, 0.349);
+	}
+}
+@media (max-width: 700px){
+	footer{
+		background-color:rgb(31, 31, 31);
+
+	}
+
+}
+
+
 footer{
 	margin: 0px;
 	padding: 30px;
-	background-color: rgba(255, 255, 255, 0.349);
-	background-image: url(image/backg1.jpg);
-	background-blend-mode: lighten;
+
 
 }
 
@@ -192,3 +236,9 @@ footer{
 	font-family:inherit; /* フォントの種類を継承する */
 	font-size:0.85em;	/* フォントの大きさ */
 }
+
+
+
+/*iphoneデフォルトスタイル適用防止
+はこのコード。（メモ）
+-webkit-appearance: none;*/
