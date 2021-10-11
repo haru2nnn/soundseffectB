@@ -77,10 +77,17 @@
 		{
 		  int=parseInt(int);
 		  
-		  if (int<=0)
-		  {
+		  //if (int<=0)
+		  //{
+			//reSet();
+			//alert("時間です！");
+		  //}
+		  if (int<=0){
 			reSet();
-			alert("時間です！");
+			var Sound = new Audio();
+			Sound.src = "audio/chime.mp3";
+			Sound.currentTime = 0;
+			Sound.play();
 		  }
 		  else
 		  {
@@ -159,14 +166,14 @@
 		<nav class="nav">
 		<div class=navlogo>	<li><img class="logo" src="image/header-logo2.png" width="80%"></li></div>
 		  <ul class="menu-group">
-			<li class="menu-item"><a href="index.html" target="_blank" rel="noopener">SE集オリジナル版</a></li>
-			<li class="menu-item"><a href="https://docs.google.com/spreadsheets/d/10Wtg40D_0NpN4VJqjC1gcge12AOKwa5FcEwwU7Gl2EY/edit?usp=sharing" target="_blank" rel="noopener">効果音のキー配列表はこちら</a></li>
+			<li class="menu-item"><a href="index.html" >SE集オリジナル版</a></li>
 			<li class="menu-item"><a href="index-yobi.html" target="_blank" rel="opener">うまくページが表示できない時はこちら</a></li>
-			<li class="menu-item"><a href="" target="_blank" rel="noopener">生徒用SE集ポータルサイト</a></li>
-			<li class="menu-item"><a href="更新履歴.html" target="_blank" rel="noopener">更新履歴</a></li>
-			<li class="menu-item"><a href="readme.html" target="_blank" rel="noopener">マニュアル</a></li>
-			<li class="menu-item"><a href="quote.html" target="_blank" rel="noopener">コード引用サイト</a></li>
-			<li class="menu-item"><a href="contactus.html" target="_blank" rel="noopener">お問い合わせ</a></li>
+			<li class="menu-item"><a href="https://sites.google.com/nnn.ed.jp/ycp-s-soundeffectbs/SE_key-layout-teacher" target="_blank" rel="noopener">効果音のキー配列表はこちら</a></li>
+			<li class="menu-item"><a href="https://sites.google.com/nnn.ed.jp/ycp-s-soundeffectbs/new-infomation" target="_blank" rel="noopener">新着情報</a></li>
+			<li class="menu-item"><a href="https://sites.google.com/nnn.ed.jp/ycp-s-soundeffectbs/history-student" target="_blank" rel="noopener">更新履歴</a></li>
+			<!--<li class="menu-item"><a href="readme.html" target="_blank" rel="noopener">マニュアル</a></li>-->
+			<li class="menu-item"><a href="https://sites.google.com/nnn.ed.jp/ycp-s-soundeffectbs/quote" target="_blank" rel="noopener">コード引用サイト</a></li>
+			<li class="menu-item"><a href="https://sites.google.com/nnn.ed.jp/ycp-s-soundeffectbs/fb_contact-us" target="_blank" rel="noopener">お問い合わせ</a></li>
 		  </ul>
 		</nav></div></div>
 	  </header>
@@ -190,11 +197,11 @@
 	</div>
 	<p>※秒が若干(0.5秒前後）ずれることがあります。その場合は、<span class="kakomu">command+shift+R　(Mac)</span>もしくは<span class="kakomu">Shift+F5　(Windows)</span>でキャッシュなしリロードを行ってください。</p>
 	<input type="button" class="reload" value="SE集をリロード" onclick="window.location.reload();" />
-	<h4>通知音が鳴らないタイマー</h4>
+	<h4>通知音が鳴る仕様に変更されたタイマー</h4>
 	<div style="padding: 30px; margin-bottom: 10px; border: 1px solid #333333;">
 		<form name="timer">
-		<input type="text" value="">分
-		<input type="text" value="">秒<br>
+		<input type="text" value="3">分
+		<input type="text" value="0">秒<br>
 		<input type="button" value="Start" onclick="cntStart()">
 		<input type="button" value="Pause" onclick="cntStop()">
 		</form>
@@ -281,9 +288,10 @@
 		<p><a href="#" id="stop-button" class="stop-button">SEを停止する</a></p>
 		</div>
 		
-		<input type="button" value="一時停止" onClick="pauseVideo()">
-		<input type="button" value="↑" onClick="upVolume()">
-		<input type="button" value="↓" onClick="downVolume()"><br>
+		<button id="btn_play">再生</button>
+		<button id="btn_pause">一時停止</button>
+		<button id="btn_mute">消音</button>
+		<input type="range" id="volume" value="0.5" min="0.0" max="1.0" step="0.1">
 
 		<div class="BGM">
 			<h2 style="text-align:left;color:#217d8d">BGM＆Jingle</h2>
@@ -397,7 +405,7 @@
 <HR style="margin: 0em 0 ;">
 	<footer style="text-align:left;color:#ffffff">
 		<p><h3>©️2021 N・S高等学校横浜キャンパスクリエイティブ委員会音楽チーム</h3>
-		SE・BGM・Jingle項目にある全ての音源の著作権は上記の団体に帰属します。(Youtube動画は除く）<br>
+		SE・BGM項目にある全ての音源の著作権は上記の団体に帰属します。(Youtube動画と*印のあるSEを除く）<br>
 		また、htmlのコードは多数のウェブサイト（「引用」に記載）よりお借りしていますが、デザイン等は全て改変しています。このサイト及びサイト内のコンテンツ（音声・画像ファイルなど）を一部改変、もしくはそのまま複製・再配布することを固く禁じます。
 	</p>
 	<p>更新履歴は<span style="color:skyblue;"><a href="更新履歴.html">こちら</a></span>からご覧になれます。</p>

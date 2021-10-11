@@ -69,14 +69,15 @@ header {
   }
 
 
-  /*******
-@media (min-width: 960px),(-webkit-min-device-pixel-ratio:1){
-	.sound{
+
+@media (min-width: 960px){
+	.body{
 	background-image: url(image/backg1.jpg);
 	background-blend-mode: soft-light;
 	margin: 20px;	
 	}
-}********/
+}
+
 
 body{
 	font-family: sans-serif;
@@ -338,7 +339,7 @@ footer{
     box-sizing: border-box;
     color:#ffffff;
     text-decoration: none;
-    padding: 9px 20px 5px 0;
+    padding: 9px 40px 5px 0;
     position: relative;
 }
 .menu-content ul li a::before {
