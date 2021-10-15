@@ -56,7 +56,8 @@
 			//年・月・日・曜日を書き出す
 			document.write(year+"年"+month+"月"+day+"日 "+"("+week_ja[week]+")");</script><p id="realtime"></p></h2>
 	</div>
-	<details>
+	<div class="detailcont">
+	<details class="timer" id="timer">
 		<summary>タイマー・ストップウォッチ</summary>
 	<h3>通知音が鳴る仕様に変更されたタイマー</h3>
 	<div style="padding: 30px; margin-bottom: 10px; border: 1px solid #333333;">	
@@ -76,7 +77,7 @@
 	</div></details>
 
 	<br>
-	<details>
+	<details class="yomiage">
 		<summary>Ms. 読み上げ</summary>
 			<form name="form">
 				<!-- 使用する言語。必要な言語をセットしてください -->
@@ -105,12 +106,12 @@
 				</form></script>
 	
 			</details>
-
+			</div>
 <div class=wrapper>
 	<div class="Sound">
 		<h2 style="text-align:left;color:#29277c">効果音</h2>
 		※２つ以上は同時には鳴りません。
-		タイトルに「*」がついているSEは音源を制作できなかったため、「効果音ラボ」様のSEを使用しております。
+		タイトルに「*」がついているSEは音源を制作できなかったため、フリー素材もしくはお借りしたSE・音源を使用しております。
 
 		<p id="realtime"></p>
 		<br>
@@ -157,9 +158,10 @@
 			<p><a href="#" class="sounds" data-file="audio_o/broadcasting-end">放送チャイム<br>（終了）📢</a></p>
 			<p><a href="#" class="sounds" data-file="audio_o/anouncement-before">お知らせチャイム<br>（開始）🔉</a></p>
 			<p><a href="#" class="sounds" data-file="audio_o/anouncement-after">お知らせチャイム<br>（終了）🔉</a></p>
-			<p><a href="#" class="sounds" data-file="audio/chime1">学校チャイム１<br>(ロングバージョン)🔉</a></p>
-			<p><a href="#" class="sounds" data-file="audio/chime1-1">学校チャイム１<br>(ショートバージョン)🔉</a></p>			
-			<p><a href="#" class="sounds" data-file="audio/chime2">学校チャイム２<br>(ロングバージョン)🔉</a></p>
+			<!--<p><a href="#" class="sounds" data-file="audio/chime1">学校チャイム１<br>(ロングバージョン)🔉</a></p>-->
+			<p><a href="#" class="sounds" data-file="audio/chime1-1">学校チャイム１<br>(ショートバージョン)🔉</a></p>
+			<p><a href="#" class="sounds" id="nschime" data-file="audio/nschime">S高チャイム＊</a></p>			
+			<!--<p><a href="#" class="sounds" data-file="audio/chime2">学校チャイム２<br>(ロングバージョン)🔉</a></p>-->
 			<p><a href="#" class="sounds" data-file="audio/chime2-2">学校チャイム２<br>(ショートバージョン)🔉</a></p>
 			<p><a href="#" class="sounds" data-file="audio/police-whistle">ホイッスル<br>（ピーッ）*</a></p>
 			<p><a href="#" class="sounds" data-file="audio/運命1">運命１<br>（ベートーベン）*</a></p>

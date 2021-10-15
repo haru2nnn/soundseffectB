@@ -65,12 +65,22 @@ header {
   padding: 8px;
 }
 
+
+
 @media (min-width: 960px) {
-  .body {
-    background-image: url(image/backg1.jpg);
-    background-blend-mode: soft-light;
-    margin: 20px;
-  }
+.detailcont{
+  display: flex;
+  grid-template-columns: 1fr 1fr;
+}
+.timer{
+  width: 35%;
+}
+.timer #timer [open] summary {
+  background-color: coral;
+}
+.yomiage{
+  width: 65%;
+}
 }
 
 body {
@@ -106,8 +116,8 @@ body {
   display: inline-block;
   width: 92%;
   max-width: 400px;
-  margin: 15px;
-  padding: 25px 0;
+  margin: 10px;
+  padding: 20px 0;
   border-radius: 6px;
 
   color: #fff;
@@ -116,6 +126,11 @@ body {
   text-align: center;
   text-decoration: none;
 }
+#nschime{
+background: #2e336d;
+}
+
+
 .stop-button {
   display: block;
 
