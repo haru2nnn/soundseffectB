@@ -223,304 +223,86 @@ function set(word) {
 //<a href="javascript:void(0)" onclick="set('おはよう')">おはよう</a>
 
 ///////////////ストップウォッチ////////////////////////
-(function(){
-  'use strict';
-
-  //htmlのidからデータを取得
-  //取得したデータを変数に代入
-
-  var timer = document.getElementById('timer');
-  var start = document.getElementById('start');
-  var stop = document.getElementById('stop');
-  var reset = document.getElementById('reset');
-
-  //クリック時の時間を保持するための変数定義
-  var startTime;
-
-  //経過時刻を更新するための変数。 初めはだから0で初期化
-  var elapsedTime = 0;
-
-  //タイマーを止めるにはclearTimeoutを使う必要があり、そのためにはclearTimeoutの引数に渡すためのタイマーのidが必要
-  var timerId;
-
-  //タイマーをストップ -> 再開させたら0になってしまうのを避けるための変数。
-  var timeToadd = 0;
-
-
-  //ミリ秒の表示ではなく、分とか秒に直すための関数, 他のところからも呼び出すので別関数として作る
-  //計算方法として135200ミリ秒経過したとしてそれを分とか秒に直すと -> 02:15:200
-  function updateTimetText(){
-
-      //m(分) = 135200 / 60000ミリ秒で割った数の商　-> 2分
-      var m = Math.floor(elapsedTime / 60000);
-
-      //s(秒) = 135200 % 60000ミリ秒で / 1000 (ミリ秒なので1000で割ってやる) -> 15秒
-      var s = Math.floor(elapsedTime % 60000 / 1000);
-
-      //ms(ミリ秒) = 135200ミリ秒を % 1000ミリ秒で割った数の余り
-      var ms = elapsedTime % 1000;
-
-
-      //HTML 上で表示の際の桁数を固定する　例）3 => 03　、 12 -> 012
-      //javascriptでは文字列数列を連結すると文字列になる
-      //文字列の末尾2桁を表示したいのでsliceで負の値(-2)引数で渡してやる。
-      m = ('0' + m).slice(-2); 
-      s = ('0' + s).slice(-2);
-      ms = ('0' + ms).slice(-3);
-
-      //HTMLのid　timer部分に表示させる　
-      timer.textContent = m + ':' + s + ':' + ms;
-  }
-
-
-  //再帰的に使える用の関数
-  function countUp(){
-
-      //timerId変数はsetTimeoutの返り値になるので代入する
-      timerId = setTimeout(function(){
-
-          //経過時刻は現在時刻をミリ秒で示すDate.now()からstartを押した時の時刻(startTime)を引く
-          elapsedTime = Date.now() - startTime + timeToadd;
-          updateTimetText()
-
-          //countUp関数自身を呼ぶことで10ミリ秒毎に以下の計算を始める
-          countUp();
-
-      //1秒以下の時間を表示するために10ミリ秒後に始めるよう宣言
-      },10);
-  }
-
-  //startボタンにクリック時のイベントを追加(タイマースタートイベント)
-  start.addEventListener('click',function(){
-
-      //在時刻を示すDate.nowを代入
-      startTime = Date.now();
-
-      //再帰的に使えるように関数を作る
-      countUp();
-  });
-
-  //stopボタンにクリック時のイベントを追加(タイマーストップイベント)
-  stop.addEventListener('click',function(){
-
-      //タイマーを止めるにはclearTimeoutを使う必要があり、そのためにはclearTimeoutの引数に渡すためのタイマーのidが必要
-     clearTimeout(timerId);
-
-
-      //タイマーに表示される時間elapsedTimeが現在時刻かたスタートボタンを押した時刻を引いたものなので、
-      //タイマーを再開させたら0になってしまう。elapsedTime = Date.now - startTime
-      //それを回避するためには過去のスタート時間からストップ時間までの経過時間を足してあげなければならない。elapsedTime = Date.now - startTime + timeToadd (timeToadd = ストップを押した時刻(Date.now)から直近のスタート時刻(startTime)を引く)
-     timeToadd += Date.now() - startTime;
-  });
-
-  //resetボタンにクリック時のイベントを追加(タイマーリセットイベント)
-  reset.addEventListener('click',function(){
-
-      //経過時刻を更新するための変数elapsedTimeを0にしてあげつつ、updateTimetTextで0になったタイムを表示。
-      elapsedTime = 0;
-
-      //リセット時に0に初期化したいのでリセットを押した際に0を代入してあげる
-      timeToadd = 0;
-
-      //updateTimetTextで0になったタイムを表示
-      updateTimetText();
-
-  });
-})();
-
-
-
-
-/////////////////////////////////
-
-//////////////キー操作////////////////////////////////
-document.body.addEventListener("keydown", (event) => {
-  if (event.key === "q" && event.ctrlKey) {
-    var sounds = new Audio();
-    sounds.class = "se";
-    sounds.src = "audio/question.mp3";
-    sounds.currentTime = 0;
-    sounds.play();
-  }
-  if (event.key === "w" && event.ctrlKey) {
-    var sounds = new Audio();
-    sounds.src = "audio_o/correct.mp3";
-    sounds.currentTime = 0;
-    sounds.play();
-  }
-  if (event.key === "e" && event.ctrlKey) {
-    var sounds = new Audio();
-    sounds.src = "audio_o/incorrect.mp3";
-    sounds.currentTime = 0;
-    sounds.play();
-  }
-  if (event.key === "r" && event.ctrlKey) {
-    var sounds = new Audio();
-    sounds.src = "audio/drum-japanese2.mp3";
-    sounds.currentTime = 0;
-    sounds.play();
-  }
-  if (event.key === "t" && event.ctrlKey) {
-    var sounds = new Audio();
-    sounds.src = "audio_o/trumpet1.mp3";
-    sounds.currentTime = 0;
-    sounds.play();
-  }
-  if (event.key === "y" && event.ctrlKey) {
-    var sounds = new Audio();
-    sounds.src = "audio_o/trumpet3.mp3";
-    sounds.currentTime = 0;
-    sounds.play();
-  }
-  if (event.key === "u" && event.ctrlKey) {
-    var sounds = new Audio();
-    sounds.src = "audio/dondonpafupafu.mp3";
-    sounds.currentTime = 0;
-    sounds.play();
-  }
-  if (event.key === "i" && event.ctrlKey) {
-    var sounds = new Audio();
-    sounds.src = "audio_o/drumroll.mp3";
-    sounds.currentTime = 0;
-    sounds.play();
-  }
-  if (event.key === "a" && event.ctrlKey) {
-    var sounds = new Audio();
-    sounds.src = "audio/cheerandclap.mp3";
-    sounds.currentTime = 0;
-    sounds.play();
-  }
-  if (event.key === "s" && event.ctrlKey) {
-    var sounds = new Audio();
-    sounds.src = "audio/claping1.mp3";
-    sounds.currentTime = 0;
-    sounds.play();
-  }
-  if (event.key === "d" && event.ctrlKey) {
-    var sounds = new Audio();
-    sounds.src = "audio/everyone_laugh3.mp3";
-    sounds.currentTime = 0;
-    sounds.play();
-  }
-  if (event.key === "f" && event.ctrlKey) {
-    var sounds = new Audio();
-    sounds.src = "audio_o/shock.mp3";
-    sounds.currentTime = 0;
-    sounds.play();
-  }
-  if (event.key === "g" && event.ctrlKey) {
-    var sounds = new Audio();
-    sounds.src = "audio/tin.mp3";
-    sounds.currentTime = 0;
-    sounds.play();
-  }
-  if (event.key === "h" && event.ctrlKey) {
-    var sounds = new Audio();
-    sounds.src = "audio_o/chan-chan1.mp3";
-    sounds.currentTime = 0;
-    sounds.play();
-  }
-  if (event.key === "j" && event.ctrlKey) {
-    var sounds = new Audio();
-    sounds.src = "audio_o/chan-chan2.mp3";
-    sounds.currentTime = 0;
-    sounds.play();
-  }
-  if (event.key === "k" && event.ctrlKey) {
-    var sounds = new Audio();
-    sounds.src = "audio/effect1.mp3";
-    sounds.currentTime = 0;
-    sounds.play();
-  }
-  if (event.key === "l" && event.ctrlKey) {
-    var sounds = new Audio();
-    sounds.src = "audio/effect2.mp3";
-    sounds.currentTime = 0;
-    sounds.play();
-  }
-  if (event.key === ";" && event.ctrlKey) {
-    var sounds = new Audio();
-    sounds.src = "audio/effect3.mp3";
-    sounds.currentTime = 0;
-    sounds.play();
-  }
-  if (event.key === "z" && event.ctrlKey) {
-    var sounds = new Audio();
-    sounds.src = "audio/timer.mp3";
-    sounds.currentTime = 0;
-    sounds.play();
-  }
-  if (event.key === "x" && event.ctrlKey) {
-    var sounds = new Audio();
-    sounds.src = "audio/timer_fast.mp3";
-    sounds.currentTime = 0;
-    sounds.play();
-  }
-  if (event.key === "c" && event.ctrlKey) {
-    var sounds = new Audio();
-    sounds.src = "audio_o/broadcasting-start.mp3";
-    sounds.currentTime = 0;
-    sounds.play();
-  }
-  if (event.key === "v" && event.ctrlKey) {
-    var sounds = new Audio();
-    sounds.src = "audio_o/broadcasting-end.mp3";
-    sounds.currentTime = 0;
-    sounds.play();
-  }
-  if (event.key === "b" && event.ctrlKey) {
-    var sounds = new Audio();
-    var setClass = "se";
-    sounds.src = "audio/chime1-1.mp3";
-    sounds.currentTime = 0;
-    sounds.play();
-  }
-  if (event.key === "n" && event.ctrlKey) {
-    var sounds = new Audio();
-    sounds.src = "audio/police-whistle.mp3";
-    sounds.currentTime = 0;
-    sounds.play();
-  }
-  if (event.key === "m" && event.ctrlKey) {
-    var sounds = new Audio();
-    sounds.src = "audio/運命1.mp3";
-    sounds.currentTime = 0;
-    sounds.play();
-  }
-  if (event.key === "," && event.ctrlKey) {
-    var sounds = new Audio();
-    sounds.src = "audio_o/click.mp3";
-    sounds.currentTime = 0;
-    sounds.play();
-  }
-  if (event.key === "." && event.ctrlKey) {
-    var sounds = new Audio();
-    sounds.src = "audio_o/2click1.mp3";
-    sounds.currentTime = 0;
-    sounds.play();
-  }
-
-  if (event.key === "p" && event.ctrlKey) {
-    sounds.pause();
-  }
-
-  var sounds = document.querySelectorAll("sounds");
-  for (var i = 0; i < sounds.length; i++) {
-    sounds[i].addEventListener(
-      "play",
-      function () {
-        for (var j = 0; j < sounds.length; j++) {
-          if (sounds[j] != this) {
-            sounds[j].pause();
-          }
-        }
-      },
-      false
+"use strict";
+ 
+window.addEventListener( "DOMContentLoaded" , ()=> {
+    /**
+     * @param watchCallBack 経過時間報告用コールバック
+     * @param wrapCallBack ラップ報告用コールバック
+     */
+    const getStopWatch = function ( watchCallBack , wrapCallBack ){
+        let accumulatedTime = 0,    // 積算時間
+            currentTime=null,       // タイマー開示タイムスタンプ
+            timerId=null;           // setInterval() の返り値
+ 
+            // リセット処理
+        const reset = () =>{
+            timerOff(); accumulatedTime = 0; currentTime=null;
+                // リセットされたことをnullで通知
+            watchCallBack( null ); wrapCallBack ( null );
+        };
+            // 開始処理
+        const start = () =>{ currentTime = Date.now();timerOn(); };
+            // 一時停止処理
+        const pause = () =>{
+                // これまでの経過時間を退避
+            accumulatedTime = getNowTime();
+            timerOff();
+            currentTime = null;
+        };
+            // 再開処理
+        const resume = () =>start();
+            // ラップ報告処理
+        const wrap = () =>wrapCallBack( getNowTime() );
+            // 経過時間の算出
+        const getNowTime = () =>accumulatedTime + Date.now() - currentTime;
+ 
+            // タイマー停止処理
+        const timerOff = () => {
+            if( timerId === null ) return;
+            clearInterval(timerId);
+            timerId = null;
+        };
+            // タイマー開始処理
+        const timerOn = () => {
+            if( timerId !== null ) clearTimeout(timerId);
+            timerId = setInterval(()=>watchCallBack( getNowTime() ),10);
+        };
+ 
+        reset();
+ 
+            // 必要な機能だけ返す
+        return Object.freeze({
+            start:()=> currentTime === null && accumulatedTime === 0 ?   start()  : reset(),
+            pause:()=> currentTime === null ? ( accumulatedTime === 0 ? false : resume() ) : pause(),
+            wrap:()=> currentTime === null ?  false : wrap(),
+        });
+    };
+ 
+        // ミリ秒を画面表示する形式に変換
+    const timeString = time =>`${
+        Math.floor(time / 60000).toString().padStart(2,"00")
+    }:${
+        Math.floor(time % 60000 / 1000).toString().padStart(2,"00")
+    }.${
+        Math.floor(time % 1000).toString().padStart(3,"000").slice(0,2)
+    }`;
+ 
+    const watchArea = document.getElementById("watchArea");
+    const wrapArea = document.getElementById("wrapArea");
+ 
+    const stopWatchObj = getStopWatch(
+         time => watchArea.textContent = time === null ? "00:00.00" : timeString( time ) ,
+         time => wrapArea.value = time === null ? "" : wrapArea.value + "\n" + timeString( time )
     );
-  }
-  
+ 
+    const buttonDefine = [
+            { id:"start" , listener:()=>stopWatchObj.start() },
+            { id:"pause" , listener:()=>stopWatchObj.pause() },
+            { id:"wrap"  , listener:()=>stopWatchObj.wrap()  }
+        ];
+    buttonDefine.forEach( e => document.getElementById(e.id).addEventListener("click",e.listener));
 });
-
 
 
 
