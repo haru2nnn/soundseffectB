@@ -99,6 +99,7 @@ body {
   background-color: #c4e2f7d3;
 }
 
+
 .wrapper {
   margin: 0px;
   padding: 0px;
@@ -117,22 +118,37 @@ body {
   align-items: center;
 }
 
+.sevol,
+.SoundVolome{
+  margin: 0px;
+  padding: 0px;
+}
+
 .sounds {
   display: inline-block;
-  width: 92%;
-  max-width: 400px;
-  margin: 10px;
-  padding: 20px 0;
-  border-radius: 6px;
+  width: 170px;
+  height: 50px;
+  margin: 7px;
+  padding:15px 0;
+  border-radius: 15px;
 
   color: #fff;
-  font-weight: 700;
+  font-weight: 600;
   background: #21276c;
   text-align: center;
   text-decoration: none;
 }
-#nschime{
-background: #323b99;
+/*#nschime{
+background: #21276c;
+}*/
+#green{
+  background: rgb(3, 65, 3);
+}
+#yellow{
+  background:rgb(119, 34, 8)
+}
+#blue{
+  background:rgb(12, 77, 107);
 }
 
 
@@ -247,12 +263,16 @@ details[open] summary {
 footer {
   margin: 0px;
   padding: 30px;
+  text-align:left;
+  color:#ffffff;
 }
-.footer a {
-  color: #432;
+footer a {
+  color: rgb(24, 160, 81);
+  background-color: rgba(255, 255, 255, 0.651);
 }
-.footer a:hover {
+footer a:hover {
   color: #0bd;
+  background-color: rgba(255, 255, 255, 0.884);
 }
 
 /*文中の文字を囲む*/

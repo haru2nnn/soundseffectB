@@ -33,6 +33,7 @@
 			<li class="menu-item"><a href="index.html" >横浜キャンパスSE集</a></li>
 			<li class="menu-item"><a href="index-yobi.html" target="_blank" rel="opener">うまくページが表示できない時はこちら</a></li>
 			<li class="menu-item"><a href="https://sites.google.com/nnn.ed.jp/ycp-s-soundeffectbs/SE_key-layout-teacher" target="_blank" rel="noopener">効果音のキー配列表はこちら</a></li>
+			<li class="menu-item"><a href="https://haru2nnn.github.io/soundseffectS/" target="blank" rel="noopener">横浜キャンパス生徒用SE集サイト</a></li>
 			<li class="menu-item"><a href="https://sites.google.com/nnn.ed.jp/ycp-s-soundeffectbs/new-infomation" target="_blank" rel="noopener">新着情報</a></li>
 			<li class="menu-item"><a href="https://sites.google.com/nnn.ed.jp/ycp-s-soundeffectbs/history-teacher" target="_blank" rel="noopener">更新履歴</a></li>
 			<!--<li class="menu-item"><a href="readme.html" target="_blank" rel="noopener">マニュアル</a></li>-->
@@ -109,12 +110,9 @@
 	<div class="Sound">
 		<h2 style="text-align:left;color:#29277c">効果音</h2>
 		※２つ以上は同時には鳴りません。
-		タイトルに「*」がついているSEは音源を制作できなかったため、フリー素材もしくはお借りしたSE・音源を使用しております。
+		タイトルに「*」や「＊」がついているSEは音源を制作できなかったため、フリー素材もしくはお借りしたSE・音源を使用しております。
 
-		<p id="realtime"></p>
-		<br>
-		<p>効果音 音量</p>
-		<input type="range" name="SoundVolome" id="SoundVolome" value="90" min="0" max="100" step="5"> 🐰<p id="msg"></p>
+		<h4 class="sevol">効果音 音量</h4>		<input type="range" name="SoundVolome" class="SoundVolome" id="SoundVolome" value="90" min="0" max="100" step="5"> 🐰<p id="msg"></p>
 		<script>
 			function inputChange(event){
 			  msg.innerText = 'Volume: ' + SoundVolome.value ;
@@ -127,55 +125,57 @@
 		
 		<div class="sebutton">	
 			<div class="effect">
-			<p><a href="#" class="sounds" data-file="audio/question">出題*</a></p>
-			<p><a href="#" class="sounds" data-file="audio_o/correct">正解！🙆🏻‍♂️</a></p>
-			<p><a href="#" class="sounds" data-file="audio_o/incorrect">不正解🙅🏻‍♂️</a></p>
-			<p><a href="#" class="sounds" data-file="audio/drum-japanese1">ドン*</a></p>
-			<p><a href="#" class="sounds" data-file="audio/drum-japanese2">ドドン*</a></p>
-			<p><a href="#" class="sounds" data-file="audio_o/dora">どら</a></p>
-			<p><a href="#" class="sounds" data-file="audio/小鼓">小鼓*</a></p>
-			<p><a href="#" class="sounds" data-file="audio_o/trumpet1">ファンファーレ１🎺</a></p>
-			<p><a href="#" class="sounds" data-file="audio_o/trumpet2">ファンファーレ２🎺</a></p>
-			<p><a href="#" class="sounds" data-file="audio_o/trumpet3">ファンファーレ3🎺</a></p>
-			<p><a href="#" class="sounds" data-file="audio/dondonpafupafu">ドンパフ*</a></p>
-			<p><a href="#" class="sounds" data-file="audio/everyone_laugh3">（笑い）😆*</a></p>
-			<p><a href="#" class="sounds" data-file="audio_o/shock">ガーン<br>（ショック）😱</a></p>
-			<p><a href="#" class="sounds" data-file="audio/tin">チーン*</a></p>
-			<p><a href="#" class="sounds" data-file="audio_o/chan-chan1">チャンチャン1(軽め)</a></p>
-			<p><a href="#" class="sounds" data-file="audio_o/chan-chan2">チャンチャン2(重め)</a></p>
-			<p><a href="#" class="sounds" data-file="audio/effect1">エフェクト１🎵*</a></p>
-			<p><a href="#" class="sounds" data-file="audio/effect2">エフェクト２🎶*</a></p>
-			<p><a href="#" class="sounds" data-file="audio/effect3">エフェクト３🎵*</a></p>	
-			<p><a href="#" class="sounds" data-file="audio/professional-effect">プロフェッショナル<br>効果音</a></p>
-			<p><a href="#" class="sounds" data-file="audio/運命1">運命１<br>（ベートーベン）*</a></p>
-			<p><a href="#" class="sounds" data-file="audio/運命2">運命２<br>（トッカータとフーガニ短調）*</a></p>
+			<p><a href="#" class="sounds" id="yellow" data-file="audio_o/trumpet1">ファンファーレ１🎺</a></p>
+			<p><a href="#" class="sounds" id="yellow" data-file="audio_o/trumpet2">ファンファーレ２🎺</a></p>
+			<p><a href="#" class="sounds" id="yellow" data-file="audio_o/trumpet3">ファンファーレ3🎺</a></p>
+			<p><a href="#" class="sounds" id="yellow" data-file="audio_o/dora">どら</a></p>
+			<p><a href="#" class="sounds" id="yellow" data-file="audio/小鼓">小鼓*</a></p>
+			<p><a href="#" class="sounds" id="yellow" data-file="audio/drum-japanese1">ドン*</a></p>
+			<p><a href="#" class="sounds" id="yellow" data-file="audio/drum-japanese2">ドドン*</a></p>
+			<p><a href="#" class="sounds" id="yellow" data-file="audio/運命1">運命１*</a></p>
+			<p><a href="#" class="sounds" id="yellow" data-file="audio/運命2">運命２*</a></p>
+			<p><a href="#" class="sounds" id="yellow" data-file="audio_o/shock">ガーン😱</a></p>
+			<p><a href="#" class="sounds" id="yellow" data-file="audio/tin">チーン*</a></p>
+			<p><a href="#" class="sounds" id="yellow" data-file="audio_o/chan-chan1">チャンチャン<br>(軽め)</a></p>
+			<p><a href="#" class="sounds" id="yellow" data-file="audio_o/chan-chan2">チャンチャン<br>(重め)</a></p>
+			<p><a href="#" class="sounds" id="yellow" data-file="audio/professional-effect">プロフェッショナル<br>効果音</a></p>
 			</div>
 			<div class="sceneeffect">
-				<p><a href="#" class="sounds" data-file="audio_o/drumroll">ドラムロール🥁</a></p>
-				<p><a href="#" class="sounds" data-file="audio/jyan">ジャン*</a></p>
-				<p><a href="#" class="sounds" data-file="audio/cheerandclap">拍手と歓声👏*</a></p>
-				<p><a href="#" class="sounds" data-file="audio/claping1">拍手👏*</a></p>
-				<p><a href="#" class="sounds" data-file="audio/timer">カウントダウン<br>（チクタク）🕑*</a></p>
-				<p><a href="#" class="sounds" data-file="audio/timer_fast">カウントダウン<br>（残り時間少なめ）🕐*</a></p>
-				<p><a href="#" class="sounds" data-file="audio/police-whistle">ホイッスル<br>（ピーッ）*</a></p>
-				<p><a href="#" class="sounds" data-file="audio_o/click">クリック</a></p>
-				<p><a href="#" class="sounds" data-file="audio_o/2click">ダブルクリック</a></p>
+				<p><a href="#" class="sounds" id="green" data-file="audio_o/drumroll">ドラムロール🥁</a></p>
+				<p><a href="#" class="sounds" id="green" data-file="audio/cheerandclap">拍手と歓声👏*</a></p>
+				<p><a href="#" class="sounds" id="green" data-file="audio/claping1">拍手👏*</a></p>
+				<p><a href="#" class="sounds" id="green" data-file="audio/everyone_laugh3">（笑い）😆*</a></p>
+				<p><a href="#" class="sounds" id="green" data-file="audio/dondonpafupafu">ドンパフ*</a></p>
+				<p><a href="#" class="sounds" id="green" data-file="audio/police-whistle">ホイッスル<br>（ピーッ）*</a></p>
+				<p><a href="#" class="sounds" id="green" data-file="audio/shakine">シャキーン✨</a></p>
+				<p><a href="#" class="sounds" id="green" data-file="audio/jyan">ジャン*</a></p>
+				<p><a href="#" class="sounds" id="green" data-file="audio/effect1">エフェクト１🎵*</a></p>
+				<p><a href="#" class="sounds" id="green" data-file="audio/effect2">エフェクト２🎶*</a></p>
+				<p><a href="#" class="sounds" id="green" data-file="audio/effect3">エフェクト３🎵*</a></p>
+				<p><a href="#" class="sounds" id="green" data-file="audio/question">出題*</a></p>
+				<p><a href="#" class="sounds" id="green" data-file="audio_o/correct">正解！🙆🏻‍♂️</a></p>
+				<p><a href="#" class="sounds" id="green" data-file="audio_o/incorrect">不正解🙅🏻‍♂️</a></p>
+				<p><a href="#" class="sounds" id="green" data-file="audio/timer">カウントダウン🕑*</a></p>
+				<p><a href="#" class="sounds" id="green" data-file="audio/timer_fast">カウントダウン速め🕐*</a></p>
+				<p><a href="#" class="sounds" id="green" data-file="audio/question">出題*</a></p>
+				<p><a href="#" class="sounds" id="green" data-file="audio_o/correct">正解！🙆🏻‍♂️</a></p>
+				<p><a href="#" class="sounds" id="green" data-file="audio_o/incorrect">不正解🙅🏻‍♂️</a></p>
 			</div>
 			<div class="chime">
-				<p><a href="#" class="sounds" data-file="audio_o/broadcasting-start">放送チャイム<br>（開始）📢</a></p>
-				<p><a href="#" class="sounds" data-file="audio_o/broadcasting-end">放送チャイム<br>（終了）📢</a></p>
-				<p><a href="#" class="sounds" data-file="audio_o/anouncement-before">お知らせチャイム<br>（開始）🔉</a></p>
-				<p><a href="#" class="sounds" data-file="audio_o/anouncement-after">お知らせチャイム<br>（終了）🔉</a></p>
-				<!--<p><a href="#" class="sounds" data-file="audio/chime1">学校チャイム１<br>(ロングバージョン)🔉</a></p>-->
-				<p><a href="#" class="sounds" data-file="audio/chime1-1">学校チャイム１<br>(ショートバージョン)🔉</a></p>
-				<p><a href="#" class="sounds" id="nschime" data-file="audio/nschime">S高チャイム＊</a></p>			
-				<!--<p><a href="#" class="sounds" data-file="audio/chime2">学校チャイム２<br>(ロングバージョン)🔉</a></p>-->
-				<p><a href="#" class="sounds" data-file="audio/chime2-2">学校チャイム２<br>(ショートバージョン)🔉</a></p>
+				<p><a href="#" class="sounds" id="blue" data-file="audio_o/broadcasting-start">放送チャイム<br>（開始）📢</a></p>
+				<p><a href="#" class="sounds" id="blue" data-file="audio_o/broadcasting-end">放送チャイム<br>（終了）📢</a></p>
+				<p><a href="#" class="sounds" id="blue" data-file="audio_o/anouncement-before">お知らせチャイム<br>（開始）🔉</a></p>
+				<p><a href="#" class="sounds" id="blue" data-file="audio_o/anouncement-after">お知らせチャイム<br>（終了）🔉</a></p>
+				<p><a href="#" class="sounds" id="nschime" data-file="audio/nschime">S高チャイム＊</a></p>	
+				<!--<p><a href="#" class="sounds" id="blue" data-file="audio/chime1">学校チャイム１<br>(ロングバージョン)🔉</a></p>-->
+				<p><a href="#" class="sounds" id="blue" data-file="audio/chime1-1">学校チャイム１🔉</a></p>
+				<!--<p><a href="#" class="sounds" id="blue" data-file="audio/chime2">学校チャイム２<br>(ロングバージョン)🔉</a></p>-->
+				<p><a href="#" class="sounds" id="blue" data-file="audio/chime2-2">学校チャイム２🔉</a></p>
+				<p><a href="#" class="sounds" id="blue" data-file="audio_o/click">クリック</a></p>
+				<p><a href="#" class="sounds" id="blue" data-file="audio_o/2click">ダブルクリック</a></p>
 			</div>
-
 		</div>	
-		<h2>SE全停止</h2>
-		<p><a href="#" id="stop-button" class="stop-button">SEを停止する</a></p>
+		<p><a href="#" id="stop-button" class="stop-button">ボタンで再生したSEを停止する</a></p>
 		</div>
 		
 		
@@ -198,39 +198,30 @@
 						<h4>スターウォーズのテーマ</h4>
 								<audio controls preload="auto" controlslist="nodownload" >
 								<source src="audio/bgm/Star Wars Main Theme.mp3" type="audio/mp3">スターウォーズのメインテーマ</audio>   
-							<br>
 						<h4>BGM1（ループ）</h4>
 						<audio controls loop preload="auto" controlslist="nodownload" >
 							<source src="audio/bgm/jingleセットcycle.mp3" type="audio/mp3"/></audio>
-							<br>
 						<h4>BGM1アレンジ＆ロング版（ループ）</h4>
 						<audio controls loop preload="auto" >
 							<source src="audio/bgm/jingle1_arrange.mp3" type="audio/mp3"/></audio>
-							<br>
 						<h4>BGM2（ループ）</h4>
 						<audio controls loop preload="auto" controlslist="nodownload" >
 							<source src="audio/bgm/chillout.mp3" type="audio/mp3"/></audio>
-							<br>
 						<p><img class="pop_new" src="image/pop_new.png"></p><h4>BGM3（ループ）</h4>
 						<audio controls loop preload="auto" controlslist="nodownload" >
 							<source src="audio/bgm/goodbgm.mp3" type="audio/mp3"/></audio>
-							<br>	
 							<p><img class="pop_new" src="image/pop_new.png"></p><h4>BGM4（ループ）</h4>
 						<audio controls loop preload="auto" controlslist="nodownload" >
 							<source src="audio/bgm/likebutterfly.mp3" type="audio/mp3"/></audio>
-							<br>
 						<p><img class="pop_new" src="image/pop_new.png"></p><h4>BGM5（ループ）</h4>
 						<audio controls loop preload="auto" controlslist="nodownload" >
 							<source src="audio/bgm/hope.mp3" type="audio/mp3"/></audio>
-							<br>
 						<p><img class="pop_new" src="image/pop_new.png"></p><h4>BGM6（ループ）</h4>
 						<audio controls loop preload="auto" controlslist="nodownload" >
 							<source src="audio/bgm/bassBGM.mp3" type="audio/mp3"/></audio>
-							<br>
 						<p><img class="pop_new" src="image/pop_new.png"></p><h4>BGM7（ループ）</h4>
 						<audio controls loop preload="auto" controlslist="nodownload" >
 							<source src="audio/bgm/goodbgm2.mp3" type="audio/mp3"/></audio>
-				
 				<br><br><br>
 				<details open id="bgmsum">
 					<summary id="bgnsum">
@@ -289,12 +280,12 @@
 </div>
 
 <HR style="margin: 0em 0 ;">
-	<footer style="text-align:left;color:#ffffff">
+	<footer>
 		<p><h3>©️2021 N・S高等学校横浜キャンパスクリエイティブ委員会音楽チーム</h3>
 		SE・BGM項目にある全ての音源の著作権は上記の団体に帰属します。(Youtube動画と*印のあるSEを除く）<br>
 		また、htmlのコードは多数のウェブサイト（「引用」に記載）よりお借りしていますが、デザイン等は全て改変しています。このサイト及びサイト内のコンテンツ（音声・画像ファイルなど）を一部改変、もしくはそのまま複製・再配布することを固く禁じます。
 	</p>
-	<p>更新履歴は<span style="color:skyblue;"><a href="https://sites.google.com/nnn.ed.jp/ycp-s-soundeffectbs/history-teacher" target="_blank" rel="noopener">こちら</a></span>からご覧になれます。</p>
+	<p>更新履歴は<a href="https://sites.google.com/nnn.ed.jp/ycp-s-soundeffectbs/history-teacher" target="_blank" rel="noopener">こちら</a>からご覧になれます。</p>
 	<p>バグやご意見がございましたら以下のリンクからお願いします。<a href="https://sites.google.com/nnn.ed.jp/ycp-s-soundeffectbs/fb_contact-us" target="_blank" rel="noopener">こちらから</a></p>
 	</footer>
 
