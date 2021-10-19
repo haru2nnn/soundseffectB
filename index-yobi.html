@@ -7,140 +7,11 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 		<!-- スタイルシートの読み込み -->
-		<link href="Sounds EffecterB 2.css" rel="stylesheet">
+		<link href="Sounds EffecterB.css" rel="stylesheet">
 
-		<link rel="manifest" href="/manifest.json" crossorigin="use-credentials">
 
-		<script>
-			function twoDigit(num) {
-			  let ret;
-			  if( num < 10 ) 
-				ret = "0" + num; 
-			  else 
-				ret = num; 
-			  return ret;
-			}
-			function showClock() {
-			  let nowTime = new Date();
-			  let nowHour = twoDigit( nowTime.getHours() );
-			  let nowMin  = twoDigit( nowTime.getMinutes() );
-			  let nowSec  = twoDigit( nowTime.getSeconds() );
-			  let msg = nowHour + ":" + nowMin + ":" + nowSec;
-			  document.getElementById("realtime").innerHTML = msg;
-			}
-			setInterval('showClock()',1000);
-		  </script>
-	<script>
-
-		var timer1; //タイマーを格納する変数（タイマーID）の宣言
-		
-		
-		//カウントダウン関数を1000ミリ秒毎に呼び出す関数
-		function cntStart()
-		{
-		  document.timer.elements[2].disabled=true;
-		  timer1=setInterval("countDown()",1000);
-		}
-		
-		//タイマー停止関数
-		function cntStop()
-		{
-		  document.timer.elements[2].disabled=false;
-		  clearInterval(timer1);
-		}
-		
-		//カウントダウン関数
-		function countDown()
-		{
-		  var min=document.timer.elements[0].value;
-		  var sec=document.timer.elements[1].value;
-		  
-		  if( (min=="") && (sec=="") )
-		  {
-			alert("時間を設定してください！");
-			reSet();
-		  }
-		  else
-		  {
-			if (min=="") min=0;
-			min=parseInt(min);
-			
-			if (sec=="") sec=0;
-			sec=parseInt(sec);
-			
-			tmWrite(min*60+sec-1);
-		  }
-		}
-		
-		//残り時間を書き出す関数
-		function tmWrite(int)
-		{
-		  int=parseInt(int);
-		  
-		  if (int<=0)
-		  {
-			reSet();
-			alert("時間です！");
-		  }
-		  else
-		  {
-			//残り分数はintを60で割って切り捨てる
-			document.timer.elements[0].value=Math.floor(int/60);
-			//残り秒数はintを60で割った余り
-			document.timer.elements[1].value=int % 60;
-		  }
-		}
-		
-		//フォームを初期状態に戻す（リセット）関数
-		function reSet()
-		{
-		  document.timer.elements[0].value="0";
-		  document.timer.elements[1].value="0";
-		  document.timer.elements[2].disabled=false;
-		  clearInterval(timer1);
-		}  
-		  
-		</script>
-
-<!-- 読み上げのスクリプト -->
-<script>
-	function lng(prm) { lang = prm ; }
-	function speech() {
-	var synthes = new SpeechSynthesisUtterance();
-	synthes.volume = form.volume.value / 10 ;
-	synthes.rate = form.rate.value / 10 ;
-	synthes.pitch = form.pitch.value / 10 ;
-	synthes.text = form.text.value ;
-	synthes.lang = lang ;
-	synthes.voiceURI = "native" ;
-	speechSynthesis.speak(synthes);
-	}
-	function pause() { speechSynthesis.pause() ; }
-	function resume() { speechSynthesis.resume() ; }
-	function cancel() { speechSynthesis.cancel() ; }
-	window.onload = function () {
-	ini();
-	}
-	</script>
-	
-	<!--「textarea」にデフォルトで文章をセットしておく場合のサンプル。必要に応じて -->
-	<script>
-	function ini(){
-	lang ="ja-JP" ;
-	form.text.value ="" ;
-	}
-	</script>
-	
-	<!-- 事前に用意した文章をテキストエリアに表示させるスクリプト。必要に応じて -->
-	<script>
-	function set(word) { form.text.value = word ; }
-	</script>
-	<!-- 用意する文章の、body 内での書き方のサンプル
-	<a href="javascript:void(0)" onclick="set('おはよう')">おはよう</a>
-	-->
-
-		<title>SE集 β版(オリジナル版）</title>
-		<link rel="icon" href="favicons/favicon5.png">
+		<title>横浜キャンパスSE集（オリジナル版）</title>
+		<link rel="icon" href="favicons/favicon.ico">
 	</head>
 
 <body>
@@ -159,46 +30,52 @@
 		<nav class="nav">
 		<div class=navlogo>	<li><img class="logo" src="image/header-logo2.png" width="80%"></li></div>
 		  <ul class="menu-group">
-			<li class="menu-item"><a href="index.html" target="_blank" rel="noopener">SE集オリジナル版</a></li>
-			<li class="menu-item"><a href="" target="_blank" rel="noopener">効果音のキー配列表はこちら</a></li>
+			<li class="menu-item"><a href="index.html" >横浜キャンパスSE集</a></li>
 			<li class="menu-item"><a href="index-yobi.html" target="_blank" rel="opener">うまくページが表示できない時はこちら</a></li>
-			<li class="menu-item"><a href="index-origin.html" target="_blank" rel="noopener">SE集従来β版</a></li>
-			<li class="menu-item"><a href="更新履歴.html" target="_blank" rel="noopener">更新履歴</a></li>
-			<li class="menu-item"><a href="readme.html" target="_blank" rel="noopener">マニュアル</a></li>
-			<li class="menu-item"><a href="quote.html" target="_blank" rel="noopener">コード引用サイト</a></li>
-			<li class="menu-item"><a href="contactus.html" target="_blank" rel="noopener">チャットボット・お問い合わせ</a></li>
+			<li class="menu-item"><a href="https://sites.google.com/nnn.ed.jp/ycp-s-soundeffectbs/SE_key-layout-teacher" target="_blank" rel="noopener">効果音のキー配列表はこちら</a></li>
+			<li class="menu-item"><a href="https://sites.google.com/nnn.ed.jp/ycp-s-soundeffectbs/new-infomation" target="_blank" rel="noopener">新着情報</a></li>
+			<li class="menu-item"><a href="https://sites.google.com/nnn.ed.jp/ycp-s-soundeffectbs/history-teacher" target="_blank" rel="noopener">更新履歴</a></li>
+			<!--<li class="menu-item"><a href="readme.html" target="_blank" rel="noopener">マニュアル</a></li>-->
+			<li class="menu-item"><a href="https://sites.google.com/nnn.ed.jp/ycp-s-soundeffectbs/quote" target="_blank" rel="noopener">コード引用サイト</a></li>
+			<li class="menu-item"><a href="https://sites.google.com/nnn.ed.jp/ycp-s-soundeffectbs/fb_contact-us" target="_blank" rel="noopener">お問い合わせ</a></li>
 		  </ul>
 		</nav></div></div>
 	  </header>
 
-
-	  	<div style="padding: 10px; margin-bottom: 10px; border: 1px solid #333333;">
-		<h2><script>//今日の日付データを変数に格納
-		//変数は"today"とする
-		var today=new Date(); 
-		
-		//年・月・日・曜日を取得
-		var year = today.getFullYear();
-		var month = today.getMonth()+1;
-		var week = today.getDay();
-		var day = today.getDate();
-		
-		var week_ja= new Array("日","月","火","水","木","金","土");
-		
-		//年・月・日・曜日を書き出す
-		document.write(year+"年"+month+"月"+day+"日 "+"("+week_ja[week]+")");</script><p id="realtime"></p></h2>
+	  	<div style="padding: 10px; margin-bottom: 5px; border: 1px solid #333333;">
+		<h2><script>
+			//今日の日付データを変数に格納
+			//変数は"today"とする
+			var today = new Date();
+			//年・月・日・曜日を取得
+			var year = today.getFullYear();
+			var month = today.getMonth() + 1;
+			var week = today.getDay();
+			var day = today.getDate();
+			var week_ja = new Array("日", "月", "火", "水", "木", "金", "土");
+			//年・月・日・曜日を書き出す
+			document.write(year+"年"+month+"月"+day+"日 "+"("+week_ja[week]+")");</script><p id="realtime"></p></h2>
 	</div>
-	<p>※秒が若干(0.5秒前後）ずれることがあります。その場合は、<span class="kakomu">command+shift+R　(Mac)</span>もしくは<span class="kakomu">Shift+F5　(Windows)</span>でキャッシュなしリロードを行ってください。</p>
-	<input type="button" class="reload" value="SE集をリロード" onclick="window.location.reload();" />
-	<h4>通知音が鳴らないタイマー</h4>
-	<div style="padding: 30px; margin-bottom: 10px; border: 1px solid #333333;">
+	<details>
+		<summary>タイマー・ストップウォッチ</summary>
+	<h3>通知音が鳴る仕様に変更されたタイマー</h3>
+	<div style="padding: 30px; margin-bottom: 10px; border: 1px solid #333333;">	
 		<form name="timer">
-		<input type="text" value="">分
-		<input type="text" value="">秒<br>
+		<input type="text" value="3">分
+		<input type="text" value="0">秒<br>
 		<input type="button" value="Start" onclick="cntStart()">
 		<input type="button" value="Pause" onclick="cntStop()">
 		</form>
 	</div>	
+	<h3>ストップウォッチ</h3>
+	<div style="padding: 30px; margin-bottom: 10px; border: 1px solid #333333;">
+    <h4><div id="timer">00:00:000</div></h4>
+    <button id="start">Start</button>
+    <button id="stop">Stop</button>
+    <button id="reset">Reset</button>
+	</div></details>
+
+	<br>
 	<details>
 		<summary>Ms. 読み上げ</summary>
 			<form name="form">
@@ -227,15 +104,28 @@
 				<input type="button" name="Submit" value="初期設定に戻す" onClick="location.reload(true);" title="初期設定に戻す" alt="初期設定に戻す">
 				</form></script>
 	
-	</details>
-	<HR style="margin: 3em 0 ;">
+			</details>
 
 <div class=wrapper>
 	<div class="Sound">
 		<h2 style="text-align:left;color:#29277c">効果音</h2>
 		※２つ以上は同時には鳴りません。
 		タイトルに「*」がついているSEは音源を制作できなかったため、「効果音ラボ」様のSEを使用しております。
-		効果音の音量が大きい場合は<a href="https://chrome.google.com/webstore/detail/volume-master/jghecgabfgfdldnmbfkhmffcabddioke" target="_blank" rel="noopener">こちらの拡張機能</a>をご利用ください。
+
+		<p id="realtime"></p>
+		<br>
+		<p>効果音 音量</p>
+		<input type="range" name="SoundVolome" id="SoundVolome" value="90" min="0" max="100" step="5"> 🐰<p id="msg"></p>
+		<script>
+			function inputChange(event){
+			  msg.innerText = 'Volume: ' + SoundVolome.value ;
+			}
+			let SoundVolome = document.getElementById('SoundVolome');
+			SoundVolome.addEventListener('input', inputChange);
+			let msg = document.getElementById('msg');
+			</script>
+			
+		
 		<div class="sebutton">	
 			<p><a href="#" class="sounds" data-file="audio/question">出題*</a></p>
 			<p><a href="#" class="sounds" data-file="audio_o/correct">正解！🙆🏻‍♂️</a></p>
@@ -280,8 +170,8 @@
 		<h2>SE全停止</h2>
 		<p><a href="#" id="stop-button" class="stop-button">SEを停止する</a></p>
 		</div>
-
-
+		
+		
 		<div class="BGM">
 			<h2 style="text-align:left;color:#217d8d">BGM＆Jingle</h2>
 				BGM・ジングルのプレーヤーの音量はデフォルトで100%になっています。音量にご注意ください。
@@ -298,73 +188,82 @@
 			<div class="audio">
 				
 					<h3>BGM</h3>
-					<!--	
-						<h5>ザ・Youtubeみたいなテーマソング</h5>
-						<audio controls preload="metadata">
-							<source src="audio/bgm/ザ・YouTube冒頭あいさつな曲.mp3" controlslist="nodownload" type="audio/mp3"/></audio>	
-						<h5>おどれグロッケンシュピール</h5>
-						<audio controls preload="metadata">
-							<source src="audio/bgm/おどれグロッケンシュピール.mp3" controlslist="nodownload" type="audio/mp3"/></audio>
-						-->
-						
 						<h4>スターウォーズのテーマ</h4>
-								<audio controls preload="metadata" controlslist="nodownload" >
+								<audio controls preload="auto" controlslist="nodownload" >
 								<source src="audio/bgm/Star Wars Main Theme.mp3" type="audio/mp3">スターウォーズのメインテーマ</audio>   
-
+							<br>
 						<h4>BGM1（ループ）</h4>
-						<audio controls loop preload="metadata" controlslist="nodownload" >
+						<audio controls loop preload="auto" controlslist="nodownload" >
 							<source src="audio/bgm/jingleセットcycle.mp3" type="audio/mp3"/></audio>
 							<br>
 						<h4>BGM1アレンジ＆ロング版（ループ）</h4>
-						<audio controls loop preload="metadata" >
+						<audio controls loop preload="auto" >
 							<source src="audio/bgm/jingle1_arrange.mp3" type="audio/mp3"/></audio>
 							<br>
 						<h4>BGM2（ループ）</h4>
-						<audio controls loop preload="metadata" controlslist="nodownload" >
+						<audio controls loop preload="auto" controlslist="nodownload" >
 							<source src="audio/bgm/chillout.mp3" type="audio/mp3"/></audio>
 							<br>
 						<p><img class="pop_new" src="image/pop_new.png"></p><h4>BGM3（ループ）</h4>
-						<audio controls loop preload="metadata" controlslist="nodownload" >
+						<audio controls loop preload="auto" controlslist="nodownload" >
 							<source src="audio/bgm/goodbgm.mp3" type="audio/mp3"/></audio>
 							<br>	
 							<p><img class="pop_new" src="image/pop_new.png"></p><h4>BGM4（ループ）</h4>
-						<audio controls loop preload="metadata" controlslist="nodownload" >
+						<audio controls loop preload="auto" controlslist="nodownload" >
 							<source src="audio/bgm/likebutterfly.mp3" type="audio/mp3"/></audio>
-							<br>	
-						<h4>BGM5（ループ）</h4>
-						<audio controls loop preload="metadata" controlslist="nodownload" >
+							<br>
+						<p><img class="pop_new" src="image/pop_new.png"></p><h4>BGM5（ループ）</h4>
+						<audio controls loop preload="auto" controlslist="nodownload" >
+							<source src="audio/bgm/hope.mp3" type="audio/mp3"/></audio>
+							<br>
+						<p><img class="pop_new" src="image/pop_new.png"></p><h4>BGM6（ループ）</h4>
+						<audio controls loop preload="auto" controlslist="nodownload" >
+							<source src="audio/bgm/bassBGM.mp3" type="audio/mp3"/></audio>
+				
+				<br><br><br>
+				<details open>
+					<summary class="bgmsum">
+						イベントBGM（今後追加予定）
+					</summary>
+					<h4>ハロウィンBGM１（ループ）</h4>
+						<audio controls loop preload="auto" controlslist="nodownload" >
+							<source src="audio/bgm/event/halloween1.mp3" type="audio/mp3"/></audio>
+					<h4>ハロウィンBGM2（ループ）</h4>
+						<audio controls loop preload="auto" controlslist="nodownload" >
+							<source src="audio/bgm/event/halloween2.mp3" type="audio/mp3"/></audio>
+				</details>
+				<br>		
+				<details>
+					<summary>その他BGM</summary>
+						<h4>BGM1（ループ）</h4>
+						<audio controls loop preload="auto" controlslist="nodownload" >
 							<source src="audio/bgm/funkjingle.mp3" type="audio/mp3"/></audio>
 							<br>
-						<h4>BGM6（ループ）</h4>
-						<audio controls loop preload="metadata" controlslist="nodownload" >
+						<h4>BGM2（ループ）</h4>
+						<audio controls loop preload="auto" controlslist="nodownload" >
 							<source src="audio/bgm/elegantjin.mp3" type="audio/mp3"/></audio>
+				</details>
 							
-						<br>
-						<br>
 
 			
 			</div>	
-				
-			<h3>テーマソング</h3>	
+			<br><br><br>
+			<h3>テーマソング・N/S高校歌</h3>	
 			<details>
 				<summary>Youtube再生について（クリックして詳細を表示）</summary>
 				一部の再生環境では前回再生した時の環境のまま再生されることがあります。音量やミュート等に影響します。リロードでは直らなかったので手動で直していただけると助かります。
-				<h5>Youtubeのフレームを選択している場合、以下のキーで操作できます。</h5><br>
+				<h5>Youtubeのフレームを選択している場合、以下のキーで操作できます。</h5>
 				再生・一時停止→spaceキーor Kキー<br>
 				ミュート→Mキー<br>
 				音量調整→上下矢印キー（↑・↓）<br>
 				5秒送り→左右矢印キー（←・→）<br>
 				10秒送り→Jキー（戻る）Lキー（進む）<br>
 			</details>
-
 				<div class="youtube">
 					<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/fxUS4z4ftSs?playsinline=1"allow="accelerometer"></iframe>
-				<br>
-				<br>
 					<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/NfQ-GsSyNhc?playsinline=1" allow="accelerometer"></iframe>
 				</div>
-			<h3>N・S高校歌</h3>
-				<div class="NandS">
+				<div class="youtube">
 					<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/xhOsnY-k8JM?playsinline=1" allow="accelerometer" allowfullscreen></iframe>
 					<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/Zbtfj1pVamg?playsinline=1" allow="accelerometer" allowfullscreen></iframe>	
 				</div>
@@ -375,16 +274,16 @@
 <HR style="margin: 0em 0 ;">
 	<footer style="text-align:left;color:#ffffff">
 		<p><h3>©️2021 N・S高等学校横浜キャンパスクリエイティブ委員会音楽チーム</h3>
-		SE・BGM・Jingle項目にある全ての音源の著作権は上記の団体に帰属します。(Youtube動画は除く）<br>
+		SE・BGM項目にある全ての音源の著作権は上記の団体に帰属します。(Youtube動画と*印のあるSEを除く）<br>
 		また、htmlのコードは多数のウェブサイト（「引用」に記載）よりお借りしていますが、デザイン等は全て改変しています。このサイト及びサイト内のコンテンツ（音声・画像ファイルなど）を一部改変、もしくはそのまま複製・再配布することを固く禁じます。
 	</p>
-	<p>更新履歴は<span style="color:skyblue;"><a href="更新履歴.html">こちら</a></span>からご覧になれます。</p>
+	<p>更新履歴は<span style="color:skyblue;"><a href="更新履歴.html"target="_blank" rel="noopener">こちら</a></span>からご覧になれます。</p>
 	<p>バグやご意見がございましたら以下のリンクからお願いします。<a href="contactus.html" target="_blank" rel="noopener">こちらから</a></p>
 	</footer>
 
 <!-- JavaScriptの読み込み -->
-<script src="Sounds EffectB 2.js"></script>
-<script src="js.js"></script>
+<script src="Sounds EffectB.js"></script>
+<!--<script src="js.js"></script>-->
 
 
 </body>
