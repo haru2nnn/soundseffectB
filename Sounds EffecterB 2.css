@@ -10,13 +10,13 @@
 
 @media (min-width: 960px) {
   header {
-    background-image: url(image/banner1.jpg);
-    background-blend-mode: soft-light;
+    /*background-image: url(image/banner1.jpg);
+    background-blend-mode: soft-light;*/
     padding: 10px;
   }
   body {
-    background-image: url(image/backg1.jpg);
-    background-blend-mode: soft-light;
+ /*   background-image: url(image/backg1.jpg);
+    background-blend-mode: soft-light;*/
     padding: 10px;
   }
 }
@@ -242,16 +242,16 @@ details[open] summary {
   margin-bottom: 0.5em;
   background: #c3f6ff;
 }
-#bgmsum {
+/*#bgmsum {
   background-image: url(image/halloween5.jpg);
   background-blend-mode: soft-light; 
-}
+}*/
 
 
 @media (min-width: 960px) {
   footer {
-    background-image: url(image/backg1.jpg);
-    background-blend-mode: lighten;
+    /*background-image: url(image/backg1.jpg);
+    background-blend-mode: lighten;*/
     background-color: rgba(255, 255, 255, 0.349);
   }
 }
@@ -265,7 +265,7 @@ footer {
   margin: 0px;
   padding: 30px;
   text-align:left;
-  color:#ffffff;
+  color:#000000;
 }
 footer a {
   color: rgb(24, 160, 81);
