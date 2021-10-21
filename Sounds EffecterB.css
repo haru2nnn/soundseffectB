@@ -87,6 +87,23 @@ header {
   width: 65%;
 }
 }
+details.timer[open] summary{
+  background: coral;
+  color: white;
+}
+
+details.yomiage[open] summary{
+  background: rgb(74, 127, 243);
+  color: white;
+}
+details.timer[open] {
+  background: whitesmoke;
+}
+
+details.yomiage[open] {
+  background: whitesmoke;
+}
+
 
 body {
   font-family: sans-serif;
@@ -178,17 +195,14 @@ background: #21276c;
 .effect {
   display: flex;
   flex-wrap: wrap;
-  cursor: pointer;
 }
 .sceneeffect {
   display: flex;
   flex-wrap: wrap;
-  cursor: pointer;
 }
 .chime {
   display: flex;
   flex-wrap: wrap;
-  cursor: pointer;
 }
 
 .pop_new {
@@ -234,18 +248,33 @@ summary {
 
 details[open] {
   padding: 0.5em;
-  background-color: #edededea;
 }
 
 details[open] summary {
   border-bottom: 1px solid #aaa;
   margin-bottom: 0.5em;
-  background: #c3f6ff;
 }
-#bgmsum {
-  background-image: url(image/halloween5.jpg);
+.evbgmdet {
+  background-image: url(image/halloween5.png);
   background-blend-mode: soft-light; 
 }
+details.evbgmdet[open] summary{
+  background: orange;
+
+}
+details.expdet[open] summary{
+  background: #c3f6ff;
+}
+details.expdet[open] {
+  background: whitesmoke;
+}
+
+details.bgmdet[open] summary{
+  background: rgb(195, 255, 198);
+}
+
+
+
 
 
 @media (min-width: 960px) {
@@ -311,6 +340,7 @@ footer a:hover {
   align-items: center;
   z-index: 90;
   background-color: #3584bb;
+  cursor: pointer;
 }
 .menu-btn span,
 .menu-btn span:before,

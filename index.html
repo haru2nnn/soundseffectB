@@ -77,7 +77,7 @@
 
 	<br>
 	<details class="yomiage">
-		<summary>Ms. 読み上げ</summary>
+		<summary>文章読み上げ</summary>
 			<form name="form">
 				<!-- 使用する言語。必要な言語をセットしてください -->
 				<label><input type="radio" value="ja-JP" name="r1" onclick="lng('ja-JP')" checked>日本語</label>
@@ -181,7 +181,7 @@
 		<div class="BGM">
 			<h2 style="text-align:left;color:#217d8d">BGM＆Jingle</h2>
 				BGM・ジングルのプレーヤーの音量はデフォルトで100%になっています。音量にご注意ください。
-			<details>
+			<details class="expdet">
 			<summary>BGM再生について（クリックして詳細を表示）</summary>
 			<h5>音楽ファイルのフレームを選択している場合、以下のキーで操作できます。</h5><br>
 			再生・一時停止→spaceキー<br>
@@ -221,8 +221,8 @@
 						<audio controls loop preload="auto" controlslist="nodownload" >
 							<source src="audio/bgm/goodbgm2.mp3" type="audio/mp3"/></audio>
 				<br><br><br>
-				<details open id="bgmsum">
-					<summary id="bgnsum">
+				<details open class="evbgmdet">
+					<summary>
 						イベントBGM
 					</summary>
 					<h4>ハロウィンBGM１（ループ）</h4>
@@ -239,7 +239,7 @@
 							<source src="audio/bgm/event/halloween4.mp3" type="audio/mp3"/></audio>-->
 				</details>
 				<br>		
-				<details>
+				<details class="bgmdet">
 					<summary>その他BGM</summary>
 						<h4>BGM1（ループ）</h4>
 						<audio controls loop preload="auto" controlslist="nodownload" >
@@ -255,7 +255,7 @@
 			</div>	
 			<br><br><br>
 			<h3>テーマソング・N/S高校歌</h3>	
-			<details>
+			<details class="expdet">
 				<summary>Youtube再生について（クリックして詳細を表示）</summary>
 				一部の再生環境では前回再生した時の環境のまま再生されることがあります。音量やミュート等に影響します。リロードでは直らなかったので手動で直していただけると助かります。
 				<h5>Youtubeのフレームを選択している場合、以下のキーで操作できます。</h5>
