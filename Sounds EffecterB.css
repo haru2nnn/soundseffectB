@@ -70,29 +70,27 @@ header {
   padding: 8px;
 }
 
-
-
 @media (min-width: 960px) {
-.detailcont{
-  display: flex;
-  grid-template-columns: 1fr 1fr;
+  .detailcont {
+    display: flex;
+    grid-template-columns: 1fr 1fr;
+  }
+  .timer {
+    width: 35%;
+  }
+  .timer #timer [open] summary {
+    background-color: coral;
+  }
+  .yomiage {
+    width: 65%;
+  }
 }
-.timer{
-  width: 35%;
-}
-.timer #timer [open] summary {
-  background-color: coral;
-}
-.yomiage{
-  width: 65%;
-}
-}
-details.timer[open] summary{
+details.timer[open] summary {
   background: coral;
   color: white;
 }
 
-details.yomiage[open] summary{
+details.yomiage[open] summary {
   background: rgb(74, 127, 243);
   color: white;
 }
@@ -104,7 +102,6 @@ details.yomiage[open] {
   background: whitesmoke;
 }
 
-
 body {
   font-family: sans-serif;
   margin: 10px;
@@ -115,6 +112,14 @@ body {
 .notice {
   background-color: #c4e2f7d3;
 }
+.notice a{
+  color: rgb(17, 64, 219);
+}
+.notice a:hover{
+  color: rgb(48, 108, 199);
+  background-color: white;
+}
+
 
 
 .wrapper {
@@ -122,12 +127,12 @@ body {
   padding: 0px;
 }
 
-.container {
+/*.container {
   flex-direction: row;
   display: flex;
   justify-content: flex-start;
   flex-wrap: wrap;
-}
+}*/
 .item {
   margin: 10px;
   padding: 10px;
@@ -136,7 +141,7 @@ body {
 }
 
 .sevol,
-.SoundVolome{
+.SoundVolome {
   margin: 0px;
   padding: 0px;
 }
@@ -146,7 +151,7 @@ body {
   width: 170px;
   height: 50px;
   margin: 7px;
-  padding:15px 0;
+  padding: 15px 0;
   border-radius: 15px;
 
   color: #fff;
@@ -158,16 +163,15 @@ body {
 /*#nschime{
 background: #21276c;
 }*/
-#green{
+#green {
   background: rgb(3, 65, 3);
 }
-#yellow{
-  background:rgb(119, 34, 8)
+#yellow {
+  background: rgb(119, 34, 8);
 }
-#blue{
-  background:rgb(12, 77, 107);
+#blue {
+  background: rgb(12, 77, 107);
 }
-
 
 .stop-button {
   display: block;
@@ -191,10 +195,12 @@ background: #21276c;
 .sebutton {
   display: flex;
   flex-wrap: wrap;
+  align-content: flex-start;
 }
 .effect {
   display: flex;
   flex-wrap: wrap;
+  flex-direction: row;
 }
 .sceneeffect {
   display: flex;
@@ -232,7 +238,6 @@ background: #21276c;
   }
 }
 
-
 details {
   border: 1px solid #aaa;
   border-radius: 4px;
@@ -256,26 +261,21 @@ details[open] summary {
 }
 .evbgmdet {
   background-image: url(image/halloween5.png);
-  background-blend-mode: soft-light; 
+  background-blend-mode: soft-light;
 }
-details.evbgmdet[open] summary{
+details.evbgmdet[open] summary {
   background: orange;
-
 }
-details.expdet[open] summary{
+details.expdet[open] summary {
   background: #c3f6ff;
 }
 details.expdet[open] {
   background: whitesmoke;
 }
 
-details.bgmdet[open] summary{
+details.bgmdet[open] summary {
   background: rgb(195, 255, 198);
 }
-
-
-
-
 
 @media (min-width: 960px) {
   footer {
@@ -293,8 +293,8 @@ details.bgmdet[open] summary{
 footer {
   margin: 0px;
   padding: 30px;
-  text-align:left;
-  color:#ffffff;
+  text-align: left;
+  color: #ffffff;
 }
 footer a {
   color: rgb(24, 160, 81);
@@ -360,11 +360,7 @@ footer a:hover {
   top: 8px;
 }
 #menu-btn-check:checked ~ .menu-btn span {
-  background-color: rgba(
-    255,
-    255,
-    255,
-    0
+  background-color: rgba(255,255,255,0
   ); /*メニューオープン時は真ん中の線を透明にする*/
 }
 #menu-btn-check:checked ~ .menu-btn span::before {
@@ -441,10 +437,9 @@ footer a:hover {
   }
 }
 
-
-#msg{
+#msg {
   background-color: cadetblue;
   color: white;
   display: inline-block;
-  font-size: 1.30rem;
+  font-size: 1.3rem;
 }
