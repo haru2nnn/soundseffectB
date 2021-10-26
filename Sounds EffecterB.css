@@ -263,6 +263,9 @@ details[open] summary {
   background-image: url(image/halloween5.png);
   background-blend-mode: soft-light;
 }
+.evbgmdet[open] h4{
+  color: rgb(236, 89, 35);
+}
 details.evbgmdet[open] summary {
   background: orange;
 }
