@@ -15,10 +15,12 @@
     padding: 10px;
   }
   body {
-    background-image: url(image/backg1.jpg);
+    background-image: url(image/halloween6.jpg);
     background-blend-mode: soft-light;
     padding: 10px;
+    
   }
+ 
 }
 
 .nav {
@@ -50,6 +52,9 @@ header {
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   margin-bottom: 10px;
 }
+.logo{
+  width: 100%;
+}
 
 /*.nav{
 	  flex-direction: row;
@@ -63,19 +68,8 @@ header {
   margin-left: 20px;
   margin-top: 20px;
   display: flex;
-	flex-wrap:wrap;
+  text-align: left;
 }
-.title li {
-	/*width: calc(100%/4);/*←画像を横に4つ並べる場合
-	padding:0 5px;/*←画像の左右に5pxの余白を入れる場合*/
-	box-sizing:border-box;
-}
-.title li img {
-	max-width:100%; /*画像のはみだしを防ぐ*/
-	height: auto; /*画像の縦横比を維持 */
-	/*border:solid 1px #ccc; /*←画像を1pxのグレーの枠線で囲む指定の場合*/
-}
-
 
 .menu-item {
   list-style: none;
@@ -295,7 +289,7 @@ details.bgmdet[open] summary {
 
 @media (min-width: 960px) {
   footer {
-    background-image: url(image/backg1.jpg);
+    background-image: url(image/halloween3.jpg);
     background-blend-mode: lighten;
     background-color: rgba(255, 255, 255, 0.349);
   }
@@ -459,3 +453,27 @@ footer a:hover {
   display: inline-block;
   font-size: 1.3rem;
 }
+
+
+
+/***********************ハロウィンバージョンコード********************************/
+
+.evbgmdet {
+  background-image: url(image/halloween5.png);
+  background-blend-mode: soft-light;
+}
+.evbgmdet h4{
+  color: rgb(236, 89, 35);
+}
+
+/***
+p{
+  color: white;
+}
+h1,h2,h3,h4,h5,h6{
+color: white;
+}
+summary{
+  color: white;
+}
+**/

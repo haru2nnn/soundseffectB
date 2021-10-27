@@ -7,17 +7,18 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 		<!-- スタイルシートの読み込み -->
-		<link href="Sounds EffecterB.css" rel="stylesheet">
+		<link href="Sounds EffecterB-hw.css" rel="stylesheet">
 
 
-		<title>横浜キャンパスSE集（オリジナル版）</title>
-		<link rel="icon" href="favicons/favicon.ico">
+		<title>横浜キャンパスSE集（ハロウィンバージョン）</title>
+		<link rel="icon" href="favicons/favicon-hw.jpg">
 	</head>
 
 <body>
+	<div class="bodybg">
 	<header>
 		<div class="title">
-			<h1><a href="index.html"><img class="logo" src="image/header-logo1.png" alt="ホーム" width="80%"></a></h1>
+			<h1><a href="index.html"><img class="logo" src="image/header-logohw1.png" alt="ホーム" width="100%"></a></h1>
 			<h1 class="title">
 				<!--<h1 style="text-align:cent>er;color:#218d6c;">SE集</h1><br>-->
 			</h1>
@@ -29,11 +30,9 @@
 		<div class="menu-content">
 		<nav class="nav">
 		<div class=navlogo>	<li><img class="logo" src="image/header-logo2.png" width="80%"></li></div>
-		
 		  <ul class="menu-group">
-			<li class="menu-item"><a href="index.html" >横浜キャンパスSE集</a></li>
+			<li class="menu-item"><a href="index.html" >SE集（通常バージョン）</a></li>
 			<li class="menu-item"><a href="index-yobi.html" target="_blank" rel="opener">うまくページが表示できない時はこちら</a></li>
-			<li class="menu-item"><a href="index-hw.html">ハロウィンバージョン</a></li>
 			<li class="menu-item"><a href="https://sites.google.com/nnn.ed.jp/ycp-s-soundeffectbs/SE_key-layout-teacher" target="_blank" rel="noopener">効果音のキー配列表はこちら</a></li>
 			<li class="menu-item"><a href="https://haru2nnn.github.io/soundseffectS/" target="blank" rel="noopener">横浜キャンパス生徒用SE集サイト</a></li>
 			<li class="menu-item"><a href="https://sites.google.com/nnn.ed.jp/ycp-s-soundeffectbs/new-infomation" target="_blank" rel="noopener">新着情報</a></li>
@@ -111,8 +110,8 @@
 <div class=wrapper>
 	<div class="Sound">
 		<h2 style="text-align:left;color:#29277c">効果音</h2>
-		※２つ以上は同時には鳴りません。
-		タイトルに「*」や「＊」がついているSEは音源を制作できなかったため、フリー素材もしくはお借りしたSE・音源を使用しております。
+		<p>※２つ以上は同時には鳴りません。<br>
+		タイトルに「*」や「＊」がついているSEは音源を制作できなかったため、フリー素材もしくはお借りしたSE・音源を使用しております。</p>
 
 		<h4 class="sevol">効果音 音量</h4>		<input type="range" name="SoundVolome" class="SoundVolome" id="SoundVolome" value="90" min="0" max="100" step="5"> 🐰<p id="msg"></p>
 		<script>
@@ -141,7 +140,6 @@
 			<p><a href="#" class="sounds" id="yellow" data-file="audio/tin">チーン*</a></p>
 			<p><a href="#" class="sounds" id="yellow" data-file="audio_o/chan-chan1">チャンチャン<br>(軽め)</a></p>
 			<p><a href="#" class="sounds" id="yellow" data-file="audio_o/chan-chan2">チャンチャン<br>(重め)</a></p>
-			<p><a href="#" class="sounds" id="yellow" data-file="audio/professional-effect">プロフェッショナル<br>効果音</a></p>
 			</div>
 		<div class="sceneeffect">
 			<p><a href="#" class="sounds" id="green" data-file="audio_o/drumroll">ドラムロール🥁</a></p>
@@ -169,12 +167,6 @@
 			<p><a href="#" class="sounds" id="blue" data-file="audio_o/anouncement-before">お知らせチャイム<br>（開始）🔉</a></p>
 			<p><a href="#" class="sounds" id="blue" data-file="audio_o/anouncement-after">お知らせチャイム<br>（終了）🔉</a></p>
 			<p><a href="#" class="sounds" id="nschime" data-file="audio/nschime">S高チャイム＊</a></p>	
-			<!--<p><a href="#" class="sounds" id="blue" data-file="audio/chime1">学校チャイム１<br>(ロングバージョン)🔉</a></p>-->
-			<p><a href="#" class="sounds" id="blue" data-file="audio/chime1-1">学校チャイム１🔉</a></p>
-			<!--<p><a href="#" class="sounds" id="blue" data-file="audio/chime2">学校チャイム２<br>(ロングバージョン)🔉</a></p>-->
-			<p><a href="#" class="sounds" id="blue" data-file="audio/chime2-2">学校チャイム２🔉</a></p>
-			<p><a href="#" class="sounds" id="blue" data-file="audio_o/click">クリック</a></p>
-			<p><a href="#" class="sounds" id="blue" data-file="audio_o/2click">ダブルクリック</a></p>
 		</div>
 	</div>	
 		<p><a href="#" id="stop-button" class="stop-button">ボタンで再生したSEを停止する</a></p>
@@ -182,8 +174,8 @@
 
 
 		<div class="BGM">
-			<h2 style="text-align:left;color:#217d8d">BGM＆Jingle</h2>
-				BGM・ジングルのプレーヤーの音量はデフォルトで100%になっています。音量にご注意ください。
+			<h2 style="text-align:left;color:orangered">HalloweenBGM</h2>
+				<p>BGM・ジングルのプレーヤーの音量はデフォルトで100%になっています。音量にご注意ください。</p>
 			<details class="expdet">
 			<summary>BGM再生について（クリックして詳細を表示）</summary>
 			<h5>音楽ファイルのフレームを選択している場合、以下のキーで操作できます。</h5><br>
@@ -194,40 +186,7 @@
 			</details>
 			
 			<div class="audio">
-				
-					<h3>BGM</h3>
-						<h4>スターウォーズのテーマ</h4>
-								<audio controls preload="auto" controlslist="nodownload" >
-								<source src="audio/bgm/Star Wars Main Theme.mp3" type="audio/mp3">スターウォーズのメインテーマ</audio>   
-						<h4>BGM1（ループ）</h4>
-						<audio controls loop preload="auto" controlslist="nodownload" >
-							<source src="audio/bgm/jingleセットcycle.mp3" type="audio/mp3"/></audio>
-						<h4>BGM1アレンジ＆ロング版（ループ）</h4>
-						<audio controls loop preload="auto" controlslist="nodownload">
-							<source src="audio/bgm/jingle1_arrange.mp3" type="audio/mp3"/></audio>
-						<h4>BGM2（ループ）</h4>
-						<audio controls loop preload="auto" controlslist="nodownload" >
-							<source src="audio/bgm/chillout.mp3" type="audio/mp3"/></audio>
-						<h4>BGM3（ループ）</h4>
-						<audio controls loop preload="auto" controlslist="nodownload" >
-							<source src="audio/bgm/goodbgm.mp3" type="audio/mp3"/></audio>
-							<p><img class="pop_new" src="image/pop_new.png"></p><h4>BGM4（ループ）</h4>
-						<audio controls loop preload="auto" controlslist="nodownload" >
-							<source src="audio/bgm/likebutterfly.mp3" type="audio/mp3"/></audio>
-						<p><img class="pop_new" src="image/pop_new.png"></p><h4>BGM5（ループ）</h4>
-						<audio controls loop preload="auto" controlslist="nodownload" >
-							<source src="audio/bgm/hope.mp3" type="audio/mp3"/></audio>
-						<p><img class="pop_new" src="image/pop_new.png"></p><h4>BGM6（ループ）</h4>
-						<audio controls loop preload="auto" controlslist="nodownload" >
-							<source src="audio/bgm/bassBGM.mp3" type="audio/mp3"/></audio>
-						<p><img class="pop_new" src="image/pop_new.png"></p><h4>BGM7（ループ）</h4>
-						<audio controls loop preload="auto" controlslist="nodownload" >
-							<source src="audio/bgm/goodbgm2.mp3" type="audio/mp3"/></audio>
-				<br><br><br>
-				<details open class="evbgmdet">
-					<summary>
-						イベントBGM
-					</summary>
+				<div class="evbgmdet">
 					<h4>ハロウィンBGM2021（1〜6）（ループ）</h4>
 						<audio controls loop preload="none" controlslist="nodownload" >
 							<source src="audio/bgm/event/yokohama-halloween_2021.mp3" type="audio/mp3"/></audio>
@@ -255,21 +214,7 @@
 					<h4>ハロウィンBGM8（ループ）</h4>
 						<audio controls loop preload="auto" controlslist="nodownload" >
 							<source src="audio/bgm/event/halloween8.mp3" type="audio/mp3"/></audio>-->
-				</details>
-				<br>		
-				<details class="bgmdet">
-					<summary>その他BGM</summary>
-						<h4>BGM1（ループ）</h4>
-						<audio controls loop preload="auto" controlslist="nodownload" >
-							<source src="audio/bgm/funkjingle.mp3" type="audio/mp3"/></audio>
-							<br>
-						<h4>BGM2（ループ）</h4>
-						<audio controls loop preload="auto" controlslist="nodownload" >
-							<source src="audio/bgm/elegantjin.mp3" type="audio/mp3"/></audio>
-				</details>
-							
-
-			
+			</div>
 			</div>	
 			<br><br><br>
 			<h3>テーマソング・N/S高校歌</h3>	
@@ -283,10 +228,6 @@
 				5秒送り→左右矢印キー（←・→）<br>
 				10秒送り→Jキー（戻る）Lキー（進む）<br>
 			</details>
-				<div class="youtube">
-					<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/fxUS4z4ftSs?playsinline=1"allow="accelerometer"></iframe>
-					<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/NfQ-GsSyNhc?playsinline=1" allow="accelerometer"></iframe>
-				</div>
 				<div class="youtube">
 					<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/xhOsnY-k8JM?playsinline=1" allow="accelerometer" allowfullscreen></iframe>
 					<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/Zbtfj1pVamg?playsinline=1" allow="accelerometer" allowfullscreen></iframe>	
@@ -309,7 +250,7 @@
 <script src="Sounds EffectB.js"></script>
 <!--<script src="js.js"></script>-->
 
-
+</div>
 </body>
 		
 
