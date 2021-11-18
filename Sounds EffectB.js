@@ -159,7 +159,7 @@ function tmWrite(int) {
   if (int <= 0) {
     reSet();
     var Sound = new Audio();
-    Sound.src = "audio/chime.mp3";
+    Sound.src = "audio/nschime.mp3";
     Sound.currentTime = 0;
     Sound.play();
   } else {
