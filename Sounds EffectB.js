@@ -159,7 +159,7 @@ function tmWrite(int) {
   if (int <= 0) {
     reSet();
     var Sound = new Audio();
-    Sound.src = "audio/nschime.mp3";
+    Sound.src = "audio/chime.mp3";
     Sound.currentTime = 0;
     Sound.play();
   } else {
@@ -512,11 +512,31 @@ function redirect() {
 }
 
 
-
-
-setTimeout("redirect()", 0);
-function redirect() {
-  //    location.href="https://sites.google.com/nnn.ed.jp/ycp-s-soundeffectbs/maintenance-b";
+// YouTube Player APIを読み込む
+var tag = document.createElement('script');
+tag.src = "https://www.youtube.com/iframe_api";
+var firstScriptTag = document.getElementsByTagName('script')[0];
+firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+ 
+// プレーヤーを埋め込む場所
+var ytArea = 'rupin3rdyt';
+  
+// 埋め込むYouTube ID
+var ytID = 'NfQ-GsSyNhc';
+  
+// プレーヤーのサイズを指定
+var ytWidth = 560;
+var ytHeight = 315;
+  
+// API読み込み後にプレーヤー埋め込み
+function onYouTubeIframeAPIReady() {
+    ytPlayer = new YT.Player(ytArea, {
+        height: ytHeight,
+        width: ytWidth,
+        videoId: ytID
+    });
 }
-
-
+var vol = document.getElementById('vol');
+vol.addEventListener('click', function () {
+    ytPlayer.setVolume(1);
+});

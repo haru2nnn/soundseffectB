@@ -230,7 +230,7 @@ background: #21276c;
   height: auto;
 }
 
-.youtube {
+/*.youtube {
   display: inline-flex;
   flex-wrap: wrap;
   width: 95%;
@@ -238,6 +238,10 @@ background: #21276c;
   padding-top: 56.25%;
   margin: 10px;
   padding: 10px 0;
+}*/
+
+.youtube{
+  display: flex;
 }
 
 @media (max-width: 600px) {
@@ -462,4 +466,11 @@ footer a:hover {
 
 #hlw a{
 color: orange;
+}
+
+.hlwinf{
+  color: orangered;
+}
+.hlwinf:hover{
+  color: orange;
 }
