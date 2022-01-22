@@ -85,34 +85,28 @@ header {
 @media (min-width: 960px) {
   .detailcont {
     display: flex;
-    grid-template-columns: 1fr 1fr;
-  }
-  .timer {
-    width: 35%;
-  }
-  .timer #timer [open] summary {
-    background-color: coral;
-  }
-  .yomiage {
-    width: 65%;
   }
 }
+
+details.timer summary {
+  background: rgb(255, 193, 190);
+  text-align: center;
+  cursor: pointer;
+	-webkit-user-select: none;
+	   -moz-user-select: none;
+	    -ms-user-select: none;
+	        user-select: none;
+}
+
 details.timer[open] summary {
   background: coral;
-  color: white;
+  color: whitesmoke;
 }
 
-details.yomiage[open] summary {
-  background: rgb(74, 127, 243);
-  color: white;
-}
-details.timer[open] {
-  background: whitesmoke;
+.notify{
+  text-align: center;
 }
 
-details.yomiage[open] {
-  background: whitesmoke;
-}
 
 .clock{
   text-align: center;
@@ -123,7 +117,7 @@ body {
 font-family: 'M PLUS 1p', sans-serif;
 }
 
-.notice {
+s.notice {
   background-color: #c4e2f7d3;
 }
 .notice a{
@@ -179,6 +173,17 @@ button{
   justify-content: center;
   align-content:center ;
   text-decoration: none;
+  cursor: pointer;
+}
+
+.stop-button{
+  cursor: pointer;
+} 
+.mute-button{
+  cursor: pointer;
+}
+.slider{
+  cursor: pointer;
 }
 
 .chime-button{
