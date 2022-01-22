@@ -52,7 +52,7 @@
 		</nav></div></div>
 	  </header>
 	  	<div class="clock"><div style="padding: 10px; margin-bottom: 5px; border: 1px solid #333333;">
-			<h2 style="font-size:130%;"><script>
+			<h2 style="font-size:120%;"><script>
 			//今日の日付データを変数に格納
 			//変数は"today"とする
 			var today = new Date();
@@ -78,12 +78,13 @@
 				  let nowHour = twoDigit( nowTime.getHours() );
 				  let nowMin  = twoDigit( nowTime.getMinutes() );
 				  let nowSec  = twoDigit( nowTime.getSeconds() );
-				  let msg = "現在時刻：" + nowHour + ":" + nowMin + ":" + nowSec;
-				  document.getElementById("realtime").innerHTML = msg;
+				  let msg = nowHour + ":" + nowMin + ":" + nowSec;
+				  document.getElementById("realtime").innerHTML = "現在時刻：" +  msg;
 				}
 				setInterval('showClock()',1000);
+
 			  </script></h2>
-			<h2 style="font-size: 180%;" id="realtime"></h2>
+			<h2 style="font-size: 160%;" id="realtime"></h2>
 			<h3 id="info1" style="color: orange;"></h3>
 			<h3 id="info2" style="color: red;"></h3>
 		</div>	
@@ -94,7 +95,7 @@
 		<h3 class="notify">使い方は<a href="https://docs.google.com/presentation/d/1Fso95xnhPbcGchXzxYfQF1HaJh6fvpaZdMZAFl72Hig/edit?usp=sharing"target="blank" style="color:darkcyan;">こちら</a>からチェック！✅</h3>
 	</details>
 	<div class="chime-button">
-		<div class="audio"><audio src="audio/jihou.mp3" type="audio/mp3"></audio>
+		<div class="audio"><audio src="audio/nschime.mp3" type="audio/mp3"></audio>
 			<div class="audio_btn"><button class="sounds" alt="button1" id="btn_play">🔔チャイムを鳴らす🔔</button></div>
 			<button class="stop-button" id="btn_pause" style="background-color:#16c08d;">一時停止</button>
 			<button class="stop-button" id="btn_stop" style="background-color: rgb(252, 72, 72);">停止</button>
@@ -123,13 +124,11 @@
 <!-- JavaScriptの読み込み -->
 <!--<script src="Sounds EffectB.js"></script>-->
 <!--script src="script.js"></script>-->
-
-
 </body>
 	<script>
 			window.onload = function onload () { 
 				document.getElementById("info1").innerHTML = "";
-			document.getElementById("info2").innerHTML = "";
+				document.getElementById("info2").innerHTML = "";
 			};
 		window.addEventListener('DOMContentLoaded', function(){
 			const btn_play = document.getElementById("btn_play");
@@ -186,6 +185,7 @@
 			});
 
 		
+			
 		
 		setTimeout(() => {
 		audioElement.currentTime = 0;
@@ -282,8 +282,11 @@
 		audioElement.play();
 			document.getElementById("info2").innerHTML = "チャイム自動放送中";
 		}, new Date().setHours(17, 30, 0, 500) - new Date())
-});
-	</script>
+
+		});
+</script>
+
+
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </html>
