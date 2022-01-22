@@ -505,6 +505,13 @@ document.body.addEventListener("keydown", (event) => {
 });
 
 
+function MoveCheck() {
+  if( confirm("サイトを開くとチャイム音が鳴る場合があります。音量にご注意ください。") ) {
+      window.location.href = "nschimesys.html";
+  }
+}
+
+
 
 setTimeout("redirect()", 0);
 function redirect() {
