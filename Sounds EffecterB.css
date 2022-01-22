@@ -116,7 +116,7 @@ details.yomiage[open] {
 }
 
 body {
-  font-family: sans-serif;
+  font-family: 'M PLUS 1p', sans-serif;
   margin: 10px;
 
   background-color: #edededea;
@@ -473,4 +473,133 @@ color: orange;
 }
 .hlwinf:hover{
   color: orange;
+}
+
+
+
+
+a.btn_ao_b {
+  display: flex;
+  align-items: center;
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 1.3rem 2rem;
+  border: 2px solid #014897;
+  background: #fff;
+  text-decoration: none;
+  transition: 0.3s;
+}
+a.btn_ao_b:hover {
+  background-color: #e9f3fd;
+}
+a.btn_ao_b .b__text {
+  display: block;
+  flex-grow: 1;
+  color: #004386;
+  font-weight: bold;
+  text-align: center;
+  position: relative;
+  padding-right: 15px;
+  font-size: 23px;
+}
+a.btn_ao_b .b__text::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto;
+  transform: rotate(45deg);
+  border-top: 3px solid #014897;
+  border-right: 3px solid #014897;
+  box-sizing: border-box;
+  width: 14px;
+  height: 14px;
+  transition: 0.3s;
+}
+@media (max-width: 1200px) {
+  a.btn_ao_b .b__text {
+    font-size: 18px;
+    padding-right: 20px;
+  }
+  a.btn_ao_b .b__text::after {
+    width: 12px;
+    height: 12px;
+  }
+}
+@media (max-width: 736px) {
+  a.btn_ao_b .b__text {
+    font-size: 14px;
+    padding-right: 20px;
+  }
+  a.btn_ao_b .b__text::after {
+    width: 10px;
+    height: 10px;
+  }
+}
+
+
+
+
+a.btn_blue {
+  display: block;
+  max-width: 350px;
+  margin: 0 auto;
+  padding: 1.5rem 3.0rem;
+  background-color: #1755aa;
+  border-radius: 8px;
+box-sizing: border-box;
+  text-decoration: none;
+  transition: 0.3s;
+}
+a.btn_blue span.bl__text {
+  display: block;
+  position: relative;
+  color: #fff;
+  font-size: 16px;
+  text-align: center;
+  padding-left: 30px;
+}
+a.btn_blue span.bl__text:before {
+  content: '';
+  width: 20px;
+  height: 20px;
+  background: #ffffff;
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  margin: auto;
+}
+a.btn_blue span.bl__text:after {
+  content: '';
+  width: 8px;
+  height: 8px;
+  border-top: 3px solid #1755aa;
+  border-right: 3px solid #1755aa;
+box-sizing: border-box;
+  transform: rotate(45deg);
+  position: absolute;
+  top: 0;
+  left: 5px;
+  bottom: 0;
+  margin: auto;
+  transition: 0.3s;
+}
+a.btn_blue:hover {
+  background-color: #01b5d0;
+}
+a.btn_blue:hover span.bl__text:after {
+  border-top: 3px solid #01b5d0;
+  border-right: 3px solid #01b5d0;
+}
+@media (max-width: 736px) {
+  a.btn_blue {
+      max-width: 280px;
+      padding: 1.5rem 2.0rem;
+  }
+  a.btn_blue span.bl__text {
+      font-size: 14px;
+  }
 }
