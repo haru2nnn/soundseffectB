@@ -110,6 +110,17 @@ details.timer[open] summary {
 
 .clock{
   text-align: center;
+  width: 55%;
+}
+.status{
+  text-align: center;
+  width: 45%;
+  justify-content: center;
+  align-items: center;
+  font-size: 120%;
+}
+.topbanner{
+  display: flex;
 }
 
 body {

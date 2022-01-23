@@ -51,41 +51,46 @@
 		  </ul>
 		</nav></div></div>
 	  </header>
-	  	<div class="clock"><div style="padding: 10px; margin-bottom: 5px; border: 1px solid #333333;">
-			<h2 style="font-size:130%;margin: 0.5vh;"><script>
-			//今日の日付データを変数に格納
-			//変数は"today"とする
-			var today = new Date();
-			//年・月・日・曜日を取得
-			var year = today.getFullYear();
-			var month = today.getMonth() + 1;
-			var week = today.getDay();
-			var day = today.getDate();
-			var week_ja = new Array("日", "月", "火", "水", "木", "金", "土");
-			//年・月・日・曜日を書き出す
-			document.write(year+"年"+month+"月"+day+"日 "+"("+week_ja[week]+")");
-			
-			function twoDigit(num) {
-				  let ret;
-				  if( num < 10 ) 
-					ret = "0" + num; 
-				  else 
-					ret = num; 
-				  return ret;
-				}
-				function showClock() {
-				  let nowTime = new Date();
-				  let nowHour = twoDigit( nowTime.getHours() );
-				  let nowMin  = twoDigit( nowTime.getMinutes() );
-				  let nowSec  = twoDigit( nowTime.getSeconds() );
-				  let msg = nowHour + ":" + nowMin + ":" + nowSec;
-				  document.getElementById("realtime").innerHTML = msg;
-				}
-				setInterval('showClock()',1000);
-			  </script></h2>
-			<h2 style="font-size: 350%;margin:0.8vh;" id="realtime"></h2>
-			<h3 id="info1" style="color: orange;"></h3>
-			<h3 id="info2" style="color: red;"></h3>
+	  <div class="topbanner">
+		<div class="clock" style="padding: 10px; margin-bottom: 5px; border: 1px solid #333333;">
+		<h2 style="font-size:130%;margin:0.5vh;"><script>
+		//今日の日付データを変数に格納
+		//変数は"today"とする
+		var today = new Date();
+		//年・月・日・曜日を取得
+		var year = today.getFullYear();
+		var month = today.getMonth() + 1;
+		var week = today.getDay();
+		var day = today.getDate();
+		var week_ja = new Array("日", "月", "火", "水", "木", "金", "土");
+		//年・月・日・曜日を書き出す
+		document.write(year+"年"+month+"月"+day+"日 "+"("+week_ja[week]+")");
+		
+		function twoDigit(num) {
+			  let ret;
+			  if( num < 10 ) 
+				ret = "0" + num; 
+			  else 
+				ret = num; 
+			  return ret;
+			}
+			function showClock() {
+			  let nowTime = new Date();
+			  let nowHour = twoDigit( nowTime.getHours() );
+			  let nowMin  = twoDigit( nowTime.getMinutes() );
+			  let nowSec  = twoDigit( nowTime.getSeconds() );
+			  let msg = nowHour + ":" + nowMin + ":" + nowSec;
+			  document.getElementById("realtime").innerHTML = msg;
+			}
+			setInterval('showClock()',1000);
+		  </script></h2>
+		<h2 style="font-size: 350%;margin:0.8vh;"id="realtime"></h2>
+		</div>
+			<div class="status" style="margin-bottom: 5px; border: 1px solid #333333;">
+			<h3 style="font-size: 90%; margin: 0.3%;">ステータス:</h3>
+			<div class="st-info1"><h3 id="info1" style="color: orange;"></h3></div>
+			<div class="st-info2"><h3 id="info2" style="color: red;"></h3></div>
+			</div>
 		</div>	
 	</div>
 
