@@ -507,7 +507,7 @@ document.body.addEventListener("keydown", (event) => {
 
 function MoveCheck() {
   if( confirm("サイトを開くとチャイム音が鳴る場合があります。音量にご注意ください。") ) {
-      window.location.href = "nschimesys.html";
+      window.open(nschimesys.html,'_blank');
   }
 }
 
