@@ -107,6 +107,16 @@ details.timer[open] summary {
   text-align: center;
 }
 
+.date{
+  font-size:120%;
+  margin:0.5vh;
+}
+
+.time{
+  font-size: 3.5vw;
+  margin:0.8vh;
+}
+
 
 .clock{
   text-align: center;
@@ -117,7 +127,12 @@ details.timer[open] summary {
   width: 45%;
   justify-content: center;
   align-items: center;
+  align-content: center;
   font-size: 120%;
+}
+
+.status-l{
+  font-size: 90%; margin: 0.3%;
 }
 .topbanner{
   display: flex;
@@ -651,6 +666,45 @@ a.btn_blue:hover span.bl__text:after {
 
 
 
-
-
-
+@media (max-width: 736px) {
+.title-letter{
+  font-size: 4.5vw;
+  margin: 0%;
+  margin-left: 2%;
+}
+.logo{
+  width: 70%;
+  height: auto;
+}
+.header-logo{
+    margin-top: 0%;
+  margin-bottom: 0%;
+}
+.date{
+font-size: 4vw;
+}
+.status-l{
+  font-size: 3vw;
+}
+.topbanner{
+  display: inline;
+}
+.clock{
+  width: 95%;
+}
+.time{
+  font-size: 7vw;
+}
+.status{
+  width: 100%;
+}
+.details{
+  font-size: 50%;
+}
+.st-info1{
+  font-size: 70%;
+}
+.timer{
+  font-size: 50%;
+}
+}
