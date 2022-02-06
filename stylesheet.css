@@ -88,6 +88,205 @@ header {
   }
 }
 
+
+
+/* バナー本体 */
+.info{
+  text-align: center;
+  display: flex;
+  padding: 3px;
+}
+.oshirase{
+  display: block;
+  height: 40px;
+  width: 8%;
+  background-color: rgb(255, 102, 0);
+  color: white;
+  font-weight: 650;
+  overflow: hidden;
+  margin: 5px;
+  margin-right: 0px;
+  margin-bottom: 0px;
+  padding-bottom: 0px;
+  text-align: center;
+  align-items: center;
+}
+.oshirase p{
+  width: 80%;
+}
+.oshirase img{
+  width: 20%;
+}
+
+
+.news-banner {
+  display: block;
+  height: 40px;
+  width: 92%;
+  background-color: rgb(255, 207, 118);
+  overflow: hidden;
+  margin: 5px;
+  margin-left: 0px;
+  font-weight: 800;
+  user-select: none;
+}
+
+/* バナー内コンテンツ */
+.news-banner__content {
+  display: inline-block;
+  color: rgb(0, 0, 0);
+  line-height: 15px;
+  padding-left: 100%;
+  white-space: nowrap;
+  animation: animate-banner 50s linear infinite;
+}
+
+/* バナー内の要素をすべて選択 */
+.news-banner__content > * {
+  display: inline-block;
+}
+
+/* 横にスクロールさせるアニメーション */
+@keyframes animate-banner {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-110%);
+  }
+}
+
+.not-news{
+  display: flex;
+}
+.notice-i {
+  float: left;
+  max-width: 20px;
+  height: auto;
+}
+
+/*==================================================
+ニュースティッカーのためのcss
+===================================*/
+/*ニュース1行の周りの余白*/
+.slider a{
+  display: block;
+  background:#fff;
+  padding:20px;
+}
+
+/*日付*/
+.slider span {
+  display:inline-block;
+  font-size:0.8rem;
+  margin-right:10px;
+  color:#777;
+}
+
+li {
+  list-style-type:none;
+}
+
+	
+div.ticker{width: calc(100% - 20px);}
+.ticker{
+  user-select: none;
+}
+.ticker span{
+    display:inline-block;
+    font-size:0.8rem;
+    margin-right:10px;
+    color:#777;
+}
+.ticker a{
+color: black;
+}
+
+#target.is-hidden {
+  display: none;
+}
+
+
+
+
+
+.news-list{
+  list-style: none outside;
+  margin: 20px;
+  padding: 10px;
+  background-color: whitesmoke;
+}
+.news-list .item a{
+  display: flex;
+  flex-wrap: wrap;
+  flex-wrap: nowrap;
+  text-decoration: none;
+  color: #333;
+  border-bottom: 1px solid #CCC;
+  padding: 20px 20px;
+}
+.news-list .item:first-child a{
+  border-top: 1px solid #CCC;
+}
+.news-list .item .date{
+  margin: 0;
+  min-width: 140px;
+  font-size: 16px;
+  color: rgb(119, 119, 119);
+  padding: 0 20px 0 0;
+}
+.news-list .item .category{
+  background-color: rgb(126, 126, 126);
+  color:white;
+  margin: 0;
+  min-width: 140px;
+  padding: 0 20px 0 0;
+}
+.news-list .item .category span{
+  /*background: #999;
+  color: #FFF;*/
+  text-align: center;
+  display: inline-block;
+  padding: 5px 20px;
+  font-size: 12px;
+  line-height: 1;
+  border-radius: 3px;
+}
+.news-list .item .title{
+  margin: 0;
+  width: 100%;
+}
+.news-list .item a:hover .title{
+  color:mediumturquoise;
+}
+
+@media screen and (max-width: 767px){
+.news-list .item a{
+  flex-wrap: wrap;
+}
+.news-list .item .date{
+  min-width: 100px;
+}
+.news-list .item .title{
+  margin-top: 10px;
+}
+}
+.not1{
+  background-color: tomato;
+  color:white
+}
+.not2{
+  background-color:#1755aa;
+  color: white;
+}
+.not3{
+  background-color: forestgreen;
+  color: white;
+}
+
+
+
+
 details.timer summary {
   background: rgb(255, 193, 190);
   text-align: center;
@@ -102,9 +301,13 @@ details.timer[open] summary {
   background: coral;
   color: whitesmoke;
 }
+details.timer[open]{
+  background-color: whitesmoke;
+}
 
 .notify{
   text-align: center;
+  font-size: 92%;
 }
 
 .date{
@@ -662,6 +865,21 @@ a.btn_blue:hover span.bl__text:after {
   a.btn_blue span.bl__text {
       font-size: 14px;
   }
+}
+
+.modebtn {
+  display: inline-block;
+  padding: 0.3em 1em;
+  text-decoration: none;
+  color: #224a63;
+  border: solid 2px #67c5ff;
+  border-radius: 3px;
+  transition: .4s;
+}
+
+.modebtn:hover {
+  background: #67c5ff;
+  color: white;
 }
 
 

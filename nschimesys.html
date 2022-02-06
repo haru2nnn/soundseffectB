@@ -10,10 +10,15 @@
 		<!--<link href="Sounds EffecterB.css" rel="stylesheet">-->
 		<link href="stylesheet.css" rel="stylesheet">
 
+		<script src="jquery-3.6.0.min.js" type="text/javascript"></script>
+		<script src="./jquery.simpleTicker/jquery.simpleTicker.js" type="text/javascript"></script>
+		<link href="./jquery.simpleTicker/jquery.simpleTicker.css" rel="stylesheet">
+
+
 
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link href="https://fonts.googleapis.com/css2?family=M+PLUS+1p:wght@300;400&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=M+PLUS+1p:wght@300;400;500;700;800&display=swap" rel="stylesheet">
 
 		<title>チャイム放送システム - 横浜キャンパスSE集</title>
 		<link rel="icon" href="favicons/favicon.ico">
@@ -41,9 +46,9 @@
 			<li class="menu-item"><a href="chimesys.html" target="blank" rel="noopener">ノーマルチャイム自動放送システム</a></li>
 			<li class="menu-item"><a href="https://haru2nnn.github.io/soundseffectS/" target="blank" rel="noopener">横浜キャンパス生徒用SE集サイト</a></li>
 			<!--<li class="menu-item"><a href="index-yobi.html" target="_blank" rel="opener">うまくページが表示できない時はこちら</a></li>-->
-			<li class="menu-item"><a href="https://sites.google.com/nnn.ed.jp/ycp-s-soundeffectbs/SE_key-layout-teacher" target="_blank" rel="noopener">効果音のキー配列表はこちら</a></li>
-			<li class="menu-item"><a href="https://sites.google.com/nnn.ed.jp/ycp-s-soundeffectbs/new-infomation" target="_blank" rel="noopener">新着情報</a></li>
-			<li class="menu-item"><a href="https://sites.google.com/nnn.ed.jp/ycp-s-soundeffectbs/history-teacher" target="_blank" rel="noopener">更新履歴</a></li>
+			<li class="menu-item"><a href="https://sites.google.com/nnn.ed.jp/ycp-s-soundeffectbs/%E6%95%99%E8%81%B7%E5%93%A1%E7%94%A8/SE_key-layout-teacher" target="_blank" rel="noopener">効果音のキー配列表はこちら</a></li>
+			<li class="menu-item"><a href="notification.html" target="_blank" rel="noopener">お知らせ・新着情報</a></li>
+			<li class="menu-item"><a href="https://sites.google.com/nnn.ed.jp/ycp-s-soundeffectbs/%E6%95%99%E8%81%B7%E5%93%A1%E7%94%A8/history-teacher" target="_blank" rel="noopener">更新履歴</a></li>
 			<!--<li class="menu-item"><a href="readme.html" target="_blank" rel="noopener">マニュアル</a></li>-->
 			<li class="menu-item"><a href="https://sites.google.com/nnn.ed.jp/ycp-s-soundeffectbs/quote" target="_blank" rel="noopener">コード引用サイト</a></li>
 			<!--<li class="menu-item"><a href="https://sites.google.com/nnn.ed.jp/ycp-s-soundeffectbs/fb_contact-us" target="_blank" rel="noopener">お問い合わせ</a></li>-->
@@ -51,6 +56,85 @@
 		  </ul>
 		</nav></div></div>
 	  </header>
+
+	 <!--<div class="info" id="target">
+		<div class="oshirase"><img class="notice-i" src="image/noticei.png"><p>お知らせ</p></div>
+			<div class="news-banner">
+				<div class="news-banner__content">
+					<li><h3 class="notify" style="color: orangered;">必ず、サイトを開いてから、自動放送のチャイムが鳴るまでの間に、「🔔チャイムを鳴らす🔔」ボタンを押して手動でチャイム音を鳴らしてください。（数秒でも問題ありません）</h3></li>
+					<li><h3 class="notify">ブラウザのウィンドウ1つあたりに大量のタブが開かれていると、PCの処理上、自動放送が実行されないことがあります。必ず、自動放送のタブを別ウィンドウに移動してください。</h3>	</li>
+					<li><h3 class="notify">使い方は<a href="https://docs.google.com/presentation/d/1Fso95xnhPbcGchXzxYfQF1HaJh6fvpaZdMZAFl72Hig/edit?usp=sharing"target="blank" style="color:darkcyan;">こちら</a>からチェック！✅</h3>	</li>
+				</div>
+			</div>
+		</div>-->
+		
+		<div class="info2" id="target">
+			<div class="ticker">
+				<ul>
+					<li><h3 class="notify" style="color: orangered;">必ず、サイトを開いてから、自動放送のチャイムが鳴るまでの間に、「🔔チャイムを鳴らす🔔」ボタンを押して手動でチャイム音を鳴らしてください。（数秒でも問題ありません）</h3></li>
+					<li><h3 class="notify" style="color:dodgerblue;">ブラウザのウィンドウ1つあたりに大量のタブが開かれていると、PCの処理上、自動放送が実行されないことがあります。必ず、自動放送のタブを別ウィンドウに移動してください。</h3></li>
+					<li><h3 class="notify">チャイム自動放送システムの詳しい使い方は<a href="https://docs.google.com/presentation/d/1Fso95xnhPbcGchXzxYfQF1HaJh6fvpaZdMZAFl72Hig/edit?usp=sharing"target="_blank" style="color:darkcyan;">こちら</a>からチェック！✅</h3>	</li>
+					<li class="notify"><span>2022.02.03</span><a href="notification.html#item3" target="_blank">現在、スリープ復帰後に正常な時間でチャイムが稼働しない問題が発生しています。<br>お手数ですが、復帰後はサイトのリロードをお願いします。（チャイムが自動でなる可能性がありますのでご注意ください。）</a><button onclick="window.location.reload(true);">サイトをリロードする</button></li>
+					<li><span>2022.02.06</span><a href="notification.html#item2" target="_blank">お知らせを公開しました:教職員版SE集のリンク取り扱いについて</a></li>
+					<li><span>2022.02.06</span><a href="notification.html#item1" target="_blank">チャイムシステムを更新しました。使いづらい部分がありましたら、Slackにてお知らせください。</a></li>
+					<li><span>2022.02.06</span><a href="notification.html#item4" target="_blank">シンプル表示モード切り替えボタンを新設しました。詳しくはこちらをご覧ください。</a></li>
+				<!--<li><span>2022.02.03</span><a href="#">1つめのニュースの記事です。</a></li>
+					<li><span>2022.02.03</span><a href="#">1つめのニュースの記事です。</a></li>
+					<li><span>2022.02.03</span><a href="#">1つめのニュースの記事です。</a></li>-->
+				</ul>
+			  </div>
+		</div>
+		<script>
+			$(function(){
+			  $.simpleTicker($('.ticker'),{'effectType':'roll'});
+			});
+		</script>
+		<script>
+			//初期表示は非表示
+			document.getElementById("target").style.display =" block";
+			document.getElementById("target2").style.display =" block";
+			
+			window.onload = function onload () {
+				if (p1.style.display=="none") {
+				modebtn.textContent = "標準表示モードにする";
+				}else{
+				modebtn.textContent = "シンプル表示モードにする";
+				}
+			};
+
+			function clickBtn1(){
+				const p1 = document.getElementById("target");
+				const modebtn= document.getElementById("displaynone");
+			
+				if(p1.style.display=="none"){
+					// noneで非表示
+					p1.style.display ="block";
+
+				}else{
+					// blockで表示
+					p1.style.display ="none";
+				}
+
+				const p2 = document.getElementById("target2");
+			
+				if(p2.style.display=="none"){
+					// noneで非表示
+					p2.style.display ="block";
+				}else{
+					// blockで表示
+					p2.style.display ="none";
+				}
+				modebtn.addEventListener('click', () => {
+				if (p1.style.display=="block") {
+				modebtn.textContent = "シンプル表示モードにする";
+				}else{
+				modebtn.textContent = "標準表示モードにする";
+				}
+			 })
+			}
+		</script>
+
+
 	  	<div class="topbanner">
 			<div class="clock" style="padding: 10px; margin-bottom: 5px; border: 1px solid #333333;">
 			<h2 class="date"><script>
@@ -93,12 +177,13 @@
 				</div>
 		</div>	
 	</div>
-	<details class="timer" open><summary>⚠️最初に必ずお読みください⚠️（オレンジのバーの部分をクリックすると閉じられます）</summary>
+	<div class="dtinfo" id="target2">
+	<details class="timer"><summary>⚠️最初に必ずお読みください⚠️</summary>
 		<h3 class="notify" style="color: orangered;">必ず、サイトを開いてから、自動放送のチャイムが鳴るまでの間に、「🔔チャイムを鳴らす🔔」ボタンを押して手動でチャイム音を鳴らしてください。（数秒でも問題ありません）</h3>
 		<h3 class="notify">ブラウザのウィンドウ1つあたりに大量のタブが開かれていると、PCの処理上、自動放送が実行されないことがあります。必ず、自動放送のタブを別ウィンドウに移動してください。</h3>	
 		<h3 class="notify">使い方は<a href="https://docs.google.com/presentation/d/1Fso95xnhPbcGchXzxYfQF1HaJh6fvpaZdMZAFl72Hig/edit?usp=sharing"target="blank" style="color:darkcyan;">こちら</a>からチェック！✅</h3>
-		
 	</details>
+	</div>
 	<div class="chime-button">
 		<div class="audio"><audio src="audio/nschime.mp3" type="audio/mp3"></audio>
 			<div class="audio_btn"><button class="sounds" alt="button1" id="btn_play">🔔チャイムを鳴らす🔔</button></div>
@@ -106,6 +191,7 @@
 			<button class="stop-button" id="btn_stop" style="background-color: rgb(252, 72, 72);">停止</button>
 			<button class="mute-button"id="btn_mute"> 消音</button>
 			<input class="slider" type="range" id="volume" value="0.7" min="0.0" max="1.0" step="0.001">
+			<button class="modebtn" id="displaynone" onclick="clickBtn1()">シンプル表示モードにする</button>
 
 		</div>
 	</div>	
@@ -123,8 +209,12 @@
 		
 <HR style="margin: 0em 0 ;">
 	<footer>
-		<p><h3>©️2021 N・S高等学校横浜キャンパスクリエイティブ委員会音楽チーム</h3></p>
-	<p>更新履歴は<a href="https://sites.google.com/nnn.ed.jp/ycp-s-soundeffectbs/history-teacher" target="_blank" rel="noopener">こちら</a>からご覧になれます。</p>
+	<h3 id="footers">©️2021 N・S高等学校横浜キャンパスクリエイティブ委員会音楽チーム</h3>
+	<p>更新履歴は<a href="https://sites.google.com/nnn.ed.jp/ycp-s-soundeffectbs/%E6%95%99%E8%81%B7%E5%93%A1%E7%94%A8/history-teacher" target="_blank" rel="noopener">こちら</a>からご覧になれます。</p>
+	<script>
+	var getyears = today.getFullYear();
+	document.getElementById("footers").innerHTML = "©️2021-" + getyears + " N・S高等学校横浜キャンパスクリエイティブ委員会音楽チーム";
+	</script>
 	</footer>
 
 <!-- JavaScriptの読み込み -->
@@ -186,6 +276,7 @@
 
 			slider_volume.addEventListener("input", e => {
 				audioElement.volume = slider_volume.value;
+				slider_volume.value = audioElement.volume
 			});
 
 
@@ -198,6 +289,10 @@
 
 			document.body.addEventListener("keydown", (event) => {
 					if (event.key === " " && event.ctrlKey) {
+						audioElement.play();
+						document.getElementById("info1").innerHTML = "チャイム手動放送中";
+					}
+					if (event.key === "q" && event.ctrlKey) {
 						audioElement.play();
 						document.getElementById("info1").innerHTML = "チャイム手動放送中";
 					}
@@ -327,5 +422,4 @@
 });
 	</script>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </html>
