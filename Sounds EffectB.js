@@ -97,7 +97,7 @@ for (var i = 0; i < audios.length; i++) {
 
 ////////////index.htmlから移行///////////////////
 
-//////////タイマースクリプト(header)/////////////
+///////////////時計の時間部分スクリプト////////////////
 function twoDigit(num) {
   let ret;
   if (num < 10) ret = "0" + num;
@@ -112,14 +112,14 @@ function showClock() {
   let msg = nowHour + ":" + nowMin + ":" + nowSec;
   document.getElementById("realtime").innerHTML = msg;
 }
-setInterval("showClock()", 1000);
-
+setInterval("showClock()", 100);
+//////////タイマースクリプト(header)/////////////
 var timer1; //タイマーを格納する変数（タイマーID）の宣言
 
 //カウントダウン関数を1000ミリ秒毎に呼び出す関数
 function cntStart() {
   document.timer.elements[2].disabled = true;
-  timer1 = setInterval("countDown()", 1000);
+  timer1 = setInterval("countDown()", 100);
 }
 
 //タイマー停止関数
@@ -545,5 +545,107 @@ function onYouTubeIframeAPIReady() {
 }
 var vol = document.getElementById('vol');
 vol.addEventListener('click', function () {
-    ytPlayer.setVolume(1);
+    ytPlayer.setVolume(5);
 });
+
+
+
+/////////////////////////////////
+			//初期表示は非表示
+			document.getElementById("target").style.display ="block";
+			document.getElementById("target2").style.display ="block";
+			
+			window.onload = function onload () {
+        const p2a = document.getElementById("target");
+				if (p2a.style.display=="none") {
+				modebtn.textContent = "標準表示モードにする";
+				}else{
+				modebtn.textContent = "シンプル表示モードにする";
+				}
+			};
+
+			function clickBtn1(){
+				const p1 = document.getElementById("target");
+				const modebtn= document.getElementById("displaynone");
+			
+				if(p1.style.display=="none"){
+					// noneで非表示
+					p1.style.display ="block";
+
+				}else{
+					// blockで表示
+					p1.style.display ="none";
+				}
+			}
+			function clickBtn2(){
+				const p2a = document.getElementById("target1");
+				const modebtn= document.getElementById("displaynone");
+			
+				if(p2a.style.display=="none"){
+					// noneで非表示
+					p2a.style.display ="block";
+
+				}else{
+					// blockで表示
+					p2a.style.display ="none";
+				}
+
+				const p2b = document.getElementById("target2");
+			
+				if(p2b.style.display=="none"){
+					// noneで非表示
+					p2b.style.display ="block";
+				}else{
+					// blockで表示
+					p2b.style.display ="none";
+				}
+
+				const p2c = document.getElementById("target3");
+			
+				if(p2c.style.display=="none"){
+					// noneで非表示
+					p2c.style.display ="block";
+				}else{
+					// blockで表示
+					p2c.style.display ="none";
+				}
+
+        const p2d = document.getElementById("target4");
+			
+				if(p2d.style.display=="none"){
+					// noneで非表示
+					p2d.style.display ="block";
+				}else{
+					// blockで表示
+					p2d.style.display ="none";
+				}
+
+        const p2e = document.getElementById("target5");
+			
+				if(p2e.style.display=="none"){
+					// noneで非表示
+					p2e.style.display ="block";
+				}else{
+					// blockで表示
+					p2e.style.display ="none";
+				}
+
+        const p2f = document.getElementById("target6");
+			
+				if(p2f.style.display=="none"){
+					// noneで非表示
+					p2f.style.display ="block";
+				}else{
+					// blockで表示
+					p2f.style.display ="none";
+				}
+
+				modebtn.addEventListener('click', () => {
+				if (p2a.style.display=="block") {
+				modebtn.textContent = "シンプル表示モードにする";
+				}else{
+				modebtn.textContent = "標準表示モードにする";
+				}
+			 })
+			}
+      

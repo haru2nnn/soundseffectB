@@ -17,17 +17,27 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=M+PLUS+1p:wght@300;400;500;700;800&display=swap" rel="stylesheet">
 		
+		<script src="https://www.gstatic.com/firebasejs/8.0.2/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.0.2/firebase-auth.js"></script>
+        <script src="config.js"></script>
+		<script src="auth.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/ui/3.5.2/firebase-ui-auth__ja.js"></script>
+        <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
+
 	</head>
 
 <body>
 	<header>
 		<div class="title">
-			<h1><a href="index.html"><img class="logo" src="image/header-logo1.png" alt="ホーム" width="80%"></a></h1>
-			<h1 class="title">
+			<h1 class="logoh1"><a href="index.html"><img class="logo" src="image/header-logo1.png" alt="ホーム" width="80%"></a></h1>
+			<h1 class="title-letter">
 				<!--<h1 style="text-align:cent>er;color:#218d6c;">SE集</h1><br>-->
 			</h1>
+			<div class="login-status">
+				<p id="login-status"></p>
+			</div>
 		</div>
-		<div class="hamburger-menu">
+		<div class="hamburger-menu" id="menu-button">
 			<input type="checkbox" id="menu-btn-check">
 			<label for="menu-btn-check" class="menu-btn"><span></span></label>
 			<!--ここからメニュー-->
@@ -52,136 +62,174 @@
 		</nav></div></div>
 	  </header>
 	  
-      <body>
-        <h1 class="article-title">お知らせ</h1>
-        <div class="info">
-        <p>SE集・チャイム放送システムのお知らせ・新着情報を表示しています。</p>
-        <p>タイトルの色が「この色」で表示されている情報はタイトルをクリックするとさらに詳細情報をご覧になることができます。</p>
+        <div id="not-loginned">
+            <h1>ログイン</h1>
+			<p>このページにアクセスするにはログインが必要です。</p>
+			<p>Googleアカウントでログインしてください。<br>※メールアドレスからはログインできません。</p>
+		<div id="firebaseui-auth-container">
+		</div>
         </div>
-        <div class="renewal-info">
-            <h3>各ツール最終更新日</h3>
-            <table class="renewal-table">
-                <tr>
-                 <th>SE集</th>
-                 <th>チャイムシステム</th>
-                 </tr>
-                <tr>
-                 <td>2022年2月2日</td>
-                 <td>2022年2月4日</td>
-                </tr>
-            </table>
-        </div>
-        <div class="info-example">
-        <h4><b>お知らせカテゴリの凡例</b></h4>
-        <p class="news-category"><span id="not2">SE集</span>・・・SE集関連の情報</p>
-        <p class="news-category"><span id="not1">チャイム<br>システム</span>・・・チャイムシステム関連の情報</p>
-        <p class="news-category"><span id="not3">全体</span>・・・サイト全体関連の情報</p>
-        <p class="news-category"><span id="">お知らせ</span>・・・その他お知らせ・情報</p>
-        </div>
+    
+    <div id="loginned">    
 
-<main>
-        <ul class="news-list">
-        <!--<li class="item" id="item7">
-                <div class="news-a">
-                    <p class="news-date">2020/4/15</p>
-                    <p class="news-category"><span id="not2">SE集</span></p>
-                    <div class="news-title"><h3>タイトル</h3>ここにお知らせが入りますここにお知らせが入りますここにお知らせが入ります</div>
-                <div>
-            </li>
-            <li class="item" id="item6">
-                <div class="news-a">
-                    <p class="news-date">2020/4/15</p>
-                    <p class="news-category"><span id="not2">SE集</span></p>
-                    <div class="news-title"><h3>タイトル</h3>ここにお知らせが入りますここにお知らせが入りますここにお知らせが入ります</div>
-                <div>
-            </li>
-            <li class="item" id="item5">
-                <div class="news-a">
-                    <p class="news-date">2020/4/15</p>
-                    <p class="news-category"><span id="not2">SE集</span></p>
-                    <div class="news-title"><h3>タイトル</h3>ここにお知らせが入りますここにお知らせが入りますここにお知らせが入ります</div>
-                <div>
-            </li>-->
-            <li class="item" id="item4">
-                <div class="news-a">
-                    <p class="news-date">2022/2/06</p>
-                    <p class="news-category"><span id="not1">チャイム<br>システム</span></p>
-                    <div class="news-title"><h3>シンプル表示モード切り替えボタンについて</h3>表示が複雑化してきたので、ボタン一つでスッキリ表示にできる「シンプル表示切り替えボタン」搭載しました。<br>
-                    お知らせ・注意事項を非表示にできます。音量バーの右側にある水色のボタンからご利用ください。</div>
-                <div>
-            </li>
-            <li class="item" id="item3">
-                <div class="news-a">
-                    <p class="news-date">2022/02/02</p>
-                    <p class="news-category"><span id="not1">チャイム<br>システム</span></p>
-                    <div class="news-title"><h3>スリープ復帰後の不具合について</h3>現在、スリープ復帰後に正常な時間でチャイムが稼働しない問題が発生しています。<br>お手数ですが、復帰後はサイトのリロードをお願いします。（チャイムが自動でなる可能性がありますのでご注意ください。）</div>
-                <div>
-            </li>
-            <li class="item" id="item2">
-                <div class="news-a">
-                    <p class="news-date">2022/02/02</p>
-                    <p class="news-category"><span id="not3">全体</span></p>
-                    <div class="news-title"><h3>最新版SE集について</h3>オンライン授業実施に伴い、チャイム自動放送システムを公開しました。ぜひご活用ください。<br>
-                        また、こちらの自動放送システムは<b>「教職員版SE集」のみでの公開</b>です。<br>
-                        <a href="#different" style="color:dodgerblue;">こちら</a>の仕様が教職員版と生徒版で異なるため、<u>チャイムシステムのリンクを含め、教職員版SE集のリンクは生徒に共有することはご遠慮ください。</u><br>
-                        生徒版SE集のリンクはこちらです。（右上のメニューからもアクセスできます）<br>
-                        <a href="https://haru2nnn.github.io/soundseffectS/">https://haru2nnn.github.io/soundseffectS/</a>
-                        <details id="different">
-                            <summary>【教職員版と生徒版で異なる部分】</summary>
-                                <li>S高チャイム音源の有無</li>
-                                <li>OC用スターウォーズ音源の有無</li>
-                                <li>サミット・Nゼミのテーマソングの有無</li>
-                                <li>チャイム自動放送システムの有無</li>
-                                <p>など</p>
-                        </details>
-                    </div>
-                <div>
-            </li>
-            <li class="item" id="item1">
-                <div class="news-a">
-                    <p class="news-date">2022/02/06</p>
-                    <p class="news-category"><span id="not3">全体</span></p>
-                    <div class="news-title"><h3>更新のお知らせ</h3>以下の点を変更しました。<br>・SE集のフォント・一部の文字の太さの変更　・画面表示の変更　・ニュースティッカーの表示</div>
-                <div>
-            </li>
-        </ul>
-    </main>
+                <h1 class="article-title">お知らせ</h1>
+                <div class="info">
+                <p>SE集・チャイム放送システムのお知らせ・新着情報を表示しています。</p>
+                <p>タイトルの色が「<span style="color: #014897;"><b>この色</b></span>」で表示されている情報はタイトルをクリックするとさらに詳細情報をご覧になることができます。</p>
+                </div>
+                <div class="renewal-info">
+                    <h3>各ツール最終更新日</h3>
+                    <table class="renewal-table">
+                        <tr>
+                        <th>SE集</th>
+                        <th>チャイムシステム</th>
+                        </tr>
+                        <tr>
+                        <td>2022年2月8日</td>
+                        <td>2022年2月4日</td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="info-example">
+                <h4><b>お知らせカテゴリの凡例</b></h4>
+                <p class="news-category"><span id="not2">SE集</span>・・・SE集関連の情報</p>
+                <p class="news-category"><span id="not1">チャイム<br>システム</span>・・・チャイムシステム関連の情報</p>
+                <p class="news-category"><span id="not3">全体</span>・・・サイト全体関連の情報</p>
+                <p class="news-category"><span id="">お知らせ</span>・・・その他お知らせ・情報</p>
+                </div>
 
-      </body>
-      <!--
-          #not1//Chimesys
-          #not2//SEsys
-          #not3//General
-      -->
+        <main>
+                <ul class="news-list">
+                <!--<li class="item" id="item11">
+                        <div class="news-a">
+                            <p class="news-date">2020/4/15</p>
+                            <p class="news-category"><span id="not2">SE集</span></p>
+                            <div class="news-title"><h3>タイトル</h3>ここにお知らせが入りますここにお知らせが入りますここにお知らせが入ります</div>
+                        <div>
+                    </li>
+                    <li class="item" id="item10">
+                        <div class="news-a">
+                            <p class="news-date">2020/4/15</p>
+                            <p class="news-category"><span id="not2">SE集</span></p>
+                            <div class="news-title"><h3>タイトル</h3>ここにお知らせが入りますここにお知らせが入りますここにお知らせが入ります</div>
+                        <div>
+                    </li>
+                    <li class="item" id="item9">
+                        <div class="news-a">
+                            <p class="news-date">2020/4/15</p>
+                            <p class="news-category"><span id="not2">SE集</span></p>
+                            <div class="news-title"><h3>タイトル</h3>ここにお知らせが入りますここにお知らせが入りますここにお知らせが入ります</div>
+                        <div>
+                    </li>
+                    <li class="item" id="item8">
+                        <div class="news-a">
+                            <p class="news-date">2020/4/15</p>
+                            <p class="news-category"><span id="not2">SE集</span></p>
+                            <div class="news-title"><h3>タイトル</h3>ここにお知らせが入りますここにお知らせが入りますここにお知らせが入ります</div>
+                        <div>
+                    </li>
+                    -->
+                    <li class="item" id="item7">
+                        <div class="news-a">
+                            <p class="news-date">2022/2/14</p>
+                            <p class="news-category"><span id="not3">全体</span></p>
+                            <div class="news-title"><a href=""><h3>ログイン認証について</h3></a>ここにお知らせが入りますここにお知らせが入りますここにお知らせが入ります</div>
+                        <div>
+                    </li>
+                    <li class="item" id="item6">
+                        <div class="news-a">
+                            <p class="news-date">2022/2/14</p>
+                            <p class="news-category"><span id="not1">チャイム<br>システム</span></p>
+                            <div class="news-title"><h3>チャイムシステムの更新について</h3>ここにお知らせが入りますここにお知らせが入りますここにお知らせが入ります</div>
+                        <div>
+                    </li>
+                    <li class="item" id="item5">
+                        <div class="news-a">
+                            <p class="news-date">2022/2/14</p>
+                            <p class="news-category"><span id="not2">SE集</span></p>
+                            <div class="news-title"><h3>SE集の更新について</h3>ここにお知らせが入りますここにお知らせが入りますここにお知らせが入ります</div>
+                        <div>
+                    </li>
+                    <li class="item" id="item4">
+                        <div class="news-a">
+                            <p class="news-date">2022/2/06</p>
+                            <p class="news-category"><span id="not3">全体</span></p>
+                            <div class="news-title"><h3>シンプル表示モード切り替えボタンについて</h3>表示が複雑化してきたので、ボタン一つでスッキリ表示にできる「シンプル表示切り替えボタン」搭載しました。<br>
+                            お知らせ・注意事項を非表示にできます。チャイムシステムは、音量バーの右側にある水色のボタンから、SE集は「Jump to...」バーの右側にあるボタンからご利用ください。</div>
+                        <div>
+                    </li>
+                    <li class="item" id="item3">
+                        <div class="news-a">
+                            <p class="news-date">2022/02/02</p>
+                            <p class="news-category"><span id="not1">チャイム<br>システム</span></p>
+                            <div class="news-title"><h3>スリープ復帰後の不具合について</h3>現在、スリープ復帰後に正常な時間でチャイムが稼働しない問題が発生しています。<br>お手数ですが、復帰後はサイトのリロードをお願いします。（チャイムが自動でなる可能性がありますのでご注意ください。）</div>
+                        <div>
+                    </li>
+                    <li class="item" id="item2">
+                        <div class="news-a">
+                            <p class="news-date">2022/02/02</p>
+                            <p class="news-category"><span id="not3">全体</span></p>
+                            <div class="news-title"><h3>最新版SE集について</h3>オンライン授業実施に伴い、チャイム自動放送システムを公開しました。ぜひご活用ください。<br>
+                                また、こちらの自動放送システムは<b>「教職員版SE集」のみでの公開</b>です。<br>
+                                <a href="#different" style="color:dodgerblue;">こちら</a>の仕様が教職員版と生徒版で異なるため、<u>チャイムシステムのリンクを含め、教職員版SE集のリンクは生徒に共有することはご遠慮ください。</u><br>
+                                生徒版SE集のリンクはこちらです。（右上のメニューからもアクセスできます）<br>
+                                <a href="https://haru2nnn.github.io/soundseffectS/">https://haru2nnn.github.io/soundseffectS/</a>
+                                <details id="different">
+                                    <summary>【教職員版と生徒版で異なる部分】</summary>
+                                        <li>S高チャイム音源の有無</li>
+                                        <li>OC用スターウォーズ音源の有無</li>
+                                        <li>サミット・Nゼミのテーマソングの有無</li>
+                                        <li>チャイム自動放送システムの有無</li>
+                                        <p>など</p>
+                                </details>
+                            </div>
+                        <div>
+                    </li>
+                    <li class="item" id="item1">
+                        <div class="news-a">
+                            <p class="news-date">2022/02/06</p>
+                            <p class="news-category"><span id="not3">全体</span></p>
+                            <div class="news-title"><h3>更新のお知らせ</h3>以下の点を変更しました。<br>・SE集のフォント・一部の文字の太さの変更　・画面表示の変更　・ニュースティッカーの表示</div>
+                        <div>
+                    </li>
+                </ul>
+            </main>
 
-<HR style="margin: 0em 0 ;">
-	<footer>
-		<h3 id="footers">©️2021 N・S高等学校横浜キャンパスクリエイティブ委員会音楽チーム</h3>
-		<p>更新履歴は<a href="https://sites.google.com/nnn.ed.jp/ycp-s-soundeffectbs/%E6%95%99%E8%81%B7%E5%93%A1%E7%94%A8/history-teacher" target="_blank" rel="noopener">こちら</a>からご覧になれます。</p>
-		<p>SE・BGM項目にある全ての音源の著作権は上記の団体に帰属します。(Youtube動画と*印のあるSEを除く）<br>
-			また、htmlのコードは多数のウェブサイト（「引用」に記載）よりお借りしていますが、デザイン等は全て改変しています。このサイト及びサイト内のコンテンツ（音声・画像ファイルなど）を一部改変、もしくはそのまま複製・再配布することを固く禁じます。</p>
-		<script>
-		var getyears = today.getFullYear();
-		document.getElementById("footers").innerHTML = "©️2021-" + getyears + " N・S高等学校横浜キャンパスクリエイティブ委員会音楽チーム";
-		</script>
-		</footer>
+            </body>
+            <!--
+                #not1//Chimesys
+                #not2//SEsys
+                #not3//General
+            -->
+    </div>
+        <HR style="margin: 0em 0 ;">
+            <footer>
+                <h3 id="footers">©️2021 N・S高等学校横浜キャンパスクリエイティブ委員会音楽チーム</h3>
+                <p>更新履歴は<a href="https://sites.google.com/nnn.ed.jp/ycp-s-soundeffectbs/%E6%95%99%E8%81%B7%E5%93%A1%E7%94%A8/history-teacher" target="_blank" rel="noopener">こちら</a>からご覧になれます。</p>
+                <p>SE・BGM項目にある全ての音源の著作権は上記の団体に帰属します。(Youtube動画と*印のあるSEを除く）<br>
+                    また、htmlのコードは多数のウェブサイト（「引用」に記載）よりお借りしていますが、デザイン等は全て改変しています。このサイト及びサイト内のコンテンツ（音声・画像ファイルなど）を一部改変、もしくはそのまま複製・再配布することを固く禁じます。</p>
+                <script>
+                var getyears = today.getFullYear();
+                document.getElementById("footers").innerHTML = "©️2021-" + getyears + " N・S高等学校横浜キャンパスクリエイティブ委員会音楽チーム";
+                </script>
+                </footer>
 
-<!-- JavaScriptの読み込み -->
-<script src="Sounds EffectB.js"></script>
-<!--<script src="js.js"></script>-->
-<style>
-:target {
-    animation: change-color-anim 2s linear;
-}
-@keyframes change-color-anim {
-	0%{
-		background-color: rgb(255, 168, 168);
-	}
-	100%{
-		background-color: whitesmoke;
-	}
-}
-</style>
+        <!-- JavaScriptの読み込み -->
+        <script src="Sounds EffectB.js"></script>
+        <!--<script src="js.js"></script>-->
+        <style>
+        :target {
+            animation: change-color-anim 2s linear;
+        }
+        @keyframes change-color-anim {
+            0%{
+                background-color: rgb(255, 168, 168);
+            }
+            100%{
+                background-color: whitesmoke;
+            }
+        }
+        </style>
 
 </body>
 		
