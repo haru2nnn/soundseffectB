@@ -19,7 +19,22 @@ firebase.auth().onAuthStateChanged(function(user) {
             }
 
     if (user) { // ログイン時
-        var loginText = greetingmsg + user.displayName + ' さん ' + user.email + "<button onclick='logOut()'>ログアウト</button>";
+        var cuseremail = user.email
+        var username = user.displayName
+        var passcheckup = document.autoauth.pass.value
+        if(user.email=="guest_nnnseb@googlegroups.com"){
+            cuseremail = "Guest"
+        }else{
+            cuseremail = user.email
+        }
+        if (passcheckup == 'ta') {
+            username = "TA"
+            cuseremail ="TA_guest"
+        } else {
+            username = user.displayName
+        }
+
+        var loginText = greetingmsg + username + ' さん ' + "["+ cuseremail + "] " + "<button onclick='logOut()'>ログアウト</button>";
         document.getElementById('login-status').innerHTML = loginText;
         document.getElementById("not-loginned").style.display = "none";
         document.getElementById("loginned").style.display = "block";
@@ -54,10 +69,47 @@ firebase.auth().onAuthStateChanged(function(user) {
     });
     function logOut() {
         firebase.auth().signOut().then(function() {
+            alert("ログアウトしました。次回使用時は再ログインしてください。");
             location.reload();
         });
     }
-
+    function guest() {
+        var email = "guest_nnnseb@googlegroups.com"
+        var password = "guest_yokohamaseb"
+        firebase
+        .auth()
+        .signInWithEmailAndPassword(email, password)
+    }
+    function aauthentication() {
+        var email = "admin_haru2nnndev@googlegroups.com"
+        var password = "admin1"
+        firebase
+        .auth()
+        .signInWithEmailAndPassword(email, password)
+    }
     
 
+    function disp(){
+        if(document.getElementById("aaform").style.display = "none"){
+            document.getElementById("aaform").style.display = "block";
+            document.autoauth.pass.focus();
+        }
 
+    }
+    function pcheck(){
+        var passcheckup = document.autoauth.pass.value;    
+        if(passcheckup == 'guest'){
+            guest();
+        }else if(passcheckup == 'admin'){
+            aauthentication();    
+        }else if(passcheckup == 'ta'){
+            guest()
+            
+        }else if(passcheckup == ''){
+            alert("パスワードを入力してください。")
+        }
+        else{
+            alert("パスワードが違っています。確認してください。")
+        }
+    
+    }

@@ -74,6 +74,11 @@
 		<p>Googleアカウントでログインしてください。<br>※メールアドレスからはログインできません。</p>
 	<div id="firebaseui-auth-container">
 	</div>
+	<a class="btntextchange" onclick="disp();"><span>Authentication</span><span>自動認証</span></a>
+	<form name="autoauth" id="aaform" onsubmit="pcheck(); return false">
+		<input name="pass" type="password"/>
+		<button id="btn" type="submit">認証</button>
+	</form>
 	<div class="stop-chime">
 	<p>チャイムが鳴ってしまった場合はこちらのボタンから停止してください。</p>
 	<button class="stop-button" id="stopbtn" onclick="stopchime()">停止</button>
