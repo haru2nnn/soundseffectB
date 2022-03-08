@@ -10,7 +10,7 @@ const SetSoundVolome = (id) => {
 };
 
 // 即時関数
-(function () {
+(function seplay () {
   // 設定
   var setClass = "sounds"; // ボタン要素のクラス名
   var setDir = "./"; // 音声ファイルがあるフォルダ(最後は[/])
@@ -78,7 +78,20 @@ const SetSoundVolome = (id) => {
     stopCurrentSound();
     return false;
   };
+  document.body.addEventListener("keydown", (event) => {
+    if (event.key === "n" && event.ctrlKey) {
+      file = "audio/nschime"
+      seplay(file);
+    }
+  });
+  function sekeyplay() {
+    file = "audio/nschime"
+    seplay();
+  };
+
 })();
+
+
 
 var audios = document.querySelectorAll("audio");
 for (var i = 0; i < audios.length; i++) {
@@ -97,7 +110,7 @@ for (var i = 0; i < audios.length; i++) {
 
 ////////////index.htmlから移行///////////////////
 
-//////////タイマースクリプト(header)/////////////
+///////////////時計の時間部分スクリプト////////////////
 function twoDigit(num) {
   let ret;
   if (num < 10) ret = "0" + num;
@@ -112,14 +125,14 @@ function showClock() {
   let msg = nowHour + ":" + nowMin + ":" + nowSec;
   document.getElementById("realtime").innerHTML = msg;
 }
-setInterval("showClock()", 1000);
-
+setInterval("showClock()", 100);
+//////////タイマースクリプト(header)/////////////
 var timer1; //タイマーを格納する変数（タイマーID）の宣言
 
 //カウントダウン関数を1000ミリ秒毎に呼び出す関数
 function cntStart() {
   document.timer.elements[2].disabled = true;
-  timer1 = setInterval("countDown()", 1000);
+  timer1 = setInterval("countDown()", 100);
 }
 
 //タイマー停止関数
@@ -305,205 +318,6 @@ window.addEventListener( "DOMContentLoaded" , ()=> {
 });
 
 
-document.body.addEventListener("keydown", (event) => {
-  if (event.key === "q" && event.ctrlKey) {
-    var sounds = new Audio();
-    sounds.class = "se";
-    sounds.src = "audio_o/trumpet1.mp3";
-    sounds.currentTime = 0;
-    sounds.play();
-  }
-  if (event.key === "w" && event.ctrlKey) {
-    var sounds = new Audio();
-    sounds.src = "audio_o/trumpet3.mp3";
-    sounds.currentTime = 0;
-    sounds.play();
-  }
-  if (event.key === "e" && event.ctrlKey) {
-    var sounds = new Audio();
-    sounds.src = "audio_o/dora.mp3";
-    sounds.currentTime = 0;
-    sounds.play();
-  }
-  if (event.key === "r" && event.ctrlKey) {
-    var sounds = new Audio();
-    sounds.src = "audio/小鼓.mp3";
-    sounds.currentTime = 0;
-    sounds.play();
-  }
-  if (event.key === "t" && event.ctrlKey) {
-    var sounds = new Audio();
-    sounds.src = "audio/drum-japanese2.mp3";
-    sounds.currentTime = 0;
-    sounds.play();
-  }
-  if (event.key === "y" && event.ctrlKey) {
-    var sounds = new Audio();
-    sounds.src = "audio/運命1.mp3";
-    sounds.currentTime = 0;
-    sounds.play();
-  }
-  if (event.key === "u" && event.ctrlKey) {
-    var sounds = new Audio();
-    sounds.src = "audio/shock.mp3";
-    sounds.currentTime = 0;
-    sounds.play();
-  }
-  if (event.key === "i" && event.ctrlKey) {
-    var sounds = new Audio();
-    sounds.src = "audio/tin.mp3";
-    sounds.currentTime = 0;
-    sounds.play();
-  }
-  if (event.key === "o" && event.ctrlKey) {
-    var sounds = new Audio();
-    sounds.src = "audio_o/chan-chan1.mp3";
-    sounds.currentTime = 0;
-    sounds.play();
-  }
-  if (event.key === "p" && event.ctrlKey) {
-    var sounds = new Audio();
-    sounds.src = "audio_o/chan-chan2.mp3";
-    sounds.currentTime = 0;
-    sounds.play();
-  }
-  if (event.key === "a" && event.ctrlKey) {
-    var sounds = new Audio();
-    sounds.src = "audio_o/drumroll.mp3";
-    sounds.currentTime = 0;
-    sounds.play();
-  }
-  if (event.key === "s" && event.ctrlKey) {
-    var sounds = new Audio();
-    sounds.src = "audio/cheerandclap.mp3";
-    sounds.currentTime = 0;
-    sounds.play();
-  }
-  if (event.key === "d" && event.ctrlKey) {
-    var sounds = new Audio();
-    sounds.src = "audio/claping1.mp3";
-    sounds.currentTime = 0;
-    sounds.play();
-  }
-  if (event.key === "f" && event.ctrlKey) {
-    var sounds = new Audio();
-    sounds.src = "audio/everyone_laugh3.mp3";
-    sounds.currentTime = 0;
-    sounds.play();
-  }
-  if (event.key === "g" && event.ctrlKey) {
-    var sounds = new Audio();
-    sounds.src = "audio/dondonpafupafu.mp3";
-    sounds.currentTime = 0;
-    sounds.play();
-  }
-  if (event.key === "h" && event.ctrlKey) {
-    var sounds = new Audio();
-    sounds.src = "audio/police-whistle.mp3";
-    sounds.currentTime = 0;
-    sounds.play();
-  }
-  if (event.key === "j" && event.ctrlKey) {
-    var sounds = new Audio();
-    sounds.src = "audio/shakine.mp3";
-    sounds.currentTime = 0;
-    sounds.play();
-  }
-  if (event.key === "k" && event.ctrlKey) {
-    var sounds = new Audio();
-    sounds.src = "audio/jyan.mp3";
-    sounds.currentTime = 0;
-    sounds.play();
-  }
-  if (event.key === "l" && event.ctrlKey) {
-    var sounds = new Audio();
-    sounds.src = "audio/effect1.mp3";
-    sounds.currentTime = 0;
-    sounds.play();
-  }
-  if (event.key === ";" && event.ctrlKey) {
-    var sounds = new Audio();
-    sounds.src = "audio/effect2.mp3";
-    sounds.currentTime = 0;
-    sounds.play();
-  }
-  if (event.key === ":" && event.ctrlKey) {
-    var sounds = new Audio();
-    sounds.src = "audio/effect3.mp3";
-    sounds.currentTime = 0;
-    sounds.play();
-  }
-  if (event.key === "z" && event.ctrlKey) {
-    var sounds = new Audio();
-    sounds.src = "audio/question.mp3";
-    sounds.currentTime = 0;
-    sounds.play();
-  }
-  if (event.key === "x" && event.ctrlKey) {
-    var sounds = new Audio();
-    sounds.src = "audio_o/correct.mp3";
-    sounds.currentTime = 0;
-    sounds.play();
-  }
-  if (event.key === "c" && event.ctrlKey) {
-    var sounds = new Audio();
-    sounds.src = "audio_o/incorrect.mp3";
-    sounds.currentTime = 0;
-    sounds.play();
-  }
-  if (event.key === "v" && event.ctrlKey) {
-    var sounds = new Audio();
-    sounds.src = "audio/timer.mp3";
-    sounds.currentTime = 0;
-    sounds.play();
-  }
-  if (event.key === "b" && event.ctrlKey) {
-    var sounds = new Audio();
-    var setClass = "se";
-    sounds.src = "audio/timer_fast.mp3";
-    sounds.currentTime = 0;
-    sounds.play();
-  }
-  if (event.key === "n" && event.ctrlKey) {
-    var sounds = new Audio();
-    sounds.src = "audio/nschime.mp3";
-    sounds.currentTime = 0;
-    sounds.play();
-  }
-  if (event.key === "m" && event.ctrlKey) {
-    var sounds = new Audio();
-    sounds.src = "audio/chime1-1.mp3";
-    sounds.currentTime = 0;
-    sounds.play();
-  }
-  if (event.key === "," && event.ctrlKey) {
-    var sounds = new Audio();
-    sounds.src = "audio_o/anouncement-before.mp3";
-    sounds.currentTime = 0;
-    sounds.play();
-  }
-  if (event.key === "." && event.ctrlKey) {
-    var sounds = new Audio();
-    sounds.src = "audio_o/anouncement-after.mp3";
-    sounds.currentTime = 0;
-    sounds.play();
-  }
-  if (event.key === "/" && event.ctrlKey) {
-    var sounds = new Audio();
-    sounds.src = "audio_o/click.mp3";
-    sounds.currentTime = 0;
-    sounds.play();
-  }
-  if (event.key === "_" && event.ctrlKey) {
-    var sounds = new Audio();
-    sounds.src = "audio_o/2click.mp3";
-    sounds.currentTime = 0;
-    sounds.play();
-  }
-
-
-});
-
 
 function MoveCheck() {
   if( confirm("サイトを開くとチャイム音が鳴る場合があります。音量にご注意ください。") ) {
@@ -524,26 +338,774 @@ var tag = document.createElement('script');
 tag.src = "https://www.youtube.com/iframe_api";
 var firstScriptTag = document.getElementsByTagName('script')[0];
 firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+//プレイヤー格納
+var ytPlayer = [];
+
+// Youtube再生判定用
+let ytPlaying, ytStop, ytPlay;
  
-// プレーヤーを埋め込む場所
-var ytArea = 'rupin3rdyt';
-  
-// 埋め込むYouTube ID
-var ytID = 'NfQ-GsSyNhc';
+// プレーヤーを埋め込む場所:area
+// 埋め込むYouTube ID:id
+var ytData = [
+  {
+      id: 'NfQ-GsSyNhc',
+      area: 'rupin3rdyt',
+      ytWidth:'0',
+      ytHeight:'0'
+  }, {
+      id: 'fxUS4z4ftSs',
+      area: 'positiveforceyt',
+      ytWidth:'0',
+      ytHeight:'0'
+  }, {
+      id: 'xhOsnY-k8JM',
+      area: 'nhighsongyt',
+      ytWidth:'0',
+      ytHeight:'0'
+  }, {
+      id: 'Zbtfj1pVamg',
+      area: 'shighsongyt',
+      ytWidth:'0',
+      ytHeight:'0'
+  }
+];
+
+// 各プレーヤーの埋め込み
+function onYouTubeIframeAPIReady() {
+  for(var i = 0; i < ytData.length; i++) {
+      ytPlayer[i] = new YT.Player(ytData[i]['area'], {
+          width: ytData[i]['ytWidth'],
+          height: ytData[i]['ytHeight'],
+          videoId: ytData[i]['id'],
+          playerVars:{
+            playsinline: 1,
+            //autoplay: 1, // 自動再生
+            loop: 1, // ループ有効
+            listType: 'playlist', //リスト再生（ループ再生に必要）
+            playlist: ytData[i]['id'], // 再生する動画リスト（ループ再生に必要）
+            controls: 1, // コントロールバー非表示
+            enablejsapi: 1, //JavaScript API 有効
+            modestbranding:1,//yutubeロゴの非表示
+            iv_load_policy: 3, //動画アノテーションを表示しない
+            //disablekb:1, //キーボード操作OFF
+            showinfo:0, //動画の再生が始まる前に動画のタイトルなどの情報を表示しない
+            rel:0, //再生終了時に関連動画を表示しない
+            fs:0, //全画面表示ボタンをオフ
+            playsinline:1,//iOS用制御フラグ
+          },
+          events: {
+              'onReady': onPlayerReady
+          }
+      });
+      
+  }
+}
   
 // プレーヤーのサイズを指定
 var ytWidth = 560;
 var ytHeight = 315;
-  
-// API読み込み後にプレーヤー埋め込み
-function onYouTubeIframeAPIReady() {
-    ytPlayer = new YT.Player(ytArea, {
-        height: ytHeight,
-        width: ytWidth,
-        videoId: ytID
+
+
+    const ytpdis= document.getElementById('disytplayer');
+    ytpdis.onclick = function ytpdis() {
+      var elements = document.getElementsByClassName('youtube');
+      for(i=0;i<elements.length;i++){
+          elements[i].style.display = "block";
+      }
+    }
+
+    const ytvol0 = document.getElementById('ytvolume0');
+    ytvol0.oninput = function yt0change() {
+      var getyt0vol = ytPlayer[0].getVolume();
+      ytPlayer[0].setVolume(ytvol0.value);
+      document.getElementById('ytvol0dis').innerHTML = ytvol0.value 
+    }  
+    const ytvol1 = document.getElementById('ytvolume1');
+    ytvol1.oninput = function() {
+      ytPlayer[1].setVolume(ytvol1.value);
+      document.getElementById('ytvol1dis').innerHTML = ytvol1.value 
+    }     
+    const ytvol2 = document.getElementById('ytvolume2');
+    ytvol2.oninput = function() {
+      ytPlayer[2].setVolume(ytvol2.value);
+      document.getElementById('ytvol2dis').innerHTML = ytvol2.value 
+    }  
+    const ytvol3 = document.getElementById('ytvolume3');
+    ytvol3.oninput = function() {
+      ytPlayer[3].setVolume(ytvol3.value);
+      document.getElementById('ytvol3dis').innerHTML = ytvol3.value 
+    }  
+
+    var vol = document.getElementById('vol');
+    vol.addEventListener('click', function () {
+        ytPlayer[0].setVolume(10);
+        ytvol0.value = 10
+        document.getElementById('ytvol0dis').innerHTML = "10" 
     });
-}
-var vol = document.getElementById('vol');
-vol.addEventListener('click', function () {
-    ytPlayer.setVolume(1);
-});
+
+    var rupinfo = document.getElementById('rupinfo');
+    rupinfo.addEventListener('click',function () {
+     const rupinfointerv =  setInterval(() => {
+        const ytvol0 = document.getElementById('ytvolume0');
+        if (0< ytvol0.value <= 100) {
+          ytPlayer[0].setVolume(ytvol0.value -2.5);
+          ytvol0.value = ytPlayer[0].getVolume();
+        }else {
+          clearInterval(rupinfointerv);
+          return false;
+        } 
+        if(ytvol0.value == 0){
+          document.getElementById('ytvol0dis').innerHTML = "0"
+          ytPlayer[0].pauseVideo();
+          clearInterval(rupinfointerv);
+          return false;
+        } 
+        document.getElementById('ytvol0dis').innerHTML = ytvol0.value
+      }, 50);
+      return false;
+    })
+
+    function onPlayerReady(event) {
+      var playButton = document.getElementById("ytplay0");
+      playButton.addEventListener("click", function rupinplay () {
+        ytPlayer[0].playVideo();
+        const seekint0 = setInterval(function(){
+            seek0();
+        },500);
+      var pauseButton = document.getElementById("ytpause0");
+      pauseButton.addEventListener("click", function () {
+        ytPlayer[0].pauseVideo();
+        clearInterval(seekint0);
+      });
+      });
+
+      var playButton = document.getElementById("ytplay1");
+      playButton.addEventListener("click", function () {
+        ytPlayer[1].playVideo();
+      const seekint1 = setInterval(function (){
+          seek1();
+      },500);
+      var pauseButton = document.getElementById("ytpause1");
+      pauseButton.addEventListener("click", function () {
+        ytPlayer[1].pauseVideo();
+        clearInterval(seekint1);
+      });
+      });
+
+
+      var playButton = document.getElementById("ytplay2");
+      playButton.addEventListener("click", function () {
+        ytPlayer[2].playVideo();
+        const seekint2 = setInterval(function(){
+            seek2();
+        },500);
+       var pauseButton = document.getElementById("ytpause2");
+        pauseButton.addEventListener("click", function () {
+        ytPlayer[2].pauseVideo();
+        clearInterval(seekint2);
+      });
+      });
+   
+      var playButton = document.getElementById("ytplay3");
+      playButton.addEventListener("click", function () {
+        ytPlayer[3].playVideo();
+      const seekint3 = setInterval(function (){
+          seek3();
+      },500);
+      var pauseButton = document.getElementById("ytpause3");
+      pauseButton.addEventListener("click", function () {
+        ytPlayer[3].pauseVideo();
+        clearInterval(seekint3);
+      });
+      });
+
+
+      function seek0() {
+        var seekbar0 = document.getElementById("ytseekbar0")
+        var currentTime0 = ytPlayer[0].getCurrentTime();  // 現在の再生時間取得
+        document.getElementById('ytcurrent0dis').innerHTML = convertTime(currentTime0.toFixed()) +""
+        document.getElementById('ytseekbar0').setAttribute('max',ytPlayer[0].getDuration())
+        seekbar0.value=currentTime0
+        seekbar0.oninput = function(){
+          ytPlayer[0].seekTo(seekbar0.value);
+        }
+        document.getElementById('ytdura0dis').innerHTML = convertTime(ytPlayer[0].getDuration());
+      }
+        function seek1() {
+          var seekbar1 = document.getElementById("ytseekbar1")
+          var currentTime1 = ytPlayer[1].getCurrentTime();  // 現在の再生時間取得
+          document.getElementById('ytcurrent1dis').innerHTML = convertTime(currentTime1.toFixed()) +""
+          document.getElementById('ytseekbar1').setAttribute('max',ytPlayer[1].getDuration())
+          seekbar1.value=currentTime1
+          seekbar1.oninput = function(){
+            ytPlayer[1].seekTo(seekbar1.value);
+          }
+          document.getElementById('ytdura1dis').innerHTML = convertTime(ytPlayer[1].getDuration());
+      }
+      function seek2() {
+        var seekbar2 = document.getElementById("ytseekbar2")
+        var currentTime2 = ytPlayer[2].getCurrentTime();  // 現在の再生時間取得
+        document.getElementById('ytcurrent2dis').innerHTML = convertTime(currentTime2.toFixed()) +""
+        document.getElementById('ytseekbar2').setAttribute('max',ytPlayer[2].getDuration())
+        seekbar2.value=currentTime2
+        seekbar2.oninput = function(){
+          ytPlayer[2].seekTo(seekbar2.value);
+        }
+        document.getElementById('ytdura2dis').innerHTML = convertTime(ytPlayer[2].getDuration());
+      }
+        function seek3() {
+          var seekbar3 = document.getElementById("ytseekbar3")
+          var currentTime3 = ytPlayer[3].getCurrentTime();  // 現在の再生時間取得
+          document.getElementById('ytcurrent3dis').innerHTML = convertTime(currentTime3.toFixed()) +""
+          document.getElementById('ytseekbar3').setAttribute('max',ytPlayer[3].getDuration())
+          seekbar3.value=currentTime3
+          seekbar3.oninput = function(){
+            ytPlayer[3].seekTo(seekbar3.value);
+          }
+          document.getElementById('ytdura3dis').innerHTML = convertTime(ytPlayer[3].getDuration());
+      }
+
+      			// 再生時間の表記を「mm:ss」に整える
+			const convertTime = function(time_position) {
+				
+				time_position = Math.floor(time_position);
+				var res = null;
+
+				if( 60 <= time_position ) {
+				res = Math.floor(time_position / 60);
+				res += ":" + Math.floor(time_position % 60).toString().padStart( 2, '0');
+				} else {
+				res = "0:" + Math.floor(time_position % 60).toString().padStart( 2, '0');
+				}
+
+				return res;
+			};
+
+    }
+
+
+
+    $(".toggle").on("click", function() {
+      $(".toggle").toggleClass("checked");
+      if(!$('input[name="check"]').prop("checked")) {
+        $(".toggle input").prop("checked", true);
+        document.getElementById('toch_rupin').innerHTML = "ON"
+        var getyoubi = new Date();
+        var todayday = getyoubi.getDay();
+          if (todayday == 2) {
+            if ((new Date().setHours(9, 45, 0, 0) - new Date())<0) {
+              gudgeres = "今日は火曜日なので9:45:00に自動再生します。" 
+            }else if ((new Date().setHours(9, 45, 0, 0) - new Date())>0) {
+              $(".toggle input").prop("checked", false);
+              document.getElementById('toch_rupin').innerHTML = "OFF"
+              gudgeres = "9:45を過ぎているため、自動再生できません。手動再生してください。" 
+            }    
+          }else{
+            $(".toggle input").prop("checked", false);
+            document.getElementById('toch_rupin').innerHTML = "OFF"
+            gudgeres = "今日は火曜日ではないので自動再生されません。"
+          }
+        alert(gudgeres + '\n初期設定はOFFですので、リロードするたびにONにする必要があります。')
+        console.log(new Date().setHours(9, 45, 0, 0) - new Date())
+      } else {
+        $(".toggle input").prop("checked", false);
+        document.getElementById('toch_rupin').innerHTML = "OFF"
+      }
+    });
+
+
+    setTimeout(() => {
+      var WeekChars =["日","月","火","水","木","金","土"];
+      var getyoubi = new Date();
+      var todayday = getyoubi.getDay();
+
+    if (todayday == 2) {
+      if ($(".toggle input").prop("checked", true)){
+          ytPlayer[0].playVideo();
+          const seekint0 = setInterval(function(){
+              seek0();
+          },500);
+        function seek0() {
+          var seekbar0 = document.getElementById("ytseekbar0")
+          var currentTime0 = ytPlayer[0].getCurrentTime();  // 現在の再生時間取得
+          document.getElementById('ytcurrent0dis').innerHTML = convertTime(currentTime0.toFixed()) +""
+          document.getElementById('ytseekbar0').setAttribute('max',ytPlayer[0].getDuration())
+          seekbar0.value=currentTime0
+          seekbar0.oninput = function(){
+            ytPlayer[0].seekTo(seekbar0.value);
+          }
+          document.getElementById('ytdura0dis').innerHTML = convertTime(ytPlayer[0].getDuration());
+        }
+        // 再生時間の表記を「mm:ss」に整える
+			const convertTime = function(time_position) {
+				
+				time_position = Math.floor(time_position);
+				var res = null;
+
+				if( 60 <= time_position ) {
+				res = Math.floor(time_position / 60);
+				res += ":" + Math.floor(time_position % 60).toString().padStart( 2, '0');
+				} else {
+				res = "0:" + Math.floor(time_position % 60).toString().padStart( 2, '0');
+				}
+
+				return res;
+			};
+  }
+  }
+  }, new Date().setHours(9, 45, 0, 0) - new Date())
+
+
+
+/////////////////////////////////
+			//初期表示は非表示
+			document.getElementById("target").style.display ="block";
+			document.getElementById("target2").style.display ="block";
+			
+			window.onload = function onload () {
+        const p2a = document.getElementById("target");
+				if (p2a.style.display=="none") {
+				modebtn.textContent = "標準表示モードにする";
+				}else{
+				modebtn.textContent = "シンプル表示モードにする";
+				}
+			};
+
+			function clickBtn1(){
+				const p1 = document.getElementById("target");
+				const modebtn= document.getElementById("displaynone");
+			
+				if(p1.style.display=="none"){
+					// noneで非表示
+					p1.style.display ="block";
+
+				}else{
+					// blockで表示
+					p1.style.display ="none";
+				}
+			}
+			function clickBtn2(){
+				const p2a = document.getElementById("target1");
+				const modebtn= document.getElementById("displaynone");
+			
+				if(p2a.style.display=="none"){
+					// noneで非表示
+					p2a.style.display ="block";
+
+				}else{
+					// blockで表示
+					p2a.style.display ="none";
+				}
+
+				const p2b = document.getElementById("target2");
+			
+				if(p2b.style.display=="none"){
+					// noneで非表示
+					p2b.style.display ="block";
+				}else{
+					// blockで表示
+					p2b.style.display ="none";
+				}
+
+				const p2c = document.getElementById("target3");
+			
+				if(p2c.style.display=="none"){
+					// noneで非表示
+					p2c.style.display ="block";
+				}else{
+					// blockで表示
+					p2c.style.display ="none";
+				}
+
+        const p2d = document.getElementById("target4");
+			
+				if(p2d.style.display=="none"){
+					// noneで非表示
+					p2d.style.display ="block";
+				}else{
+					// blockで表示
+					p2d.style.display ="none";
+				}
+
+        const p2e = document.getElementById("target5");
+			
+				if(p2e.style.display=="none"){
+					// noneで非表示
+					p2e.style.display ="block";
+				}else{
+					// blockで表示
+					p2e.style.display ="none";
+				}
+
+        const p2f = document.getElementById("target6");
+			
+				if(p2f.style.display=="none"){
+					// noneで非表示
+					p2f.style.display ="block";
+				}else{
+					// blockで表示
+					p2f.style.display ="none";
+				}
+
+				modebtn.addEventListener('click', () => {
+				if (p2a.style.display=="block") {
+				modebtn.textContent = "シンプル表示モードにする";
+				}else{
+				modebtn.textContent = "標準表示モードにする";
+				}
+			 })
+			}
+      
+
+
+
+
+
+      ////////////////////////////////////////
+      document.body.addEventListener("keydown", (event) => {
+        if (event.key === "q" && event.ctrlKey) {
+          var sounds = new Audio();
+          sounds.class = "se";
+          sounds.src = "audio_o/trumpet1.mp3";
+          sounds.currentTime = 0;
+          sounds.play();
+        }
+        if (event.key === "w" && event.ctrlKey) {
+          var sounds = new Audio();
+          sounds.src = "audio_o/trumpet3.mp3";
+          sounds.currentTime = 0;
+          sounds.play();
+        }
+        if (event.key === "e" && event.ctrlKey) {
+          var sounds = new Audio();
+          sounds.src = "audio_o/dora.mp3";
+          sounds.currentTime = 0;
+          sounds.play();
+        }
+        if (event.key === "r" && event.ctrlKey) {
+          var sounds = new Audio();
+          sounds.src = "audio/小鼓.mp3";
+          sounds.currentTime = 0;
+          sounds.play();
+        }
+        if (event.key === "t" && event.ctrlKey) {
+          var sounds = new Audio();
+          sounds.src = "audio/drum-japanese2.mp3";
+          sounds.currentTime = 0;
+          sounds.play();
+        }
+        if (event.key === "y" && event.ctrlKey) {
+          var sounds = new Audio();
+          sounds.src = "audio/運命1.mp3";
+          sounds.currentTime = 0;
+          sounds.play();
+        }
+        if (event.key === "u" && event.ctrlKey) {
+          var sounds = new Audio();
+          sounds.src = "audio/shock.mp3";
+          sounds.currentTime = 0;
+          sounds.play();
+        }
+        if (event.key === "i" && event.ctrlKey) {
+          var sounds = new Audio();
+          sounds.src = "audio/tin.mp3";
+          sounds.currentTime = 0;
+          sounds.play();
+        }
+        if (event.key === "o" && event.ctrlKey) {
+          var sounds = new Audio();
+          sounds.src = "audio_o/chan-chan1.mp3";
+          sounds.currentTime = 0;
+          sounds.play();
+        }
+        if (event.key === "p" && event.ctrlKey) {
+          var sounds = new Audio();
+          sounds.src = "audio_o/chan-chan2.mp3";
+          sounds.currentTime = 0;
+          sounds.play();
+        }
+        if (event.key === "a" && event.ctrlKey) {
+          var sounds = new Audio();
+          sounds.src = "audio_o/drumroll.mp3";
+          sounds.currentTime = 0;
+          sounds.play();
+        }
+        if (event.key === "s" && event.ctrlKey) {
+          var sounds = new Audio();
+          sounds.src = "audio/cheerandclap.mp3";
+          sounds.currentTime = 0;
+          sounds.play();
+        }
+        if (event.key === "d" && event.ctrlKey) {
+          var sounds = new Audio();
+          sounds.src = "audio/claping1.mp3";
+          sounds.currentTime = 0;
+          sounds.play();
+        }
+        if (event.key === "f" && event.ctrlKey) {
+          var sounds = new Audio();
+          sounds.src = "audio/everyone_laugh3.mp3";
+          sounds.currentTime = 0;
+          sounds.play();
+        }
+        if (event.key === "g" && event.ctrlKey) {
+          var sounds = new Audio();
+          sounds.src = "audio/dondonpafupafu.mp3";
+          sounds.currentTime = 0;
+          sounds.play();
+        }
+        if (event.key === "h" && event.ctrlKey) {
+          var sounds = new Audio();
+          sounds.src = "audio/police-whistle.mp3";
+          sounds.currentTime = 0;
+          sounds.play();
+        }
+        if (event.key === "j" && event.ctrlKey) {
+          var sounds = new Audio();
+          sounds.src = "audio/shakine.mp3";
+          sounds.currentTime = 0;
+          sounds.play();
+        }
+        if (event.key === "k" && event.ctrlKey) {
+          var sounds = new Audio();
+          sounds.src = "audio/jyan.mp3";
+          sounds.currentTime = 0;
+          sounds.play();
+        }
+        if (event.key === "l" && event.ctrlKey) {
+          var sounds = new Audio();
+          sounds.src = "audio/effect1.mp3";
+          sounds.currentTime = 0;
+          sounds.play();
+        }
+        if (event.key === ";" && event.ctrlKey) {
+          var sounds = new Audio();
+          sounds.src = "audio/effect2.mp3";
+          sounds.currentTime = 0;
+          sounds.play();
+        }
+        if (event.key === ":" && event.ctrlKey) {
+          var sounds = new Audio();
+          sounds.src = "audio/effect3.mp3";
+          sounds.currentTime = 0;
+          sounds.play();
+        }
+        if (event.key === "z" && event.ctrlKey) {
+          var sounds = new Audio();
+          sounds.src = "audio/question.mp3";
+          sounds.currentTime = 0;
+          sounds.play();
+        }
+        if (event.key === "x" && event.ctrlKey) {
+          var sounds = new Audio();
+          sounds.src = "audio_o/correct.mp3";
+          sounds.currentTime = 0;
+          sounds.play();
+        }
+        if (event.key === "c" && event.ctrlKey) {
+          var sounds = new Audio();
+          sounds.src = "audio_o/incorrect.mp3";
+          sounds.currentTime = 0;
+          sounds.play();
+        }
+        if (event.key === "v" && event.ctrlKey) {
+          var sounds = new Audio();
+          sounds.src = "audio/timer.mp3";
+          sounds.currentTime = 0;
+          sounds.play();
+        }
+        if (event.key === "b" && event.ctrlKey) {
+          var sounds = new Audio();
+          var setClass = "se";
+          sounds.src = "audio/timer_fast.mp3";
+          sounds.currentTime = 0;
+          sounds.play();
+        }
+        if (event.key === "n" && event.ctrlKey) {
+          var sounds = new Audio();
+          sounds.src = "audio/nschime.mp3";
+          sounds.currentTime = 0;
+          sounds.play();
+        }
+        if (event.key === "m" && event.ctrlKey) {
+          var sounds = new Audio();
+          sounds.src = "audio/chime1-1.mp3";
+          sounds.currentTime = 0;
+          sounds.play();
+        }
+        if (event.key === "," && event.ctrlKey) {
+          var sounds = new Audio();
+          sounds.src = "audio_o/anouncement-before.mp3";
+          sounds.currentTime = 0;
+          sounds.play();
+        }
+        if (event.key === "." && event.ctrlKey) {
+          var sounds = new Audio();
+          sounds.src = "audio_o/anouncement-after.mp3";
+          sounds.currentTime = 0;
+          sounds.play();
+        }
+        if (event.key === "/" && event.ctrlKey) {
+          var sounds = new Audio();
+          sounds.src = "audio_o/click.mp3";
+          sounds.currentTime = 0;
+          sounds.play();
+        }
+        if (event.key === "_" && event.ctrlKey) {
+          var sounds = new Audio();
+          sounds.src = "audio_o/2click.mp3";
+          sounds.currentTime = 0;
+          sounds.play();
+        }
+      
+      
+      });
+      
+
+
+
+      const audioselecter = document.getElementById('audioselect')
+      window.onload = function () {
+        const audioselecter = document.getElementById('audioselect')
+        
+        audioselecter.onchange = function tagchange(){
+          var audiocode = '<audio id="selectedaudio" controls loop preload="metadata" controlslist="nodownload">'+
+          '<source src="audio/bgm/'+ '" type="audio/mp3"/>' + '</audio>';
+            console.log(audioselecter.value);
+            const setaudiofile = audioselecter.value;
+            const setaudioname = audioselecter.options[audioselecter.selectedIndex].textContent;
+            var audiocode = '<audio id="selectedaudio" controls loop preload="metadata" controlslist="nodownload">'+
+            '<source src="audio/bgm/'+ setaudiofile + '" type="audio/mp3"/>' + '</audio>';
+            const audioElement = document.getElementById("selectedaudio");
+            document.getElementById('audiocontainer').innerHTML = audiocode;
+            document.getElementById('audiotitle').innerHTML = setaudioname;
+ /*           changedis();
+            function changedis(){
+
+            }*/
+            } 
+        };
+
+
+
+        window.addEventListener( "DOMContentLoaded",function ctrlaudio(){
+
+          /*const btn_play = document.getElementById("btn_play");
+          const btn_pause = document.getElementById("btn_pause");*/
+          const btn_eject = document.getElementById("btn_eject")
+          const playback_position = document.getElementById("playback_position");
+          const end_position = document.getElementById("end_position");
+          const slider_progress = document.getElementById("progress");
+          const btn_mute = document.getElementById("btn_mute");
+          const slider_volume = document.getElementById("volume");
+          const audioElement = document.getElementById("selectedaudio");
+        
+
+          // ボリュームの初期設定
+          audioElement.volume = slider_volume.value;
+
+          /*btn_play.addEventListener("click", e => {
+            audioElement.play();
+          });
+
+          btn_pause.addEventListener("click", e => {
+            audioElement.pause();
+          });*/
+          btn_eject.addEventListener("click", e => {
+            audioElement.pause();
+            audioElement.currentTime = 0;
+            audioselecter.selectedIndex = 0;
+            const audiocode = '<audio id="selectedaudio" controls loop preload="metadata" controlslist="nodownload">'+
+            '<source src="'+'"' + ' type="audio/mp3"/>' + '</audio>';
+            document.getElementById('audiocontainer').innerHTML = audiocode;
+            document.getElementById('audiotitle').innerHTML = "BGMを選択してください。";
+            playback_position.textContent = convertTime(0);
+            end_position.textContent =convertTime(0);
+          });
+
+          btn_mute.addEventListener("click", e => {
+
+            if( audioElement.muted ) {
+              audioElement.muted = false;
+              btn_mute.textContent = "消音";
+            } else {
+              audioElement.muted = true;
+              btn_mute.textContent = "消音解除";
+            }
+          });
+
+          slider_volume.addEventListener("input", e => {
+            audioElement.volume = slider_volume.value;
+          });
+
+          var playtimer = null;
+        
+          // 再生開始したときに実行
+          const startTimer = function(){
+            playtimer = setInterval(function(){
+              playback_position.textContent = convertTime(audioElement.currentTime);
+              slider_progress.value = Math.floor( (audioElement.currentTime / audioElement.duration) * audioElement.duration);
+            }, 500);
+          };
+        
+          // 停止したときに実行
+          const stopTimer = function(){
+            clearInterval(playtimer);
+            playback_position.textContent = convertTime(audioElement.currentTime);
+          };
+        
+          // 再生時間の表記を「mm:ss」に整える
+          const convertTime = function(time_position) {
+            
+            time_position = Math.floor(time_position);
+            var res = null;
+        
+            if( 60 <= time_position ) {
+              res = Math.floor(time_position / 60);
+              res += ":" + Math.floor(time_position % 60).toString().padStart( 2, '0');
+            } else {
+              res = "0:" + Math.floor(time_position % 60).toString().padStart( 2, '0');
+            }
+        
+            return res;
+          };
+        
+          // 音声ファイルの再生準備が整ったときに実行
+          audioElement.addEventListener('loadeddata', (e)=> {
+            slider_progress.max = audioElement.duration;
+        
+            playback_position.textContent = convertTime(audioElement.currentTime);
+            end_position.textContent = convertTime(audioElement.duration);
+          });
+        
+          // 音声ファイルが最後まで再生されたときに実行
+          audioElement.addEventListener("ended", e => {
+            stopTimer();
+          });
+        
+         /* // 再生ボタンが押されたときに実行
+          btn_play.addEventListener("click", e => {
+            audioElement.play();
+            startTimer();
+          });
+        
+          // 一時停止ボタンが押されたときに実行
+          btn_pause.addEventListener("click", e => {
+            audioElement.pause();
+            stopTimer();
+          });*/
+        
+          // プログレスバーが操作されたときに実行（メモリを動かしているとき）
+          slider_progress.addEventListener("input", e => {
+            stopTimer();
+            audioElement.currentTime = slider_progress.value;
+          });
+        
+          // プログレスバーが操作完了したときに実行
+          slider_progress.addEventListener("change", e => {
+            startTimer();
+          });
+        
+        });
+        
