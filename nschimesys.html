@@ -71,7 +71,7 @@
 	  <div id="not-loginned">
 		<h2>教職員版SE集・チャイムシステム</h2> <h1>ログイン</h1>
 		<p>このページにアクセスするにはログインが必要です。</p>
-		<p>Googleアカウントでログインしてください。<br>※メールアドレスからはログインできません。</p>
+		<p>Googleアカウントでログインしてください。</p>
 	<div id="firebaseui-auth-container">
 	</div>
 	<!--<a class="btntextchange" onclick="disp();"><span>Authentication</span><span>自動認証</span></a>
@@ -95,17 +95,24 @@
 	</div>
 
 <div id="loginned">
-
-			<!--<div class="info" id="target">
+			<div id="target">
+			<div class="info">
 				<div class="oshirase"><img class="notice-i" src="image/noticei.png"><p>お知らせ</p></div>
 					<div class="news-banner">
 						<div class="news-banner__content">
-							<li><h3 class="notify" style="color: orangered;">必ず、サイトを開いてから、自動放送のチャイムが鳴るまでの間に、「🔔チャイムを鳴らす🔔」ボタンを押して手動でチャイム音を鳴らしてください。（数秒でも問題ありません）</h3></li>
+							<li><h3>2022/03/08：今朝から、チャイムが自動でならないミスが発生していました。現在は改善済みです。ご不便をおかけしてしまい申し訳ありません。</h3></li>
+							<!--<li><h3 class="notify" style="color: orangered;">必ず、サイトを開いてから、自動放送のチャイムが鳴るまでの間に、「🔔チャイムを鳴らす🔔」ボタンを押して手動でチャイム音を鳴らしてください。（数秒でも問題ありません）</h3></li>
 							<li><h3 class="notify">ブラウザのウィンドウ1つあたりに大量のタブが開かれていると、PCの処理上、自動放送が実行されないことがあります。必ず、自動放送のタブを別ウィンドウに移動してください。</h3>	</li>
-							<li><h3 class="notify">使い方は<a href="https://docs.google.com/presentation/d/1Fso95xnhPbcGchXzxYfQF1HaJh6fvpaZdMZAFl72Hig/edit?usp=sharing"target="blank" style="color:darkcyan;">こちら</a>からチェック！✅</h3>	</li>
+							<li><h3 class="notify">使い方は<a href="https://docs.google.com/presentation/d/1Fso95xnhPbcGchXzxYfQF1HaJh6fvpaZdMZAFl72Hig/edit?usp=sharing"target="blank" style="color:darkcyan;">こちら</a>からチェック！✅</h3>	</li>-->
 						</div>
 					</div>
-				</div>-->
+					<script>
+						if(new Date()>new Date( 2022, 2, 9, 9, 20)){
+							document.getElementById("target").style.display ="none";
+						}
+					</script>
+				</div>
+			</div>	
 				
 				<div class="info2" id="target">
 					<div class="ticker">
@@ -114,8 +121,8 @@
 							<li><h3 class="notify" style="color:dodgerblue;">ブラウザのウィンドウ1つあたりに大量のタブが開かれていると、PCの処理上、自動放送が実行されないことがあります。必ず、自動放送のタブを別ウィンドウに移動してください。</h3></li>
 							<li><h3 class="notify">チャイム自動放送システムの詳しい使い方は<a href="https://docs.google.com/presentation/d/1Fso95xnhPbcGchXzxYfQF1HaJh6fvpaZdMZAFl72Hig/edit?usp=sharing"target="_blank" style="color:darkcyan;">こちら</a>からチェック！✅</h3>	</li>
 							<li class="notify"><span>2022.02.03</span><a href="notification.html#item3" target="_blank">現在、スリープ復帰後に正常な時間でチャイムが稼働しない問題が発生しています。<br>お手数ですが、復帰後はサイトのリロードをお願いします。（チャイムが自動でなる可能性がありますのでご注意ください。）</a><button onclick="window.location.reload(true);">サイトをリロードする</button></li>
-							<li><span>2022.02.06</span><a href="notification.html#item1" target="_blank">チャイムシステムを更新しました。使いづらい部分がありましたら、Slackにてお知らせください。<br>変更点について、詳しくはこちらをご覧ください。</a></li>
-							<li><span>2022.02.06</span><a href="notification.html#item2" target="_blank">お知らせを公開しました:教職員版SE集のリンク取り扱いについてのお願い</a></li>
+							<li><span>2022.03.08</span><a href="notification.html#item" target="_blank">チャイムシステムを更新しました。使いづらい部分がありましたら、Slackにてお知らせください。<br>変更点について、詳しくはこちらをご覧ください。</a></li>
+							<li><span>2022.03.08</span><a href="notification.html#item2" target="_blank">お知らせを公開しました：TAさんのログインについて</a></li>
 							<li><span>2022.02.06</span><a href="notification.html#item4" target="_blank">シンプル表示モード切り替えボタンを新設しました。詳しくはこちらをご覧ください。</a></li>
 						<!--<li><span>2022.02.03</span><a href="#">1つめのニュースの記事です。</a></li>
 							<li><span>2022.02.03</span><a href="#">1つめのニュースの記事です。</a></li>
@@ -130,7 +137,7 @@
 				</script>
 				<script>
 					//初期表示は非表示
-					document.getElementById("target").style.display =" block";
+					//document.getElementById("target").style.display =" block";
 					document.getElementById("target2").style.display =" block";
 					
 					window.onload = function onload () {
@@ -245,8 +252,8 @@
 						</div>
 						<div class="inputrange">
 							<p>任意の時刻にチャイムを放送</p>
-							<div><label>時設定</label><input type="range" id="ch_hours" min="0" max="23" step="1" value="11"><span id="disch_h">11</span></div>
-							<div><label>分設定</label><input type="range" id="ch_mins" min="0" max="59" step="1" value="12"> <span id="disch_m">12</span></div>
+							<div><label>時設定</label><input type="range" id="ch_hours" min="0" max="23" step="1" value="9"><span id="disch_h">9</span></div>
+							<div><label>分設定</label><input type="range" id="ch_mins" min="0" max="59" step="1" value="0"> <span id="disch_m">0</span></div>
 							<input type="button" id="chsubmit" value="送信">
 						</div>
 
@@ -518,7 +525,6 @@
 		};
 
 		chsubmit.addEventListener("click", e => {
-		console.log
 		setTimeout( function(){
 		chimeautomation();
 		}, new Date().setHours(ch_hours.value, ch_mins.value, 0, 0) - new Date())

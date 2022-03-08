@@ -198,7 +198,7 @@ margin-top: 0;
   padding: 3px;
 }
 .oshirase{
-  display: block;
+  display: flex;
   height: 40px;
   width: 8%;
   background-color: rgb(255, 102, 0);
@@ -223,7 +223,7 @@ margin-top: 0;
 .news-banner {
   display: block;
   height: 40px;
-  width: 92%;
+  width: 90%;
   background-color: rgb(255, 207, 118);
   overflow: hidden;
   margin: 5px;
@@ -552,7 +552,7 @@ body button{
   justify-content: center;
   gap: 0 20px;
 }
-.inputrange div{
+.inputrange>div{
   border: 1px solid rgb(182, 182, 182);
   padding: 5px;
 }

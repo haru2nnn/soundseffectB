@@ -591,21 +591,6 @@ var ytHeight = 315;
       if(!$('input[name="check"]').prop("checked")) {
         $(".toggle input").prop("checked", true);
         document.getElementById('toch_rupin').innerHTML = "ON"
-        var getyoubi = new Date();
-        var todayday = getyoubi.getDay();
-          if (todayday == 2) {
-            if ((new Date().setHours(9, 45, 0, 0) - new Date())<0) {
-              gudgeres = "今日は火曜日なので9:45:00に自動再生します。" 
-            }else if ((new Date().setHours(9, 45, 0, 0) - new Date())>0) {
-              $(".toggle input").prop("checked", false);
-              document.getElementById('toch_rupin').innerHTML = "OFF"
-              gudgeres = "9:45を過ぎているため、自動再生できません。手動再生してください。" 
-            }    
-          }else{
-            $(".toggle input").prop("checked", false);
-            document.getElementById('toch_rupin').innerHTML = "OFF"
-            gudgeres = "今日は火曜日ではないので自動再生されません。"
-          }
         alert(gudgeres + '\n初期設定はOFFですので、リロードするたびにONにする必要があります。')
         console.log(new Date().setHours(9, 45, 0, 0) - new Date())
       } else {
@@ -652,6 +637,8 @@ var ytHeight = 315;
 
 				return res;
 			};
+  }else if($(".toggle input").prop("checked", false)){
+    return false;
   }
   }
   }, new Date().setHours(9, 45, 0, 0) - new Date())
