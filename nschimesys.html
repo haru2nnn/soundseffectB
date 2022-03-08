@@ -241,13 +241,6 @@
 						<input type="range" id="input_volume" name="Speed" min="0.5" max="2.0" value="1.0" step="0.05"><span id="audiospeed">🏃🏻100%</span></p>
 						<p>Time <time id="playback_position">0:00</time><input type="range" id="progress" value="0" min="0" step="0.001"><time id="end_position">0:00</time></p>
 						<button class="modebtn" id="displaynone" onclick="clickBtn1()">シンプル表示モードにする</button>
-						<div class="autoswitch">
-								<div class="toggle checked">
-									<input type="checkbox" name="check"/>
-								</div>
-								<p>自動放送：<span id="toch_chime">ON</span></p>
-						</div>
-					</div>
 				</div>
 			</div>	
 			<br>
@@ -285,24 +278,6 @@
 
 </body>
 	<script>
-
-		$(".toggle").on("click", function() {
-        $(".toggle").toggleClass("checked");
-        if(!$('input[name="check"]').prop("checked")) {
-          $(".toggle input").prop("checked", true);
-          document.getElementById('toch_chime').innerHTML = "ON"
-			chimeatswich(true);
-        } else {
-          $(".toggle input").prop("checked", false);
-          document.getElementById('toch_chime').innerHTML = "OFF"
-		  chimeatswich(false);
-        }
-		function chimeatswich(chswmsg) {
-			  const chimeautosw = chswmsg;
-		}
-      });
-
-
 
 			window.onload = function onload () { 
 				document.getElementById("info1").innerHTML = "";
