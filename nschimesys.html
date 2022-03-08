@@ -232,15 +232,25 @@
 					<button class="stop-button" id="btn_pause" style="background-color:#16c08d;">一時停止</button>
 					<button class="stop-button" id="btn_stop" style="background-color: rgb(252, 72, 72);">停止</button>
 					<div class="settings">
-						<button class="mute-button"id="btn_mute"> 消音</button>
-						<p>Volume <input class="slider" type="range" id="volume" value="0.7" min="0.0" max="1.0" step="0.01"><span id="audiovolume">🔈70</span></p>
-						<p>Speed 
-						<button id="btn_slow" style="border: solid 2px #409ecc;">80%</button>
-						<button id="btn_normal" style="border: solid 2px #009944">100%</button>
-						<button id="btn_fast" style="border: solid 2px #e8383e;">120%</button>
-						<input type="range" id="input_volume" name="Speed" min="0.5" max="2.0" value="1.0" step="0.05"><span id="audiospeed">🏃🏻100%</span></p>
-						<p>Time <time id="playback_position">0:00</time><input type="range" id="progress" value="0" min="0" step="0.001"><time id="end_position">0:00</time></p>
-						<button class="modebtn" id="displaynone" onclick="clickBtn1()">シンプル表示モードにする</button>
+						<div class="adjust">
+							<button class="mute-button"id="btn_mute"> 消音</button>
+							<p>Volume <input class="slider" type="range" id="volume" value="0.7" min="0.0" max="1.0" step="0.01"><span id="audiovolume">🔈70</span></p>
+							<p>Speed 
+							<button id="btn_slow" style="border: solid 2px #409ecc;">80%</button>
+							<button id="btn_normal" style="border: solid 2px #009944">100%</button>
+							<button id="btn_fast" style="border: solid 2px #e8383e;">120%</button>
+							<input type="range" id="input_volume" name="Speed" min="0.5" max="2.0" value="1.0" step="0.05"><span id="audiospeed">🏃🏻100%</span></p>
+							<p>Time <time id="playback_position">0:00</time><input type="range" id="progress" value="0" min="0" step="0.001"><time id="end_position">0:00</time></p>
+							<button class="modebtn" id="displaynone" onclick="clickBtn1()">シンプル表示モードにする</button>							
+						</div>
+						<div class="inputrange">
+							<p>任意の時刻にチャイムを放送</p>
+							<div><label>時設定</label><input type="range" id="ch_hours" min="0" max="23" step="1" value="11"><span id="disch_h">11</span></div>
+							<div><label>分設定</label><input type="range" id="ch_mins" min="0" max="59" step="1" value="12"> <span id="disch_m">12</span></div>
+							<input type="button" id="chsubmit" value="送信">
+						</div>
+
+					</div>
 				</div>
 			</div>	
 			<br>
@@ -278,6 +288,19 @@
 
 </body>
 	<script>
+		window.addEventListener('DOMContentLoaded', function(){
+			const btn_play = document.getElementById("btn_play");
+			const btn_pause = document.getElementById("btn_pause");
+			const btn_stop = document.getElementById("btn_stop");
+			const btn_mute = document.getElementById("btn_mute");
+			const slider_volume = document.getElementById("volume");
+			const btn_normal = document.getElementById("btn_normal");
+			const btn_fast = document.getElementById("btn_fast");
+			const audioElement = document.querySelector("audio");
+			const btn_slow = document.getElementById("btn_slow");
+			const playback_position = document.getElementById("playback_position");
+			const end_position = document.getElementById("end_position");
+			const slider_progress = document.getElementById("progress");
 
 			window.onload = function onload () { 
 				document.getElementById("info1").innerHTML = "";
@@ -298,23 +321,6 @@
 				// リロードされた時に実行したい処理
 			}
 			}
-
-
-		window.addEventListener('DOMContentLoaded', function(){
-			const btn_play = document.getElementById("btn_play");
-			const btn_pause = document.getElementById("btn_pause");
-			const btn_stop = document.getElementById("btn_stop");
-			const btn_mute = document.getElementById("btn_mute");
-			const slider_volume = document.getElementById("volume");
-			const btn_normal = document.getElementById("btn_normal");
-			const btn_fast = document.getElementById("btn_fast");
-			const audioElement = document.querySelector("audio");
-			const btn_slow = document.getElementById("btn_slow");
-			const playback_position = document.getElementById("playback_position");
-			const end_position = document.getElementById("end_position");
-			const slider_progress = document.getElementById("progress");
-
-
 
 			// ボリュームの初期設定
 			audioElement.volume = slider_volume.value;
@@ -492,8 +498,7 @@
 					}
 				}
 			});
-
-	if (chimeautosw==false){		
+		
 		const chimeautomation =function chime() {
 			audioElement.playbackRate = 1.0;
 			audioElement.currentTime = 0;
@@ -501,6 +506,23 @@
 			startTimer();
 			document.getElementById("info2").innerHTML = "チャイム自動放送中";
 		}
+		const chsubmit = document.getElementById('chsubmit');
+		const ch_hours = document.getElementById('ch_hours');
+		const ch_mins = document.getElementById('ch_mins');
+
+		ch_hours.oninput = function(){
+			document.getElementById('disch_h').innerHTML = ch_hours.value;
+		};
+		ch_mins.oninput = function(){
+			document.getElementById('disch_m').innerHTML = ch_mins.value;
+		};
+
+		chsubmit.addEventListener("click", e => {
+		console.log
+		setTimeout( function(){
+		chimeautomation();
+		}, new Date().setHours(ch_hours.value, ch_mins.value, 0, 0) - new Date())
+		});
 
 
 
@@ -599,8 +621,8 @@
 		document.getElementById("info3").innerHTML = "";
 		document.getElementById("timetable").innerHTML = "<最終下校時刻>";
 		}, new Date().setHours(17, 30, 0, 0) - new Date())
-		
-	}
+	
+	
 
 });
 	</script>

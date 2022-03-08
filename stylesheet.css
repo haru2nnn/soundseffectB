@@ -528,18 +528,42 @@ body button{
   cursor: pointer;
 }
 .settings{
+  display: block;
+}
+.adjust{  
   display: flex;
   flex-wrap: wrap;
   align-items: stretch;
   justify-content: center;
   gap: 0 20px;
 }
-.settings p{
+.adjust p{
   margin:5px 0;
   border: 1px solid rgb(182, 182, 182);
   padding: 5px;
 }
-.settings p button{
+.inputrange{
+  display: inline-flex;
+  flex-wrap: wrap;
+  margin:5px 0;
+  border: 1px solid rgb(182, 182, 182);
+  padding: 5px;
+  align-items: stretch;
+  justify-content: center;
+  gap: 0 20px;
+}
+.inputrange div{
+  border: 1px solid rgb(182, 182, 182);
+  padding: 5px;
+}
+#chsubmit{
+  padding: 0 20px;
+  border: solid 2px #4db882;
+}
+.inputrange p{
+  margin: 0 10px;
+}
+.settings p button,.inputrange button{
   margin: 0 2px;
 }
 
@@ -649,6 +673,7 @@ width: 170px;
   display: flex;
   align-items: center;
 }
+
 /****/
 
 /**.effect {
