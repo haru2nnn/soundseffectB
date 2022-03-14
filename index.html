@@ -82,7 +82,8 @@
 			<div class="info2" id="target6">
 				<div class="ticker">
 					<ul>
-						<li><span>2022.02.08</span><a href="notification.html#item5" target="_blank">SE集を更新しました。使いづらい部分がありましたら、Slackにてお知らせください。<br>変更点について、詳しくはこちらをご覧ください。</a></li>
+						<li><span>2022.03.13</span><a href="notification.html#item5" target="_blank">SE集を更新しました。使いづらい部分がありましたら、Slackにてお知らせください。<br>変更点について、詳しくはこちらをご覧ください。</a></li>
+						<li><span>2022.03.13</span><a href="notification.html#item" target="_blank">SE集サイトは本日より、ダークモードに対応します！端末のテーマ設定に沿ってダークモードに変更されます。詳しくはこちらをご覧ください。</a></li>
 						<li><span>2022.02.08</span><a href="notification.html#item4" target="_blank">シンプル表示モード切り替えボタンをSE集にも新設しました。詳しくはこちらをご覧ください。</a></li>
 					<!--<li><span>2022.02.03</span><a href="#">1つめのニュースの記事です。</a></li>
 						<li><span>2022.02.03</span><a href="#">1つめのニュースの記事です。</a></li>
@@ -279,8 +280,11 @@
 										<div class="audioinfo">
 											<h4 id="audiotitle">BGMを選択してください。</h4>
 											<div id="audiocontainer">
-												<audio id="selectedaudio" controls loop preload="metadata" controlslist="nodownload" >
+												<audio id="selectedaudio" controls preload="metadata" controlslist="nodownload" >
 													<source src="" type="audio/mp3"></audio> 
+											<script>
+												$('#selectaudio').attr('oncontextmenu', 'return false');
+											</script>
 											</div>
 											<select id="audioselect">
 												<option hidden>---選択してください---</option>
@@ -295,18 +299,13 @@
 											</select>
 										</div>
 										<div class="audioplayctrl">
-											<!--<button id="btn_play">再生▶️</button>
-											<button id="btn_pause">一時停止⏸</button>
-											<button id="btn_stop">停止⏹</button>-->
+											<label>BGM<input type="checkbox" id="adloopck" checked><span id="lpset">ループ</span></label>
+											<span>🔈</span><input type="range" id="slider_volume" value="1" min="0" max="1" step="0.01"><span id="advoldis">100</span>
+											<button id="btn_mute">ミュート</button>
+											<button id="btn_fi">フェードイン</button>
+											<button id="btn_fo">フェードアウト</button>
 											<button id="btn_eject">Eject⏏️</button>
 										</div>
-										<div class="audioctrl">
-											<p><time id="playback_position">0:00</time><input type="range" id="progress" value="0" min="0" step="1"><time id="end_position">0:00</time></p>
-											<input type="checkbox"id="loopcheck"><label>BGMをループする</label>
-											<button id="btn_mute">消音</button>
-											<input type="range" id="volume" value="1.0" min="0.0" max="1.0" step="0.1">
-										</div>
-
 									</div>
 
 								<!--<div class="audio-wrap">
@@ -399,7 +398,7 @@
 						
 
 						<h3 id="theme-ns">テーマソング・N/S高校歌</h3>	
-						<details class="expdet" id="target5">
+						<!--<details class="expdet" id="target5">
 							<summary>Youtube再生について（クリックして詳細を表示）</summary>
 							一部の再生環境では前回再生した時の環境のまま再生されることがあります。音量やミュート等に影響します。リロードでは直らなかったので手動で直していただけると助かります。
 							<h5>Youtubeのフレームを選択している場合、以下のキーで操作できます。</h5>
@@ -408,7 +407,7 @@
 							音量調整→上下矢印キー（↑・↓）<br>
 							5秒送り→左右矢印キー（←・→）<br>
 							10秒送り→Jキー（戻る）Lキー（進む）<br>
-						</details>
+						</details>-->
 						<div class="oshirase">
 							<h3>お知らせ</h3>
 							<p>現在、試験的にテーマソングのプレイヤーを新しいものに変更しています。こちらがバグ等で使用できないなど、以前のYoutubePlayerを表示するには、こちらの<span><button id="disytplayer">Youtubeプレイヤーを表示</button></span>を押してください。<br>

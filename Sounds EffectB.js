@@ -125,7 +125,7 @@ function showClock() {
   let msg = nowHour + ":" + nowMin + ":" + nowSec;
   document.getElementById("realtime").innerHTML = msg;
 }
-setInterval("showClock()", 100);
+setInterval("showClock()", 250);
 //////////タイマースクリプト(header)/////////////
 var timer1; //タイマーを格納する変数（タイマーID）の宣言
 
@@ -957,142 +957,112 @@ var ytHeight = 315;
         const audioselecter = document.getElementById('audioselect')
         
         audioselecter.onchange = function tagchange(){
-          var audiocode = '<audio id="selectedaudio" controls loop preload="metadata" controlslist="nodownload">'+
-          '<source src="audio/bgm/'+ '" type="audio/mp3"/>' + '</audio>';
             console.log(audioselecter.value);
             const setaudiofile = audioselecter.value;
             const setaudioname = audioselecter.options[audioselecter.selectedIndex].textContent;
-            var audiocode = '<audio id="selectedaudio" controls loop preload="metadata" controlslist="nodownload">'+
-            '<source src="audio/bgm/'+ setaudiofile + '" type="audio/mp3"/>' + '</audio>';
             const audioElement = document.getElementById("selectedaudio");
-            document.getElementById('audiocontainer').innerHTML = audiocode;
+            audioElement.setAttribute('src',"audio/bgm/"+setaudiofile);
             document.getElementById('audiotitle').innerHTML = setaudioname;
- /*           changedis();
-            function changedis(){
-
-            }*/
             } 
         };
 
 
 
         window.addEventListener( "DOMContentLoaded",function ctrlaudio(){
-
-          /*const btn_play = document.getElementById("btn_play");
-          const btn_pause = document.getElementById("btn_pause");*/
           const btn_eject = document.getElementById("btn_eject")
-          const playback_position = document.getElementById("playback_position");
-          const end_position = document.getElementById("end_position");
-          const slider_progress = document.getElementById("progress");
           const btn_mute = document.getElementById("btn_mute");
-          const slider_volume = document.getElementById("volume");
+          const slider_volume = document.getElementById("slider_volume");
           const audioElement = document.getElementById("selectedaudio");
+          const loopset = document.getElementById("adloopck");
+          const btn_fi = document.getElementById("btn_fi");
+          const btn_fo = document.getElementById("btn_fo");
         
+          if(loopset.checked=true){
+            audioElement.loop=true;
+          }
 
           // ボリュームの初期設定
           audioElement.volume = slider_volume.value;
 
-          /*btn_play.addEventListener("click", e => {
-            audioElement.play();
-          });
-
-          btn_pause.addEventListener("click", e => {
-            audioElement.pause();
-          });*/
           btn_eject.addEventListener("click", e => {
             audioElement.pause();
             audioElement.currentTime = 0;
             audioselecter.selectedIndex = 0;
-            const audiocode = '<audio id="selectedaudio" controls loop preload="metadata" controlslist="nodownload">'+
-            '<source src="'+'"' + ' type="audio/mp3"/>' + '</audio>';
-            document.getElementById('audiocontainer').innerHTML = audiocode;
+            audioElement.setAttribute('src',"");
             document.getElementById('audiotitle').innerHTML = "BGMを選択してください。";
-            playback_position.textContent = convertTime(0);
-            end_position.textContent =convertTime(0);
           });
 
           btn_mute.addEventListener("click", e => {
 
             if( audioElement.muted ) {
               audioElement.muted = false;
-              btn_mute.textContent = "消音";
+              btn_mute.textContent = "ミュート";
             } else {
               audioElement.muted = true;
-              btn_mute.textContent = "消音解除";
+              btn_mute.textContent = "ミュート解除";
+            }
+          });
+
+          btn_fi.addEventListener("click",e=>{
+            slider_volume.value=0;
+            audioElement.volume=slider_volume.value;
+            audioElement.play();
+
+            const audiofi =  setInterval(() => {
+            if (slider_volume.value < 1) {
+              slider_volume.value= audioElement.volume+0.025;
+              audioElement.volume=slider_volume.value;
+            }else {
+              clearInterval(audiofi);
+              return false;
+            } 
+            if(slider_volume.value == 1){
+              document.getElementById('advoldis').innerHTML = "100"
+              clearInterval(audiofi);
+              return false;
+            } 
+            document.getElementById('advoldis').innerHTML = (slider_volume.value*100).toFixed();
+          }, 100);
+          });
+          
+          btn_fo.addEventListener("click",e=>{
+            const audiofo =  setInterval(() => {
+            if (0< slider_volume.value <= 1) {
+              slider_volume.value= audioElement.volume-0.025;
+              audioElement.volume=slider_volume.value
+            }else {
+              clearInterval(audiofo);
+              return false;
+            } 
+            if(slider_volume.value == 0){
+              document.getElementById('advoldis').innerHTML = "0"
+              audioElement.pause();
+              clearInterval(audiofo);
+              return false;
+            } 
+            document.getElementById('advoldis').innerHTML = (slider_volume.value*100).toFixed();
+          }, 50);
+          })
+          
+          
+
+          loopset.addEventListener("change", e=>{
+            if(loopset.checked==true){
+              audioElement.loop = true;
+              document.getElementById("lpset").innerHTML="ループ";
+
+            }else if(loopset.checked==false){
+              audioElement.loop = false;
+              document.getElementById("lpset").innerHTML="ループ解除";
             }
           });
 
           slider_volume.addEventListener("input", e => {
             audioElement.volume = slider_volume.value;
+            document.getElementById("advoldis").innerHTML=(audioElement.volume*100).toFixed();
+
           });
 
-          var playtimer = null;
-        
-          // 再生開始したときに実行
-          const startTimer = function(){
-            playtimer = setInterval(function(){
-              playback_position.textContent = convertTime(audioElement.currentTime);
-              slider_progress.value = Math.floor( (audioElement.currentTime / audioElement.duration) * audioElement.duration);
-            }, 500);
-          };
-        
-          // 停止したときに実行
-          const stopTimer = function(){
-            clearInterval(playtimer);
-            playback_position.textContent = convertTime(audioElement.currentTime);
-          };
-        
-          // 再生時間の表記を「mm:ss」に整える
-          const convertTime = function(time_position) {
-            
-            time_position = Math.floor(time_position);
-            var res = null;
-        
-            if( 60 <= time_position ) {
-              res = Math.floor(time_position / 60);
-              res += ":" + Math.floor(time_position % 60).toString().padStart( 2, '0');
-            } else {
-              res = "0:" + Math.floor(time_position % 60).toString().padStart( 2, '0');
-            }
-        
-            return res;
-          };
-        
-          // 音声ファイルの再生準備が整ったときに実行
-          audioElement.addEventListener('loadeddata', (e)=> {
-            slider_progress.max = audioElement.duration;
-        
-            playback_position.textContent = convertTime(audioElement.currentTime);
-            end_position.textContent = convertTime(audioElement.duration);
-          });
-        
-          // 音声ファイルが最後まで再生されたときに実行
-          audioElement.addEventListener("ended", e => {
-            stopTimer();
-          });
-        
-         /* // 再生ボタンが押されたときに実行
-          btn_play.addEventListener("click", e => {
-            audioElement.play();
-            startTimer();
-          });
-        
-          // 一時停止ボタンが押されたときに実行
-          btn_pause.addEventListener("click", e => {
-            audioElement.pause();
-            stopTimer();
-          });*/
-        
-          // プログレスバーが操作されたときに実行（メモリを動かしているとき）
-          slider_progress.addEventListener("input", e => {
-            stopTimer();
-            audioElement.currentTime = slider_progress.value;
-          });
-        
-          // プログレスバーが操作完了したときに実行
-          slider_progress.addEventListener("change", e => {
-            startTimer();
-          });
         
         });
         

@@ -1,4 +1,56 @@
 @charset "UTF-8";
+@media (prefers-color-scheme: dark) {
+  body{
+    background-color: #1b0d07!important;
+    color: #fff!important;
+  }
+  header {
+    background-image: none!important;
+    background-color: #333!important;
+  }
+  button{
+    background-color: rgb(100, 100, 100)!important;
+    color: white!important;
+  }
+  .jumpto{
+    background-color:#525252!important ;
+  }
+  .display-setting{
+    background-color: rgb(6, 41, 6)!important;
+  }
+  #displaynone{
+    color: rgb(199, 199, 199)!important;
+  }
+  #displaynone:hover{
+    color: white!important;
+  }
+  details[open]{
+    background-color: rgb(41, 41, 41)!important;
+  }
+  details[open]>summary{
+    background-color: gray!important;
+  }
+  details[open] textarea,input[type="text" i]{
+    background-color: #afaeae;
+  }
+  a.btn_ao_b{
+    background: none!important;
+  }
+  .bgm-wrap,.routine{
+    background-color:rgb(17, 17, 17)!important ;
+  }
+  #audioselect{
+    background-color: rgb(134, 75, 75)!important;
+  }
+  .oshirase{
+    background-color: rgb(126, 93, 98)!important;
+  }
+  footer{
+    background-image: none!important;
+  }
+}
+
+
 
 html{
   margin: 0;
@@ -36,7 +88,8 @@ html{
 }
 
 body{
- user-select: none; 
+ user-select: none;
+ background-color: #edededea;
 }
 
 #not-loginned{
@@ -501,7 +554,6 @@ details.yomiage[open] {
 body {
   font-family: 'M PLUS 1p', sans-serif;
   margin: 0px;
-  background-color: #edededea;
 }
 main{
   margin: 10px;
@@ -637,8 +689,7 @@ background: #21276c;
 }
 
 .bgm-wrap{
-  display: flex;
-  flex-wrap: wrap;
+  display: block;
   width: 95%;
   border: 1px solid #707070 ;
   padding-left: 20px;
@@ -646,9 +697,12 @@ background: #21276c;
   margin-bottom: 70px;
   align-items: center;
 }
-
+.audioplayctrl{
+  display: block;
+}
 audio#selectedaudio {
   width: 80%;
+
 }
 select#audioselect {
   width: 75%;
@@ -696,6 +750,13 @@ select#audioselect {
     border: 2px dotted #cc0000;
     padding: 10px;
     justify-content: center;
+}
+@media(max-width:740px){
+  .ytwrap{
+    max-width: 98%;
+    width: 95%;
+    margin: auto;
+  }
 }
 .ytwrap h3,.ytwrap h2{
 margin-bottom: 0;
@@ -920,7 +981,7 @@ footer a:hover {
 .menu-btn {
   position: fixed;
   top: 10px;
-  right: 10px;
+  right: 3px;
   display: flex;
   height: 60px;
   width: 60px;

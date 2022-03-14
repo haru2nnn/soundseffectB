@@ -1,5 +1,38 @@
 @charset "UTF-8";
 
+@media (prefers-color-scheme: dark) {
+  body{
+    background-color: #1b0d07!important;
+    color: #fff!important;
+  }
+  header {
+    background-image: none!important;
+    background-color: #333!important;
+  }
+  button{
+    background-color: rgb(100, 100, 100)!important;
+    color: white!important;
+  }
+  .stop-button{
+    background: rgb(136, 75, 75)!important;
+  }
+  details[open]{
+    background-color: rgb(41, 41, 41)!important;
+  }
+  details[open]>summary{
+    background-color: gray!important;
+  }
+  details[open] textarea,input[type="text" i]{
+    background-color: #afaeae;
+  }
+  a.btn_ao_b{
+    background: none!important;
+  }
+  footer{
+    background-image: none!important;
+  }
+}
+
 @media (max-width: 700px), (-webkit-min-device-pixel-ratio: 0) {
   header {
     align-items: flex-end;
@@ -510,7 +543,7 @@ body button{
 
   color: #fff;
   font-weight: 600;
-  background: #21276c;
+  background: #21276c!important;
   text-align: center;
   justify-content: center;
   align-content:center ;
