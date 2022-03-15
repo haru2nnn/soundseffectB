@@ -591,8 +591,6 @@ var ytHeight = 315;
       if(!$('input[name="check"]').prop("checked")) {
         $(".toggle input").prop("checked", true);
         document.getElementById('toch_rupin').innerHTML = "ON"
-        alert(gudgeres + '\n初期設定はOFFですので、リロードするたびにONにする必要があります。')
-        console.log(new Date().setHours(9, 45, 0, 0) - new Date())
       } else {
         $(".toggle input").prop("checked", false);
         document.getElementById('toch_rupin').innerHTML = "OFF"
@@ -641,7 +639,7 @@ var ytHeight = 315;
     return false;
   }
   }
-  }, new Date().setHours(9, 45, 0, 0) - new Date())
+  }, new Date().setHours(9, 8, 20, 0) - new Date())
 
 
 
