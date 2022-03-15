@@ -639,7 +639,7 @@ var ytHeight = 315;
     return false;
   }
   }
-  }, new Date().setHours(9, 8, 20, 0) - new Date())
+  }, new Date().setHours(9, 45, 0, 0) - new Date())
 
 
 
