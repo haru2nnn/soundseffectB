@@ -40,10 +40,6 @@ firebase.auth().onAuthStateChanged(function checkauth(user) {
         document.getElementById('uicon').innerHTML = UPstr;
 
         document.getElementById('login-status').innerHTML = loginText;
-        document.getElementById("not-loginned").style.display = "none";
-        document.getElementById("loginned").style.display = "block";
-        document.getElementById("menu-button").style.display = "block";
-        document.getElementById("login-status").style.display = "block";
             // 存在確認済のメールアドレスかどうか(true or false)
             var verified = firebase.auth().currentUser.emailVerified;
             var currentUser = user
