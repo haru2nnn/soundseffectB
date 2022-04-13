@@ -333,11 +333,36 @@ function redirect() {
 }
 
 
-// YouTube Player APIを読み込む
-var tag = document.createElement('script');
-tag.src = "https://www.youtube.com/iframe_api";
-var firstScriptTag = document.getElementsByTagName('script')[0];
-firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+// 各プレーヤーの埋め込み
+function onYouTubeIframeAPIReady() {
+  for(var i = 0; i < ytData.length; i++) {
+      ytPlayer[i] = new YT.Player(ytData[i]['area'], {
+          width: ytData[i]['ytWidth'],
+          height: ytData[i]['ytHeight'],
+          videoId: ytData[i]['id'],
+          playerVars:{
+            playsinline: 1,
+            //autoplay: 1, // 自動再生
+            loop: 1, // ループ有効
+            listType: 'playlist', //リスト再生（ループ再生に必要）
+            playlist: ytData[i]['id'], // 再生する動画リスト（ループ再生に必要）
+            controls: 1, // コントロールバー非表示
+            enablejsapi: 1, //JavaScript API 有効
+            modestbranding:1,//yutubeロゴの非表示
+            iv_load_policy: 3, //動画アノテーションを表示しない
+            //disablekb:1, //キーボード操作OFF
+            showinfo:0, //動画の再生が始まる前に動画のタイトルなどの情報を表示しない
+            rel:0, //再生終了時に関連動画を表示しない
+            fs:0, //全画面表示ボタンをオフ
+            playsinline:1,//iOS用制御フラグ
+          },
+          events: {
+              'onReady': onPlayerReady
+          }
+      });
+      
+  }
+}
 
 //プレイヤー格納
 var ytPlayer = [];
@@ -370,37 +395,6 @@ var ytData = [
       ytHeight:'0'
   }
 ];
-
-// 各プレーヤーの埋め込み
-function onYouTubeIframeAPIReady() {
-  for(var i = 0; i < ytData.length; i++) {
-      ytPlayer[i] = new YT.Player(ytData[i]['area'], {
-          width: ytData[i]['ytWidth'],
-          height: ytData[i]['ytHeight'],
-          videoId: ytData[i]['id'],
-          playerVars:{
-            playsinline: 1,
-            //autoplay: 1, // 自動再生
-            loop: 1, // ループ有効
-            listType: 'playlist', //リスト再生（ループ再生に必要）
-            playlist: ytData[i]['id'], // 再生する動画リスト（ループ再生に必要）
-            controls: 1, // コントロールバー非表示
-            enablejsapi: 1, //JavaScript API 有効
-            modestbranding:1,//yutubeロゴの非表示
-            iv_load_policy: 3, //動画アノテーションを表示しない
-            //disablekb:1, //キーボード操作OFF
-            showinfo:0, //動画の再生が始まる前に動画のタイトルなどの情報を表示しない
-            rel:0, //再生終了時に関連動画を表示しない
-            fs:0, //全画面表示ボタンをオフ
-            playsinline:1,//iOS用制御フラグ
-          },
-          events: {
-              'onReady': onPlayerReady
-          }
-      });
-      
-  }
-}
   
 // プレーヤーのサイズを指定
 var ytWidth = 560;
