@@ -10,7 +10,7 @@
 		<link href="Sounds EffecterB.css" rel="stylesheet">
 
 
-		<title>お知らせ | 横浜キャンパスSE集</title>
+		<title>お知らせ | 横浜キャンパスSE集（教職員版）</title>
 		<link rel="icon" href="favicons/favicon.ico">
 
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -19,11 +19,9 @@
 		
 		<script src="https://www.gstatic.com/firebasejs/8.0.2/firebase-app.js"></script>
         <script src="https://www.gstatic.com/firebasejs/8.0.2/firebase-auth.js"></script>
-        <script src="config.js"></script>
+		<script src="config.js"></script>
+		<script type="module" src="analytics.js"></script>
 		<script src="auth.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/ui/3.5.2/firebase-ui-auth__ja.js"></script>
-        <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
-
 	</head>
 
 <body>
@@ -60,17 +58,7 @@
 			<!--<li class="menu-item" id="hlw"><a href="index-hw.html">ハロウィンバージョン</a></li>-->
 		  </ul>
 		</nav></div></div>
-	  </header>
-	  
-        <div id="not-loginned">
-            <h1>ログイン</h1>
-			<p>このページにアクセスするにはログインが必要です。</p>
-			<p>Googleアカウントでログインしてください。<br>※メールアドレスからはログインできません。</p>
-		<div id="firebaseui-auth-container">
-		</div>
-        </div>
-    
-    <div id="loginned">    
+	  </header>   
 
                 <h1 class="article-title">お知らせ</h1>
                 <div class="info">
@@ -85,11 +73,11 @@
                         <th>チャイムシステム</th>
                         </tr>
                         <tr>
-                        <td>2022年3月8日</td>
-                        <td>2022年3月8日</td>
+                        <td>2022年4月12日</td>
+                        <td>2022年3月15日</td>
                         </tr>
                     </table>
-                    <h4>現在のバージョン:3.3</h4>
+                    <h4>現在のバージョン:3.4</h4>
                 </div>
                 <div class="info-example">
                 <h4><b>お知らせカテゴリの凡例</b></h4>
@@ -107,15 +95,14 @@
                             <p class="news-category"><span id="not2">SE集</span></p>
                             <div class="news-title"><h3>タイトル</h3>ここにお知らせが入りますここにお知らせが入りますここにお知らせが入ります</div>
                         <div>
-                    </li>
-                    <li class="item" id="item10">
+                    </li>-->
+                    <li class="item" id="item13">
                         <div class="news-a">
-                            <p class="news-date">2020/4/15</p>
+                            <p class="news-date">2022/4/12</p>
                             <p class="news-category"><span id="not2">SE集</span></p>
-                            <div class="news-title"><h3>タイトル</h3>ここにお知らせが入りますここにお知らせが入りますここにお知らせが入ります</div>
+                            <div class="news-title"><h3>SE集の更新について【Ver3.4】</h3>SE集を更新しました。変更点は以下の通りです。<br><ul><li>＜新機能＞全ての音声を停止するボタン</li><li>新YoutubeプレイヤのUX安定化</li><li>BGMプレイヤーのデザイン改善</li><li>＜新機能＞ローカル音楽ファイルの再生機能を追加</li></ul></div>
                         <div>
                     </li>
-                    -->
                     <li class="item" id="item12">
                         <div class="news-a">
                             <p class="news-date">2022/03/15</p>
@@ -224,17 +211,16 @@
                 #not2//SEsys
                 #not3//General
             -->
-    </div>
         <HR style="margin: 0em 0 ;">
             <footer>
                 <h3 id="footers">©️2021 N・S高等学校横浜キャンパスクリエイティブ委員会音楽チーム</h3>
                 <p>更新履歴は<a href="https://sites.google.com/nnn.ed.jp/ycp-s-soundeffectbs/%E6%95%99%E8%81%B7%E5%93%A1%E7%94%A8/history-teacher" target="_blank" rel="noopener">こちら</a>からご覧になれます。</p>
                 <p>SE・BGM項目にある全ての音源の著作権は上記の団体に帰属します。(Youtube動画と*印のあるSEを除く）<br>
                     また、htmlのコードは多数のウェブサイト（「引用」に記載）よりお借りしていますが、デザイン等は全て改変しています。このサイト及びサイト内のコンテンツ（音声・画像ファイルなど）を一部改変、もしくはそのまま複製・再配布することを固く禁じます。</p>
-                <script>
-                var getyears = today.getFullYear();
-                document.getElementById("footers").innerHTML = "©️2021-" + getyears + " N・S高等学校横浜キャンパスクリエイティブ委員会音楽チーム";
-                </script>
+                    <script>
+                        var getyears = new Date().getFullYear();
+                        document.getElementById("footers").innerHTML = "©️2021-" + getyears + " N・S高等学校横浜キャンパスクリエイティブ委員会音楽チーム";
+                    </script>
                 </footer>
 
         <!-- JavaScriptの読み込み -->

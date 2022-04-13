@@ -18,17 +18,14 @@
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=M+PLUS+1p:wght@300;400;500;700;800&display=swap" rel="stylesheet">
 
-		<title>チャイム放送システム | 横浜キャンパスSE集</title>
+		<title>チャイム放送システム | 横浜キャンパスSE集（教職員版）</title>
 		<link rel="icon" href="favicons/favicon.ico">
 
 		<script src="https://www.gstatic.com/firebasejs/8.0.2/firebase-app.js"></script>
         <script src="https://www.gstatic.com/firebasejs/8.0.2/firebase-auth.js"></script>
 		<script src="config.js"></script>
+		<script type="module" src="analytics.js"></script>
 		<script src="auth.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/ui/3.5.2/firebase-ui-auth__ja.js"></script>
-        <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
-
-
 	</head>
 
 <body>
@@ -38,8 +35,10 @@
 			<h1 class="title-letter">
 				<!--<h1 style="text-align:cent>er;color:#218d6c;">SE集</h1><br>-->
 			</h1>
-			<p class="sitever">Version 3.3</p>
+			<p class="sitever">Version 3.4</p>
 			<div class="login-status">
+				<img src="" id="uimage">
+				<p class="usericon" id="uicon">User</p>
 				<p id="login-status"></p>
 			</div>
 		</div>
@@ -67,35 +66,6 @@
 		  </ul>
 		</nav></div></div>
 	  </header>
-
-
-	  <div id="not-loginned">
-		<h2>教職員版SE集・チャイムシステム</h2> <h1>ログイン</h1>
-		<p>このページにアクセスするにはログインが必要です。</p>
-		<p>Googleアカウントでログインしてください。</p>
-	<div id="firebaseui-auth-container">
-	</div>
-	<!--<a class="btntextchange" onclick="disp();"><span>Authentication</span><span>自動認証</span></a>
-	<form name="autoauth" id="aaform" onsubmit="return false; pcheck();">
-		<input name="pass" type="password"/>
-		<button id="btn" type="submit">認証</button>
-	</form>-->
-	<div class="stop-chime">
-	<p>チャイムが鳴ってしまった場合はこちらのボタンから停止してください。</p>
-	<button class="stop-button" id="stopbtn" onclick="stopchime()">停止</button>
-		<script>
-			function stopchime() {
-				const audioElement = document.querySelector("audio");
-				audioElement.pause();
-				audioElement.currentTime = 0;
-				document.getElementById("info1").innerHTML = "";
-				document.getElementById("info2").innerHTML = "";
-			}
-		</script>
-	</div>
-	</div>
-
-<div id="loginned">
 			<!--<div id="target">
 			<div class="info">
 				<div class="oshirase"><img class="notice-i" src="image/noticei.png"><p>お知らせ</p></div>
@@ -182,7 +152,6 @@
 					})
 					}
 				</script>
-
 
 				<div class="topbanner">
 					<div class="clock" style="padding: 10px; margin-bottom: 5px; border: 1px solid #333333;">
@@ -278,15 +247,14 @@
 			</section>
 
 		<br><br><br>
-</div>
 		
 <HR style="margin: 0em 0 ;">
 	<footer>
 	<h3 id="footers">©️2021 N・S高等学校横浜キャンパスクリエイティブ委員会音楽チーム</h3>
 	<p>更新履歴は<a href="https://sites.google.com/nnn.ed.jp/ycp-s-soundeffectbs/%E6%95%99%E8%81%B7%E5%93%A1%E7%94%A8/history-teacher" target="_blank" rel="noopener">こちら</a>からご覧になれます。</p>
 	<script>
-	var getyears = today.getFullYear();
-	document.getElementById("footers").innerHTML = "©️2021-" + getyears + " N・S高等学校横浜キャンパスクリエイティブ委員会音楽チーム";
+		var getyears = new Date().getFullYear();
+		document.getElementById("footers").innerHTML = "©️2021-" + getyears + " N・S高等学校横浜キャンパスクリエイティブ委員会音楽チーム";
 	</script>
 	</footer>
 

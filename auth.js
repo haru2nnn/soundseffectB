@@ -1,4 +1,11 @@
-firebase.auth().onAuthStateChanged(function(user) {
+/*admin
+  .auth()
+  .setCustomUserClaims(uid, { admin: true })
+  .then(() => {
+    // 
+  });*/
+
+firebase.auth().onAuthStateChanged(function checkauth(user) {
     //
             var now_hour = new Date().getHours();
             if ( 0 <= now_hour && now_hour <= 4 ){
@@ -21,7 +28,17 @@ firebase.auth().onAuthStateChanged(function(user) {
     if (user) { // ログイン時
         var cuseremail = user.email
         var username = user.displayName
+        const photoURL = user.photoURL;
         var loginText = greetingmsg + username + ' さん ' + "["+ cuseremail + "] " + "<button onclick='logOut()'>ログアウト</button>";
+        var img = document.getElementById('uimage');
+        img.setAttribute('src', photoURL);
+        if(!photoURL){
+            img.style.cssText +=  'display: none!important'
+        }
+        var uicon = username.charAt(0);
+        var UPstr = uicon.toUpperCase();
+        document.getElementById('uicon').innerHTML = UPstr;
+
         document.getElementById('login-status').innerHTML = loginText;
         document.getElementById("not-loginned").style.display = "none";
         document.getElementById("loginned").style.display = "block";
@@ -38,20 +55,9 @@ firebase.auth().onAuthStateChanged(function(user) {
                 alert('アカウントが認証されていません。\n確認メールを送信しました。ご確認ください。', email);
             }
     } else {  // 未ログイン時
-        var ref = document.referrer;
-        var ui = new firebaseui.auth.AuthUI(firebase.auth());
-        ui.start('#firebaseui-auth-container', {
-            signInSuccessUrl: ref,
-            signInOptions: [
-                firebase.auth.GoogleAuthProvider.PROVIDER_ID,
-                firebase.auth.EmailAuthProvider.PROVIDER_ID,
-            ],
-        });
-        document.getElementById("loginned").style.display = "none";
-        document.getElementById("menu-button").style.display = "none";
-        document.getElementById("login-status").style.display = "none";
-        document.getElementById("not-loginned").style.display = "block";
+        window.location.replace('login.html');
     }
+
     });
     function logOut() {
         firebase.auth().signOut().then(function() {

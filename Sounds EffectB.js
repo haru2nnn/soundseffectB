@@ -585,7 +585,7 @@ var ytHeight = 315;
     }
 
 
-
+/*
     $(".toggle").on("click", function() {
       $(".toggle").toggleClass("checked");
       if(!$('input[name="check"]').prop("checked")) {
@@ -640,7 +640,7 @@ var ytHeight = 315;
   }
   }
   }, new Date().setHours(9, 45, 0, 0) - new Date())
-
+*/
 
 
 /////////////////////////////////
@@ -965,7 +965,7 @@ var ytHeight = 315;
         };
 
 
-
+/********************セレクトBGM用********************************/
         window.addEventListener( "DOMContentLoaded",function ctrlaudio(){
           const btn_eject = document.getElementById("btn_eject")
           const btn_mute = document.getElementById("btn_mute");
@@ -974,6 +974,7 @@ var ytHeight = 315;
           const loopset = document.getElementById("adloopck");
           const btn_fi = document.getElementById("btn_fi");
           const btn_fo = document.getElementById("btn_fo");
+          const alladstop = document.getElementById("alladstop");
         
           if(loopset.checked=true){
             audioElement.loop=true;
@@ -1000,6 +1001,7 @@ var ytHeight = 315;
               btn_mute.textContent = "ミュート解除";
             }
           });
+          
 
           btn_fi.addEventListener("click",e=>{
             slider_volume.value=0;
@@ -1060,7 +1062,136 @@ var ytHeight = 315;
             document.getElementById("advoldis").innerHTML=(audioElement.volume*100).toFixed();
 
           });
-
-        
+                    
+          alladstop.addEventListener("click", e=>{
+            const findtarget = document.getElementsByTagName('audio');
+            for(i=0;i<findtarget.length;i++){
+                findtarget[i].pause();
+            }
+            for(var i = 0; i < ytData.length; i++) {
+              ytPlayer[i].pauseVideo();
+            }
+          })
         });
+/****************************************/
+/*************アップロードBGM用************/
+          window.addEventListener( "DOMContentLoaded",function uctrlaudio(){
+            const ubtn_eject = document.getElementById("ubtn_eject")
+            const ubtn_mute = document.getElementById("ubtn_mute");
+            const uslider_volume = document.getElementById("uslider_volume");
+            const uaudioElement = document.getElementById("uploadaudio");
+            const uloopset = document.getElementById("uadloopck");
+            const ubtn_fi = document.getElementById("ubtn_fi");
+            const ubtn_fo = document.getElementById("ubtn_fo");
+            const upfile = document.getElementById('openmp3');
+
+            upfile.onchange =() =>{
+              var fileValue = $(upfile)[0].files[0].name
+              document.getElementById('uaudiotitle').innerHTML = fileValue;
+            }
+            $(upfile).change(function(){
+              if (this.files.length > 0) {
+                // 選択されたファイル情報を取得
+                var file = this.files[0];
+                
+                // readerのresultプロパティに、データURLとしてエンコードされたファイルデータを格納
+                var reader = new FileReader();
+                reader.readAsDataURL(file);
+                
+                reader.onload = function() {
+                  $(uaudioElement).attr('src', reader.result );
+                }
+              }
+            });
+            
+          
+            if(uloopset.checked=true){
+              uaudioElement.loop=true;
+            }
+  
+            // ボリュームの初期設定
+            uaudioElement.volume = uslider_volume.value;
+  
+            ubtn_eject.addEventListener("click", e => {
+              uaudioElement.pause();
+              uaudioElement.currentTime = 0;
+              uaudioElement.setAttribute('src',"");
+              document.getElementById('uaudiotitle').innerHTML = "BGMをアップロードしてください。";
+            });
+  
+            ubtn_mute.addEventListener("click", e => {
+  
+              if( uaudioElement.muted ) {
+                uaudioElement.muted = false;
+                ubtn_mute.textContent = "ミュート";
+              } else {
+                uaudioElement.muted = true;
+                ubtn_mute.textContent = "ミュート解除";
+              }
+            });
+            
+  
+            ubtn_fi.addEventListener("click",e=>{
+              var getvolume = uslider_volume.value
+              uslider_volume.value=0;
+              uaudioElement.volume=uslider_volume.value;
+              uaudioElement.play();
+  
+              const uaudiofi =  setInterval(() => {
+              if(uslider_volume.value == getvolume){
+                clearInterval(uaudiofi);
+                return false;
+              } 
+              if (uslider_volume.value < getvolume) {
+                uslider_volume.value= uaudioElement.volume+0.01;
+                uaudioElement.volume=uslider_volume.value;
+              }else {
+                clearInterval(uaudiofi);
+                return false;
+              } 
+
+              document.getElementById('uadvoldis').innerHTML = (uslider_volume.value*100).toFixed();
+            }, 50);
+            });
+            
+            ubtn_fo.addEventListener("click",e=>{
+              const uaudiofo =  setInterval(() => {
+              if (0< uslider_volume.value <= 1) {
+                uslider_volume.value= uaudioElement.volume-0.025;
+                uaudioElement.volume=uslider_volume.value
+              }else {
+                clearInterval(uaudiofo);
+                return false;
+              } 
+              if(uslider_volume.value == 0){
+                document.getElementById('uadvoldis').innerHTML = "0"
+                uaudioElement.pause();
+                clearInterval(uaudiofo);
+                return false;
+              } 
+              document.getElementById('uadvoldis').innerHTML = (uslider_volume.value*100).toFixed();
+            }, 50);
+            })
+            
+            
+  
+            uloopset.addEventListener("change", e=>{
+              if(uloopset.checked==true){
+                uaudioElement.loop = true;
+                document.getElementById("ulpset").innerHTML="ループ";
+  
+              }else if(uloopset.checked==false){
+                uaudioElement.loop = false;
+                document.getElementById("ulpset").innerHTML="ループ解除";
+              }
+            });
+  
+            uslider_volume.addEventListener("input", e => {
+              uaudioElement.volume = uslider_volume.value;
+              document.getElementById("uadvoldis").innerHTML=(uaudioElement.volume*100).toFixed();
+  
+            });
+          });
+/***************/  
+
         

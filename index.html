@@ -23,9 +23,8 @@
 		<script src="https://www.gstatic.com/firebasejs/8.0.2/firebase-app.js"></script>
         <script src="https://www.gstatic.com/firebasejs/8.0.2/firebase-auth.js"></script>
 		<script src="config.js"></script>
+		<script type="module" src="analytics.js"></script>
 		<script src="auth.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/ui/3.5.2/firebase-ui-auth__ja.js"></script>
-        <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
 
 	</head>
 
@@ -36,8 +35,10 @@
 			<h1 class="title-letter">
 				<!--<h1 style="text-align:cent>er;color:#218d6c;">SE集</h1><br>-->
 			</h1>
-			<p class="sitever">Version 3.3</p>
+			<p class="sitever">Version 3.4</p>
 			<div class="login-status">
+				<img src="" id="uimage">
+				<p class="usericon" id="uicon">User</p>
 				<p id="login-status"></p>
 			</div>
 		</div>
@@ -65,26 +66,11 @@
 		</nav></div></div>
 	  </header>
 <main>
-	<div id="not-loginned">
-			<h2>教職員版SE集・チャイムシステム</h2><h1>ログイン</h1>
-			<p>このページにアクセスするにはログインが必要です。</p>
-			<p>Googleアカウントでログインしてください。<br>※メールアドレスからはログインできません。</p>
-		<div id="firebaseui-auth-container">
-		</div>
-			<!--<a class="btntextchange" onclick="disp();"><span>Authentication</span><span>自動認証</span></a>
-			<form name="autoauth" id="aaform" onsubmit="return false; pcheck();">
-				<input name="pass" type="password"/>
-				<button id="btn" type="submit">認証</button>
-			</form>-->
-	</div>
-
-<div id="loginned">
-
 			<div class="info2" id="target6">
 				<div class="ticker">
 					<ul>
-						<li><span>2022.03.15</span><a href="notification.html#item11" target="_blank">SE集を更新しました。使いづらい部分がありましたら、Slackにてお知らせください。<br>変更点について、詳しくはこちらをご覧ください。</a></li>
-						<li><span>2022.03.15</span><a href="notification.html#item11" target="_blank">SE集サイトは本日より、ダークモードに対応します！端末のテーマ設定に沿ってダークモードに変更されます。</a></li>
+						<li><span>2022.03.15</span><a href="notification.html#item12" target="_blank">SE集を更新しました。使いづらい部分がありましたら、Slackにてお知らせください。<br>変更点について、詳しくはこちらをご覧ください。</a></li>
+						<li><span>2022.03.15</span><a href="notification.html#item11" target="_blank">SE集サイトは、ダークモードに対応します！端末のテーマ設定に沿ってダークモードに変更されます。</a></li>
 					<!--<li><span>2022.02.03</span><a href="#">1つめのニュースの記事です。</a></li>
 						<li><span>2022.02.03</span><a href="#">1つめのニュースの記事です。</a></li>
 						<li><span>2022.02.03</span><a href="#">1つめのニュースの記事です。</a></li>-->
@@ -254,6 +240,7 @@
 						</div>
 				</div>	
 					<p><a href="#" id="stop-button" class="stop-button">ボタンで再生したSEを停止する</a></p>
+					<p><a href="#" id="alladstop" class="stop-button">全ての音声の再生を停止</a></p>
 					</div>
 
 					<section>
@@ -282,9 +269,6 @@
 											<div id="audiocontainer">
 												<audio id="selectedaudio" controls preload="metadata" controlslist="nodownload" >
 													<source src="" type="audio/mp3"></audio> 
-											<script>
-												$('#selectaudio').attr('oncontextmenu', 'return false');
-											</script>
 											</div>
 											<select id="audioselect">
 												<option hidden>---選択してください---</option>
@@ -296,6 +280,7 @@
 												<option value="likebutterfly.mp3">BGM4（ループ）(5:07)</option>
 												<option value="hope.mp3">BGM5（ループ）(3:24)</option>
 												<option value="goodbgm2.mp3">BGM7（ループ）(4:16)</option>
+												<option value="graduates.mp3">卒業ソング（ループ非推奨）(3:56)</option>
 											</select>
 										</div>
 										<div class="audioplayctrl">
@@ -306,6 +291,25 @@
 											<button id="btn_fo">フェードアウト</button>
 											<button id="btn_eject">Eject⏏️</button>
 										</div>
+									</div>
+									<div class="audio-wrap">
+										<div class="audioinfo">
+											<h4 id="uaudiotitle">BGMをアップロードしてください。</h4>
+											<div id="uaudiocontainer">
+												<audio id="uploadaudio" controls preload="metadata" controlslist="nodownload" ></audio> 
+											</div>
+										<div class="uploadmp3">
+											<label class="uplmp3"><input type="file" id="openmp3" name="optionalmp3" accept="audio">ファイルを選択</label>
+										</div>
+										<div class="audioplayctrl">
+											<label>BGM<input type="checkbox" id="uadloopck" checked><span id="ulpset">ループ</span></label>
+											<span>🔈</span><input type="range" id="uslider_volume" value="1" min="0" max="1" step="0.01"><span id="uadvoldis">100</span>
+											<button id="ubtn_mute">ミュート</button>
+											<button id="ubtn_fi">フェードイン</button>
+											<button id="ubtn_fo">フェードアウト</button>
+											<button id="ubtn_eject">Eject⏏️</button>
+										</div>
+									</div>
 									</div>
 
 								<!--<div class="audio-wrap">
@@ -429,7 +433,7 @@
 											<button id="ytpause1">一時停止⏸</button>	
 										</div>
 										<div class="progbar">
-											<input type="range" name="ytseek1" id="ytseekbar1" min="0" value="0">
+											<input class="seekrange" type="range" name="ytseek1" id="ytseekbar1" min="0" value="0">
 											<span id="ytcurrent1dis">0:00</span><span>/</span><span id="ytdura1dis">0:00</span>											
 										</div>
 										<div class="volslider">
@@ -448,7 +452,7 @@
 											<button id="ytpause0">一時停止⏸</button>
 									</div>
 									<div class="progbar">	
-										<input type="range" name="ytseek0" id="ytseekbar0" min="0" value="0">
+										<input class="seekrange" type="range" name="ytseek0" id="ytseekbar0" min="0" value="0">
 										<span id="ytcurrent0dis">0:00</span><span>/</span><span id="ytdura0dis">0:00</span>
 									</div>
 									<div class="volslider">
@@ -462,7 +466,7 @@
 										<div class="toggle">
 											<input type="checkbox" name="check"/>
 										</div>
-										<p>火曜日の9:45に自動再生：<span id="toch_rupin">OFF</span></p>
+										<!--<p>火曜日の9:45に自動再生：<span id="toch_rupin">OFF</span></p>-->
 									</div>
 									</div>
 								</div>
@@ -479,7 +483,7 @@
 												<button id="ytpause2">一時停止⏸</button>	
 											</div>
 											<div class="progbar">
-												<input type="range" name="ytseek2" id="ytseekbar2" min="0" value="0">
+												<input class="seekrange" type="range" name="ytseek2" id="ytseekbar2" min="0" value="0">
 												<span id="ytcurrent2dis">0:00</span><span>/</span><span id="ytdura2dis">0:00</span>											
 											</div>
 											<div class="volslider">
@@ -498,7 +502,7 @@
 												<button id="ytpause3">一時停止⏸</button>	
 											</div>
 											<div class="progbar">
-												<input type="range" name="ytseek3" id="ytseekbar3" min="0" value="0">
+												<input class="seekrange" type="range" name="ytseek3" id="ytseekbar3" min="0" value="0">
 												<span id="ytcurrent3dis">0:00</span><span>/</span><span id="ytdura3dis">0:00</span>											
 											</div>
 											<div class="volslider">
@@ -517,7 +521,6 @@
 					</div>
 				</div>
 		</div>
-</div>
 </main>
 
 <HR style="margin: 0em 0 ;">
@@ -526,10 +529,10 @@
 		<p>更新履歴は<a href="https://sites.google.com/nnn.ed.jp/ycp-s-soundeffectbs/%E6%95%99%E8%81%B7%E5%93%A1%E7%94%A8/history-teacher" target="_blank" rel="noopener">こちら</a>からご覧になれます。</p>
 		<p>SE・BGM項目にある全ての音源の著作権は上記の団体に帰属します。(Youtube動画と*印のあるSEを除く）<br>
 			また、htmlのコードは多数のウェブサイト（「引用」に記載）よりお借りしていますが、デザイン等は全て改変しています。このサイト及びサイト内のコンテンツ（音声・画像ファイルなど）を一部改変、もしくはそのまま複製・再配布することを固く禁じます。</p>
-		<script>
-		var getyears = today.getFullYear();
-		document.getElementById("footers").innerHTML = "©️2021-" + getyears + " N・S高等学校横浜キャンパスクリエイティブ委員会音楽チーム";
-		</script>
+			<script>
+				var getyears = new Date().getFullYear();
+				document.getElementById("footers").innerHTML = "©️2021-" + getyears + " N・S高等学校横浜キャンパスクリエイティブ委員会音楽チーム";
+			</script>
 		</footer>
 
 <!-- JavaScriptの読み込み -->

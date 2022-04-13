@@ -76,8 +76,29 @@ html{
   }
   #login-status{
     position: absolute;
-    right: 0;
+    right: 55px;
     bottom: 30px;
+  }
+  #uimage{
+    display: block!important;
+    width: 40px;
+    height: auto;
+    border-radius: 100px;
+    position: absolute;
+    z-index: 2;
+    right: 10px;
+  }
+  .usericon{
+    display: block!important;
+    width: 40px;
+    height: 40px;
+    background-color: #014897;
+    color: white;
+    border-radius: 100px;
+    text-align: center;
+    position: absolute;
+    z-index: 1;
+    right: 10px;
   }
   .title p{
     margin: 0;
@@ -102,7 +123,9 @@ body{
 }
 #login-status{
   text-align: right;
-
+}
+#uimage{
+  display: none;
 }
 .login-status{
   align-items: flex-end;
@@ -237,7 +260,10 @@ header {
 
 
 
-div.ticker{width: calc(100% - 83px);}
+div.ticker{
+  width: 95%;
+  margin: 5px auto;
+}
 .ticker{
   user-select: none;
   margin-bottom: 0;
@@ -697,16 +723,14 @@ background: #21276c;
 .bgm-wrap{
   display: block;
   width: 95%;
-  border: 1px solid #707070 ;
   padding-left: 20px;
-  background-color: #9bc4b1;
   margin-bottom: 70px;
   align-items: center;
 }
 .audioplayctrl{
   display: block;
 }
-audio#selectedaudio {
+audio#selectedaudio,#uploadaudio {
   width: 80%;
 
 }
@@ -721,9 +745,24 @@ select#audioselect {
 
 .audio-wrap{
   display: block;
-  margin: 3px;
-  padding: 3px;
+  margin: 30px 10px;
+  padding: 5px;
   width: 100%;
+  background-color: #9bc4b1;
+  border: 1px solid #707070 ;
+}
+.uploadmp3{
+  margin: 15px;
+}
+.uplmp3 {
+  padding: 10px 25px;
+  color: #ffffff;
+  background-color: #384878;
+  cursor: pointer;
+}
+
+#openmp3 {
+  display: none;
 }
 
 .pop_new {
@@ -934,9 +973,7 @@ details.bgmdet[open] summary {
 
 @media (min-width: 960px) {
   footer {
-    background-image: url(image/backg1.jpg);
-    background-blend-mode: lighten;
-    background-color: rgba(255, 255, 255, 0.349);
+    background-color:black;
   }
 }
 @media (max-width: 700px) {
@@ -986,7 +1023,7 @@ footer a:hover {
 }
 .menu-btn {
   position: fixed;
-  top: 10px;
+  top: 3px;
   right: 3px;
   display: flex;
   height: 60px;
@@ -996,6 +1033,9 @@ footer a:hover {
   z-index: 90;
   background-color: #3584bb;
   cursor: pointer;
+}
+#menu-btn-check{
+  display: none;
 }
 .menu-btn span,
 .menu-btn span:before,
