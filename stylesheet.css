@@ -41,11 +41,11 @@
   }
 }
 @media (min-width: 960px) {
-  header {
+  /*header {
     background-image: url(image/banner1.jpg);
     background-blend-mode: soft-light;
     padding: 10px;
-  }
+  }*/
   /*body {
     background-image: url(image/backg1.jpg);
     background-blend-mode: soft-light;
@@ -55,8 +55,8 @@
   }
   #login-status{
     position: absolute;
-    right: 55px;
-    bottom: 30px;
+    right: 115px;
+    bottom: 35px;
   }
   #uimage{
     display: block!important;
@@ -65,7 +65,8 @@
     border-radius: 100px;
     position: absolute;
     z-index: 2;
-    right: 10px;
+    right: 70px;
+    bottom: 30px;
   }
   .usericon{
     display: block!important;
@@ -77,13 +78,15 @@
     text-align: center;
     position: absolute;
     z-index: 1;
-    right: 10px;
+    right: 70px;
+    bottom: 30px;
   }
   .title p{
     margin: 0;
   }
   .logoh1{
-    margin-left: 10px;
+    margin-left: 5px;
+    margin: 5px;
   }
 }
 
@@ -160,12 +163,12 @@ header {
 display: flex;
 flex-wrap: wrap;
 width: 100%;
-height: 130px;
-background-color: rgb(207, 207, 207);
+height: 105px;
+/*background-color: rgb(207, 207, 207);*/
 align-items: center;
 flex-wrap: nowrap;
 justify-content: space-between;
-margin-bottom: 10px;
+margin-bottom: 20px;
 }
 
 @media(max-width:740px){
@@ -373,6 +376,9 @@ color: black;
   display: none;
 }
 
+.info2{
+  display: none;
+}
 
 
 
@@ -518,7 +524,7 @@ details.timer[open]{
 }
 
 body {
-  background-color: #edededea;
+  background-color: #fcfcfc;
   font-family: 'M PLUS 1p', sans-serif;
 }
 
@@ -567,8 +573,8 @@ body button{
 }
 .sounds {
   display: inline-block;
-  width: 80vw;
-  height: 20vh;
+  width: 90vw;
+  height: 25vh;
   margin: 7px;
   padding: 15px 10px 15px 10px;
   border-radius: 15px;
@@ -800,6 +806,10 @@ summary {
   cursor: pointer;
 }
 
+.dtinfo{
+  display: none;
+}
+
 details[open] {
   padding: 0.5em;
 }
@@ -831,9 +841,9 @@ details.bgmdet[open] summary {
 
 @media (min-width: 960px) {
   footer {
-    background-image: url(image/backg1.jpg);
-    background-blend-mode: lighten;
-    background-color: rgba(255, 255, 255, 0.349);
+    /*background-image: url(image/backg1.jpg);
+    background-blend-mode: lighten;*/
+    background-color: black;
   }
 }
 @media (max-width: 700px) {
@@ -883,7 +893,7 @@ footer a:hover {
 }
 .menu-btn {
   position: fixed;
-  top: 3px;
+  top: 25px;
   right: 3px;
   display: flex;
   height: 60px;

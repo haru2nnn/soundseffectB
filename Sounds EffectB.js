@@ -332,7 +332,7 @@ function redirect() {
   //    location.href="https://sites.google.com/nnn.ed.jp/ycp-s-soundeffectbs/maintenance-b";
 }
 
-
+/*
 // 各プレーヤーの埋め込み
 function onYouTubeIframeAPIReady() {
   for(var i = 0; i < ytData.length; i++) {
@@ -577,65 +577,7 @@ var ytHeight = 315;
 			};
 
     }
-
-
-/*
-    $(".toggle").on("click", function() {
-      $(".toggle").toggleClass("checked");
-      if(!$('input[name="check"]').prop("checked")) {
-        $(".toggle input").prop("checked", true);
-        document.getElementById('toch_rupin').innerHTML = "ON"
-      } else {
-        $(".toggle input").prop("checked", false);
-        document.getElementById('toch_rupin').innerHTML = "OFF"
-      }
-    });
-
-
-    setTimeout(() => {
-      var WeekChars =["日","月","火","水","木","金","土"];
-      var getyoubi = new Date();
-      var todayday = getyoubi.getDay();
-
-    if (todayday == 2) {
-      if ($(".toggle input").prop("checked", true)){
-          ytPlayer[0].playVideo();
-          const seekint0 = setInterval(function(){
-              seek0();
-          },500);
-        function seek0() {
-          var seekbar0 = document.getElementById("ytseekbar0")
-          var currentTime0 = ytPlayer[0].getCurrentTime();  // 現在の再生時間取得
-          document.getElementById('ytcurrent0dis').innerHTML = convertTime(currentTime0.toFixed()) +""
-          document.getElementById('ytseekbar0').setAttribute('max',ytPlayer[0].getDuration())
-          seekbar0.value=currentTime0
-          seekbar0.oninput = function(){
-            ytPlayer[0].seekTo(seekbar0.value);
-          }
-          document.getElementById('ytdura0dis').innerHTML = convertTime(ytPlayer[0].getDuration());
-        }
-        // 再生時間の表記を「mm:ss」に整える
-			const convertTime = function(time_position) {
-				
-				time_position = Math.floor(time_position);
-				var res = null;
-
-				if( 60 <= time_position ) {
-				res = Math.floor(time_position / 60);
-				res += ":" + Math.floor(time_position % 60).toString().padStart( 2, '0');
-				} else {
-				res = "0:" + Math.floor(time_position % 60).toString().padStart( 2, '0');
-				}
-
-				return res;
-			};
-  }else if($(".toggle input").prop("checked", false)){
-    return false;
-  }
-  }
-  }, new Date().setHours(9, 45, 0, 0) - new Date())
 */
-
 
 /////////////////////////////////
 			//初期表示は非表示
