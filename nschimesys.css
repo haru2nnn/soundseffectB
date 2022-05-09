@@ -1,0 +1,265 @@
+@charset "UTF-8";
+
+/*
+font-family: 'M PLUS Rounded 1c', sans-serif;
+*/
+
+#statepermission {
+    color: #3fb13f;
+    background: white;
+    border: 0.5px solid green;
+    width: 30px;
+    height: 30px;
+}
+
+details.timer summary {
+    background: rgb(255, 193, 190);
+    text-align: center;
+    cursor: pointer;
+      -webkit-user-select: none;
+         -moz-user-select: none;
+          -ms-user-select: none;
+              user-select: none;
+  }
+
+.notify{
+  text-align: center;
+  font-size: 92%;
+}
+
+.date{
+  font-size:120%;
+  margin:0;
+}
+.date2{
+    font-size: 300%;
+}
+.time{
+  font-size: 3.5vw;
+  margin:0.8vh;
+}
+.time2{
+    font-size: 1000%;
+}
+
+#timetable{
+  font-size: 120%;
+  margin: 0;
+}
+
+
+.clock{
+  text-align: center;
+  width: 55%;
+  cursor: pointer;
+}
+.status{
+  text-align: center;
+  width: 45%;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  font-size: 120%;
+}
+
+.status-l{
+  font-size: 90%; margin: 7px 0 5px 0;
+}
+.status #info1, #info2, #info3{
+  margin: 5px 0;
+}
+.topbanner{
+  display: flex;
+}
+
+s.notice {
+  background-color: #c4e2f7d3;
+}
+.notice a{
+  color: rgb(17, 64, 219);
+}
+.notice a:hover{
+  color: rgb(48, 108, 199);
+  background-color: white;
+}
+
+
+/*.container {
+  flex-direction: row;
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}*/
+
+.audio_btn{
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+    align-content:center ;
+    margin: 40px auto;
+}
+
+.sounds {
+  display: block;
+  width: 90vw;
+  height: 25vh;
+  margin: 20px auto;
+  padding: 15px 10px 15px 10px;
+  border-radius: 15px;
+  font-size: larger;
+  color: #fff;
+  font-weight: 600;
+  background: #21276c!important;
+  text-align: center;
+  justify-content: center;
+  align-content:center ;
+  text-decoration: none;
+  cursor: pointer;
+  box-shadow: 0 0 1px gray;
+  transition: 0.5s;
+}
+.sounds:hover{
+  box-shadow: 0 0 16px gray;
+  transition: 0.5s;
+}
+
+.adjust{  
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0 20px;
+  margin: 20px auto;
+}
+.adjust p{
+  margin:5px 0;
+  padding: 5px;
+}
+.inputrange{
+  display: inline-flex;
+  flex-wrap: wrap;
+  margin:5px 0;
+  border: 1px solid rgb(182, 182, 182);
+  padding: 5px;
+  align-items: stretch;
+  justify-content: center;
+  gap: 0 20px;
+}
+/*.inputrange>div{
+  border: 1px solid rgb(182, 182, 182);
+  padding: 5px;
+}*/
+#chsubmit{
+  padding: 0 20px;
+  border: solid 2px #4db882;
+}
+.inputrange p{
+  margin: 0 10px;
+}
+.settings p button,.inputrange button{
+  margin: 0 2px;
+}
+
+.chime-button{
+justify-content: center;
+text-align: center;
+font-size: larger;
+}
+
+
+.stop-button {
+  display: block;
+  border: none;
+  width: 95%;
+  margin: 15px auto;
+  padding: 30px 0;
+  border-radius: 10px;
+  font-size: 75%;
+  color: #fff;
+  font-weight: 700;
+  background: #21276c;
+  text-align: center;
+  text-decoration: none;
+  box-shadow: 0 0 1px gray;
+  transition: 0.5s;
+}
+.stop-button:hover{
+  box-shadow: 0 0 5px gray;
+  transition: 0.5s;
+}
+
+.mute-button{
+width: 170px;
+  height: 50px;
+  margin: 7px;
+  padding: 15px 0;
+  border-radius: 5px;
+  color: black;
+  font-weight: 600;
+  background: #abd7da;
+  text-align: center;
+  text-decoration: none;
+  border: 1px solid gray;
+}
+
+.stop-button {
+  background: #8f7c7c;
+}
+
+.sebutton {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+}
+
+.linkbtns{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .linkbtns a{
+    margin: 10px;
+  }
+
+  @media (max-width: 736px) {
+    .title-letter{
+      font-size: 4.5vw;
+      margin: 0%;
+      margin-left: 2%;
+    }
+    .logo{
+      width: 70%;
+      height: auto;
+    }
+    .header-logo{
+        margin-top: 0%;
+      margin-bottom: 0%;
+    }
+    .date{
+    font-size: 4vw;
+    }
+    .status-l{
+      font-size: 3vw;
+    }
+    .topbanner{
+      display: inline;
+    }
+    .clock{
+      width: 95%;
+    }
+    .time{
+      font-size: 7vw;
+    }
+    .status{
+      width: 100%;
+    }
+    .details{
+      font-size: 50%;
+    }
+    .st-info1{
+      font-size: 70%;
+    }
+    .timer{
+      font-size: 50%;
+    }
+    }

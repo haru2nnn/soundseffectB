@@ -1,3 +1,14 @@
+document.getElementById("page-contents").style.display = "none";
+document.getElementById('loading').style.display="block";
+
+($(function() {
+    setTimeout(function() {
+	$('#loading').fadeOut();
+	document.getElementById('page-contents').style.display="block";
+}, 1200);
+}));
+
+
 // グローバル変数
 var Sounds = {
   flag: {},
@@ -581,8 +592,8 @@ var ytHeight = 315;
 
 /////////////////////////////////
 			//初期表示は非表示
-			document.getElementById("target").style.display ="block";
-			document.getElementById("target2").style.display ="block";
+			//document.getElementById("target").style.display ="block";
+			//document.getElementById("target2").style.display ="block";
 			
 			window.onload = function onload () {
         const p2a = document.getElementById("target");
