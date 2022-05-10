@@ -116,11 +116,11 @@ s.notice {
   text-decoration: none;
   cursor: pointer;
   box-shadow: 0 0 1px gray;
-  transition: 0.5s;
+  transition: 0.3s;
 }
 .sounds:hover{
   box-shadow: 0 0 16px gray;
-  transition: 0.5s;
+  transition: 0.3s;
 }
 
 .adjust{  

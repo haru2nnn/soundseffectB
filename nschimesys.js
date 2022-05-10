@@ -1,4 +1,4 @@
-/*document.getElementById("page-contents").style.display = "none";
+document.getElementById("page-contents").style.display = "none";
 document.getElementById('loading').style.display="block";
 
 ($(function() {
@@ -6,7 +6,7 @@ document.getElementById('loading').style.display="block";
 	$('#loading').fadeOut();
 	document.getElementById('page-contents').style.display="block";
 }, 1200);
-}));*/
+}));
 
 
 /*document.body.onmousemove=() =>{
@@ -308,10 +308,10 @@ document.addEventListener('DOMContentLoaded', function() {
 											chimelc(17,30,0,"最終下校時刻","");
 
 
-											chimelc(5,44,0,"試験放送1","試験放送中。こちらが表示された場合はお問合せください。");
+											/*chimelc(5,44,0,"試験放送1","試験放送中。こちらが表示された場合はお問合せください。");
 											chimelc(5,45,0,"試験放送2","試験放送中。");
 											chimelc(5,46,0,"試験放送3","試験放送中。");
-											chimelc(5,43,0,"試験放送4","試験放送中。");
+											chimelc(5,43,0,"試験放送4","試験放送中。");*/
 											
 											document.getElementById("info1").innerHTML = "";
 											document.getElementById("info2").innerHTML = "";

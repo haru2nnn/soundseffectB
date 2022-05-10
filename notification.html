@@ -35,12 +35,15 @@
 				<!--<h1 style="text-align:cent>er;color:#218d6c;">SE集</h1><br>-->
 			</h1>
 		</div>
-            <div class="cp_ipcheck">
-                <input type="checkbox" id="modeChange">
-                <label for="modeChange"></label>
-            </div>
-			<div class="login-status">
+			<div class="login-statusdiv">
+				<div class="cp_ipcheck">
+					<input type="checkbox" id="modeChange">
+					<label for="modeChange"></label>
+				</div>
 				<p id="login-status"></p>
+				<img src="" id="uimage">
+				<p class="usericon" id="uicon">User</p>
+				<button id="logoutbtn" onclick="logOut();"><i class="fa-solid fa-arrow-right-from-bracket"></i></button>
 			</div>
 		<div class="hamburger-menu" id="menu-button">
 			<input type="checkbox" id="menu-btn-check">
@@ -50,20 +53,14 @@
 		<nav class="nav">
 		<div class=navlogo>	<li><img class="logo" src="image/header-logo2.png" width="80%"></li></div>
 		
-		<ul class="menu-group">
+        <ul class="menu-group">
 			<li class="menu-item"><a href="index.html" >横浜キャンパスSE集</a></li>
-			<li class="menu-item"><a href="nschimesys.html" target="blank" rel="noopener">S高チャイム自動放送システム</a></li>
-			<li class="menu-item"><a href="chimesys.html" target="blank" rel="noopener">ノーマルチャイム自動放送システム</a></li>
+			<li class="menu-item"><a href="#" target="blank" rel="noopener">チャイム自動放送システム</a></li>
 			<li class="menu-item"><a href="https://haru2nnn.github.io/soundseffectS/" target="blank" rel="noopener">横浜キャンパス生徒用SE集サイト</a></li>
-			<!--<li class="menu-item"><a href="index-yobi.html" target="_blank" rel="opener">うまくページが表示できない時はこちら</a></li>-->
-			<li class="menu-item"><a href="https://sites.google.com/nnn.ed.jp/ycp-s-soundeffectbs/%E6%95%99%E8%81%B7%E5%93%A1%E7%94%A8/SE_key-layout-teacher" target="_blank" rel="noopener">効果音のキー配列表はこちら</a></li>
+            <li class="menu-item"><a href="shortcuts.html" target="_blank" rel="noopener">効果音・チャイムのキー配列表はこちら</a></li>
 			<li class="menu-item"><a href="notification.html" target="_blank" rel="noopener">お知らせ・新着情報</a></li>
-			<li class="menu-item"><a href="https://sites.google.com/nnn.ed.jp/ycp-s-soundeffectbs/%E6%95%99%E8%81%B7%E5%93%A1%E7%94%A8/history-teacher" target="_blank" rel="noopener">更新履歴</a></li>
 			<!--<li class="menu-item"><a href="readme.html" target="_blank" rel="noopener">マニュアル</a></li>-->
-			<li class="menu-item"><a href="https://sites.google.com/nnn.ed.jp/ycp-s-soundeffectbs/quote" target="_blank" rel="noopener">コード引用サイト</a></li>
-			<!--<li class="menu-item"><a href="https://sites.google.com/nnn.ed.jp/ycp-s-soundeffectbs/fb_contact-us" target="_blank" rel="noopener">お問い合わせ</a></li>-->
-			<!--<li class="menu-item" id="hlw"><a href="index-hw.html">ハロウィンバージョン</a></li>-->
-		  </ul>
+        </ul>
 		</nav></div></div>
 	  </header>   
 
@@ -80,8 +77,8 @@
                         <th>チャイムシステム</th>
                         </tr>
                         <tr>
-                        <td>2022年5月1日</td>
-                        <td>2022年5月1日</td>
+                        <td>2022年5月9日</td>
+                        <td>2022年5月9日</td>
                         </tr>
                     </table>
                     <h3>現在のバージョン</h3>
@@ -97,13 +94,58 @@
 
         <main>
                 <ul class="news-list">
-                <!--<li class="item" id="item11">
+                <!--
+                    <li class="item" id="item20">
+                        <div class="news-a">
+                            <p class="news-date">2020/4/15</p>
+                            <p class="news-category"><span id="not2">SE集</span></p>
+                            <div class="news-title"><h3>タイトル</h3>ここにお知らせが入りますここにお知らせが入りますここにお知らせが入ります</div>
+                        <div>
+                    </li>
+                    <li class="item" id="item19">
+                        <div class="news-a">
+                            <p class="news-date">2020/4/15</p>
+                            <p class="news-category"><span id="not2">SE集</span></p>
+                            <div class="news-title"><h3>タイトル</h3>ここにお知らせが入りますここにお知らせが入りますここにお知らせが入ります</div>
+                        <div>
+                    </li>
+                    <li class="item" id="item18">
+                        <div class="news-a">
+                            <p class="news-date">2020/4/15</p>
+                            <p class="news-category"><span id="not2">SE集</span></p>
+                            <div class="news-title"><h3>タイトル</h3>ここにお知らせが入りますここにお知らせが入りますここにお知らせが入ります</div>
+                        <div>
+                    </li>
+                    <li class="item" id="item17">
+                        <div class="news-a">
+                            <p class="news-date">2020/4/15</p>
+                            <p class="news-category"><span id="not2">SE集</span></p>
+                            <div class="news-title"><h3>タイトル</h3>ここにお知らせが入りますここにお知らせが入りますここにお知らせが入ります</div>
+                        <div>
+                    </li>
+                    <li class="item" id="item16">
                         <div class="news-a">
                             <p class="news-date">2020/4/15</p>
                             <p class="news-category"><span id="not2">SE集</span></p>
                             <div class="news-title"><h3>タイトル</h3>ここにお知らせが入りますここにお知らせが入りますここにお知らせが入ります</div>
                         <div>
                     </li>-->
+                    <li class="item" id="item15">
+                        <div class="news-a">
+                            <p class="news-date">2022/5/9</p>
+                            <p class="news-category"><span id="not1">チャイム<br>システム</span></p>
+                            <div class="news-title"><h3>チャイムシステムの更新について【Ver4.0】</h3>チャイムシステムをご利用いただきありがとうございます。<br>チャイムシステムの「Version4」をリリースしました。変更点は以下の通りです。<ul><li>チャイム放送のシステムを改善</li><li>時刻拡大表示機能（時計部分を押すと出ます）</li><li>ページ読み込み時の現在の時間割表示</li></ul><p>また、スリープ後の挙動についても現在検証中ですので、お待ちください。</p></div>
+                        <div>
+                    </li>
+                
+                    <li class="item" id="item14">
+                        <div class="news-a">
+                            <p class="news-date">2022/5/9</p>
+                            <p class="news-category"><span id="not3">全体</span></p>
+                            <div class="news-title"><h3>SE集サイト全体の更新について【Ver4.0】</h3>SE集をご利用いただきありがとうございます。<br>この度SE集サイトの「Version4」をリリースしました。変更点は以下の通りです。<ul><li>サイト全体のUIの改善</li><li>ダークモード切り替えスイッチの設置</li><li>ログイン時のリダイレクト先指定</li></ul><p>また、SE集ではBGMの追加を行いました。<br>SE集のUIは今後改善予定です。</p></div>
+                        <div>
+                    </li>
+                
                     <li class="item" id="item13">
                         <div class="news-a">
                             <p class="news-date">2022/4/12</p>
