@@ -1,4 +1,4 @@
-/*document.getElementById("page-contents").style.display = "none";
+document.getElementById("page-contents").style.display = "none";
 document.getElementById("loading").style.display = "block";
 
 $(function () {
@@ -6,23 +6,7 @@ $(function () {
     $("#loading").fadeOut();
     document.getElementById("page-contents").style.display = "block";
   }, 1200);
-});*/
-
-/*document.body.onmousemove=() =>{
-	var firstmove;	
-	if (!firstmove) {
-		const audioElement = document.querySelector("audio");
-		audioElement.play();
-		audioElement.pause();
-		audioElement.currentTime = 0;
-		firstmove = true
-	}
-	if (firstmove=true) {
-		return false
-	}
-	return false
-				
-}*/
+});
 
 document.addEventListener("DOMContentLoaded", function () {
   const btn_play = document.getElementById("btn_play");
