@@ -135,6 +135,7 @@ document.addEventListener("DOMContentLoaded", function () {
     audioElement.pause();
     audioElement.currentTime = 0;
     audioElement.volume = slider_volume.value;
+	console.log("chauto_success");
     $("#chimetest").fadeIn();
     testbtn.innerHTML = '<i class="fa-solid fa-check"></i>';
 	document.getElementById("automsta").innerHTML = "チャイムの自動放送を設定しました。"
