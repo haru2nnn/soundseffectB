@@ -50,6 +50,7 @@ document.addEventListener("DOMContentLoaded", function () {
     audioElement.play();
     startTimer();
     document.getElementById("info1").innerHTML = "チャイム手動放送中";
+    console.log(new Date()+"chmanuallcd")
   });
 
   audioElement.onended = (event) => {
@@ -318,6 +319,7 @@ document.addEventListener("DOMContentLoaded", function () {
 				document.getElementById("info3").innerHTML =  msg;
 				document.getElementById("timetable").innerHTML = "< "+tt+"> ";
 				document.getElementById("timetable2").innerHTML = "< "+tt+"> ";
+        console.log(new Date()+"ifchimelcd")
 				}else if(fomula < 0) {
 				document.getElementById("timetable").innerHTML = "< "+tt+"> ";
 				document.getElementById("timetable2").innerHTML = "< "+tt+"> ";
