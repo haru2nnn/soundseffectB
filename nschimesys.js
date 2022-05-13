@@ -255,6 +255,7 @@ document.addEventListener("DOMContentLoaded", function () {
     audioElement.currentTime = 0;
     audioElement.play();
     startTimer();
+	console.log(new Date()+"_chimelaunched");
     document.getElementById("info2").innerHTML = "チャイム自動放送中";
   }
 
@@ -278,10 +279,6 @@ document.addEventListener("DOMContentLoaded", function () {
   /******************************************************************/
 	setInterval(() => {
 		var nowmin = new Date().getTime();
-
-		/*chimet(15,13,0,"test","test")
-		chimet(15,15,0," "," ")*/
-
 		chimet(9,0,0,"登校時間","おはようございます！本日も1日よろしくお願いいたします！")
 		chimet(9,30,0,"朝礼","おはようございます！本日も1日よろしくお願いいたします！")
 		chimet(9,45,0,"1限","授業開始です！よろしくお願いします！")
@@ -299,7 +296,7 @@ document.addEventListener("DOMContentLoaded", function () {
 		chimet(16,15,0,"放課後","本日もチャイムシステムをご利用いただきありがとうございます！")
 		chimet(17,30,0,"最終下校","")
 
-		/*chimet(5,37,0,"test1","countdown")
+		/*chimet(13,22,0,"test1","countdown")
 		chimet(5,38,0,"test2","countdown")
 		chimet(5,39,0,"test3","countdown")
 		chimet(5,40,0,"test4","countdown")
@@ -311,18 +308,16 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-
 		function chimet(seth,setm,sets,tt,msg){
 			var nowhour = new Date().setHours(seth,setm,sets);
 			var formula= nowhour - nowmin
 			var fomula = Math.floor(formula/1000)
 
-			if (fomula == 0) {
+			if (fomula>= 0 &&fomula < 1) {
 				chime();
 				document.getElementById("info3").innerHTML =  msg;
 				document.getElementById("timetable").innerHTML = "< "+tt+"> ";
 				document.getElementById("timetable2").innerHTML = "< "+tt+"> ";
-				console.log(new Date()+"_chimelaunched")
 				}else if(fomula < 0) {
 				document.getElementById("timetable").innerHTML = "< "+tt+"> ";
 				document.getElementById("timetable2").innerHTML = "< "+tt+"> ";
