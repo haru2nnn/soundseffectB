@@ -27,6 +27,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const testbtn = document.getElementById("chimetest");
 
   window.onload = function onload() {
+    btn_play.style.backgroundColor = "#20b2aa"
     document.getElementById("info1").innerHTML = "";
     document.getElementById("info2").innerHTML = "";
     //document.getElementById("timetable").innerHTML = "";
@@ -50,6 +51,8 @@ document.addEventListener("DOMContentLoaded", function () {
   audioElement.volume = slider_volume.value;
 
   btn_play.addEventListener("click", (e) => {
+    btn_play.innerHTML = '<i class="fa-solid fa-bell"></i>チャイムを鳴らす'
+    btn_play.style.backgroundColor = "#21276c"
     audioElement.play();
     startTimer();
     document.getElementById("info1").innerHTML = "チャイム手動放送中";
@@ -143,8 +146,8 @@ document.addEventListener("DOMContentLoaded", function () {
     console.log(new Date() + "chautoave_success");
     $("#chimetest").fadeIn();
     testbtn.innerHTML = '<i class="fa-solid fa-check"></i>';
-    document.getElementById("automsta").innerHTML =
-      "チャイムの自動放送を設定しました。";
+    document.getElementById("automsta").innerHTML = "チャイムの自動放送を設定しました。";
+    btn_play.style.backgroundColor = "#21276c";
     btn_play.innerHTML = '<i class="fa-solid fa-bell"></i>チャイムを鳴らす'
     setTimeout(() => {
       $("#chimetest").hide().fadeIn();
@@ -494,7 +497,7 @@ document.addEventListener("DOMContentLoaded", function () {
             //chimer15
              chimet15 = new Date().setHours(16,15,0);
              fomula15 = chimet15 - nowtime;
-             chimer = setTimeout(() => {
+             chimer15 = setTimeout(() => {
                if(fomula15 >= 0){
                  chime();
                console.log(new Date()+"chimer15_launched")
@@ -519,6 +522,7 @@ document.addEventListener("DOMContentLoaded", function () {
              chimer17 = setTimeout(() => {
                if(fomula17 >= 0){
                 audioElement.setAttribute('src',"audio/bgm/lunchtime.mp3");
+                document.getElementById('info2').innerHTML = "お昼BGM放送中"
                 audioElement.play();
                 audioElement.loop = true;
                 setTimeout(() => {
