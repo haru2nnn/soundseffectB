@@ -7,11 +7,7 @@ firebase.auth().onAuthStateChanged(function checkauth(user) {
         }
     } else {  // 未ログイン時
         var ref = function(){
-            if(document.referrer){
-                window.location.replace(document.referrer);
-            }else{
-                window.location.replace('index.html');
-            }
+            window.location.replace('login.html');
         }
         var ui = new firebaseui.auth.AuthUI(firebase.auth());
         ui.start('#firebaseui-auth-container', {
