@@ -3,7 +3,7 @@ firebase.auth().onAuthStateChanged(function checkauth(user) {
         if(document.referrer){
             window.location.replace(document.referrer);
         }else{
-            window.location.replace('index.html');
+            window.location.replace('redirect.html');
         }
     } else {  // 未ログイン時
         var ref = function(){

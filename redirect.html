@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+		<meta name="robots" content="noindex,nofollow">
+		<!-- ビューポートの設定 -->
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<script src="https://www.gstatic.com/firebasejs/8.0.2/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.0.2/firebase-auth.js"></script>
+		<script src="config.js"></script>
+		<script src="loginauth.js"></script>
+		<script type="module" src="analytics.js"></script>
+		
+		<!-- スタイルシートの読み込み -->
+		<link href="stylesheet.css" rel="stylesheet">
+
+		<script src="jquery-3.6.0.min.js" type="text/javascript"></script>
+
+		<title>リダイレクト | 横浜キャンパスSE集（教職員版）</title>
+		<link rel="icon" href="favicons/images/SE-icon3.png">
+
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;700&display=swap" rel="stylesheet">
+		<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+	</head>
+
+<body>
+	<header>
+		<div class="title">
+			<h1 class="logoh1"><img class="logo" src="sysimage/SE-banner1.png" alt="ホーム" width="80%"></h1>
+			<h1 class="title-letter">
+				<!--<h1 style="text-align:cent>er;color:#218d6c;">SE集</h1><br>-->
+			</h1>
+		</div>
+		<div class="cp_ipcheck">
+			<input type="checkbox" id="modeChange">
+			<label for="modeChange"></label>
+		</div>
+	</header>
+<main style="text-align: center; margin: 50px; height: 50vh;">
+			<h2>リダイレクトするページを<br>選択してください</h2>
+			<a class="button" href="index.html" id="se">横浜キャンパスSE集(教職員版）
+			</a>
+			<a class="button" href="nschimesys.html" id="cs">横浜キャンパスチャイムシステム</a>
+			<Style>
+				.button {
+				position: relative;
+				display: block;
+				padding: 30px 80px;
+				background-color: #333;
+				border: 2px solid #333;
+				color: black;
+				text-align: center;
+				text-decoration: none;
+				font-size: 150%;
+				font-weight: bold;
+				margin: 30px auto;
+				width: 50%;
+				}
+				.button::after {
+				position: absolute;
+				top: 50%;
+				right: .2em;
+				content: '';
+				margin-top: -5px;
+				border: 7px solid transparent;
+				border-top-width: 5px;
+				border-bottom-width: 5px;
+				border-left-color: #fff;
+				transition: all .2s;
+				}
+				.button:hover::after {
+				right: -.05em;
+				}
+				#se{
+					background-color: rgb(181, 219, 234);
+				}
+				#cs{
+					background-color: rgb(192, 232, 192);
+				}
+			</Style>
+</main>
+
+<HR style="margin: 0em 0 ;">
+	<footer>
+		<h3 id="footers">©️2021 N・S高等学校横浜キャンパスクリエイティブ委員会音楽チーム</h3>
+		<p class="sitever" id="sitever">Version</p>
+		<p>更新履歴は<a href="https://sites.google.com/nnn.ed.jp/ycp-s-soundeffectbs/%E6%95%99%E8%81%B7%E5%93%A1%E7%94%A8/history-teacher" target="_blank" rel="noopener">こちら</a>からご覧になれます。</p>
+		<p>SE・BGM項目にある全ての音源の著作権は上記の団体に帰属します。(Youtube動画と*印のあるSEを除く）<br>
+			また、htmlのコードは多数のウェブサイト（「引用」に記載）よりお借りしていますが、デザイン等は全て改変しています。このサイト及びサイト内のコンテンツ（音声・画像ファイルなど）を一部改変、もしくはそのまま複製・再配布することを固く禁じます。</p>
+		<script>
+		var getyears = new Date().getFullYear();
+		document.getElementById("footers").innerHTML = "©️2021-" + getyears + " N・S高等学校横浜キャンパスクリエイティブ委員会音楽チーム";
+		</script>
+		</footer>
+
+
+</body>	
+<script src="version.js"></script>
+</html>

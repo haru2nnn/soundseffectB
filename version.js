@@ -1,8 +1,9 @@
-const version = "4.1";
+const version = "4.3";
 const verdis = document.getElementById('sitever');
 const vermsg = "Version: "+version;
 verdis.innerHTML = vermsg;
 
+console.log("sitelaunch:"+new Date()+"_Version:"+version)
 
 
 const btn = document.querySelector("#modeChange");
