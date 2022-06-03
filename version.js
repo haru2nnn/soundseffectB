@@ -1,4 +1,4 @@
-const version = "4.3";
+const version = "4.5";
 const verdis = document.getElementById('sitever');
 const vermsg = "Version: "+version;
 verdis.innerHTML = vermsg;

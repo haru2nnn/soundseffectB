@@ -5,8 +5,7 @@
     // 
   });*/
 //今すぐ実行する処理
-(function() {
-    firebase.auth().onAuthStateChanged(function checkauth(user) {
+firebase.auth().onAuthStateChanged(function checkauth(user) {
         //
                 var now_hour = new Date().getHours();
                 if ( 0 <= now_hour && now_hour <= 4 ){
@@ -57,7 +56,6 @@
         }
 
       });
-}());
     
  function logOut() {
             firebase.auth().signOut().then(function() {

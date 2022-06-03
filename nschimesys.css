@@ -8,16 +8,27 @@ font-family: 'M PLUS Rounded 1c', sans-serif;
     color: #3fb13f;
     background: white;
     border: 0.5px solid green;
-    width: 30px;
-    height: 30px;
 }
-#chimetest{
+.stbtn{
   background: white;
-  border: 0.5px solid green;
+  border: 0.3px solid green;
   width: 40px;
   height: 40px;
   padding-right: 0;
+  margin: 5px;
+}
+.stbtn:hover{
+  box-shadow: 0 0 4px gray;
+  transition: 3s;
+}
+#chimetest{
   color: coral;
+}
+#chtester{
+  color:royalblue;
+}
+#lunchbgmsw{
+  color:rgb(255, 166, 0)
 }
 .stbtn:hover{
   box-shadow: 0 0 8px grey;
@@ -240,6 +251,17 @@ width: 170px;
     margin: 10px;
   }
 
+
+  .noticev4-3{
+    background-color: rgb(255, 243, 233);
+    padding: 10px;
+    margin: 80px 10px;
+    font-size: 80%;
+    color: red;
+  }
+  .noticev4-3 a{
+    color: dodgerblue;
+  }
   @media (max-width: 736px) {
     .title-letter{
       font-size: 4.5vw;
