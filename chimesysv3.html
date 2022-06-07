@@ -6,7 +6,7 @@
 		<!-- ビューポートの設定 -->
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-		<title>チャイム放送システム | 横浜キャンパスSE集（教職員版）</title>
+		<title>チャイム放送システム（ST対応版） | 横浜キャンパスSE集（教職員版）</title>
 
 		<script src="https://www.gstatic.com/firebasejs/8.0.2/firebase-app.js"></script>
         <script src="https://www.gstatic.com/firebasejs/8.0.2/firebase-auth.js"></script>
@@ -51,12 +51,13 @@
 	<header>
 		<div class="title">
 			<a href="index.html"><img class="logo" src="sysimage/CS-banner1.png"></a>
+			<p style="font-size: 80%;">シークレットタブ・モバイル対応版</p>
 			<h1 class="title-letter">
 				<!--<h1 style="text-align:cent>er;color:#218d6c;">SE集</h1><br>-->
 			</h1>
 		</div>
 			<div class="login-statusdiv">
-				<button class="stbtn" id="statepermission"><i class="fa-solid fa-circle-check"></i></button>
+				<!--<button class="stbtn" id="statepermission"><i class="fa-solid fa-circle-check"></i></button>-->
 				<button class="stbtn" id="chimetest"><i class="fa-solid fa-music"></i></button>
 				<button class="stbtn" id="chtester"><i class="fa-solid fa-file-audio"></i></button>
 				<button class="stbtn" id="lunchbgmsw"><i class="fa-solid fa-utensils"></i></button>
@@ -256,15 +257,12 @@
 							<button id="chsubmit"><i class="fa-solid fa-paper-plane"></i></button>
 						</div>
 
-						<div class="noticev4-3">
+						<!--<div class="noticev4-3">
 							<p>チャイムシステムVer4.3より、チャイムの自動放送を設定していただくにあたり、<br>初めて使う環境（デバイス+ブラウザ+アカウント）の場合、最初に設定をしていただく必要がございます。</p>
-							<p><a href="https://drive.google.com/file/d/1w-TM005_6I0P65m-35cxAMKHwhq-wERX/view?usp=sharing" target="_blank">こちら</a>の動画で詳しく説明していますので、ご覧ください。</p>
-							<p>動画より少しだけ詳しく説明している電子版マニュアルは<a href="https://drive.google.com/file/d/18A4IBdreLtricVGqvjxhecK2iYAfHHE7/view?usp=sharing" target="_blank">こちら</a>よりご覧いただけます。</p><br>
-							<p>Chromeのシークレットタブおよびゲストモード、モバイル端末は、チャイム自動放送は一部機能が非対応となりました。</p>
-							<p><b>スリープさせない場合に限り、</b>シークレットタブやモバイルで<a href="chimesysv3.html" target="_blank">こちら</a>からお使いいただけます。</p>
+							<p><a href="https://drive.google.com/file/d/1w-TM005_6I0P65m-35cxAMKHwhq-wERX/view?usp=sharing" target="_blank">こちら</a>の動画で詳しく説明していますので、ご覧ください。</p>	
+							<p>また、Ver4.3より、Chromeのシークレットタブおよびゲストモードは、チャイム自動放送は非対応となりました。</p>
 							<p>色々と変更点が多く、ご迷惑をおかけしておりますこと、お詫び申し上げます。</p>
-							
-						</div>
+						</div>-->
 						
 
 					</div>
@@ -277,8 +275,6 @@
 				<a href="https://docs.google.com/spreadsheets/d/1PSGEqI1URhQR8eFD26AfaIZyqxnlpL99XKuqW0GJh30/edit?usp=sharing" target="_blank" class="btn_blue"><span class="bl__text">自動放送の時間割を確認する<br>(スプレッドシートに移動します）</span></a>
 				<a href="notification.html" target="_blank" class="btn_blue"><span class="bl__text">お知らせ・新着情報ページへ<br>移動する</span></a>
 				<a href="index.html" target="_blank" class="btn_blue"><span class="bl__text">SE集サイトへ移動する</span></a>
-				<a href="https://drive.google.com/file/d/18A4IBdreLtricVGqvjxhecK2iYAfHHE7/view?usp=sharing" target="_blank" class="btn_blue"><span class="bl__text">Ver4.5マニュアル</span></a>
-				<a href="https://drive.google.com/file/d/1w-TM005_6I0P65m-35cxAMKHwhq-wERX/view?usp=sharing" target="_blank" class="btn_blue"><span class="bl__text">ログイン→自動放送設定まで<br>設定方法説明動画</span></a>
 			</div>
 
 		<br><br><br></main>
@@ -341,8 +337,15 @@
 <!-- JavaScriptの読み込み -->
 </body>
 <script src="auth.js"></script>
-<script src="nschimesys.js"></script>
+<script src="nschimesys-compatible.js"></script>
+
 <script src="version.js"></script>
+<script>
+	version = "Vo4.5"
+	verdis = document.getElementById('sitever');
+	vermsg = "Version: "+version;
+	verdis.innerHTML = vermsg;
+</script>
 
 
 </html>

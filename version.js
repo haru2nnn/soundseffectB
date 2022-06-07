@@ -1,9 +1,10 @@
-const version = "4.5";
-const verdis = document.getElementById('sitever');
-const vermsg = "Version: "+version;
+var version = "4.5";
+var verdis = document.getElementById('sitever');
+var vermsg = "Version: "+version;
 verdis.innerHTML = vermsg;
 
-console.log("sitelaunch:"+new Date()+"_Version:"+version)
+  console.log("sitelaunch:"+new Date()+"_Version:"+version);
+
 
 
 const btn = document.querySelector("#modeChange");

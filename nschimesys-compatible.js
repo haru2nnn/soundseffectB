@@ -349,11 +349,6 @@ document.addEventListener("DOMContentLoaded", function () {
         document.getElementById('info2').innerHTML = ""
         audioElement.setAttribute('src',"audio/nschime_edit.mp3");
       }, new Date().setHours(13,00,0)-new Date());
-    }if (event.key === "y" && event.ctrlKey) {
-      document.getElementById("info1").innerHTML = "";
-      document.getElementById("info2").innerHTML = "";
-      chime("/bgm/lunchtime_ev2","お昼BGM")
-      audioElement.loop = true;
     }
   });
 
@@ -398,44 +393,8 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   /******************************************************************/
-
-
-  const perbtn = document.getElementById("statepermission");
-  perbtn.onclick = function stpermit() {
-      IdleDetector.requestPermission();
-  };
-
-  let idleDetector = null,
-    controller = null;
-  
-    if (idleDetector !== null) {
-      controller.abort();
-      idleDetector = null;
-      return;
-    }
-    try {
-      idleDetector = new IdleDetector();
-      controller = new AbortController();
-      const signal = controller.signal;
-      idleDetector.addEventListener("change", () => {
-         if (idleDetector.screenState == "unlocked") {
-          console.log(new Date() + "_unlocked");
           //nowtime
             nowtime = new Date();
-          
-          //chimer1
-          /*  chimet1 = new Date().setHours(22,00,20);
-            fomula1 = chimet1 - nowtime;
-            chimer1 = setTimeout(() => {
-              if(fomula1 >= 0){
-                chime();
-              console.log(new Date()+"chimer1_launched")
-            }
-              document.getElementById("info3").innerHTML = "";
-              document.getElementById("timetable").innerHTML = "<時間>";
-            },fomula1);*/
-
-            /****************************************************************************************************************/
 
             function chimemsg(chtt,dearmsg){
               document.getElementById("info3").innerHTML =  dearmsg;
@@ -444,7 +403,8 @@ document.addEventListener("DOMContentLoaded", function () {
             }
              //chimer1
              chimet1 = new Date().setHours(9,0,0);
-             fomula1 = chimet1 - new Date();
+             nowtime1 = new Date();
+             fomula1 = chimet1 - nowtime1;
              chimer1 = setTimeout(() => {
                if(fomula1 >= 0){
                  chime();
@@ -455,7 +415,8 @@ document.addEventListener("DOMContentLoaded", function () {
  
             //chimer2
              chimet2 = new Date().setHours(9,30,0);
-             fomula2 = chimet2 - new Date();
+             nowtime2 = new Date();
+             fomula2 = chimet2 - nowtime2;
              chimer2 = setTimeout(() => {
                if(fomula2 >= 0){
                  chime();
@@ -466,7 +427,8 @@ document.addEventListener("DOMContentLoaded", function () {
  
             //chimer3
              chimet3 = new Date().setHours(9,45,0);
-             fomula3 = chimet3 - new Date();
+             nowtime3 = new Date();
+             fomula3 = chimet3 - nowtime3;
              chimer3 = setTimeout(() => {
                if(fomula3 >= 0){
                  chime();
@@ -477,7 +439,8 @@ document.addEventListener("DOMContentLoaded", function () {
  
             //chimer4
              chimet4 = new Date().setHours(10,35,0);
-             fomula4 = chimet4 - new Date();
+             nowtime4 = new Date();
+             fomula4 = chimet4 - nowtime4;
              chimer4 = setTimeout(() => {
                if(fomula4 >= 0){
                  chime();
@@ -488,7 +451,8 @@ document.addEventListener("DOMContentLoaded", function () {
  
             //chimer5
              chimet5 = new Date().setHours(10,45,0);
-             fomula5 = chimet5 - new Date();
+             nowtime5 = new Date();
+             fomula5 = chimet5 - nowtime5;
              chimer5 = setTimeout(() => {
                if(fomula5 >= 0){
                  chime();
@@ -499,7 +463,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
              //chimer6
              chimet6 = new Date().setHours(11,35,0);
-             fomula6 = chimet6 - new Date();
+             nowtime6 = new Date();
+             fomula6 = chimet6 - nowtime6;
              chimer6 = setTimeout(() => {
                if(fomula6 >= 0){
                  chime();
@@ -510,7 +475,8 @@ document.addEventListener("DOMContentLoaded", function () {
  
             //chimer7
              chimet7 = new Date().setHours(11,45,0);
-             fomula7 = chimet7 - new Date();
+             nowtime7 = new Date();
+             fomula7 = chimet7 - nowtime7;
              chimer7 = setTimeout(() => {
                if(fomula7 >= 0){
                  chime();
@@ -521,7 +487,8 @@ document.addEventListener("DOMContentLoaded", function () {
  
             //chimer8
              chimet8 = new Date().setHours(12,35,0);
-             fomula8 = chimet8 - new Date();
+             nowtime8 = new Date();
+             fomula8 = chimet8 - nowtime8;
              chimer8 = setTimeout(() => {
                if(fomula8 >= 0){
                  chime();
@@ -532,7 +499,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
              //chimer17__お昼BGM放送Config
              chimet17 = new Date().setHours(12,37,0);
-             fomula17 = chimet17 - new Date();
+             nowtime17 = new Date();
+             fomula17 = chimet17 - nowtime17;
              chimer17 = setTimeout(() => {
                if(fomula17 >= 0){
                 chime("/bgm/lunchtime","お昼BGM")
@@ -550,7 +518,8 @@ document.addEventListener("DOMContentLoaded", function () {
  
             //chimer9
              chimet9 = new Date().setHours(13,15,0);
-             fomula9 = chimet9 - new Date();
+             nowtime9 = new Date();
+             fomula9 = chimet9 - nowtime9;
              chimer9 = setTimeout(() => {
                if(fomula9 >= 0){
                  chime();
@@ -561,7 +530,8 @@ document.addEventListener("DOMContentLoaded", function () {
  
             //chimer10
              chimet10 = new Date().setHours(14,05,0);
-             fomula10 = chimet10 - new Date();
+             nowtime10 = new Date();
+             fomula10 = chimet10 - nowtime10;
              chimer10 = setTimeout(() => {
                if(fomula10 >= 0){
                  chime();
@@ -572,7 +542,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
              //chimer11
              chimet11 = new Date().setHours(14,15,0);
-             fomula11 = chimet11 - new Date();
+             nowtime11 = new Date();
+             fomula11 = chimet11 - nowtime11;
              chimer11 = setTimeout(() => {
                if(fomula11 >= 0){
                  chime();
@@ -587,11 +558,12 @@ document.addEventListener("DOMContentLoaded", function () {
               // callback
               //chimer18
               chimet18 = new Date().setHours(14,35,0);
-              fomula18 = chimet18 - new Date();
+              nowtime18 = new Date();
+              fomula18 = chimet18 - nowtime18;
               chimer18 = setTimeout(() => {
                 if(fomula18 >= 0){
-                  chime("dora_e","Nゼミ終了のどら");
-                console.log(new Date()+"chimer18_Nzemi-dora_launched")
+                  chime("dora","Nゼミ終了のどら");
+                console.log(new Date()+"chimer18_launched")
               }
               chimemsg("5限","")
               },fomula18);
@@ -600,7 +572,8 @@ document.addEventListener("DOMContentLoaded", function () {
  
             //chimer12
              chimet12 = new Date().setHours(15,05,0);
-             fomula12 = chimet12 - new Date();
+             nowtime12 = new Date();
+             fomula12 = chimet12 - nowtime12;
              chimer12 = setTimeout(() => {
                if(fomula12 >= 0){
                  chime();
@@ -611,7 +584,8 @@ document.addEventListener("DOMContentLoaded", function () {
  
             //chimer13
              chimet13 = new Date().setHours(15,15,0);
-             fomula13 = chimet13 - new Date();
+             nowtime13 = new Date();
+             fomula13 = chimet13 - nowtime13;
              chimer13 = setTimeout(() => {
                if(fomula13 >= 0){
                  chime();
@@ -622,7 +596,8 @@ document.addEventListener("DOMContentLoaded", function () {
  
             //chimer14
              chimet14 = new Date().setHours(16,05,0);
-             fomula14 = chimet14 - new Date();
+             nowtime14 = new Date();
+             fomula14 = chimet14 - nowtime14;
              chimer14 = setTimeout(() => {
                if(fomula14 >= 0){
                  chime();
@@ -633,7 +608,8 @@ document.addEventListener("DOMContentLoaded", function () {
  
             //chimer15
              chimet15 = new Date().setHours(16,15,0);
-             fomula15 = chimet15 - new Date();
+             nowtime15 = new Date();
+             fomula15 = chimet15 - nowtime15;
              chimer15 = setTimeout(() => {
                if(fomula15 >= 0){
                  chime();
@@ -644,7 +620,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
              //chimer16
              chimet16 = new Date().setHours(17,30,0);
-             fomula16 = chimet16 - new Date();
+             nowtime16 = new Date();
+             fomula16 = chimet16 - nowtime16;
              chimer16 = setTimeout(() => {
                if(fomula16 >= 0){
                  chime();
@@ -652,43 +629,9 @@ document.addEventListener("DOMContentLoaded", function () {
              }
              chimemsg("最終下校","")
              },fomula16);
- 
-            
- 
-            /*
-            //chimer19
-             chimet19 = new Date().setHours(22,00,20);
-             nowtime19 = new Date();
-             fomula19 = chimet - nowtime19;
-             chimer19 = setTimeout(() => {
-               if(fomula19 >= 0){
-                 chime();
-               console.log(new Date()+"chimer19_launched")
-             }
-             chimemsg("ch19","")
-             },fomula19);
- 
-            //chimer20
-             chimet20 = new Date().setHours(22,00,20);
-             nowtime20 = new Date();
-             fomula20 = chimet - nowtime20;
-             chimer20 = setTimeout(() => {
-               if(fomula >= 0){
-                 chime();
-               console.log(new Date()+"chimer20_launched")
-             }
-             chimemsg("ch20","")
-             },fomula20);*/
-
-/****************************************************************************************************************/
-  
-
           audioElement.pause();
           audioElement.currentTime = 0;
-        }
-        if (idleDetector.screenState == "locked") {
-          console.log(new Date() + "_locked");
-          clearTimeout(chimer1);
+          /*clearTimeout(chimer1);
           clearTimeout(chimer2);
           clearTimeout(chimer3);
           clearTimeout(chimer4);
@@ -710,18 +653,10 @@ document.addEventListener("DOMContentLoaded", function () {
            // callback
           clearTimeout(chimer18);
           }
-          /*clearTimeout(chimer19);
-          clearTimeout(chimer20);*/
+          
           console.log(new Date()+"_chimercanceled")
-        }
-      });
-      idleDetector.start({
-        threshold: 86400000,
-        signal,
-      });
-    } catch (err) {
+        }*/
       //console.error(err.name, err.message);
-    }
 }); //windowdomcon.end
 
 var windowWidth = $(window).width();
