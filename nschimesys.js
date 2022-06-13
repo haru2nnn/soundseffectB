@@ -158,7 +158,7 @@ document.addEventListener("DOMContentLoaded", function () {
     btn_play.innerHTML = '<i class="fa-solid fa-bell"></i>チャイムを鳴らす'
     setTimeout(() => {
       $("#chimetest").hide().fadeIn();
-      testbtn.innerHTML = '<i class="fa-solid fa-music"></i>';
+      testbtn.innerHTML = '<i class="fa-solid fa-music"></i><br><span class="btndisc">自動設定</span>';
       document.getElementById("automsta").innerHTML = "";
     }, 3000);
     }, 50);
@@ -183,7 +183,7 @@ document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("automsta").innerHTML = "チャイムの自動放送を設定しました。";
     setTimeout(() => {
       $("#chimetest").hide().fadeIn();
-      testbtn.innerHTML = '<i class="fa-solid fa-music"></i>';
+      testbtn.innerHTML = '<i class="fa-solid fa-music"></i><br><span class="btndisc">自動設定</span>';
       document.getElementById("automsta").innerHTML = "";
     }, 3000);
     startTimer();
@@ -398,16 +398,21 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   /******************************************************************/
-
-
   const perbtn = document.getElementById("statepermission");
-  perbtn.onclick = function stpermit() {
-      IdleDetector.requestPermission();
+  perbtn.onclick = async function stpermit() {
+      var reqpermission = await IdleDetector.requestPermission();
+      if(reqpermission=="granted"){
+        alert("チャイムの自動放送許可設定が完了しました。\n自動でページを再読み込みします。\nしばらくお待ちください。")
+        window.location.reload();
+      }else if(reqpermission =="denied"){
+        alert("チャイムの自動放送許可設定が正常に完了しませんでした。デバイスのアクティブ状態の「許可」を押してください。")
+      }
   };
+  
+
 
   let idleDetector = null,
     controller = null;
-  
     if (idleDetector !== null) {
       controller.abort();
       idleDetector = null;
@@ -417,6 +422,7 @@ document.addEventListener("DOMContentLoaded", function () {
       idleDetector = new IdleDetector();
       controller = new AbortController();
       const signal = controller.signal;
+
       idleDetector.addEventListener("change", () => {
          if (idleDetector.screenState == "unlocked") {
           console.log(new Date() + "_unlocked");
@@ -443,8 +449,7 @@ document.addEventListener("DOMContentLoaded", function () {
               document.getElementById("timetable2").innerHTML = "< "+chtt+"> ";
             }
              //chimer1
-             chimet1 = new Date().setHours(9,0,0);
-             fomula1 = chimet1 - new Date();
+             fomula1 = new Date().setHours(9,0,0) - new Date();
              chimer1 = setTimeout(() => {
                if(fomula1 >= 0){
                  chime();
@@ -454,8 +459,7 @@ document.addEventListener("DOMContentLoaded", function () {
              },fomula1);
  
             //chimer2
-             chimet2 = new Date().setHours(9,30,0);
-             fomula2 = chimet2 - new Date();
+             fomula2 = new Date().setHours(9,30,0) - new Date();
              chimer2 = setTimeout(() => {
                if(fomula2 >= 0){
                  chime();
@@ -465,8 +469,7 @@ document.addEventListener("DOMContentLoaded", function () {
              },fomula2);
  
             //chimer3
-             chimet3 = new Date().setHours(9,45,0);
-             fomula3 = chimet3 - new Date();
+             fomula3 = new Date().setHours(9,45,0) - new Date();
              chimer3 = setTimeout(() => {
                if(fomula3 >= 0){
                  chime();
@@ -476,19 +479,17 @@ document.addEventListener("DOMContentLoaded", function () {
              },fomula3);
  
             //chimer4
-             chimet4 = new Date().setHours(10,35,0);
-             fomula4 = chimet4 - new Date();
+             fomula4 = new Date().setHours(10,35,0) - new Date();
              chimer4 = setTimeout(() => {
                if(fomula4 >= 0){
                  chime();
                console.log(new Date()+"chimer4_launched")
              }
-             chimemsg("1限→2限休み時間","おはようございます！今日も1日よろしくお願いします！")
+             chimemsg("1限→2限休み時間","")
              },fomula4);
  
             //chimer5
-             chimet5 = new Date().setHours(10,45,0);
-             fomula5 = chimet5 - new Date();
+             fomula5 = new Date().setHours(10,45,0) - new Date();
              chimer5 = setTimeout(() => {
                if(fomula5 >= 0){
                  chime();
@@ -498,8 +499,7 @@ document.addEventListener("DOMContentLoaded", function () {
              },fomula5);
 
              //chimer6
-             chimet6 = new Date().setHours(11,35,0);
-             fomula6 = chimet6 - new Date();
+             fomula6 = new Date().setHours(11,35,0) - new Date();
              chimer6 = setTimeout(() => {
                if(fomula6 >= 0){
                  chime();
@@ -509,8 +509,7 @@ document.addEventListener("DOMContentLoaded", function () {
              },fomula6);
  
             //chimer7
-             chimet7 = new Date().setHours(11,45,0);
-             fomula7 = chimet7 - new Date();
+             fomula7 = new Date().setHours(11,45,0) - new Date();
              chimer7 = setTimeout(() => {
                if(fomula7 >= 0){
                  chime();
@@ -520,19 +519,17 @@ document.addEventListener("DOMContentLoaded", function () {
              },fomula7);
  
             //chimer8
-             chimet8 = new Date().setHours(12,35,0);
-             fomula8 = chimet8 - new Date();
+             fomula8 = new Date().setHours(12,35,0) - new Date();
              chimer8 = setTimeout(() => {
                if(fomula8 >= 0){
                  chime();
                console.log(new Date()+"chimer8_launched")
              }
-             chimemsg("お昼休み","")
+             chimemsg("お昼休み","午前中お疲れ様でした！")
              },fomula8);
 
              //chimer17__お昼BGM放送Config
-             chimet17 = new Date().setHours(12,37,0);
-             fomula17 = chimet17 - new Date();
+             fomula17 = new Date().setHours(12,37,30) - new Date();
              chimer17 = setTimeout(() => {
                if(fomula17 >= 0){
                 chime("/bgm/lunchtime","お昼BGM")
@@ -549,19 +546,17 @@ document.addEventListener("DOMContentLoaded", function () {
              },fomula17);
  
             //chimer9
-             chimet9 = new Date().setHours(13,15,0);
-             fomula9 = chimet9 - new Date();
+             fomula9 = new Date().setHours(13,15,0) - new Date();
              chimer9 = setTimeout(() => {
                if(fomula9 >= 0){
                  chime();
                console.log(new Date()+"chimer9_launched")
              }
-             chimemsg("4限","")
+             chimemsg("4限","午後もよろしくお願いします！")
              },fomula9);
  
             //chimer10
-             chimet10 = new Date().setHours(14,05,0);
-             fomula10 = chimet10 - new Date();
+             fomula10 = new Date().setHours(14,05,0) - new Date();
              chimer10 = setTimeout(() => {
                if(fomula10 >= 0){
                  chime();
@@ -571,8 +566,7 @@ document.addEventListener("DOMContentLoaded", function () {
              },fomula10);
 
              //chimer11
-             chimet11 = new Date().setHours(14,15,0);
-             fomula11 = chimet11 - new Date();
+             fomula11 = new Date().setHours(14,15,0) - new Date();
              chimer11 = setTimeout(() => {
                if(fomula11 >= 0){
                  chime();
@@ -581,13 +575,12 @@ document.addEventListener("DOMContentLoaded", function () {
              chimemsg("5限","")
              },fomula11);
 
-
+             /*//on Tuesday
              var st = new SelfTimer(new Date());
              if( st.on().Tuesday() ) {
               // callback
               //chimer18
-              chimet18 = new Date().setHours(14,35,0);
-              fomula18 = chimet18 - new Date();
+              fomula18 = new Date().setHours(14,35,0) - new Date();
               chimer18 = setTimeout(() => {
                 if(fomula18 >= 0){
                   chime("dora_e","Nゼミ終了のどら");
@@ -595,12 +588,11 @@ document.addEventListener("DOMContentLoaded", function () {
               }
               chimemsg("5限","")
               },fomula18);
-            }
+            }*/
 
  
             //chimer12
-             chimet12 = new Date().setHours(15,05,0);
-             fomula12 = chimet12 - new Date();
+             fomula12 = new Date().setHours(15,05,0) - new Date();
              chimer12 = setTimeout(() => {
                if(fomula12 >= 0){
                  chime();
@@ -610,8 +602,7 @@ document.addEventListener("DOMContentLoaded", function () {
              },fomula12);
  
             //chimer13
-             chimet13 = new Date().setHours(15,15,0);
-             fomula13 = chimet13 - new Date();
+             fomula13 = new Date().setHours(15,15,0) - new Date();
              chimer13 = setTimeout(() => {
                if(fomula13 >= 0){
                  chime();
@@ -621,39 +612,61 @@ document.addEventListener("DOMContentLoaded", function () {
              },fomula13);
  
             //chimer14
-             chimet14 = new Date().setHours(16,05,0);
-             fomula14 = chimet14 - new Date();
+             fomula14 = new Date().setHours(16,05,0) - new Date();
              chimer14 = setTimeout(() => {
                if(fomula14 >= 0){
                  chime();
                console.log(new Date()+"chimer14_launched")
              }
-             chimemsg("終礼","")
+             chimemsg("終礼","午後もお疲れ様でした！<br>本日もチャイムシステムをご利用いただきありがとうございます！")
              },fomula14);
  
             //chimer15
-             chimet15 = new Date().setHours(16,15,0);
-             fomula15 = chimet15 - new Date();
+             fomula15 = new Date().setHours(16,15,0) - new Date();
              chimer15 = setTimeout(() => {
                if(fomula15 >= 0){
                  chime();
                console.log(new Date()+"chimer15_launched")
              }
-             chimemsg("放課後","")
+             chimemsg("放課後","午後もお疲れ様でした！<br>本日もチャイムシステムをご利用いただきありがとうございます！")
              },fomula15);
 
              //chimer16
-             chimet16 = new Date().setHours(17,30,0);
-             fomula16 = chimet16 - new Date();
+             fomula16 = new Date().setHours(17,30,0) - new Date();
              chimer16 = setTimeout(() => {
                if(fomula16 >= 0){
                  chime();
                console.log(new Date()+"chimer16_launched")
              }
-             chimemsg("最終下校","")
+             chimemsg("","")
              },fomula16);
  
             
+            
+             /*//chimertest
+             fomulate = new Date().setHours(13,41,10) - new Date();
+             chimerte = setTimeout(() => {
+               if(fomulate >= 0){
+                 chime();
+               console.log(new Date()+"-"+new Date().getMilliseconds()+"_chimerte_launched")
+             }
+             chimemsg("Late1","")
+             },fomulate);
+
+             //chimertest2
+             fomulate2 = new Date().setHours(13,41,30) - new Date();
+             chimerte2 = setTimeout(() => {
+               if(fomulate2 >= 0){
+                 chime();
+               console.log(new Date()+"-"+new Date().getMilliseconds()+"_chimerte2_launched")
+             }
+             chimemsg("Late2","")
+             },fomulate2);
+
+             setTimeout(() => {
+               chime();
+               console.log(new Date()+"-"+new Date().getMilliseconds()+"_chimertestn3_launched")
+             },new Date().setHours(13,42,0) - new Date());*/
  
             /*
             //chimer19
@@ -705,22 +718,29 @@ document.addEventListener("DOMContentLoaded", function () {
           clearTimeout(chimer15);
           clearTimeout(chimer16);
           clearTimeout(chimer17);
-          var st = new SelfTimer(new Date());
+          /*var st = new SelfTimer(new Date());
           if( st.on().Tuesday() ) {
            // callback
           clearTimeout(chimer18);
-          }
+          }*/
           /*clearTimeout(chimer19);
           clearTimeout(chimer20);*/
+
+          /*clearTimeout(chimerte);
+          clearTimeout(chimerte2);*/
           console.log(new Date()+"_chimercanceled")
         }
       });
       idleDetector.start({
         threshold: 86400000,
         signal,
-      });
+      }
+      ).catch(err => {alert(`【自動放送許可設定エラー】\n自動放送の許可設定が完了していないか、未対応の環境です。\n設定を確認してください。\nまた、こちらのページはシークレットタブには対応していませんので、\nページ下部のボタンから対応しているバージョンをご使用ください。\nページ下部のマニュアルを参照して設定を完了してください。`);
+      document.getElementById("chautostatus").innerHTML="未設定";
+      document.getElementById("chastt").style.color="#c71585"
+      throw new Error(err);})
     } catch (err) {
-      //console.error(err.name, err.message);
+      console.error(err.name, err.message);
     }
 }); //windowdomcon.end
 
@@ -747,6 +767,39 @@ if (windowWidth > windowSm) {
     //モーダルの外側をクリックしたらモーダルを閉じる
     $(document).on("click", function (e) {
       if (!$(e.target).closest(".modal-body").length) {
+        container.removeClass("active");
+      }
+    });
+  });
+} else {
+  open.on("click", function () {
+    window.alert(
+      "画面サイズが" + windowSm + "以下の端末ではこちらの機能は利用できません。"
+    );
+    return false;
+  });
+}
+if (windowWidth > windowSm) {
+  $(function () {
+    // 変数に要素を入れる
+    var open = $(".timermd"),
+      close = $(".timer-modal-close"),
+      container = $(".timer-modal-container");
+
+    //開くボタンをクリックしたらモーダルを表示する
+    open.on("click", function () {
+      container.addClass("active");
+      return false;
+    });
+
+    //閉じるボタンをクリックしたらモーダルを閉じる
+    close.on("click", function () {
+      container.removeClass("active");
+    });
+
+    //モーダルの外側をクリックしたらモーダルを閉じる
+    $(document).on("click", function (e) {
+      if (!$(e.target).closest(".timer-modal-body").length) {
         container.removeClass("active");
       }
     });

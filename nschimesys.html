@@ -56,10 +56,11 @@
 			</h1>
 		</div>
 			<div class="login-statusdiv">
-				<button class="stbtn" id="statepermission"><i class="fa-solid fa-circle-check"></i></button>
-				<button class="stbtn" id="chimetest"><i class="fa-solid fa-music"></i></button>
-				<button class="stbtn" id="chtester"><i class="fa-solid fa-file-audio"></i></button>
-				<button class="stbtn" id="lunchbgmsw"><i class="fa-solid fa-utensils"></i></button>
+				<button class="stbtn" id="statepermission"><i class="fa-solid fa-circle-check"></i><br><span class="btndisc">許可設定</span></button>
+				<button class="stbtn" id="chimetest"><i class="fa-solid fa-music"></i><br><span class="btndisc">自動設定</span></button>
+				<button class="stbtn" id="chtester"><i class="fa-solid fa-file-audio"></i><br><span class="btndisc">テスト</span></button>
+				<button class="stbtn" id="lunchbgmsw"><i class="fa-solid fa-utensils"></i><br><span class="btndisc">お昼BGM</span></button>
+				<!--<button class="stbtn timermd" id="timermodal"><i class="fa-solid fa-stopwatch"></i></button>-->
 				<div class="cp_ipcheck">
 					<input type="checkbox" id="modeChange">
 					<label for="modeChange"></label>
@@ -107,7 +108,7 @@
 				</div>
 			</div>-->
 				
-				<div class="info2" id="target">
+				<!--<div class="info2" id="target">
 					<div class="ticker">
 						<ul>
 							<li><h3 class="notify" style="color: orangered;">必ず、サイトを開いてから、自動放送のチャイムが鳴るまでの間に、「🔔チャイムを鳴らす🔔」ボタンを押して手動でチャイム音を鳴らしてください。（数秒でも問題ありません）</h3></li>
@@ -116,14 +117,14 @@
 							<li class="notify"><span>2022.02.03</span><a href="notification.html#item3" target="_blank">現在、スリープ復帰後に正常な時間でチャイムが稼働しない問題が発生しています。<br>お手数ですが、復帰後はサイトのリロードをお願いします。（チャイムが自動でなる可能性がありますのでご注意ください。）</a><button onclick="window.location.reload(true);">サイトをリロードする</button></li>
 							<li><span>2022.03.15</span><a href="notification.html#item12" target="_blank">チャイムシステムを更新しました。使いづらい部分がありましたら、Slackにてお知らせください。<br>変更点について、詳しくはこちらをご覧ください。</a></li>
 							<li><span>2022.03.15</span><a href="notification.html#item11" target="_blank">SE集・チャイムシステムサイトは本日より、ダークモードに対応します！端末のテーマ設定に沿ってダークモードに変更されます。</a></li>
-						<!--<li><span>2022.03.08</span><a href="notification.html#item2" target="_blank">お知らせを公開しました：TAさんのログインについて</a></li>-->
+						<li><span>2022.03.08</span><a href="notification.html#item2" target="_blank">お知らせを公開しました：TAさんのログインについて</a></li>-->
 						<!--<li><span>2022.02.06</span><a href="notification.html#item4" target="_blank">シンプル表示モード切り替えボタンを新設しました。詳しくはこちらをご覧ください。</a></li>-->
 						<!--<li><span>2022.02.03</span><a href="#">1つめのニュースの記事です。</a></li>
 							<li><span>2022.02.03</span><a href="#">1つめのニュースの記事です。</a></li>
-							<li><span>2022.02.03</span><a href="#">1つめのニュースの記事です。</a></li>-->
+							<li><span>2022.02.03</span><a href="#">1つめのニュースの記事です。</a></li>
 						</ul>
 					</div>
-				</div>
+				</div>-->
 				<!--<script>
 					$(function(){
 					$.simpleTicker($('.ticker'),{'effectType':'roll'});
@@ -213,6 +214,7 @@
 					</div>
 						<div class="status">
 						<h3 class="status-l">ステータス:</h3>
+						<div class="chautostt"><h5 id="chastt" style="color:#ffb3b3;">自動放送許可設定：<span id="chautostatus">設定済み</span></h5></div>
 						<div class="ctdown"><h4 id="ctdwn" style="color:lightseagreen;"></h4></div>
 						<div class="st-info1"><h3 id="info1" style="color: orange;"></h3></div>
 						<div class="st-info2"><h3 id="info2" style="color: red;">ステータス</h3></div>
@@ -230,7 +232,7 @@
 			</div>-->
 			<div class="chime-button">
 				<div class="audio"><audio src="audio/nschime_edit.mp3" type="audio/mp3" preload="metadata" controlslist="nodownload"></audio>
-					<div class="audio_btn"><button class="sounds" style="font-size: 150%;" alt="button1" id="btn_play"><i class="fa-solid fa-bell"></i>チャイムを自動で鳴らすには、一度チャイムを手動で鳴らすか、<br>自動設定ボタンを押してください。</button>
+					<div class="audio_btn"><button class="sounds" style="font-size: 150%;" alt="button1" id="btn_play"><i class="fa-solid fa-bell"></i>チャイムを自動で鳴らすには、許可設定の完了後に<br>一度チャイムを手動で鳴らすか、自動設定ボタンを押してください。</button>
 					<button class="stop-button" id="btn_pause" style="background-color:#98b09f;"><i class="fa-solid fa-pause"></i>一時停止</button>
 					<button class="stop-button" id="btn_stop" style="background-color: #D6886D;"><i class="fa-solid fa-stop"></i>停止</button>
 					</div>
@@ -249,13 +251,7 @@
 							
 							<!--<button class="modebtn" id="displaynone" onclick="clickBtn1()">シンプル表示モードにする</button>-->					
 						</div>
-						<div class="inputrange">
-							<p>任意の時刻にチャイムを放送</p>
-							<div><label>時設定</label><input type="range" id="ch_hours" min="0" max="23" step="1" value="9"><span id="disch_h">9</span></div>
-							<div><label>分設定</label><input type="range" id="ch_mins" min="0" max="59" step="1" value="0"> <span id="disch_m">0</span></div>
-							<button id="chsubmit"><i class="fa-solid fa-paper-plane"></i></button>
-						</div>
-
+						
 						<div class="noticev4-3">
 							<p>チャイムシステムVer4.3より、チャイムの自動放送を設定していただくにあたり、<br>初めて使う環境（デバイス+ブラウザ+アカウント）の場合、最初に設定をしていただく必要がございます。</p>
 							<p><a href="https://drive.google.com/file/d/1w-TM005_6I0P65m-35cxAMKHwhq-wERX/view?usp=sharing" target="_blank">こちら</a>の動画で詳しく説明していますので、ご覧ください。</p>
@@ -265,8 +261,14 @@
 							<p>色々と変更点が多く、ご迷惑をおかけしておりますこと、お詫び申し上げます。</p>
 							
 						</div>
-						
+						<div class="inputrange">
+							<p>任意の時刻にチャイムを放送</p>
+							<div><label>時設定</label><input type="range" id="ch_hours" min="0" max="23" step="1" value="9"><span id="disch_h">9</span></div>
+							<div><label>分設定</label><input type="range" id="ch_mins" min="0" max="59" step="1" value="0"> <span id="disch_m">0</span></div>
+							<button id="chsubmit"><i class="fa-solid fa-paper-plane"></i></button>
+						</div>
 
+						
 					</div>
 				</div>
 			</div>	
@@ -326,6 +328,17 @@
 			</div>
 		</div>
 		
+		<div class="timer-modal-container">
+			<div class="timer-modal-body">
+				<!-- 閉じるボタン -->
+				<div class="timer-modal-close">×</div>
+				<!-- モーダル内のコンテンツ -->
+				<div class="timer-modal-content">
+
+				</div>
+			</div>
+		</div>
+
 <HR style="margin: 0em 0 ;">
 	<footer>
 	<h3 id="footers">©️2021 N・S高等学校横浜キャンパスクリエイティブ委員会音楽チーム</h3>

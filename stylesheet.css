@@ -4,7 +4,7 @@
 font-family: 'M PLUS Rounded 1c', sans-serif;
 */
 /*モーダル本体の指定 + モーダル外側の背景の指定*/
-.modal-container{
+.modal-container,.timer-modal-container{
 	position: fixed;
 	top: 0;
 	left: 0;
@@ -20,19 +20,19 @@ font-family: 'M PLUS Rounded 1c', sans-serif;
     box-sizing: border-box;
 }
 /*モーダル本体の擬似要素の指定*/
-.modal-container:before{
+.modal-container:before,.timer-modal-container:before{
 	content: "";
 	display: inline-block;
 	vertical-align: middle;
 	height: 100%;
 }
 /*モーダル本体に「active」クラス付与した時のスタイル*/
-.modal-container.active{
+.modal-container.active,.timer-modal-container.active{
 	opacity: 1;
 	visibility: visible;
 }
 /*モーダル枠の指定*/
-.modal-body{
+.modal-body,.timer-modal-body{
 	position: relative;
 	display: inline-block;
 	vertical-align: middle;
@@ -41,21 +41,21 @@ font-family: 'M PLUS Rounded 1c', sans-serif;
   height: 85%;
 }
 /*モーダルを閉じるボタンの指定*/
-.modal-close{
+.modal-close,.timer-modal-close{
 	position: absolute;
 	display: flex;
     align-items: center;
     justify-content: center;
-	top: -40px;
-	right: -40px;
+	top: -60px;
+	right: -100px;
 	width: 40px;
 	height: 40px;
-	font-size: 40px;
+	font-size: 60px;
 	color: #fff;
 	cursor: pointer;
 }
 /*モーダル内のコンテンツの指定*/
-.modal-content{
+.modal-content,.timer-modal-content{
 	background: #fff;
 	text-align: left;
 	padding: 30px;

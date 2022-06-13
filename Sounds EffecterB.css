@@ -353,14 +353,19 @@ margin-top: 10px;
 /****/
 
 .routine{
-  display: flex;
-  flex-wrap: wrap;
+  display: block;
   border: 1px solid rgb(77, 77, 77);
-  height: 150px;
+  height: 100%;
   padding: 20px;
   margin-bottom: 30px;
   align-items: center;
   background-color: rgb(252, 249, 227);
+}
+
+.notify-lbauto {
+  background-color: mistyrose;
+  padding: 10px 20px;
+  margin: 20px 10px;
 }
 
 .bgmdet{
