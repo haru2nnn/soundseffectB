@@ -9,7 +9,16 @@ document.getElementById('loading').style.display="block";
 }));
 
 
-if(location.hostname=="haru2nnn.github.io"||"localhost" ||location.pathname.match(/Users/&&/haruhito_nnn/)){
+if(location.hostname=="soundseffectb.pages.dev"){
+
+}else if(location.hostname=="haru2nnn.github.io"){
+document.getElementById("sitechg").style.display = "block";
+var newsite = document.getElementById("newsitelink");
+var getcd = window.location.href.split('/').pop();
+newsite.setAttribute("href","https://soundseffectb.pages.dev/"+getcd)
+}else if(location.hostname=="localhost"){
+
+}else if(location.pathname.match(/Users/&&/haruhito_nnn/)){
 
 }else{
   document.head.remove();
