@@ -65,6 +65,7 @@ details.yomiage[open] {
 
 main{
   margin: 10px;
+  margin-top: 0;
 }
 
 .notice {
@@ -96,18 +97,21 @@ main{
 }
 
 .sounds {
-  display: inline-block;
+  display: flex;
   width: 170px;
-  height: 50px;
+  height: 60px;
   margin: 7px;
-  padding: 15px 0;
+  padding: 10px 0;
   border-radius: 15px;
 
   color: #fff;
   font-weight: 600;
   background: #21276c;
-  text-align: center;
+  /*text-align: center;*/
   text-decoration: none;
+  /*justify-content: center;*/
+  align-items: center;
+  font-size: 95%;
 }
 @media (max-width: 600px) {
   .sounds{
@@ -117,6 +121,26 @@ main{
     padding: 10px 0;
   }
 }
+
+.sekeybox{
+  width: 25px;
+  height: 25px;
+  padding: 0;
+  margin: 3px 6px;
+}
+.sekeys{
+  width: 25px;
+  height: 25px;
+  text-align: center;
+  padding: 3px 5px;
+  margin: 4px 6px;
+  border: 0.5px white solid;
+  font-size: 85%;
+  font-weight: 600;
+  border-radius: 3px;
+}
+
+
 
 /*#nschime{
 background: #21276c;
@@ -148,6 +172,16 @@ background: #21276c;
 
 .stop-button {
   background: #8f7c7c;
+}
+.se-ctrl{
+  display: flex;
+  flex-wrap: wrap;
+  width: 100vw;
+  align-items: center;
+  justify-content: center;
+}
+.se-ctrl div{
+  margin: 20px 30px;
 }
 
 .sebutton {
@@ -182,9 +216,13 @@ background: #21276c;
   padding-left: 20px;
   margin-bottom: 70px;
   align-items: center;
+  color: black;
 }
-.audioplayctrl{
-  display: block;
+.audioplayctrl,.upmp3ctrl{
+  display: flex;
+}
+.audioplayctrl >*{
+  margin: 5px 10px;
 }
 audio#selectedaudio,#uploadaudio {
   width: 80%;
@@ -195,16 +233,17 @@ select#audioselect {
   height: 40px;
   margin: 10px 0;
   padding: 10px;
-  color: white;
-  background-color: lightcoral;
+  color: black;
+  background-color: #80aef0;
+  font-family: 'M PLUS Rounded 1c', sans-serif;
 }
 
 .audio-wrap{
   display: block;
-  margin: 30px 10px;
-  padding: 5px;
-  width: 100%;
-  background-color: #9bc4b1;
+  margin: 30px auto;
+  padding: 15px;
+  background-color: #b8daca;
+  /*background-color: #9bc4b1;*/
   border: 1px solid #707070 ;
 }
 .uploadmp3{
@@ -221,6 +260,22 @@ select#audioselect {
   display: none;
 }
 
+.routine{
+  display: block;
+  border: 1px solid rgb(77, 77, 77);
+  padding: 20px;
+  margin: 30px auto;
+  align-items: center;
+  background-color: rgb(252, 249, 227);
+}
+.notify-lbauto {
+  background-color: mistyrose;
+  padding: 10px 20px;
+  margin: 20px 10px;
+}
+
+
+
 
 .youtube {
   display: inline-flex;
@@ -230,142 +285,6 @@ select#audioselect {
   padding-top: 56.25%;
   margin: 10px;
   padding: 10px 0;
-}
-
-.youtubecontents{
-  max-width: 95%;
-  display: flex;
-  flex-wrap: wrap;
-  padding: 10px 0;
-  gap: 20px;
-  justify-content: center;
-}
-.ytwrap,.nhighsongwrap,.shighsongwrap{
-    max-width: 100%;
-    width: 45%;
-    border: 2px dotted #cc0000;
-    padding: 10px;
-    justify-content: center;
-}
-@media(max-width:740px){
-  .ytwrap{
-    max-width: 98%;
-    width: 95%;
-    margin: auto;
-  }
-}
-.ytwrap h3,.ytwrap h2{
-margin-bottom: 0;
-margin-top: 10px;
-}
-.ytframe{
-  margin: 0;
-}
-.ytset,.nhighsongset,.shighsongset{
-  display: grid;
-  padding: 10px;
-  gap: 10px 0;
-}
-.ctrlbt button{
-  width: 40%;
-  padding: 10px;
-  margin: 20px;
-}
-.progbar{
-  width: 100%;
-  margin: 15px;
-}
-.progbar input{
-  width: 70%;
-}
-.volslider,.nhighvolslider,.shighvolslider{
-  display: flex;
-  flex-wrap: nowrap;
-  width: 100%;
-}
-.volslider p,.nhighvolslider p,.shighvolslider p{
-  width: 10%;
-  text-align: center;
-}
-.volslider input,.nhighvolslider input,.shighvolslider input{
-  width: 80%;
-}
-
-@media(max-width:740px){
-  .positivewrap,.rupinwrap,.nhighsongwrap,.shighsongwrap{
-    width: 95%;
-  }
-  .positivectrlbt button,.rupinctrlbt button{
-    width:80%;
-
-  }
-}
-
-/***/
-.toggle {
-  position: relative;
-  width: 55px;
-  height: 30px;
-  /*margin: 40px 60px;*/
-  border-radius: 50px;
-  overflow: hidden;
-  cursor: pointer;
-}
-.toggle input[type=checkbox] {
-  display: none;
-}
-.toggle:before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  display: block;
-  background: #c9c9ca;
-  -webkit-transition: 0.2s ease-out;
-  transition: 0.2s ease-out;
-}
-.toggle:after {
-  content: "";
-  position: absolute;
-  top: 3px;
-  left: 3px;
-  width: 24px;
-  height: 24px;
-  display: block;
-  border-radius: 50px;
-  background: #fff;
-  box-shadow: 0 9px 28px -6px rgba(0, 0, 0, 0.3);
-  -webkit-transition: 0.2s ease-out;
-  transition: 0.2s ease-out;
-}
-.toggle.checked:before {
-  background: #35c759;
-}
-.toggle.checked:after {
-  left: 27px;
-  box-shadow: 0 9px 28px -6px rgba(0, 0, 0, 0.5);
-}
-.rupinauto p{
-  margin: 5px 3px;
-}
-/****/
-
-.routine{
-  display: block;
-  border: 1px solid rgb(77, 77, 77);
-  height: 100%;
-  padding: 20px;
-  margin-bottom: 30px;
-  align-items: center;
-  background-color: rgb(252, 249, 227);
-}
-
-.notify-lbauto {
-  background-color: mistyrose;
-  padding: 10px 20px;
-  margin: 20px 10px;
 }
 
 .bgmdet{

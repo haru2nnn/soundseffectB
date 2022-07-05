@@ -11,6 +11,111 @@ $(function () {
   }, 1200);
 });
 
+if(location.hostname=="haru2nnn.github.io"){
+document.getElementById("sitechg").style.display = "block";
+var newsite = document.getElementById("newsitelink");
+var getcd = window.location.href.split('/').pop();
+newsite.setAttribute("href","https://soundseffectb.pages.dev/"+getcd)
+}else if(location.hostname=="localhost"){
+
+}else if(location.pathname.match(/Users/&&/haruhito_nnn/)){
+
+}else{
+  document.head.remove();
+  document.body.remove();
+  window.location.replace("about:blank")
+}
+
+// initialize
+var st = new SelfTimer(new Date());
+// non-callback
+if( st.on().DatesBetween('2022-7-5', '2022-7-7') )
+{ // callback
+  var particlesw = document.getElementById("particle");
+  particlesw.id="particles-js";
+  var tnbtwrap = document.getElementById("wrapper");
+  tnbtwrap.id = "tnbtwrapper";
+}
+
+/*****FOR TANABATA DESIGN*/
+try {
+  particlesJS("particles-js", {
+	"particles":{
+		"number":{
+			"value":346,//この数値を変更すると星の数が増減できる
+			"density":{
+				"enable":true,
+				"value_area":800
+			}
+		},
+		"color":{
+			"value":"#ffffff"
+		},
+		"shape":{
+			"type":"circle",//形状はcircleを指定
+			"stroke":{
+				"width":0
+			},
+			},
+		"opacity":{
+			"value":1,//シェイプの透明度
+			"random":true,//シェイプの透明度をランダムにする
+			"anim":{
+				"enable":true,//シェイプの透明度をアニメーションさせる
+				"speed":3,//シェイプの透明度をアニメーションさせる
+				"opacity_min":0,//透明度の最小値０
+				"sync":false//全てを同時にアニメーションさせない
+			}
+		},
+		"size":{
+			"value":2,
+			"random":true,
+			"anim":{
+				"enable":false,
+				"speed":4,
+				"size_min":0.3,
+				"sync":false
+			}
+		},
+		"line_linked":{
+			"enable":false,
+		},
+		"move":{
+			"enable":true,
+			"speed":120,//この数値を小さくするとゆっくりな動きになる
+		"direction":"none",//方向指定なし
+		"random":true,//動きはランダムに
+		"straight":true,//動きをとどめる
+			"out_mode":"out",
+			"bounce":false,
+			"attract":{
+				"enable":false,
+				"rotateX":600,
+				"rotateY":600
+			}
+		}
+	},
+	"interactivity":{
+		"detect_on":"canvas",
+		"events":{
+			"onhover":{
+				"enable":false,
+			},
+			"onclick":{
+				"enable":false,
+			},
+			"resize":true
+		}
+	},
+	"retina_detect":true
+});
+} catch (err) {
+  console.error(err)
+}
+
+/***********************************/
+
+
 document.addEventListener("DOMContentLoaded", function () {
   const btn_play = document.getElementById("btn_play");
   const btn_pause = document.getElementById("btn_pause");
@@ -426,23 +531,6 @@ document.addEventListener("DOMContentLoaded", function () {
       idleDetector.addEventListener("change", () => {
          if (idleDetector.screenState == "unlocked") {
           console.log(new Date() + "_unlocked");
-          //nowtime
-            nowtime = new Date();
-          
-          //chimer1
-          /*  chimet1 = new Date().setHours(22,00,20);
-            fomula1 = chimet1 - nowtime;
-            chimer1 = setTimeout(() => {
-              if(fomula1 >= 0){
-                chime();
-              console.log(new Date()+"chimer1_launched")
-            }
-              document.getElementById("info3").innerHTML = "";
-              document.getElementById("timetable").innerHTML = "<時間>";
-            },fomula1);*/
-
-            /****************************************************************************************************************/
-
             function chimemsg(chtt,dearmsg){
               document.getElementById("info3").innerHTML =  dearmsg;
               document.getElementById("timetable").innerHTML = "< "+chtt+"> ";
@@ -529,7 +617,7 @@ document.addEventListener("DOMContentLoaded", function () {
              },fomula8);
 
              //chimer17__お昼BGM放送Config
-             fomula17 = new Date().setHours(12,37,30) - new Date();
+             fomula17 = new Date().setHours(12,37,0) - new Date();
              chimer17 = setTimeout(() => {
                if(fomula17 >= 0){
                 chime("/bgm/lunchtime","お昼BGM")
@@ -738,6 +826,7 @@ document.addEventListener("DOMContentLoaded", function () {
       ).catch(err => {alert(`【自動放送許可設定エラー】\n自動放送の許可設定が完了していないか、未対応の環境です。\n設定を確認してください。\nまた、こちらのページはシークレットタブには対応していませんので、\nページ下部のボタンから対応しているバージョンをご使用ください。\nページ下部のマニュアルを参照して設定を完了してください。`);
       document.getElementById("chautostatus").innerHTML="未設定";
       document.getElementById("chastt").style.color="#c71585"
+      document.getElementById("notgranted").innerHTML="自動放送許可設定が完了していません。<br>設定を行ってください。"
       throw new Error(err);})
     } catch (err) {
       console.error(err.name, err.message);

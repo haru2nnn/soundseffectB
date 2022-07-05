@@ -18,8 +18,10 @@
 		<link href="stylesheet.css" rel="stylesheet">
 		<link href="Sounds EffecterB.css" rel="stylesheet">
 
-		<script src="./jquery.simpleTicker/jquery.simpleTicker.js" type="text/javascript"></script>
-		<link rel="preload" as="style" href="./jquery.simpleTicker/jquery.simpleTicker.css" onload="this.rel='stylesheet'">
+		<script src="https://unpkg.com/self-timer/dist/selftimer.min.js"></script>
+
+		<!--<script src="./jquery.simpleTicker/jquery.simpleTicker.js" type="text/javascript"></script>
+		<link rel="preload" as="style" href="./jquery.simpleTicker/jquery.simpleTicker.css" onload="this.rel='stylesheet'">-->
 
 		<link rel="icon" href="favicons/images/SE-icon2.png">
 
@@ -27,6 +29,9 @@
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;700&display=swap" rel="stylesheet">
 		<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+
+		<!--TNBT-->
+		<script src="http://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
 	</head>
 
 <body>
@@ -45,7 +50,17 @@
 		</div>
 		
 	</div>
-	<div id="page-contents"><header>
+	<div id="particle"></div>
+	<div id="wrapper"><div id="page-contents">
+		<main id="page-contents"><div class="ctpage">
+			<div class="alert alert-warning" id="sitechg" role="alert">
+				<details>
+				<summary>SE集サイトのサーバー更新とリンク変更のお知らせ</summary>
+				<p>平素よりSE集とチャイムシステムをご利用くださり、誠にありがとうございます。<br>SE集・チャイムシステムのサイトは、新サイト・サーバーに移行しました。今後は<a class="alert-link" id="newsitelink">こちらの新サイト</a>よりご利用ください。<br>
+					なお、こちらのサーバーは<b>2022年7月23日（土）</b>をもちまして、完全にクローズいたします。<br>クローズ後はこちらのサイトは利用不可になりますので、ご注意ください。</p>
+				</details>
+			</div>
+		<header>
 		<div class="title">
 			<a href="index.html"><img class="logo" src="sysimage/SE-banner1.png"></a>
 			<h1 class="title-letter">
@@ -80,14 +95,14 @@
 		</nav></div></div>
 	  </header>
 <main>
-			<div class="info2" id="target6">
+			<!--<div class="info2" id="target6">
 				<div class="ticker">
 					<ul>
 						<li><span>2022.03.15</span><a href="notification.html#item13" target="_blank">SE集を更新しました。使いづらい部分がありましたら、Slackにてお知らせください。<br>変更点について、詳しくはこちらをご覧ください。</a></li>
 						<li><span>2022.03.15</span><a href="notification.html#item11" target="_blank">SE集サイトは、ダークモードに対応します！端末のテーマ設定に沿ってダークモードに変更されます。</a></li>
-					<!--<li><span>2022.02.03</span><a href="#">1つめのニュースの記事です。</a></li>
 						<li><span>2022.02.03</span><a href="#">1つめのニュースの記事です。</a></li>
-						<li><span>2022.02.03</span><a href="#">1つめのニュースの記事です。</a></li>-->
+						<li><span>2022.02.03</span><a href="#">1つめのニュースの記事です。</a></li>
+						<li><span>2022.02.03</span><a href="#">1つめのニュースの記事です。</a></li>
 					</ul>
 				</div>
 			</div>
@@ -95,7 +110,7 @@
 				$(function(){
 				$.simpleTicker($('.ticker'),{'effectType':'roll'});
 				});
-			</script>
+			</script>-->
 
 			<div id="target">
 				<div class="general-tools">
@@ -110,10 +125,10 @@
 						<a href="nschimesys.html" target="_blank" class="btn-border-bottom">チャイムシステム（新しいタブ）</a>
 						</div>
 					</div>
-					<div class="display-setting">
+					<!--<div class="display-setting">
 						<button class="modebtn" id="displaynone" onclick="clickBtn2()">シンプル表示モードにする</button>
 						<button class="modebtn2" id="displaynone" onclick="clickBtn1()">このバーを非表示にする</button>
-					</div>
+					</div>-->
 				</div>
 			</div>
 					<div class="clock">
@@ -130,7 +145,7 @@
 						//年・月・日・曜日を書き出す
 						document.write(year+"年"+month+"月"+day+"日 "+"("+week_ja[week]+")");</script><p class="nowtime" id="realtime"></p></h2>
 				</div>
-				<div class="hidingtarget" id="target1">
+				<!--<div class="hidingtarget" id="target1">
 					<div class="detailcont">
 						<details class="timer" id="timer">
 							<summary>タイマー・ストップウォッチ</summary>
@@ -155,7 +170,7 @@
 						<details class="yomiage">
 							<summary>文章読み上げ</summary>
 								<form name="form">
-									<!-- 使用する言語。必要な言語をセットしてください -->
+									
 									<label><input type="radio" value="ja-JP" name="r1" onclick="lng('ja-JP')" checked>日本語</label>
 									<label><input type="radio" value="en-US" name="r1" onclick="lng('en-US')">英語：米国</label>
 									<label><input type="radio" value="en-US" name="r1" onclick="lng('en-GB')">英語：英国</label>
@@ -165,9 +180,9 @@
 									<label><input type="radio" value="es-ES" name="r1" onclick="lng('es-ES')">スペイン語</label>
 									<label><input type="radio" value="zh-CN" name="r1" onclick="lng('zh-CN')">中国語</label>
 
-									<!-- テキストエリア -->
+								
 									<textarea name="text" rows="10" style="font-size:100%; width:100%"></textarea>
-									<!-- 音量などの設定と、各種実行ボタン -->
+								
 									音量：<input type="range" name="volume" max="10" min="0" step="0.1">
 									&nbsp;&nbsp;速度：<input type="range" name="rate" max="20" min="0" step="1">
 									&nbsp;&nbsp;音の高さ：<input type="range" name="pitch" max="20" min="0" step="1">
@@ -182,12 +197,12 @@
 						
 								</details>
 					</div>
-				</div>
-			<div class=wrapper>
+				</div>-->
+			<div class=sewrapper>
 			<div class="Sound-wrap">
 				<div class="Sound">
-					<h2 style="text-align:left;color:#29277c">効果音</h2>
-					※２つ以上は同時には鳴りません。
+					<h2 style="text-align:left;color:#29277c">効果音</h2><span>  [ Control ] + [ ボタンに書いてある英字キー ] を押すとキーボードで鳴らせます。</span>
+					<!--※２つ以上は同時には鳴りません。
 					タイトルに「*」や「＊」がついているSEは音源を制作できなかったため、フリー素材もしくはお借りしたSE・音源を使用しております。
 
 					<h4 class="sevol">効果音 音量</h4>		<input type="range" name="SoundVolome" class="SoundVolome" id="SoundVolome" value="90" min="0" max="100" step="5"> 🐰<p id="msg"></p>
@@ -200,79 +215,86 @@
 						let msg = document.getElementById('msg');
 						</script>
 					
-					<p class="notice" id="sekey">キーボードで操作するには…？<a href="https://sites.google.com/nnn.ed.jp/ycp-s-soundeffectbs/%E6%95%99%E8%81%B7%E5%93%A1%E7%94%A8/SE_key-layout-teacher" target="blank" rel="noopener">こちらをチェック✅</a></p>
+					<p class="notice" id="sekey">キーボードで操作するには…？<a href="https://sites.google.com/nnn.ed.jp/ycp-s-soundeffectbs/%E6%95%99%E8%81%B7%E5%93%A1%E7%94%A8/SE_key-layout-teacher" target="blank" rel="noopener">こちらをチェック✅</a></p>-->
 
 					<div class="sebutton" id="se-top">	
-						<div class="effect">
-						<p><a href="#" class="sounds" id="yellow" data-file="audio_o/trumpet1">ファンファーレ１🎺</a></p>
-						<p><a href="#" class="sounds" id="yellow" data-file="audio_o/trumpet2">ファンファーレ２🎺</a></p>
-						<p><a href="#" class="sounds" id="yellow" data-file="audio_o/trumpet3">ファンファーレ3🎺</a></p>
-						<p><a href="#" class="sounds" id="yellow" data-file="audio_o/dora">どら</a></p>
-						<p><a href="#" class="sounds" id="yellow" data-file="audio/小鼓">小鼓*</a></p>
-						<p><a href="#" class="sounds" id="yellow" data-file="audio/drum-japanese1">ドン*</a></p>
-						<p><a href="#" class="sounds" id="yellow" data-file="audio/drum-japanese2">ドドン*</a></p>
-						<p><a href="#" class="sounds" id="yellow" data-file="audio/運命1">運命１*</a></p>
-						<p><a href="#" class="sounds" id="yellow" data-file="audio/運命2">運命２*</a></p>
-						<p><a href="#" class="sounds" id="yellow" data-file="audio_o/shock">ガーン😱</a></p>
-						<p><a href="#" class="sounds" id="yellow" data-file="audio/tin">チーン*</a></p>
-						<p><a href="#" class="sounds" id="yellow" data-file="audio_o/chan-chan1">チャンチャン<br>(軽め)</a></p>
-						<p><a href="#" class="sounds" id="yellow" data-file="audio_o/chan-chan2">チャンチャン<br>(重め)</a></p>
-						<p><a href="#" class="sounds" id="yellow" data-file="audio/professional-effect">プロフェッショナル<br>効果音</a></p>
-						</div>
-						<div class="sceneeffect">
-						<p><a href="#" class="sounds" id="green" data-file="audio_o/drumroll">ドラムロール🥁</a></p>
-						<p><a href="#" class="sounds" id="green" data-file="audio/cheerandclap">拍手と歓声👏*</a></p>
-						<p><a href="#" class="sounds" id="green" data-file="audio/claping1">拍手👏*</a></p>
-						<p><a href="#" class="sounds" id="green" data-file="audio/everyone_laugh3">（笑い）😆*</a></p>
-						<p><a href="#" class="sounds" id="green" data-file="audio/dondonpafupafu">ドンパフ*</a></p>
-						<p><a href="#" class="sounds" id="green" data-file="audio/police-whistle">ホイッスル<br>（ピーッ）*</a></p>
-						<p><a href="#" class="sounds" id="green" data-file="audio/shakine">シャキーン✨*</a></p>
-						<p><a href="#" class="sounds" id="green" data-file="audio_o/kirari1">きらり①✨</a></p>
-						<p><a href="#" class="sounds" id="green" data-file="audio_o/kirari2">きらり②✨</a></p>
-						<p><a href="#" class="sounds" id="green" data-file="audio/jyan">ジャン*</a></p>
-						<p><a href="#" class="sounds" id="green" data-file="audio/effect1">エフェクト１🎵*</a></p>
-						<p><a href="#" class="sounds" id="green" data-file="audio/effect2">エフェクト２🎶*</a></p>
-						<p><a href="#" class="sounds" id="green" data-file="audio/effect3">エフェクト３🎵*</a></p>
-						<p><a href="#" class="sounds" id="green" data-file="audio/question">出題*</a></p>
-						<p><a href="#" class="sounds" id="green" data-file="audio_o/correct">正解！🙆🏻‍♂️</a></p>
-						<p><a href="#" class="sounds" id="green" data-file="audio_o/incorrect">不正解🙅🏻‍♂️</a></p>
-						<p><a href="#" class="sounds" id="green" data-file="audio/timer">カウントダウン🕑*</a></p>
-						<p><a href="#" class="sounds" id="green" data-file="audio/timer_fast">カウントダウン速め🕐*</a></p>
-						</div>
+						<!--<div class="effect">-->
+						<p><a href="#" class="sounds" id="yellow" data-file="audio_o/trumpet1"><span class="sekeybox"><span class="sekeys">Q</span></span>ファンファーレ１🎺</a></p>
+						<p><a href="#" class="sounds" id="yellow" data-file="audio_o/trumpet2"><span class="sekeybox"></span>ファンファーレ２🎺</a></p>
+						<p><a href="#" class="sounds" id="yellow" data-file="audio_o/trumpet3"><span class="sekeybox"><span class="sekeys">W</span></span>ファンファーレ3🎺</a></p>
+						<p><a href="#" class="sounds" id="yellow" data-file="audio_o/dora"><span class="sekeybox"><span class="sekeys">E</span></span>どら</a></p>
+						<p><a href="#" class="sounds" id="yellow" data-file="audio/小鼓"><span class="sekeybox"><span class="sekeys">R</span></span>小鼓*</a></p>
+						<p><a href="#" class="sounds" id="yellow" data-file="audio/drum-japanese1"><span class="sekeybox"></span>ドン*</a></p>
+						<p><a href="#" class="sounds" id="yellow" data-file="audio/drum-japanese2"><span class="sekeybox"><span class="sekeys">T</span></span>ドドン*</a></p>
+						<p><a href="#" class="sounds" id="yellow" data-file="audio/運命1"><span class="sekeybox"><span class="sekeys">Y</span></span>運命１*</a></p>
+						<p><a href="#" class="sounds" id="yellow" data-file="audio/運命2"><span class="sekeybox"></span>運命２*</a></p>
+						<p><a href="#" class="sounds" id="yellow" data-file="audio_o/shock"><span class="sekeybox"><span class="sekeys">U</span></span>ガーン😱</a></p>
+						<p><a href="#" class="sounds" id="yellow" data-file="audio/tin"><span class="sekeybox"><span class="sekeys">I</span></span>チーン*</a></p>
+						<p><a href="#" class="sounds" id="yellow" data-file="audio_o/chan-chan1"><span class="sekeybox"><span class="sekeys">O</span></span>チャンチャン<br>(軽め)</a></p>
+						<p><a href="#" class="sounds" id="yellow" data-file="audio_o/chan-chan2"><span class="sekeybox"><span class="sekeys">P</span></span>チャンチャン<br>(重め)</a></p>
+						<p><a href="#" class="sounds" id="yellow" data-file="audio/professional-effect"><span class="sekeybox"></span>プロフェッショ<br>ナル効果音</a></p>
+						<!--</div>
+						<div class="sceneeffect">-->
+						<p><a href="#" class="sounds" id="green" data-file="audio_o/drumroll"><span class="sekeybox"><span class="sekeys">A</span></span>ドラムロール🥁</a></p>
+						<p><a href="#" class="sounds" id="green" data-file="audio/cheerandclap"><span class="sekeybox"><span class="sekeys">S</span></span>拍手と歓声👏*</a></p>
+						<p><a href="#" class="sounds" id="green" data-file="audio/claping1"><span class="sekeybox"><span class="sekeys">D</span></span>拍手👏*</a></p>
+						<p><a href="#" class="sounds" id="green" data-file="audio/everyone_laugh3"><span class="sekeybox"><span class="sekeys">F</span></span>（笑い）😆*</a></p>
+						<p><a href="#" class="sounds" id="green" data-file="audio/dondonpafupafu"><span class="sekeybox"><span class="sekeys">G</span></span>ドンパフ*</a></p>
+						<p><a href="#" class="sounds" id="green" data-file="audio/police-whistle"><span class="sekeybox"><span class="sekeys">H</span></span>ホイッスル<br>（ピーッ）*</a></p>
+						<p><a href="#" class="sounds" id="green" data-file="audio/shakine"><span class="sekeybox"><span class="sekeys">J</span></span>シャキーン✨*</a></p>
+						<p><a href="#" class="sounds" id="green" data-file="audio_o/kirari1"><span class="sekeybox"><span class="sekeys">K</span></span>きらり①✨</a></p>
+						<p><a href="#" class="sounds" id="green" data-file="audio_o/kirari2"><span class="sekeybox"></span>きらり②✨</a></p>
+						<p><a href="#" class="sounds" id="green" data-file="audio/jyan"><span class="sekeybox"></span>ジャン*</a></p>
+						<p><a href="#" class="sounds" id="green" data-file="audio/effect1"><span class="sekeybox"><span class="sekeys">L</span></span>エフェクト１🎵*</a></p>
+						<p><a href="#" class="sounds" id="green" data-file="audio/effect2"><span class="sekeybox"><span class="sekeys">;</span></span>エフェクト２🎶*</a></p>
+						<p><a href="#" class="sounds" id="green" data-file="audio/effect3"><span class="sekeybox"></span>エフェクト３🎵*</a></p>
+						<p><a href="#" class="sounds" id="green" data-file="audio/question"><span class="sekeybox"><span class="sekeys">Z</span></span>出題*</a></p>
+						<p><a href="#" class="sounds" id="green" data-file="audio_o/correct"><span class="sekeybox"><span class="sekeys">X</span></span>正解！🙆🏻‍♂️</a></p>
+						<p><a href="#" class="sounds" id="green" data-file="audio_o/incorrect"><span class="sekeybox"><span class="sekeys">C</span></span>不正解🙅🏻‍♂️</a></p>
+						<p><a href="#" class="sounds" id="green" data-file="audio/timer"><span class="sekeybox"><span class="sekeys">V</span></span>カウントダウン🕑*</a></p>
+						<p><a href="#" class="sounds" id="green" data-file="audio/timer_fast"><span class="sekeybox"><span class="sekeys">B</span></span>カウントダウン<br>速め🕐*</a></p>
+						<!--</div>-->
 						<div class="chime" id="chime-top">
-						<p><a href="#" class="sounds" id="blue" data-file="audio_o/broadcasting-start">放送チャイム<br>（開始）📢</a></p>
-						<p><a href="#" class="sounds" id="blue" data-file="audio_o/broadcasting-end">放送チャイム<br>（終了）📢</a></p>
-						<p><a href="#" class="sounds" id="blue" data-file="audio_o/anouncement-before">お知らせチャイム<br>（開始）🔉</a></p>
-						<p><a href="#" class="sounds" id="blue" data-file="audio_o/anouncement-after">お知らせチャイム<br>（終了）🔉</a></p>
-						<p><a href="#" class="sounds" id="nschime" data-file="audio/nschime">S高チャイム＊</a></p>	
+						<p><a href="#" class="sounds" id="blue" data-file="audio_o/broadcasting-start"><span class="sekeybox"></span>放送チャイム<br>（開始）📢</a></p>
+						<p><a href="#" class="sounds" id="blue" data-file="audio_o/broadcasting-end"><span class="sekeybox"></span>放送チャイム<br>（終了）📢</a></p>
+						<p><a href="#" class="sounds" id="blue" data-file="audio_o/anouncement-before"><span class="sekeybox"><span class="sekeys">,</span></span>お知らせチャイム<br>（開始）🔉</a></p>
+						<p><a href="#" class="sounds" id="blue" data-file="audio_o/anouncement-after"><span class="sekeybox"><span class="sekeys">.</span></span>お知らせチャイム<br>（終了）🔉</a></p>
+						<p><a href="#" class="sounds" id="nschime" data-file="audio/nschime"><span class="sekeybox"><span class="sekeys">N</span></span>S高チャイム＊</a></p>	
 						<!--<p><a href="#" class="sounds" id="blue" data-file="audio/chime1">学校チャイム１<br>(ロングバージョン)🔉</a></p>-->
-						<p><a href="#" class="sounds" id="blue" data-file="audio/chime1-1">学校チャイム１🔉*</a></p>
+						<p><a href="#" class="sounds" id="blue" data-file="audio/chime1-1"><span class="sekeybox"><span class="sekeys">M</span></span>学校チャイム１🔉*</a></p>
 						<!--<p><a href="#" class="sounds" id="blue" data-file="audio/chime2">学校チャイム２<br>(ロングバージョン)🔉</a></p>-->
-						<p><a href="#" class="sounds" id="blue" data-file="audio/chime2-2">学校チャイム２🔉*</a></p>
-						<p><a href="#" class="sounds" id="blue" data-file="audio_o/click">クリック</a></p>
-						<p><a href="#" class="sounds" id="blue" data-file="audio_o/2click">ダブルクリック</a></p>
+						<p><a href="#" class="sounds" id="blue" data-file="audio/chime2-2"><span class="sekeybox"></span>学校チャイム２🔉*</a></p>
+						<p><a href="#" class="sounds" id="blue" data-file="audio_o/click"><span class="sekeybox"><span class="sekeys">/</span></span>クリック</a></p>
+						<p><a href="#" class="sounds" id="blue" data-file="audio_o/2click"><span class="sekeybox"><span class="sekeys">_</span></span>ダブルクリック</a></p>
 						</div>
 				</div>
+					<div class="se-ctrl">
+						<div class="seloopstg">
+							<label>BGM<input type="checkbox" id="seloopck"><span id="selpset">ループ</span></label>
+						</div>
+						<div class="sevolstg">
+							<span><i class="fa-solid fa-volume-high"></i></span><input type="range" id="se_volume" value="1" min="0" max="1" step="0.01"><span id="sevoldis">100</span>
+						</div>
+					</div>
+						<p><a href="#" id="stop-button" class="stop-button">ボタン / キーボードで再生したSEを停止する</a></p>
+					<p><a href="#" id="alladstop" class="stop-button">全てのSE/BGMの再生を停止</a></p>
+					</div>
+					<audio id="seplayer"></audio>
 					<section>
 						<a href="nschimesys.html" target="_blank" class="btn_ao_b" id="target2"><span class="b__text">チャイム自動放送システムを開く<br>（新しいタブで開きます）</span></a>
 					</section>
-					<p><a href="#" id="stop-button" class="stop-button">ボタンで再生したSEを停止する</a></p>
-					<p><a href="#" id="alladstop" class="stop-button">全ての音声の再生を停止</a></p>
-					</div>
-
-					
 			</div>
 					<div class="BGM" id="BGM-top">
 						<h2 style="text-align:left;color:#217d8d">BGM＆Jingle</h2>
 							<h3 style="color: red;">BGMがロードされていない場合はサイトをリロードしてください。</h3>
-						<details class="expdet" id="target3">
+						<!--<details class="expdet" id="target3">
 						<summary>BGM再生について（クリックして詳細を表示）</summary>
 						<h5>音楽ファイルのフレームを選択している場合、以下のキーで操作できます。</h5><br>
 						再生・一時停止→spaceキー<br>
 						音量調整→上下矢印キー（↑・↓）<br>
 						1秒送り→左右矢印キー（←・→）<br>
 						<p>ループ再生は音声ファイルの上で右クリックするとメニューが出てきます。</p>
-						</details>
+						</details>-->
 						
 						<div class="audio">
 							<h3>BGM</h3>
@@ -281,12 +303,12 @@
 										<div class="audioinfo">
 											<h4 id="audiotitle">BGMを選択してください。</h4>
 											<div id="audiocontainer">
-												<audio id="selectedaudio" controls preload="metadata" controlslist="nodownload" >
+												<audio id="selectedaudio" class="bgmplayer" controls preload="metadata" controlslist="nodownload" >
 													<source src="" type="audio/mp3"></audio> 
 											</div>
 											<select id="audioselect">
-												<option hidden>---選択してください---</option>
-												<option value="Star Wars Main Theme.mp3">スターウォーズのテーマ(5:24)</option>
+												<option hidden selected>---選択してください---</option>
+												<optgroup label="BGM">
 												<option value="jingleセットcycle.mp3">BGM1（ループ）(0:33)</option>
 												<option value="jingle1_arrange.mp3">BGM1アレンジ＆ロング版（ループ）(7:21)</option>
 												<option value="chillout.mp3">BGM2（ループ）(3:21)</option>
@@ -297,34 +319,46 @@
 												<option value="goodbgm3.mp3">BGM8（ループ）(3:15)</option>
 												<option value="Current.mp3">BGM9（ループ）(4:22)</option>
 												<option value="fine.mp3">BGM10（ループ）(4:22)</option>
-												<option value="graduates.mp3" disabled>卒業ソング（ループ非推奨）(3:56)</option>
+												</optgroup>
+												<optgroup label="イベントBGM">
+												<option value="tanabata.mp3">七夕BGM1（5:28）</option>
+												</optgroup>
+												<!--<option value="graduates.mp3" disabled>卒業ソング（ループ非推奨）(3:56)</option>-->
 											</select>
 										</div>
 										<div class="audioplayctrl">
 											<label>BGM<input type="checkbox" id="adloopck" checked><span id="lpset">ループ</span></label>
-											<span><i class="fa-solid fa-volume-high"></i></span><input type="range" id="slider_volume" value="1" min="0" max="1" step="0.01"><span id="advoldis">100</span>
-											<button id="btn_mute"><i class="fa-solid fa-volume-xmark"></i></button>
-											<button id="btn_fi">フェードイン</button>
-											<button id="btn_fo">フェードアウト</button>
-											<button id="btn_eject"><i class="fa-solid fa-eject"></i></button>
+											<div class="bgmvol"><span><i class="fa-solid fa-volume-high"></i></span><input type="range" id="slider_volume" value="1" min="0" max="1" step="0.01"><span id="advoldis">100</span></div>
+											<div class="ctrlbtndiv">
+												<button id="btn_mute"><i class="fa-solid fa-volume-xmark"></i></button>
+												<button id="btn_fi">フェードイン</button>
+												<button id="btn_fo">フェードアウト</button>
+												<button id="btn_eject"><i class="fa-solid fa-eject"></i></button>
+											</div>
+											
 										</div>
 									</div>
 									<div class="audio-wrap">
 										<div class="audioinfo">
 											<h4 id="uaudiotitle">BGMをアップロードしてください。</h4>
 											<div id="uaudiocontainer">
-												<audio id="uploadaudio" controls preload="metadata" controlslist="nodownload" ></audio> 
+												<audio id="uploadaudio" class="bgmplayer" controls preload="metadata" controlslist="nodownload" ></audio> 
 											</div>
 										<div class="uploadmp3">
 											<label class="uplmp3"><input type="file" id="openmp3" name="optionalmp3" accept="audio">ファイルを選択</label>
 										</div>
-										<div class="audioplayctrl">
-											<label>BGM<input type="checkbox" id="uadloopck" checked><span id="ulpset">ループ</span></label>
-											<span><i class="fa-solid fa-volume-high"></i></span><input type="range" id="uslider_volume" value="1" min="0" max="1" step="0.01"><span id="uadvoldis">100</span>
-											<button id="ubtn_mute"><i class="fa-solid fa-volume-xmark"></i></button>
-											<button id="ubtn_fi">フェードイン</button>
-											<button id="ubtn_fo">フェードアウト</button>
-											<button id="ubtn_eject"><i class="fa-solid fa-eject"></i></button>
+											<div class="audioplayctrl">
+												<label>BGM<input type="checkbox" id="uadloopck" checked><span id="ulpset">ループ</span></label>			
+											
+											<div class="uplbgmvol">
+												<span><i class="fa-solid fa-volume-high"></i></span><input type="range" id="uslider_volume" value="1" min="0" max="1" step="0.01"><span id="uadvoldis">100</span>
+											</div>
+											<div class="ctrlbtndiv">
+												<button id="ubtn_mute"><i class="fa-solid fa-volume-xmark"></i></button>
+												<button id="ubtn_fi">フェードイン</button>
+												<button id="ubtn_fo">フェードアウト</button>
+												<button id="ubtn_eject"><i class="fa-solid fa-eject"></i></button>
+											</div>
 										</div>
 									</div>
 									</div>
@@ -381,7 +415,7 @@
 								</div>-->
 								<div class="routine" id="lunchBGM">
 										<h3>お昼のBGM</h3>
-										<audio controls loop preload="none" controlslist="nodownload">
+										<audio controls loop preload="none" class="bgmplayer" controlslist="nodownload">
 											<source src="audio/bgm/lunchtime.mp3" type="audio/mp3">
 										</audio>
 										<div class="notify-lbauto">
@@ -410,7 +444,7 @@
 										<source src="audio/bgm/event/.mp3" type="audio/mp3"/></audio>
 								</details>-->	
 
-							<details class="bgmdet" id="target4">
+							<!--<details class="bgmdet" id="target4">
 								<summary>その他BGM</summary>
 									<h4>BGM1（ループ）</h4>
 									<audio controls loop preload="none" controlslist="nodownload" >
@@ -420,7 +454,7 @@
 									<audio controls loop preload="none" controlslist="nodownload" >
 										<source src="audio/bgm/elegantjin.mp3" type="audio/mp3"/></audio>
 							</details>			
-						</div>	
+						</div>-->
 						
 
 						<h3 id="theme-ns">テーマソング・N/S高校歌</h3>	
@@ -442,101 +476,14 @@
 						<div class="youtubewrap">
 							<div class="youtubecontents">
 								<div class="youtube" id="oldyt">
-									<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/fxUS4z4ftSs?playsinline=1"allow="accelerometer"></iframe>
+									<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/fxUS4z4ftSs?playsinline=1" allow="accelerometer"></iframe>
 									<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/NfQ-GsSyNhc?playsinline=1" allow="accelerometer"></iframe>
+									
 								</div>
-								
-								<!--<div class="ytwrap">
-									<h2>サミットテーマソング</h2><h3>Positive Force</h3>
-									<div id="positiveforceyt" class="ytframe"></div>
-									<div class="ytset">
-										<div class="ctrlbt">
-											<button id="ytplay1">再生▶️</button>
-											<button id="ytpause1">一時停止⏸</button>	
-										</div>
-										<div class="progbar">
-											<input class="seekrange" type="range" name="ytseek1" id="ytseekbar1" min="0" value="0">
-											<span id="ytcurrent1dis">0:00</span><span>/</span><span id="ytdura1dis">0:00</span>											
-										</div>
-										<div class="volslider">
-											<p>🔈</p>
-											<input type="range" name="ytvol1" id="ytvolume1" min="0" max="100" value="100">	
-											<p id="ytvol1dis">100</p>	
-										</div>
-									</div>
-								</div>
-								<div class="ytwrap">
-									<h2>Nゼミテーマソング</h2><h3>ルパン三世のテーマ</h3>
-									<div id="rupin3rdyt" class="ytframe"></div>
-									<div class="ytset">
-										<div class="ctrlbt">
-											<button id="ytplay0">再生▶️</button>
-											<button id="ytpause0">一時停止⏸</button>
-									</div>
-									<div class="progbar">	
-										<input class="seekrange" type="range" name="ytseek0" id="ytseekbar0" min="0" value="0">
-										<span id="ytcurrent0dis">0:00</span><span>/</span><span id="ytdura0dis">0:00</span>
-									</div>
-									<div class="volslider">
-										<p>🔈</p>
-										<input type="range" name="ytvol0" id="ytvolume0" min="0" max="100" value="100">	
-										<p id="ytvol0dis">100</p>	
-									</div>
-									<button id="vol">ルパン三世のテーマの音量を <b>10</b>に変更</button>
-									<button id="rupinfo">ルパン三世のテーマをフェードアウト</button>-->
-									<!--<div class="rupinauto" style="display: flex;">
-										<div class="toggle">
-											<input type="checkbox" name="check"/>
-										</div>
-										<p>火曜日の9:45に自動再生：<span id="toch_rupin">OFF</span></p>
-									</div>-->
-								<!--	</div>
-								</div>
-								
-							</div>
-							
-							<div class="youtubecontents">
-								<div class="ytwrap">
-									<h2>N高校歌</h2><h3>代数Nの方程式</h3>
-									<div id="nhighsongyt"></div>
-										<div class="ytset">
-											<div class="ctrlbt">
-												<button id="ytplay2">再生▶️</button>
-												<button id="ytpause2">一時停止⏸</button>	
-											</div>
-											<div class="progbar">
-												<input class="seekrange" type="range" name="ytseek2" id="ytseekbar2" min="0" value="0">
-												<span id="ytcurrent2dis">0:00</span><span>/</span><span id="ytdura2dis">0:00</span>											
-											</div>
-											<div class="volslider">
-												<p>🔈</p>
-												<input type="range" name="ytvol2" id="ytvolume2" min="0" max="100" value="100">	
-												<p id="ytvol2dis">100</p>	
-											</div>
-									</div>
-								</div>
-								<div class="ytwrap">
-									<h2>S高校歌</h2><h3>夢で描けば</h3>
-									<div id="shighsongyt"></div>
-										<div class="ytset">
-											<div class="ctrlbt">
-												<button id="ytplay3">再生▶️</button>
-												<button id="ytpause3">一時停止⏸</button>	
-											</div>
-											<div class="progbar">
-												<input class="seekrange" type="range" name="ytseek3" id="ytseekbar3" min="0" value="0">
-												<span id="ytcurrent3dis">0:00</span><span>/</span><span id="ytdura3dis">0:00</span>											
-											</div>
-											<div class="volslider">
-												<p>🔈</p>
-												<input type="range" name="ytvol3" id="ytvolume3" min="0" max="100" value="100">	
-												<p id="ytvol3dis">100</p>	
-											</div>
-									</div>
-								</div>-->
 								<div class="youtube" id="oldyt">
 									<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/xhOsnY-k8JM?playsinline=1" allow="accelerometer" allowfullscreen></iframe>
-									<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/Zbtfj1pVamg?playsinline=1" allow="accelerometer" allowfullscreen></iframe>	
+									<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/Zbtfj1pVamg?playsinline=1" allow="accelerometer" allowfullscreen></iframe>
+									<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/Nho5qturBb0?playsinline=1" allow="accelerometer" allowfullscreen></iframe>	
 								</div>
 							</div>
 						</div>
@@ -556,7 +503,7 @@
 				document.getElementById("footers").innerHTML = "©️2021-" + getyears + " N・S高等学校横浜キャンパスクリエイティブ委員会音楽チーム";
 			</script>
 		</footer>
-</div>
+</div></div>
 
 <!-- JavaScriptの読み込み -->
 <script src="Sounds EffectB.js"></script>
