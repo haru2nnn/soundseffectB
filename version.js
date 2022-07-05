@@ -1,4 +1,4 @@
-var version = "4.6";
+var version = "4.7";
 var verdis = document.getElementById('sitever');
 var vermsg = "Version: "+version;
 verdis.innerHTML = vermsg;

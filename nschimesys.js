@@ -11,7 +11,9 @@ $(function () {
   }, 1200);
 });
 
-if(location.hostname=="haru2nnn.github.io"){
+if(location.hostname=="soundseffectb.pages.dev"){
+
+}else if(location.hostname=="haru2nnn.github.io"){
 document.getElementById("sitechg").style.display = "block";
 var newsite = document.getElementById("newsitelink");
 var getcd = window.location.href.split('/').pop();
